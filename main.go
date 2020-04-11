@@ -11,11 +11,9 @@ func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter text: ")
-	text, _ := reader.ReadString('\n')
+	name, _ := reader.ReadString('\n')
 
-	player := PlayerCharacter{}
-	player.Character.Name = text
-	player.Character.Health = 10
+	player := newPlayer(name)
 
 	fmt.Printf("Game Over, %s\n", player.Character.Name)
 }
