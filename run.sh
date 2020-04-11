@@ -1,1 +1,2 @@
-go run main.go
+go install
+/$GOBIN/the_brink
