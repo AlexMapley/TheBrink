@@ -5,7 +5,7 @@ type Character struct {
 	Mana   int64
 
 	Strength     int64
-	Vilaity      int64
+	Vitality     int64
 	Agility      int64
 	Intelligence int64
 }
