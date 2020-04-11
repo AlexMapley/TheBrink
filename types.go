@@ -1,7 +1,7 @@
 package main
 
 type PlayerCharacter struct {
-	Character *Character
+	Character Character
 }
 
 type Character struct {
