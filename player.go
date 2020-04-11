@@ -11,8 +11,14 @@ func newPlayer(name string) Player {
 	player := Player{}
 
 	player.Name = name
-	player.Character.Health = 100
-	player.Character.Mana = 100
+
+	player.Character.Vilaity = 5
+	player.Character.Strength = 5
+	player.Character.Agility = 5
+	player.Character.Intelligence = 5
+
+	player.Character.Health = (player.Character.Vilaity * 10)
+	player.Character.Mana = (player.Character.Intelligence * 10)
 
 	return player
 }
