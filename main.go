@@ -14,6 +14,7 @@ func main() {
 	name, _ := reader.ReadString('\n')
 
 	player := newPlayer(name)
+	player.Stats()
 
-	fmt.Printf("Game Over, %s\n", player.Character.Name)
+	fmt.Printf("\n\nGame Over, %s\n\n\n", player.Character.Name)
 }
