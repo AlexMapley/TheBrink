@@ -16,5 +16,5 @@ func main() {
 	player := newPlayer(name)
 	player.Stats()
 
-	fmt.Printf("\n\nGame Over, %s\n\n\n", player.Character.Name)
+	fmt.Printf("\n\nGame Over, %s\n\n\n", player.Name)
 }

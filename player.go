@@ -3,13 +3,14 @@ package main
 import "fmt"
 
 type Player struct {
+	Name      string
 	Character Character
 }
 
 func newPlayer(name string) Player {
 	player := Player{}
 
-	player.Character.Name = name
+	player.Name = name
 	player.Character.Health = 100
 	player.Character.Mana = 100
 
@@ -17,5 +18,5 @@ func newPlayer(name string) Player {
 }
 
 func (player *Player) Stats() {
-	fmt.Printf("Health: %d\nMana: %d", player.Character.Health, player.Character.Mana)
+	fmt.Printf("\n-------------\n%s-------------\nHealth: %d\nMana: %d", player.Name, player.Character.Health, player.Character.Mana)
 }
