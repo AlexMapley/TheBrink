@@ -4,7 +4,7 @@ type Bandit struct {
 	Character Character
 }
 
-func newPlayer(name string) Bandit {
+func NewBandit(name string) Bandit {
 	bandit := Bandit{}
 
 	bandit.Character.Name = name

@@ -4,7 +4,7 @@ type Player struct {
 	Character Character
 }
 
-func newPlayer(name string) Player {
+func NewPlayer(name string) Player {
 	player := Player{}
 
 	player.Character.Name = name

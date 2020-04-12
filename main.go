@@ -13,8 +13,13 @@ func main() {
 	fmt.Print("Enter text: ")
 	name, _ := reader.ReadString('\n')
 
-	player := newPlayer(name)
+	player := NewPlayer(name)
 	player.Character.Stats()
+
+	fmt.Println("A bandit appears")
+
+	bandit := NewBandit("Mel")
+	bandit.Character.Stats()
 
 	fmt.Printf("\n\nGame Over, %s\n\n\n", player.Character.Name)
 }
