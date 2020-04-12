@@ -27,10 +27,11 @@ func main() {
 	bandit := NewBandit("Mel")
 	bandit.Character.Stats()
 
-	battleConsole := NewBattleConsole()
+	battleConsole := scene.NewBattleConsole()
 
 	for i := 0; i < 100; i++ {
-		action battleConsole.
+		actionIndex := battleConsole.ChooseAction()
+		fmt.Printf("You choose option: %s", battleConsole[actionIndex])
 	}
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)

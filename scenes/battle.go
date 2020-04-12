@@ -1,4 +1,4 @@
-package town
+package scene
 
 type BattleConsole struct {
 	Console Console
