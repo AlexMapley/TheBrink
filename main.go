@@ -4,14 +4,20 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
+var DayCounter int
+
 func main() {
+	createWorld()
+
 	fmt.Println("What is your name?")
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter text: ")
 	name, _ := reader.ReadString('\n')
+	name = strings.TrimSuffix(name, "\n")
 
 	player := NewPlayer(name)
 	player.Character.Stats()
@@ -27,5 +33,9 @@ func main() {
 		player.Character.Stats()
 	}
 
-	fmt.Printf("\n\nGame Over, %s\n\n\n", player.Character.Name)
+	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)
+}
+
+func createWorld() {
+	DayCounter = 1
 }
