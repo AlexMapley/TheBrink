@@ -27,6 +27,8 @@ func main() {
 	bandit := NewBandit("Mel")
 	bandit.Character.Stats()
 
+	battleConsole := NewBattleConsole()
+
 	for i := 0; i < 10; i++ {
 		fmt.Printf("\n\nBandit Attacks %s\n\n\n", player.Character.Name)
 		bandit.Character.Attack(&player.Character)
