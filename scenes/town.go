@@ -4,7 +4,7 @@ type TownConsole struct {
 	Console Console
 }
 
-func NewTownSoncole() TownConsole {
+func NewTownConsole() TownConsole {
 	console := TownConsole{}
 
 	// set default options

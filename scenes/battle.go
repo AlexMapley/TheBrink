@@ -1,11 +1,11 @@
 package town
 
-type TownConsole struct {
+type BattleConsole struct {
 	Console Console
 }
 
-func NewTownSoncole() TownConsole {
-	console := TownConsole{}
+func NewBattleConsole() BattleConsole {
+	console := BattleConsole{}
 
 	// set default options
 	options := make(map[int]string)
