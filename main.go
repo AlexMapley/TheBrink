@@ -29,10 +29,8 @@ func main() {
 
 	battleConsole := NewBattleConsole()
 
-	for i := 0; i < 10; i++ {
-		fmt.Printf("\n\nBandit Attacks %s\n\n\n", player.Character.Name)
-		bandit.Character.Attack(&player.Character)
-		player.Character.Stats()
+	for i := 0; i < 100; i++ {
+		action battleConsole.
 	}
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)

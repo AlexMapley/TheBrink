@@ -9,16 +9,16 @@ import (
 )
 
 type Console struct {
-	Options map[int]string
+	Actions map[int]string
 }
 
-func (console *Console) ChooseOption() int {
+func (console *Console) ChooseAction() int {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Choose option:")
-	option, _ := reader.ReadString('\n')
-	option = strings.TrimSuffix(option, "\n")
+	action, _ := reader.ReadString('\n')
+	action = strings.TrimSuffix(action, "\n")
 
-	index, err := strconv.Atoi(option)
+	index, err := strconv.Atoi(action)
 	if err == nil {
 		panic(err)
 	}

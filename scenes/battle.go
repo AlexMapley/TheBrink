@@ -8,9 +8,9 @@ func NewBattleConsole() BattleConsole {
 	console := BattleConsole{}
 
 	// set default options
-	options := make(map[int]string)
-	options[1] = "Attack"
-	console.Options = options
+	actions := make(map[int]string)
+	actions[1] = "Attack"
+	console.Actions = actions
 
 	return console
 }
