@@ -15,7 +15,7 @@ type Character struct {
 }
 
 func (character *Character) Stats() {
-	fmt.Printf("\n-------------\n%s\n-------------\nHealth: %d\nMana: %d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d",
+	fmt.Printf("\n-------------\n%s\n-------------\nHealth: %d\nMana: %d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\n\n",
 		character.Name,
 		character.Health,
 		character.Mana,
