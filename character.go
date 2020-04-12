@@ -25,3 +25,7 @@ func (character *Character) Stats() {
 		character.Intelligence,
 	)
 }
+
+func (self *Character) Attack(other *Character) {
+	other.Health -= self.Strength
+}

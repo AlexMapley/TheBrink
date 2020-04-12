@@ -16,10 +16,14 @@ func main() {
 	player := NewPlayer(name)
 	player.Character.Stats()
 
-	fmt.Println("A bandit appears")
+	fmt.Println("\n\nA bandit appears")
 
 	bandit := NewBandit("Mel")
 	bandit.Character.Stats()
+
+	fmt.Printf("\n\nBandit Attacks %s\n\n\n", player.Character.Name)
+	bandit.Character.Attack(&player.Character)
+	player.Character.Stats()
 
 	fmt.Printf("\n\nGame Over, %s\n\n\n", player.Character.Name)
 }
