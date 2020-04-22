@@ -10,7 +10,9 @@ import (
 var DayCounter int
 
 func main() {
-	createWorld()
+	metaGame = Game{
+		Day: 1,
+	}
 
 	fmt.Println("What is your name?")
 
@@ -35,8 +37,4 @@ func main() {
 	}
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)
-}
-
-func createWorld() {
-	DayCounter = 1
 }
