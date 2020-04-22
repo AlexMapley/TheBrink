@@ -10,7 +10,7 @@ import (
 var DayCounter int
 
 func main() {
-	metaGame = Game{
+	metaGame := MetaGame{
 		Day: 1,
 	}
 
@@ -43,4 +43,6 @@ func main() {
 	// }
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)
+	metaGame.Day++
+	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", player.Character.Name, DayCounter)
 }
