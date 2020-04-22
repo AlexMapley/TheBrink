@@ -26,17 +26,21 @@ func main() {
 
 	townConsole := NewTownConsole()
 
-	for i := 0; i < 100; i++ {
-		actionIndex := battleConsole.ChooseAction()
-		fmt.Printf("You choose option: %s", battleConsole.Actions[actionIndex])
-	}
+	option := townConsole.ChooseAction()
 
-	fmt.Println("\n\nA bandit appears")
+	fmt.Printf("\n\nYou have chosen option %d, %s", option, townConsole.Actions[option])
 
-	bandit := NewBandit("Mel")
-	bandit.Character.Stats()
+	// fmt.Println("\n\nA bandit appears")
 
-	battleConsole := NewBattleConsole()
+	// bandit := NewBandit("Mel")
+	// bandit.Character.Stats()
+
+	// battleConsole := NewBattleConsole()
+
+	// for i := 0; i < 100; i++ {
+	// 	actionIndex := battleConsole.ChooseAction()
+	// 	fmt.Printf("You choose option: %s", battleConsole.Actions[actionIndex])
+	// }
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)
 }
