@@ -1,6 +1,6 @@
 package main
 
-func NewBattleConsole() Console {
+func NewTownConsole() Console {
 	console := Console{}
 
 	// set default options
