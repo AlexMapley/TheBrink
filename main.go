@@ -47,5 +47,5 @@ func main() {
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
 	metaGame.Day++
-	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", player.Character.Name, metaGame.Day)
+	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Name)
 }
