@@ -17,5 +17,7 @@ func NewPlayer(name string) Player {
 	player.Character.Health = (player.Character.Vitality * 8) + (player.Character.Strength * 2)
 	player.Character.Mana = (player.Character.Intelligence * 10)
 
+	player.Character.CurrentHealth = player.Character.Health
+
 	return player
 }
