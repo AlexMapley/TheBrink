@@ -1,4 +1,4 @@
-package main
+package game
 
 type Player struct {
 	Character Character
