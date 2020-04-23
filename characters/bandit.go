@@ -1,4 +1,4 @@
-package game
+package characters
 
 type Bandit struct {
 	Character Character

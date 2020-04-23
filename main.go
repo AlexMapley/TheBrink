@@ -5,12 +5,16 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"the_brink/characters"
+	"the_brink/console"
+	"the_brink/world"
 )
 
 var DayCounter int
 
 func main() {
-	metaGame := MetaGame{
+	metaGame := world.MetaGame{
 		Day: 1,
 	}
 
@@ -21,12 +25,12 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	player := NewPlayer(name)
+	player := characters.NewPlayer(name)
 
 	fmt.Println("Your Stats:")
 	player.Character.Stats()
 
-	townConsole := NewTownConsole()
+	townConsole := console.NewTownConsole()
 
 	fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
 	option := townConsole.ChooseAction()

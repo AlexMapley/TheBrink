@@ -1,4 +1,4 @@
-package game
+package world
 
 type MetaGame struct {
 	Day int

@@ -31,3 +31,7 @@ func (console *Console) ChooseAction() int {
 
 	return input
 }
+
+func logError(err error) {
+	fmt.Printf("\n\n-------------------\nEncountered Error: %s\n-------------------\n\n", err.Error())
+}
