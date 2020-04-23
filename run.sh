@@ -1,3 +1,4 @@
+go clean
 GOPATH=~/
 export GOBIN=$GOPATH/bin
 go install
