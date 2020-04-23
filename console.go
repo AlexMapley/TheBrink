@@ -20,12 +20,12 @@ func (console *Console) ChooseAction() int {
 	var inputstr string
 	_, err := fmt.Scanf("%s", &inputstr)
 	if err != nil {
-		fmt.Println(err)
+		logError(err)
 	}
 
 	input, e := strconv.Atoi(inputstr)
 	if e != nil {
-		fmt.Println(err)
+		logError(err)
 	}
 	// output := (input *
 
