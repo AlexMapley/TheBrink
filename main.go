@@ -41,6 +41,9 @@ func main() {
 
 		if townConsole.Actions[option] == "Patrol the town" {
 			player.Character.Health++
+		} 
+		if townConsole.Actions[option] == "Rest" {
+			player.Character.CurrentHealth = player.Character.Health
 		}
 
 		fmt.Println("\n\nA strange bandit appears")
