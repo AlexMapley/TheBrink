@@ -41,10 +41,10 @@ func main() {
 		player.Character.Health++
 	}
 
-	// fmt.Println("\n\nA bandit appears")
+	fmt.Println("\n\nA bandit appears")
 
-	// bandit := NewBandit("Mel")
-	// bandit.Character.Stats()
+	bandit := characters.NewBandit("Mel")
+	bandit.Character.Stats()
 
 	// battleConsole := NewBattleConsole()
 
@@ -53,6 +53,7 @@ func main() {
 	// 	fmt.Printf("You choose option: %s", battleConsole.Actions[actionIndex])
 	// }
 
+	player.Character.Duel(&bandit.Character)
 
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)

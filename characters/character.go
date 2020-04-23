@@ -33,6 +33,10 @@ func (self *Character) Attack(other *Character) {
 }
 
 
-func duel(character1, character2  *Character) (*Character, *Character) {
-	return character1, character2
+// Duel will update both characters health
+func (self *Character) Duel(other *Character) {
+	for (self.CurrentHealth > 0 || other.CurrentHealth  > 0) {
+		self.Attack(other)
+		other.Attack(self)
+	}
 }
