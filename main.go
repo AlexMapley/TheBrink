@@ -22,10 +22,13 @@ func main() {
 	name = strings.TrimSuffix(name, "\n")
 
 	player := NewPlayer(name)
+
+	fmt.Println("Your Stats:")
 	player.Character.Stats()
 
 	townConsole := NewTownConsole()
 
+	fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
 	option := townConsole.ChooseAction()
 
 	fmt.Printf("\n\nYou have chosen option %d, %s", option, townConsole.Actions[option])
@@ -42,7 +45,7 @@ func main() {
 	// 	fmt.Printf("You choose option: %s", battleConsole.Actions[actionIndex])
 	// }
 
-	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, DayCounter)
+	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
 	metaGame.Day++
-	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", player.Character.Name, DayCounter)
+	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", player.Character.Name, metaGame.Day)
 }
