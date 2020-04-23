@@ -1,12 +1,12 @@
 package console
 
-func NewBattleConsole() Console {
-	console := Console{}
+// func NewBattleConsole() Console {
+// 	console := Console{}
 
-	// set default options
-	actions := make(map[int]string)
-	actions[1] = "Attack"
-	console.Actions = actions
+// 	// set default options
+// 	actions := make(map[int]string)
+// 	actions[1] = "Attack"
+// 	console.Actions = actions
 
-	return console
-}
+// 	return console
+// }

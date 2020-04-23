@@ -27,34 +27,29 @@ func main() {
 
 	player := characters.NewPlayer(name)
 
-	fmt.Println("Your Stats:")
-	player.Character.Stats()
+	// main game loop
+	for (player.Character.CurrentHealth >= 0) {
+		fmt.Println("Your Stats:")
+		player.Character.Stats()
 
-	townConsole := console.NewTownConsole()
+		townConsole := console.NewTownConsole()
 
-	fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
-	option := townConsole.ChooseAction()
+		fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
+		option := townConsole.ChooseAction()
 
-	fmt.Printf("\n\nYou have chosen option %d, %s", option, townConsole.Actions[option])
+		fmt.Printf("\n\nYou have chosen option %d, %s", option, townConsole.Actions[option])
 
-	if townConsole.Actions[option] == "Patrol the town" {
-		player.Character.Health++
+		if townConsole.Actions[option] == "Patrol the town" {
+			player.Character.Health++
+		}
+
+		fmt.Println("\n\nA strange bandit appears")
+
+		bandit := characters.NewBandit("Mel")
+		bandit.Character.Stats()
+
+		player.Character.Duel(&bandit.Character)
 	}
-
-	fmt.Println("\n\nA strange bandit appears")
-
-	bandit := characters.NewBandit("Mel")
-	bandit.Character.Stats()
-
-	// battleConsole := NewBattleConsole()
-
-	// for i := 0; i < 100; i++ {
-	// 	actionIndex := battleConsole.ChooseAction()
-	// 	fmt.Printf("You choose option: %s", battleConsole.Actions[actionIndex])
-	// }
-
-	player.Character.Duel(&bandit.Character)
-
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
 	fmt.Println("Your Stats:")
