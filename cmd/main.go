@@ -26,7 +26,7 @@ func main() {
 	fmt.Println("Your Stats:")
 	player.Character.Stats()
 
-	townConsole := game.NewTownConsole()
+	townConsole := console.NewTownConsole()
 
 	fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
 	option := townConsole.ChooseAction()
