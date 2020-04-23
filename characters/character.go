@@ -33,6 +33,6 @@ func (self *Character) Attack(other *Character) {
 }
 
 
-func fight(character1, character2  *Character) (*Character, *Character) {
+func duel(character1, character2  *Character) (*Character, *Character) {
 	return character1, character2
 }

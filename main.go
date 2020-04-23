@@ -37,6 +37,10 @@ func main() {
 
 	fmt.Printf("\n\nYou have chosen option %d, %s", option, townConsole.Actions[option])
 
+	if townConsole.Actions[option] == "Patrol the town" {
+		player.Character.Health++
+	}
+
 	// fmt.Println("\n\nA bandit appears")
 
 	// bandit := NewBandit("Mel")
@@ -49,7 +53,11 @@ func main() {
 	// 	fmt.Printf("You choose option: %s", battleConsole.Actions[actionIndex])
 	// }
 
+
+
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
+	fmt.Println("Your Stats:")
+	player.Character.Stats()
 	metaGame.Day++
 	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Name)
 }
