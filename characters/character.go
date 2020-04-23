@@ -1,6 +1,9 @@
 package characters
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type Character struct {
 	Name string
@@ -29,14 +32,24 @@ func (character *Character) Stats() {
 }
 
 func (self *Character) Attack(other *Character) {
-	other.Health -= self.Strength
+	other.CurrentHealth -= self.Strength
 }
 
 
 // Duel will update both characters health
 func (self *Character) Duel(other *Character) {
-	for (self.CurrentHealth > 0 || other.CurrentHealth  > 0) {
+	for (self.CurrentHealth > 0 && other.CurrentHealth  > 0) {
+		time.Sleep(1 * time.Second)
 		self.Attack(other)
 		other.Attack(self)
+
+		fmt.Printf("%s Health: %d, ", self.Name, self.CurrentHealth)
+		fmt.Printf("%s Health: %d\n", other.Name, other.CurrentHealth)
 	}
+
+	if (self.CurrentHealth <= other.CurrentHealth) {
+		fmt.Printf("%s Wins the duel", self.Name)
+		return
+	}
+	fmt.Printf("%s Wins the duel", other.Name)
 }

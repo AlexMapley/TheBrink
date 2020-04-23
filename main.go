@@ -41,7 +41,7 @@ func main() {
 		player.Character.Health++
 	}
 
-	fmt.Println("\n\nA bandit appears")
+	fmt.Println("\n\nA strange bandit appears")
 
 	bandit := characters.NewBandit("Mel")
 	bandit.Character.Stats()

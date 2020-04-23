@@ -17,5 +17,7 @@ func NewBandit(name string) Bandit {
 	bandit.Character.Health = (bandit.Character.Vitality * 8) + (bandit.Character.Strength * 2)
 	bandit.Character.Mana = (bandit.Character.Intelligence * 10)
 
+	bandit.Character.CurrentHealth = bandit.Character.Health
+
 	return bandit
 }
