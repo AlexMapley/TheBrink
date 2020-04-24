@@ -40,7 +40,6 @@ func (self *Character) Attack(other *Character) {
 func (self *Character) Duel(other *Character) {
 	for (self.CurrentHealth > 0 && other.CurrentHealth  > 0) {
 
-		// time.Sleep(100 * time.Second)
 		time.Sleep(100 * time.Millisecond)
 
 		self.Attack(other)

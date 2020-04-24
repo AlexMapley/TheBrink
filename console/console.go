@@ -6,7 +6,7 @@ import (
 )
 
 type Console struct {
-	Actions map[int]string
+	Actions []string
 }
 
 func (console *Console) ChooseAction() int {
