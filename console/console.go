@@ -14,7 +14,7 @@ func (console *Console) ChooseAction() int {
 	// List Potential Actions
 	fmt.Println("Choose option:")
 	for number, option := range console.Actions {
-		fmt.Printf("%d. %s\n", number, option)
+		fmt.Printf("%d. %s\n", (number + 1), option)
 	}
 
 	var inputstr string
@@ -29,7 +29,7 @@ func (console *Console) ChooseAction() int {
 	}
 	// output := (input *
 
-	return input
+	return input-1
 }
 
 func logError(err error) {
