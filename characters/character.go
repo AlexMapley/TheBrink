@@ -38,14 +38,25 @@ func (self *Character) Critical() int64 {
 	return self.Agility * 2
 }
 
+func (self *Character) Dodge() int64 {
+	return self.Agility * 3
+}
+
 func (self *Character) Attack(other *Character) {
 	damage := self.Strength + (self.Agility/2)
 
 	criticalThreshold := int64(rand.Intn(100))
-	fmt.Printf("Critical Threshold: %d\n", criticalThreshold)
+	// fmt.Printf("Critical Threshold: %d\n", criticalThreshold)
 	if (self.Critical() >= criticalThreshold) {
 		damage = damage*2
 		fmt.Printf("%s scores a critical hit\n", self.Name)
+	}
+
+	dodgeThreshold := int64(rand.Intn(100))
+	// fmt.Printf("Dodge Threshold: %d\n", criticalThreshold)
+	if (other.Dodge() >= dodgeThreshold) {
+		damage = 0
+		fmt.Printf("%s dodges the hit\n", other.Name)
 	}
 	
 	other.CurrentHealth -= damage
@@ -65,9 +76,9 @@ func (self *Character) Duel(other *Character) {
 		fmt.Printf("%s Health: %d\n", other.Name, other.CurrentHealth)
 	}
 
-	if (self.CurrentHealth <= other.CurrentHealth) {
-		fmt.Printf("%s Wins the duel", self.Name)
+	if (self.CurrentHealth >= other.CurrentHealth) {
+		fmt.Printf("\n%s Wins the duel\n", self.Name)
 		return
 	}
-	fmt.Printf("%s Wins the duel", other.Name)
+	fmt.Printf("%s Wins the duel\n", other.Name)
 }

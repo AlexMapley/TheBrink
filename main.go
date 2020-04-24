@@ -52,11 +52,13 @@ func main() {
 		bandit.Character.Stats()
 
 		player.Character.Duel(&bandit.Character)
+
+		// Day ends
+		metaGame.Day++
 	}
 
 	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
 	fmt.Println("Your Stats:")
 	player.Character.Stats()
-	metaGame.Day++
 	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Name)
 }
