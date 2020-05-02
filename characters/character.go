@@ -10,14 +10,14 @@ import (
 type Character struct {
 	Name string
 
-	Health int64
-	CurrentHealth int64
-	Mana   int64
+	Health int
+	CurrentHealth int
+	Mana   int
 
-	Strength     int64
-	Vitality     int64
-	Agility      int64
-	Intelligence int64
+	Strength     int
+	Vitality     int
+	Agility      int
+	Intelligence int
 }
 
 func (character *Character) Stats() {
@@ -34,25 +34,25 @@ func (character *Character) Stats() {
 	)
 }
 
-func (self *Character) Critical() int64 {
+func (self *Character) Critical() int {
 	return self.Agility * 2
 }
 
-func (self *Character) Dodge() int64 {
+func (self *Character) Dodge() int {
 	return self.Agility * 3
 }
 
 func (self *Character) Attack(other *Character) {
 	damage := self.Strength + (self.Agility/2)
 
-	criticalThreshold := int64(rand.Intn(100))
+	criticalThreshold := rand.Intn(100)
 	// fmt.Printf("Critical Threshold: %d\n", criticalThreshold)
 	if (self.Critical() >= criticalThreshold) {
 		damage = damage*2
 		fmt.Printf("%s scores a critical hit\n", self.Name)
 	}
 
-	dodgeThreshold := int64(rand.Intn(100))
+	dodgeThreshold := rand.Intn(100)
 	// fmt.Printf("Dodge Threshold: %d\n", criticalThreshold)
 	if (other.Dodge() >= dodgeThreshold) {
 		damage = 0
