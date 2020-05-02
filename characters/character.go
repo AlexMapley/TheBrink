@@ -6,6 +6,7 @@ import (
 
 type Character struct {
 	Name string
+	Level int
 
 	Health int
 	Mana   int
@@ -19,7 +20,8 @@ type Character struct {
 }
 
 func (character *Character) Stats() {
-	fmt.Printf("\n-------------\n%s\n-------------\nHealth: %d/%d\nMana: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
+	fmt.Printf("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nMana: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
+		character.Level,	
 		character.Name,
 		character.CurrentHealth,
 		character.Health,
@@ -48,4 +50,9 @@ func (self *Character) HealthValue() int {
 
 func (self *Character) ManaValue() int {
 	return self.Intelligence * 10
+}
+
+// stub method
+func (self *Character) LevelUp() {
+
 }

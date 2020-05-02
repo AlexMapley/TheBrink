@@ -8,6 +8,7 @@ func NewPlayer(name string) Player {
 	player := Player{}
 
 	player.Character.Name = name
+	player.Character.Level = 1
 
 	player.Character.Vitality = 5
 	player.Character.Strength = 5

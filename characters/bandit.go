@@ -8,6 +8,7 @@ func NewBandit(name string) Bandit {
 	bandit := Bandit{}
 
 	bandit.Character.Name = name
+	bandit.Character.Level = 1
 
 	bandit.Character.Vitality = 3
 	bandit.Character.Strength = 3
