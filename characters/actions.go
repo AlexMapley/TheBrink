@@ -6,19 +6,20 @@ import (
 	"math/rand"
 )
 
+// Attack
 func (self *Character) Attack(other *Character) {
 	damage := self.Strength + (self.Agility/2)
 
 	criticalThreshold := rand.Intn(100)
 	// fmt.Printf("Critical Threshold: %d\n", criticalThreshold)
-	if (self.Critical() >= criticalThreshold) {
+	if (self.CriticalValue() >= criticalThreshold) {
 		damage = damage*2
 		fmt.Printf("%s scores a critical hit\n", self.Name)
 	}
 
 	dodgeThreshold := rand.Intn(100)
 	// fmt.Printf("Dodge Threshold: %d\n", criticalThreshold)
-	if (other.Dodge() >= dodgeThreshold) {
+	if (other.DodgeValue() >= dodgeThreshold) {
 		damage = 0
 		fmt.Printf("%s dodges the hit\n", other.Name)
 	}
@@ -45,4 +46,9 @@ func (self *Character) Duel(other *Character) {
 		return
 	}
 	fmt.Printf("%s Wins the duel\n", other.Name)
+}
+
+// Rest
+func (self *Character) Rest() {
+	self.Mana = self.Intelligence * 10
 }
