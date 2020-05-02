@@ -32,6 +32,9 @@ func (self *Character) Attack(other *Character) {
 
 // Duel will update both characters health
 func (self *Character) Duel(other *Character) {
+	self.Stats()
+	other.Stats()
+
 	for (self.CurrentHealth > 0 && other.CurrentHealth  > 0) {
 
 		time.Sleep(100 * time.Millisecond)

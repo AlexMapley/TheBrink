@@ -49,7 +49,6 @@ func main() {
 		fmt.Println("\n\nA strange bandit appears")
 
 		bandit := characters.NewBandit("Mel")
-		bandit.Character.Stats()
 
 		player.Character.Duel(&bandit.Character)
 
