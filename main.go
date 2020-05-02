@@ -40,7 +40,9 @@ func main() {
 		fmt.Printf("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
 
 		if townConsole.Actions[option] == "Patrol the town" {
-			player.Character.Health++
+			player.Character.Strength++
+			player.Character.Agility++
+			player.Character.Viality++
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			fmt.Printf("\n\n\nFOOOOOOO\n\n\n")

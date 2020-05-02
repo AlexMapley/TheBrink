@@ -43,9 +43,9 @@ func (self *Character) DodgeValue() int {
 }
 
 func (self *Character) HealthValue() int {
-	return self.Intelligence * 10
+	return (self.Vitality * 8) + (self.Strength * 2)
 }
 
 func (self *Character) ManaValue() int {
-	return (self.Vitality * 8) + (self.Strength * 2)
+	return self.Intelligence * 10
 }
