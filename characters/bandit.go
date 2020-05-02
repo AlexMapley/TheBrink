@@ -16,10 +16,10 @@ func NewBandit(name string) Bandit {
 	bandit.Character.Intelligence = 4
 
 	bandit.Character.Health = bandit.Character.HealthValue()
-	bandit.Character.Mana = bandit.Character.ManaValue()
+	bandit.Character.Focus = bandit.Character.FocusValue()
 
 	bandit.Character.CurrentHealth = bandit.Character.Health
-	bandit.Character.CurrentMana = bandit.Character.Mana
+	bandit.Character.CurrentFocus = bandit.Character.Focus
 
 	return bandit
 }

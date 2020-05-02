@@ -16,10 +16,10 @@ func NewPlayer(name string) Player {
 	player.Character.Intelligence = 5
 
 	player.Character.Health = player.Character.HealthValue()
-	player.Character.Mana = player.Character.ManaValue()
+	player.Character.Focus = player.Character.FocusValue()
 
 	player.Character.CurrentHealth = player.Character.Health
-	player.Character.CurrentMana = player.Character.Mana
+	player.Character.CurrentFocus = player.Character.Focus
 
 	return player
 }

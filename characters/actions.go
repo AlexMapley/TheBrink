@@ -56,5 +56,5 @@ func (self *Character) Duel(other *Character) {
 // Rest
 func (self *Character) Rest() {
 	self.CurrentHealth = self.HealthValue()
-	self.CurrentMana = self.ManaValue()
+	self.CurrentFocus = self.FocusValue()
 }

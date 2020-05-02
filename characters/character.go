@@ -9,9 +9,9 @@ type Character struct {
 	Level int
 
 	Health int
-	Mana   int
+	Focus   int
 	CurrentHealth int
-	CurrentMana int
+	CurrentFocus int
 
 	Strength     int
 	Vitality     int
@@ -20,13 +20,13 @@ type Character struct {
 }
 
 func (character *Character) Stats() {
-	fmt.Printf("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nMana: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
+	fmt.Printf("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
 		character.Name,
 		character.Level,
 		character.CurrentHealth,
 		character.Health,
-		character.Mana,
-		character.CurrentMana,
+		character.Focus,
+		character.CurrentFocus,
 		character.Vitality,
 		character.Strength,
 		character.Agility,
@@ -48,7 +48,7 @@ func (self *Character) HealthValue() int {
 	return (self.Vitality * 8) + (self.Strength * 2)
 }
 
-func (self *Character) ManaValue() int {
+func (self *Character) FocusValue() int {
 	return self.Intelligence * 10
 }
 
