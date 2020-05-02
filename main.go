@@ -37,7 +37,7 @@ func main() {
 		fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
 		option := townConsole.ChooseAction()
 
-		fmt.Printf("\n\nYou have chosen option %d, %s", option, townConsole.Actions[option])
+		fmt.Printf("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
 
 		if townConsole.Actions[option] == "Patrol the town" {
 			player.Character.Health++
