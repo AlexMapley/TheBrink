@@ -8,8 +8,9 @@ type Character struct {
 	Name string
 
 	Health int
-	CurrentHealth int
 	Mana   int
+	CurrentHealth int
+	CurrentMana int
 
 	Strength     int
 	Vitality     int
@@ -18,11 +19,12 @@ type Character struct {
 }
 
 func (character *Character) Stats() {
-	fmt.Printf("\n-------------\n%s\n-------------\nHealth: %d/%d\nMana: %d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
+	fmt.Printf("\n-------------\n%s\n-------------\nHealth: %d/%d\nMana: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
 		character.Name,
 		character.CurrentHealth,
 		character.Health,
 		character.Mana,
+		character.CurrentMana,
 		character.Vitality,
 		character.Strength,
 		character.Agility,

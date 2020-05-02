@@ -18,6 +18,7 @@ func NewPlayer(name string) Player {
 	player.Character.Mana = player.Character.ManaValue()
 
 	player.Character.CurrentHealth = player.Character.Health
+	player.Character.CurrentMana = player.Character.Mana
 
 	return player
 }

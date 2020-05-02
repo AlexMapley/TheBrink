@@ -18,6 +18,7 @@ func NewBandit(name string) Bandit {
 	bandit.Character.Mana = bandit.Character.ManaValue()
 
 	bandit.Character.CurrentHealth = bandit.Character.Health
+	bandit.Character.CurrentMana = bandit.Character.Mana
 
 	return bandit
 }

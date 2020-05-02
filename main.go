@@ -43,6 +43,7 @@ func main() {
 			player.Character.Health++
 		} 
 		if townConsole.Actions[option] == "Rest" {
+			fmt.Printf("\n\n\nFOOOOOOO\n\n\n")
 			player.Character.Rest()
 		}
 
