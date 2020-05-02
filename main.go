@@ -42,7 +42,7 @@ func main() {
 		if townConsole.Actions[option] == "Patrol the town" {
 			player.Character.Strength++
 			player.Character.Agility++
-			player.Character.Viality++
+			player.Character.Vitality++
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			fmt.Printf("\n\n\nFOOOOOOO\n\n\n")
