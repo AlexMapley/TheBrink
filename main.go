@@ -43,7 +43,7 @@ func main() {
 			player.Character.Health++
 		} 
 		if townConsole.Actions[option] == "Rest" {
-			player.Character.CurrentHealth = player.Character.Health
+			player.Character.Rest()
 		}
 
 		fmt.Println("\n\nA strange bandit appears")

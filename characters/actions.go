@@ -8,6 +8,8 @@ import (
 
 // Attack
 func (self *Character) Attack(other *Character) {
+	rand.Seed(time.Now().UnixNano())
+
 	damage := self.Strength + (self.Agility/2)
 
 	criticalThreshold := rand.Intn(100)
@@ -50,5 +52,6 @@ func (self *Character) Duel(other *Character) {
 
 // Rest
 func (self *Character) Rest() {
-	self.Mana = self.Intelligence * 10
+	self.Health = self.HealthValue()
+	self.Mana = self.ManaValue()
 }
