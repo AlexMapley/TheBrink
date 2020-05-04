@@ -1,7 +1,7 @@
 go clean
 GOPATH=~/
 export GOBIN=$GOPATH/bin
-go install
+go install ./...
 /$GOBIN/the_brink
 
 
