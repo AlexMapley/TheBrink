@@ -2,11 +2,13 @@ package characters
 
 type Player struct {
 	Character Character
+	Inventory Inventory
 }
 
 func NewPlayer(name string) Player {
 	player := Player{}
 
+	// Set Player Stats
 	player.Character.Name = name
 	player.Character.Level = 1
 
