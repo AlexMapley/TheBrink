@@ -1,8 +1,12 @@
 package characters
 
+import (
+	"the_brink/inventory"
+)
+
 type Player struct {
 	Character Character
-	Inventory Inventory
+	Inventory inventory.Inventory
 }
 
 func NewPlayer(name string) Player {
@@ -22,6 +26,11 @@ func NewPlayer(name string) Player {
 
 	player.Character.CurrentHealth = player.Character.Health
 	player.Character.CurrentFocus = player.Character.Focus
+
+	// Set Player Inventory
+	player.Inventory = inventory.Inventory {
+		Gold: 100,
+	}
 
 	return player
 }
