@@ -1,9 +1,8 @@
-
 version: '3.1'
 services:
   display:
     build: .
     container_name: the_brink
     volumes:
-      - ../:/go/src/blackout_feed
-    command: go run /go/src/blackout_feed/display/run.sh
+      - ./:/go/src/the_brink
+    command: bash /go/src/the_brink/run.sh
