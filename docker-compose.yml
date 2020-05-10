@@ -3,6 +3,8 @@ services:
   display:
     build: .
     container_name: the_brink
+    stdin_open: true
+    tty: true
     volumes:
       - ./:/go/src/the_brink
     command: bash /go/src/the_brink/run.sh

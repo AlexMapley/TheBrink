@@ -9,9 +9,3 @@ echo
 
 go build  
 ./the_brink
-
-
-# export GOBIN=$GOPATH/bin
-# go build ./... main
-# GOPATH=~/
-# export GOBIN=$GOPATH/bin
