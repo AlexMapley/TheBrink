@@ -1,3 +1,3 @@
 FROM golang
 
-ADD ../ /go/src/the_brink
+COPY ./ /go/src/the_brink
