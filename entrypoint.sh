@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ls
 cd /go/src/the_brink
 
