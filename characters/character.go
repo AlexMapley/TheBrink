@@ -1,8 +1,6 @@
 package characters
 
 import (
-	"fmt"
-
 	"github.com/fatih/color"
 )
 

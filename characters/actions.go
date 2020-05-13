@@ -1,7 +1,6 @@
 package characters
 
 import (
-	"fmt"
 	"time"
 	"math/rand"
 
