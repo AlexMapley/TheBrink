@@ -1,27 +1,5 @@
-package characters
+package character
 
-import (
-	"github.com/fatih/color"
-)
-
-type Character interface {
-	Stats() Stats
-}
-
-type Stats struct {
-	Name string
-	Level int
-
-	Health int
-	Focus   int
-	CurrentHealth int
-	CurrentFocus int
-
-	Strength     int
-	Vitality     int
-	Agility      int
-	Intelligence int
-}
 
 func (stats *Stats) Display() {
 	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
@@ -55,8 +33,3 @@ func (stats *Stats) HealthValue() int {
 func (stats *Stats) FocusValue() int {
 	return stats.Intelligence * 10
 }
-
-// stub method
-// func (self *Character) LevelUp() {
-
-// }
