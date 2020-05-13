@@ -3,6 +3,8 @@ package console
 import (
 	"fmt"
 	"strconv"
+
+	"github.com/fatih/color"
 )
 
 type Console struct {
@@ -14,7 +16,7 @@ func (console *Console) ChooseAction() int {
 	// List Potential Actions
 	fmt.Println("Choose option:")
 	for number, option := range console.Actions {
-		fmt.Printf("%d. %s\n", (number + 1), option)
+		color.Cyan("%d. %s\n", (number + 1), option)
 	}
 
 	var inputstr string
@@ -33,5 +35,5 @@ func (console *Console) ChooseAction() int {
 }
 
 func logError(err error) {
-	fmt.Printf("\n\n-------------------\nEncountered Error: %s\n-------------------\n\n", err.Error())
+	color.Cyan("\n\n-------------------\nEncountered Error: %s\n-------------------\n\n", err.Error())
 }

@@ -9,6 +9,8 @@ import (
 	"the_brink/characters"
 	"the_brink/console"
 	"the_brink/world"
+
+	"github.com/fatih/color"
 )
 
 var DayCounter int
@@ -34,10 +36,10 @@ func main() {
 
 		townConsole := console.NewTownConsole()
 
-		fmt.Printf("Day %d in town, what do you?\n", metaGame.Day)
+		color.Cyan("Day %d in town, what do you?\n", metaGame.Day)
 		option := townConsole.ChooseAction()
 
-		fmt.Printf("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
+		color.Cyan("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
 
 		if townConsole.Actions[option] == "Patrol the town" {
 			player.Character.Strength++
@@ -45,7 +47,7 @@ func main() {
 			player.Character.Vitality++
 		} 
 		if townConsole.Actions[option] == "Rest" {
-			fmt.Printf("\n\n\nFOOOOOOO\n\n\n")
+			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
 			player.Character.Rest()
 		}
 
@@ -59,8 +61,8 @@ func main() {
 		metaGame.Day++
 	}
 
-	fmt.Printf("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
+	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
 	fmt.Println("Your Stats:")
 	player.Character.Stats()
-	fmt.Printf("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Name)
+	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Name)
 }

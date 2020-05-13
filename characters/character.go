@@ -2,6 +2,8 @@ package characters
 
 import (
 	"fmt"
+
+	"github.com/fatih/color"
 )
 
 type Character struct {
@@ -20,7 +22,7 @@ type Character struct {
 }
 
 func (character *Character) Stats() {
-	fmt.Printf("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
+	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
 		character.Name,
 		character.Level,
 		character.CurrentHealth,
