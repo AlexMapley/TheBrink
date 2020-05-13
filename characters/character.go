@@ -44,7 +44,7 @@ func (self *Character) Duel(other *Character) {
 
 		time.Sleep(100 * time.Millisecond)
 
-		self.Stats.Attack(other)
+		self.Attack(other)
 		other.Attack(self)
 
 		color.Cyan("%s Health: %d, ", self.Stats.Name, self.Stats.CurrentHealth)
