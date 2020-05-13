@@ -10,22 +10,25 @@ type Player struct {
 }
 
 func NewPlayer(name string) Player {
+
+	// Base layer
 	player := Player{}
 
-	// Set Player Stats
-	player.Stats.Name = name
-	player.Stats.Level = 1
+	// Set stats
+	stats = Stats{
+		Name: name,
+		Level: 1,
+		Vitality: 5,
+		Strength: 5,
+		Agility: 5,
+		Intelligence: 5,
+	}
+	stats.Health = statsHealthValue()
+	stats.Focus = statsFocusValue()
+	stats.CurrentHealth = stats.Health
+	stats.CurrentFocus =  = stats.Focus
 
-	player.Stats.Vitality = 5
-	player.Stats.Strength = 5
-	player.Stats.Agility = 5
-	player.Stats.Intelligence = 5
-
-	player.Stats.Health = player.Stats.HealthValue()
-	player.Stats.Focus = player.Stats.FocusValue()
-
-	player.Stats.CurrentHealth = player.Stats.Health
-	player.Stats.CurrentFocus = player.Stats.Focus
+	player.Character.Stats = stats
 
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {

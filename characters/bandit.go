@@ -1,25 +1,26 @@
 package characters
 
 type Bandit struct {
-	Stats Stats
+	Character Character
 }
 
 func NewBandit(name string) Bandit {
 	bandit := Bandit{}
+	stats = Stats{
+		Name: name,
+		Level: 1,
+		Vitality: 3,
+		Strength: 3,
+		Agility: 6,
+		Intelligence: 4,
+	}
 
-	bandit.Stats.Name = name
-	bandit.Stats.Level = 1
+	stats.Health = statsHealthValue()
+	stats.Focus = statsFocusValue()
+	stats.CurrentHealth = stats.Health
+	stats.CurrentFocus =  = stats.Focus
 
-	bandit.Stats.Vitality = 3
-	bandit.Stats.Strength = 3
-	bandit.Stats.Agility = 6
-	bandit.Stats.Intelligence = 4
-
-	bandit.Stats.Health = bandit.Stats.HealthValue()
-	bandit.Stats.Focus = bandit.Stats.FocusValue()
-
-	bandit.Stats.CurrentHealth = bandit.Stats.Health
-	bandit.Stats.CurrentFocus = bandit.Stats.Focus
+	bandit.Character.Stats = stats
 
 	return bandit
 }
