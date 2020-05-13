@@ -26,8 +26,7 @@ func NewPlayer(name string) Player {
 	stats.Health = statsHealthValue()
 	stats.Focus = statsFocusValue()
 	stats.CurrentHealth = stats.Health
-	stats.CurrentFocus =  = stats.Focus
-
+	stats.CurrentFocus =  stats.Focus
 	player.Character.Stats = stats
 
 	// Set Player Inventory
