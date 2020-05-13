@@ -1,5 +1,23 @@
 package character
 
+import (
+	"github.com/fatih/color"
+)
+
+type Stats struct {
+	Name string
+	Level int
+
+	Health int
+	Focus   int
+	CurrentHealth int
+	CurrentFocus int
+
+	Strength     int
+	Vitality     int
+	Agility      int
+	Intelligence int
+}
 
 func (stats *Stats) Display() {
 	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
