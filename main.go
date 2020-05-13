@@ -48,7 +48,7 @@ func main() {
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
-			player.Character.Character.Rest()
+			player.Character.Rest()
 		}
 
 		fmt.Println("\n\nA strange bandit appears")
@@ -61,8 +61,8 @@ func main() {
 		metaGame.Day++
 	}
 
-	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Stats.Name, metaGame.Day)
+	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, metaGame.Day)
 	fmt.Println("Your Stats:")
-	player.Stats.Display()
-	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Stats.Name)
+	player.Character.Stats.Display()
+	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Stats.Name)
 }
