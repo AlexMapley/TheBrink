@@ -1,4 +1,4 @@
-package character
+package characters
 
 import (
 	"github.com/fatih/color"
