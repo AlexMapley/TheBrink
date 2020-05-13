@@ -30,9 +30,9 @@ func main() {
 	player := characters.NewPlayer(name)
 
 	// main game loop
-	for (player.Stats.CurrentHealth >= 0) {
+	for (player.Character.Stats.CurrentHealth >= 0) {
 		fmt.Println("Your Stats:")
-		player.Stats.Display()
+		player.Character.Stats.Display()
 
 		townConsole := console.NewTownConsole()
 
@@ -42,13 +42,13 @@ func main() {
 		color.Cyan("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
 
 		if townConsole.Actions[option] == "Patrol the town" {
-			player.Stats.Strength++
-			player.Stats.Agility++
-			player.Stats.Vitality++
+			player.Character.Stats.Strength++
+			player.Character.Stats.Agility++
+			player.Character.Stats.Vitality++
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
-			player.Character.Rest()
+			player.Character.Character.Rest()
 		}
 
 		fmt.Println("\n\nA strange bandit appears")
