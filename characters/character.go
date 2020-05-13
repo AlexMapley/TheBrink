@@ -4,7 +4,11 @@ import (
 	"github.com/fatih/color"
 )
 
-type Character struct {
+type Character interface {
+	Stats stats
+}
+
+type Stats struct {
 	Name string
 	Level int
 
@@ -19,7 +23,7 @@ type Character struct {
 	Intelligence int
 }
 
-func (character *Character) Stats() {
+func (stats *Stats) Display() {
 	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
 		character.Name,
 		character.Level,
@@ -36,23 +40,23 @@ func (character *Character) Stats() {
 	)
 }
 
-func (self *Character) CriticalValue() int {
-	return self.Agility * 2
+func (stats *Stats) CriticalValue() int {
+	return stats.Agility * 2
 }
 
-func (self *Character) DodgeValue() int {
-	return self.Agility * 3
+func (stats *Stats) DodgeValue() int {
+	return stats.Agility * 3
 }
 
-func (self *Character) HealthValue() int {
-	return (self.Vitality * 8) + (self.Strength * 2)
+func (stats *Stats) HealthValue() int {
+	return (stats.Vitality * 8) + (stats.Strength * 2)
 }
 
-func (self *Character) FocusValue() int {
-	return self.Intelligence * 10
+func (stats *Stats) FocusValue() int {
+	return stats.Intelligence * 10
 }
 
 // stub method
-func (self *Character) LevelUp() {
+// func (self *Character) LevelUp() {
 
-}
+// }

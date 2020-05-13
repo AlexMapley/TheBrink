@@ -30,9 +30,9 @@ func main() {
 	player := characters.NewPlayer(name)
 
 	// main game loop
-	for (player.Character.CurrentHealth >= 0) {
+	for (player.Stats.CurrentHealth >= 0) {
 		fmt.Println("Your Stats:")
-		player.Character.Stats()
+		player.Stats.Display()
 
 		townConsole := console.NewTownConsole()
 
@@ -42,9 +42,9 @@ func main() {
 		color.Cyan("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
 
 		if townConsole.Actions[option] == "Patrol the town" {
-			player.Character.Strength++
-			player.Character.Agility++
-			player.Character.Vitality++
+			player.Stats.Strength++
+			player.Stats.Agility++
+			player.Stats.Vitality++
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
@@ -61,8 +61,8 @@ func main() {
 		metaGame.Day++
 	}
 
-	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Name, metaGame.Day)
+	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Stats.Name, metaGame.Day)
 	fmt.Println("Your Stats:")
-	player.Character.Stats()
-	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Name)
+	player.Stats.Display()
+	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Stats.Name)
 }

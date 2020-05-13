@@ -5,7 +5,7 @@ import (
 )
 
 type Player struct {
-	Character Character
+	Stats Stats
 	Inventory inventory.Inventory
 }
 
@@ -13,19 +13,19 @@ func NewPlayer(name string) Player {
 	player := Player{}
 
 	// Set Player Stats
-	player.Character.Name = name
-	player.Character.Level = 1
+	player.Stats.Name = name
+	player.Stats.Level = 1
 
-	player.Character.Vitality = 5
-	player.Character.Strength = 5
-	player.Character.Agility = 5
-	player.Character.Intelligence = 5
+	player.Stats.Vitality = 5
+	player.Stats.Strength = 5
+	player.Stats.Agility = 5
+	player.Stats.Intelligence = 5
 
-	player.Character.Health = player.Character.HealthValue()
-	player.Character.Focus = player.Character.FocusValue()
+	player.Stats.Health = player.Stats.HealthValue()
+	player.Stats.Focus = player.Stats.FocusValue()
 
-	player.Character.CurrentHealth = player.Character.Health
-	player.Character.CurrentFocus = player.Character.Focus
+	player.Stats.CurrentHealth = player.Stats.Health
+	player.Stats.CurrentFocus = player.Stats.Focus
 
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {
