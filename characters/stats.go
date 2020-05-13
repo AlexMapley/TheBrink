@@ -21,18 +21,18 @@ type Stats struct {
 
 func (stats *Stats) Display() {
 	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
-		character.Name,
-		character.Level,
-		character.CurrentHealth,
-		character.Health,
-		character.Focus,
-		character.CurrentFocus,
-		character.Vitality,
-		character.Strength,
-		character.Agility,
-		character.Intelligence,
-		character.CriticalValue(),
-		character.DodgeValue(),
+		stats.Name,
+		stats.Level,
+		stats.CurrentHealth,
+		stats.Health,
+		stats.Focus,
+		stats.CurrentFocus,
+		stats.Vitality,
+		stats.Strength,
+		stats.Agility,
+		stats.Intelligence,
+		stats.CriticalValue(),
+		stats.DodgeValue(),
 	)
 }
 

@@ -10,7 +10,7 @@ func NewBandit(name string) Bandit {
 	bandit := Bandit{}
 
 	// Set Stats
-	stats = Stats{
+	stats := Stats{
 		Name: name,
 		Level: 1,
 		Vitality: 3,
@@ -18,8 +18,8 @@ func NewBandit(name string) Bandit {
 		Agility: 6,
 		Intelligence: 4,
 	}
-	stats.Health = statsHealthValue()
-	stats.Focus = statsFocusValue()
+	stats.Health = stats.HealthValue()
+	stats.Focus = stats.FocusValue()
 	stats.CurrentHealth = stats.Health
 	stats.CurrentFocus = stats.Focus
 	bandit.Character.Stats = stats

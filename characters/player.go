@@ -5,7 +5,7 @@ import (
 )
 
 type Player struct {
-	Stats Stats
+	Character Character
 	Inventory inventory.Inventory
 }
 
@@ -15,7 +15,7 @@ func NewPlayer(name string) Player {
 	player := Player{}
 
 	// Set stats
-	stats = Stats{
+	stats := Stats{
 		Name: name,
 		Level: 1,
 		Vitality: 5,
@@ -23,8 +23,8 @@ func NewPlayer(name string) Player {
 		Agility: 5,
 		Intelligence: 5,
 	}
-	stats.Health = statsHealthValue()
-	stats.Focus = statsFocusValue()
+	stats.Health = stats.HealthValue()
+	stats.Focus = stats.FocusValue()
 	stats.CurrentHealth = stats.Health
 	stats.CurrentFocus =  stats.Focus
 	player.Character.Stats = stats
