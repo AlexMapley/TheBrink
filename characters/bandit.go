@@ -13,6 +13,7 @@ func NewBandit(name string) Bandit {
 	stats := Stats{
 		Name: name,
 		Level: 1,
+		XPCap: 50,
 		Vitality: 3,
 		Strength: 3,
 		Agility: 6,
