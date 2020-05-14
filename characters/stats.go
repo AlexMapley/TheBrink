@@ -8,10 +8,13 @@ type Stats struct {
 	Name string
 	Level int
 
+	XPCap int
+
+
+	HealthCap int
+	FocusCap   int
 	Health int
-	Focus   int
-	CurrentHealth int
-	CurrentFocus int
+	Focus int
 
 	Strength     int
 	Vitality     int
