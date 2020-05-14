@@ -31,7 +31,7 @@ func (self *Character) Attack(other *Character) {
 		color.Cyan("%s dodges the hit\n", other.Stats.Name)
 	}
 	
-	other.Stats.CurrentHealth -= damage
+	other.Stats.Health -= damage
 }
 
 
@@ -40,18 +40,18 @@ func (self *Character) Duel(other *Character) {
 	self.Stats.Display()
 	other.Stats.Display()
 
-	for (self.Stats.CurrentHealth > 0 && other.Stats.CurrentHealth  > 0) {
+	for (self.Stats.Health > 0 && other.Stats.Health  > 0) {
 
 		time.Sleep(100 * time.Millisecond)
 
 		self.Attack(other)
 		other.Attack(self)
 
-		color.Cyan("%s Health: %d, ", self.Stats.Name, self.Stats.CurrentHealth)
-		color.Cyan("%s Health: %d\n", other.Stats.Name, other.Stats.CurrentHealth)
+		color.Cyan("%s Health: %d, ", self.Stats.Name, self.Stats.Health)
+		color.Cyan("%s Health: %d\n", other.Stats.Name, other.Stats.Health)
 	}
 
-	if (self.Stats.CurrentHealth >= other.Stats.CurrentHealth) {
+	if (self.Stats.Health >= other.Stats.Health) {
 		color.Cyan("\n%s Wins the duel\n", self.Stats.Name)
 		return
 	}
@@ -60,9 +60,9 @@ func (self *Character) Duel(other *Character) {
 
 // Rest
 func (self *Character) Rest() {
-	self.Stats.Health = self.Stats.HealthValue()
-	self.Stats.Focus = self.Stats.FocusValue()
+	self.Stats.HeallthMax = self.Stats.HeallthMaxValue()
+	self.Stats.FocusMax = self.Stats.FocusMaxValue()
 
-	self.Stats.CurrentHealth = self.Stats.HealthValue()
-	self.Stats.CurrentFocus = self.Stats.FocusValue()
+	self.Stats.Health = self.Stats.HeallthMaxValue()
+	self.Stats.Focus = self.Stats.FocusMaxValue()
 }

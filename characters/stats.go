@@ -11,8 +11,8 @@ type Stats struct {
 	XPCap int
 
 
-	HealthCap int
-	FocusCap   int
+	HealthMax int
+	FocusMax   int
 	Health int
 	Focus int
 
@@ -26,10 +26,10 @@ func (stats *Stats) Display() {
 	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
 		stats.Name,
 		stats.Level,
-		stats.CurrentHealth,
 		stats.Health,
+		stats.HeallthMax,
+		stats.FocusMax,
 		stats.Focus,
-		stats.CurrentFocus,
 		stats.Vitality,
 		stats.Strength,
 		stats.Agility,

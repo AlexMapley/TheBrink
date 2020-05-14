@@ -30,7 +30,7 @@ func main() {
 	player := characters.NewPlayer(name)
 
 	// main game loop
-	for (player.Character.Stats.CurrentHealth >= 0) {
+	for (player.Character.Stats.Health >= 0) {
 		fmt.Println("Your Stats:")
 		player.Character.Stats.Display()
 

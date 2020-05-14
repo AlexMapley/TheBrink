@@ -24,10 +24,10 @@ func NewPlayer(name string) Player {
 		Agility: 5,
 		Intelligence: 5,
 	}
-	stats.Health = stats.HealthValue()
-	stats.Focus = stats.FocusValue()
-	stats.CurrentHealth = stats.Health
-	stats.CurrentFocus =  stats.Focus
+	stats.HeallthMax = stats.HeallthMaxValue()
+	stats.FocusMax = stats.FocusMaxValue()
+	stats.Health = stats.HeallthMax
+	stats.Focus =  stats.FocusMax
 	player.Character.Stats = stats
 
 	// Set Player Inventory
