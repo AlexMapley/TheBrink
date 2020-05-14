@@ -36,3 +36,11 @@ func NewPlayer(name string) Player {
 
 	return player
 }
+
+func LevelMultiplier(stats *Stats) {
+	stats.Level +=1
+	stats.Vilaity +=1
+	stats.Strength +=1
+	stats.Agility +=1
+	stats.Vilaity +=1
+}
