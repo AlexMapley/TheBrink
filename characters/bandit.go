@@ -34,10 +34,10 @@ func LevelMultiplier(bandit Bandit) Bandit{
 	res.Character = bandit.Character
 
 	res.Character.Stats.Level +=1
-	res.Character.Stats.Vilaity +=1
+	res.Character.Stats.Vitality +=1
 	res.Character.Stats.Strength +=1
 	res.Character.Stats.Agility +=2
-	res.Character.Stats.Vilaity +=1
+	res.Character.Stats.Vitality +=1
 
 	return res
 }

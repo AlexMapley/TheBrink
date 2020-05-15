@@ -44,10 +44,10 @@ func LevelMultiplier(player Player) Player{
 	res.Character = player.Character
 
 	res.Character.Stats.Level +=1
-	res.Character.Stats.Vilaity +=1
+	res.Character.Stats.Vitality +=1
 	res.Character.Stats.Strength +=1
 	res.Character.Stats.Agility +=1
-	res.Character.Stats.Vilaity +=1
+	res.Character.Stats.Vitality +=1
 
 	return res
 }
