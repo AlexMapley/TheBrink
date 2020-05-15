@@ -29,7 +29,7 @@ func NewBandit(name string) Bandit {
 	return bandit
 }
 
-func LevelMultiplier(bandit Bandit) Bandit{
+func LevelUpBandit(bandit Bandit) Bandit{
 	res := NewBandit(bandit.Character.Stats.Name)
 	res.Character = bandit.Character
 

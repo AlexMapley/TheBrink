@@ -67,7 +67,7 @@ func main() {
 		metaGame.Day++
 
 		// level up enemies
-		bandit = LevelUpBandit(bandit)
+		bandit = characters.LevelUpBandit(bandit)
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, metaGame.Day)
