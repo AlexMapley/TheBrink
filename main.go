@@ -28,7 +28,7 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	player := characters.NewPlayer(name, "warrior")
+	player := characters.NewPlayer(name, "rogue")
 
 	// declare game enemies
 	bandit := characters.NewBandit("Mel")
@@ -43,7 +43,7 @@ func main() {
 		if option <= len(townConsole.Actions) {
 			color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
 		}
-		
+
 		if townConsole.Actions[option] == "Patrol the town" {
 			// level up player and bandit
 			player = characters.LevelUpPlayer(player)
@@ -57,6 +57,7 @@ func main() {
 		} 
 		if townConsole.Actions[option] == "Stats" {
 			player.Character.Stats.Display()
+			continue
 		}
 		if townConsole.Actions[option] == "Rest" {
 			player.Character.Rest()
