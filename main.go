@@ -48,9 +48,9 @@ func main() {
 		}
 
 		if townConsole.Actions[option] == "Patrol the town" {
-			player.Character.Stats.Strength++
-			player.Character.Stats.Agility++
-			player.Character.Stats.Vitality++
+			// level up player and bandit
+			player = characters.LevelUpPlayer(bandit)
+			bandit = characters.LevelUpBandit(bandit)
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
@@ -65,9 +65,6 @@ func main() {
 
 		// Day ends
 		metaGame.Day++
-
-		// level up enemies
-		bandit = characters.LevelUpBandit(bandit)
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, metaGame.Day)

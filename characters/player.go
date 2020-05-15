@@ -39,7 +39,7 @@ func NewPlayer(name string) Player {
 }
 
 
-func LevelUpBanditPlayer(player Player) Player{
+func LevelUpPlayer(player Player) Player{
 	res := NewPlayer(player.Character.Stats.Name)
 	res.Character = player.Character
 
@@ -48,6 +48,9 @@ func LevelUpBanditPlayer(player Player) Player{
 	res.Character.Stats.Strength +=1
 	res.Character.Stats.Agility +=1
 	res.Character.Stats.Vitality +=1
+
+	res.Character.Stats.HealthMax = stats.DetermineMaxHealth()
+	res.Character.Stats.FocusMax = stats.DetermineMaxFocus()
 
 	return res
 }

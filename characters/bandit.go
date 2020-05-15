@@ -33,11 +33,17 @@ func LevelUpBandit(bandit Bandit) Bandit{
 	res := NewBandit(bandit.Character.Stats.Name)
 	res.Character = bandit.Character
 
+
+	// increase core stats
 	res.Character.Stats.Level +=1
 	res.Character.Stats.Vitality +=1
 	res.Character.Stats.Strength +=1
 	res.Character.Stats.Agility +=2
 	res.Character.Stats.Vitality +=1
+
+	// increase second tier stats
+	res.Character.Stats.HealthMax = stats.DetermineMaxHealth()
+	res.Character.Stats.FocusMax = stats.DetermineMaxFocus()
 
 	return res
 }
