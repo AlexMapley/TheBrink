@@ -1,8 +1,7 @@
 package characters
 
 func Warrior(character Character) Character{
-	res := NewPlayer(player.Character.Stats.Name)
-	res = character
+	res := character
 
 	res.Stats.Class = "Warrior"
 
@@ -18,8 +17,7 @@ func Warrior(character Character) Character{
 }
 
 func Rogue(character Character) Character{
-	res := NewPlayer(player.Character.Stats.Name)
-	res.Character = player.Character
+	res := character
 
 	res.Stats.Class = "Rogue"
 
@@ -35,8 +33,7 @@ func Rogue(character Character) Character{
 }
 
 func Wizard(character Character) Character{
-	res := NewPlayer(player.Character.Stats.Name)
-	res.Character = player.Character
+	res := character
 
 	res.Stats.Class = "Wizard"
 

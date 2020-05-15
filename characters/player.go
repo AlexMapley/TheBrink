@@ -38,9 +38,9 @@ func NewPlayer(name string, class string) Player {
 		player.Character = Rogue(player.Character)
 	case "wizard":
 		player.Character = Wizard(player.Character)
-
 	}
-	stats.Cl
+
+	player.Character.Rest()
 
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {
@@ -52,7 +52,7 @@ func NewPlayer(name string, class string) Player {
 
 
 func LevelUpPlayer(player Player) Player{
-	res := NewPlayer(player.Character.Stats.Name)
+	res := NewPlayer(player.Character.Stats.Name, player.Character.Stats.Class)
 	res.Character = player.Character
 
 	res.Character.Stats.Level +=1

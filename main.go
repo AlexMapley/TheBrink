@@ -35,9 +35,6 @@ func main() {
 
 	// main game loop
 	for (player.Character.Stats.Health >= 0) {
-		fmt.Println("Your Stats:")
-		player.Character.Stats.Display()
-
 		townConsole := console.NewTownConsole()
 
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
@@ -51,18 +48,15 @@ func main() {
 			// level up player and bandit
 			player = characters.LevelUpPlayer(player)
 			bandit = characters.LevelUpBandit(bandit)
+
+			fmt.Println("\n\nA strange bandit appears")
+			player.Character.Duel(&bandit.Character)
 		} 
 		if townConsole.Actions[option] == "Rest" {
 			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
 			player.Character.Rest()
 			bandit.Character.Rest()
 		}
-
-		fmt.Println("\n\nA strange bandit appears")
-
-		
-
-		player.Character.Duel(&bandit.Character)
 
 		// Day ends
 		metaGame.Day++
