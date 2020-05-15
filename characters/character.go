@@ -21,7 +21,7 @@ func (self *Character) Attack(other *Character) {
 	// color.Cyan("Critical Threshold: %d\n", criticalThreshold)
 	if (self.Stats.CriticalValue() >= criticalThreshold) {
 		damage = damage*2
-		color.Cyan("%s scores a critical hit\n", self.Stats.Name)
+		color.Cyan("%s scores a critical hit for %d damage\n", self.Stats.Name)
 	}
 
 	dodgeThreshold := rand.Intn(100)
@@ -31,6 +31,7 @@ func (self *Character) Attack(other *Character) {
 		color.Cyan("%s dodges the hit\n", other.Stats.Name)
 	}
 	
+	color.Red("%s deals %d damage\n", self.Stats.Name, damage)
 	other.Stats.Health -= damage
 }
 
@@ -46,9 +47,6 @@ func (self *Character) Duel(other *Character) {
 
 		self.Attack(other)
 		other.Attack(self)
-
-		color.Cyan("%s Health: %d, ", self.Stats.Name, self.Stats.Health)
-		color.Cyan("%s Health: %d\n", other.Stats.Name, other.Stats.Health)
 	}
 
 	if (self.Stats.Health >= other.Stats.Health) {
