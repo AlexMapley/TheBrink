@@ -49,7 +49,7 @@ func main() {
 
 		if townConsole.Actions[option] == "Patrol the town" {
 			// level up player and bandit
-			player = characters.LevelUpPlayer(bandit)
+			player = characters.LevelUpPlayer(player)
 			bandit = characters.LevelUpBandit(bandit)
 		} 
 		if townConsole.Actions[option] == "Rest" {
