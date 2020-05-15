@@ -41,7 +41,7 @@ func main() {
 		option := townConsole.ChooseAction()
 
 		if option <= len(townConsole.Actions) {
-			color.Cyan("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
+			color.Cyan("You have chosen option %d, %s", option+1, townConsole.Actions[option])
 		}
 
 		if townConsole.Actions[option] == "Patrol the town" {
@@ -53,9 +53,11 @@ func main() {
 			player.Character.Duel(&bandit.Character)
 		} 
 		if townConsole.Actions[option] == "Rest" {
-			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
 			player.Character.Rest()
 			bandit.Character.Rest()
+
+			fmt.Println("Your stats have been restored")
+			player.Character.Stats.Display()
 		}
 
 		// Day ends
