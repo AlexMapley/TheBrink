@@ -17,19 +17,24 @@ func (self *Character) Attack(other *Character) {
 
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
 
-	criticalThreshold := rand.Intn(100)
-	// color.Cyan("Critical Threshold: %d\n", criticalThreshold)
+	// Dodge Chance
+	dodgeThreshold := rand.Intn(100)
+	if (other.Stats.DodgeValue() >= dodgeThreshold) {
+		damage = 0
+		color.Cyan("%s dodges the hit\n", other.Stats.Name)
+	}
+
+	// Critical Chance
+	criticalThreshold := rand.Intn(200)
 	if (self.Stats.CriticalValue() >= criticalThreshold) {
 		damage = damage*2
 		color.Cyan("%s scores a critical hit\n", self.Stats.Name)
 	}
 
-	dodgeThreshold := rand.Intn(100)
-	// color.Cyan("Dodge Threshold: %d\n", criticalThreshold)
-	if (other.Stats.DodgeValue() >= dodgeThreshold) {
-		damage = 0
-		color.Cyan("%s dodges the hit\n", other.Stats.Name)
-	}
+	// Damage Multiplier 
+	DamangeMultiplier := rand.Intn(100)
+	damage = int(damage * DamangeMultiplier)
+	damage = int(damage / 100)
 	
 	color.Red("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	other.Stats.Health -= damage
