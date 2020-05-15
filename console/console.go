@@ -29,7 +29,6 @@ func (console *Console) ChooseAction() int {
 	if e != nil {
 		logError(err)
 	}
-	// output := (input *
 
 	return input-1
 }

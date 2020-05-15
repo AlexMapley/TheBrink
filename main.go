@@ -14,6 +14,7 @@ import (
 )
 
 var DayCounter int
+var trim string = "-----------------------------------------\n"
 
 func main() {
 	metaGame := world.MetaGame{
@@ -36,10 +37,12 @@ func main() {
 
 		townConsole := console.NewTownConsole()
 
-		color.Cyan("Day %d in town, what do you?\n", metaGame.Day)
+		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
 		option := townConsole.ChooseAction()
 
-		color.Cyan("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
+		if option <= len(townConsole.Actions) {
+			color.Cyan("\n\nYou have chosen option %d, %s", option+1, townConsole.Actions[option])
+		}
 
 		if townConsole.Actions[option] == "Patrol the town" {
 			player.Character.Stats.Strength++
