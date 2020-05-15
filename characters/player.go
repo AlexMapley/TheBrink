@@ -23,6 +23,12 @@ func NewPlayer(name string, class string) Player {
 		Strength: 5,
 		Agility: 5,
 		Intelligence: 5,
+		LevelBonuses: LevelBonus {
+			Vitality: 1,
+			Strength: 1,
+			Agility: 1,
+			Intelligence: 1,
+		}
 	}
 	stats.MaxHealth = stats.DetermineMaxHealth()
 	stats.MaxFocus = stats.DetermineMaxFocus()

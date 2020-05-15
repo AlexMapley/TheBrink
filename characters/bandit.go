@@ -19,6 +19,12 @@ func NewBandit(name string) Bandit {
 		Strength: 3,
 		Agility: 6,
 		Intelligence: 4,
+		LevelBonuses: LevelBonus {
+			Vitality: 1,
+			Strength: 1,
+			Agility: 2,
+			Intelligence: 1,
+		}
 
 	}
 	stats.MaxHealth = stats.DetermineMaxHealth()
@@ -35,12 +41,14 @@ func LevelUpBandit(bandit Bandit) Bandit{
 	res.Character = bandit.Character
 
 
+	// increase level
+	res.Character.Stats.Level++
+
 	// increase core stats
-	res.Character.Stats.Level +=1
-	res.Character.Stats.Vitality +=1
-	res.Character.Stats.Strength +=1
-	res.Character.Stats.Agility +=2
-	res.Character.Stats.Intelligence +=1
+	res.Character.Stats.Vitality += bandit.Character.Stats.LevelBonuses.Vitality
+	res.Character.Stats.Strength += bandit.Character.Stats.LevelBonuses.Strength
+	res.Character.Stats.Agility += bandit.Character.Stats.LevelBonuses.Agility
+	res.Character.Stats.Intelligence += bandit.Character.Stats.LevelBonuses.Intelligence
 
 	// rest
 	res.Character.Rest()

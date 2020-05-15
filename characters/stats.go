@@ -23,6 +23,15 @@ type Stats struct {
 	Vitality     int
 	Agility      int
 	Intelligence int
+
+	LevelBonuses LevelBonuses
+}
+
+type LevelBonuses struct {
+	Strength     int
+	Vitality     int
+	Agility      int
+	Intelligence int
 }
 
 func (stats *Stats) Display() {
