@@ -39,7 +39,7 @@ func LevelUpBandit(bandit Bandit) Bandit{
 	res.Character.Stats.Vitality +=1
 	res.Character.Stats.Strength +=1
 	res.Character.Stats.Agility +=2
-	res.Character.Stats.Vitality +=1
+	res.Character.Stats.Intelligence +=1
 
 	// increase second tier stats
 	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()

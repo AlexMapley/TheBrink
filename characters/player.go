@@ -9,7 +9,7 @@ type Player struct {
 	Inventory inventory.Inventory
 }
 
-func NewPlayer(name string) Player {
+func NewPlayer(name string, class string) Player {
 
 	// Base layer
 	player := Player{}
@@ -47,7 +47,52 @@ func LevelUpPlayer(player Player) Player{
 	res.Character.Stats.Vitality +=1
 	res.Character.Stats.Strength +=1
 	res.Character.Stats.Agility +=1
-	res.Character.Stats.Vitality +=1
+	res.Character.Stats.Intelligence +=1
+
+	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()
+	res.Character.Stats.FocusMax = res.Character.Stats.DetermineMaxFocus()
+
+	return res
+}
+
+func Warrior(player Player) Player{
+	res := NewPlayer(player.Character.Stats.Name)
+	res.Character = player.Character
+
+	res.Character.Stats.Vitality +=4
+	res.Character.Stats.Strength +=5
+	res.Character.Stats.Agility +=3
+	res.Character.Stats.Intelligence +=3
+
+	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()
+	res.Character.Stats.FocusMax = res.Character.Stats.DetermineMaxFocus()
+
+	return res
+}
+
+func Rogue(player Player) Player{
+	res := NewPlayer(player.Character.Stats.Name)
+	res.Character = player.Character
+
+	res.Character.Stats.Vitality +=3
+	res.Character.Stats.Strength +=3
+	res.Character.Stats.Agility +=6
+	res.Character.Stats.Intelligence +=3
+
+	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()
+	res.Character.Stats.FocusMax = res.Character.Stats.DetermineMaxFocus()
+
+	return res
+}
+
+func Wizard(player Player) Player{
+	res := NewPlayer(player.Character.Stats.Name)
+	res.Character = player.Character
+
+	res.Character.Stats.Vitality +=2
+	res.Character.Stats.Strength +=2
+	res.Character.Stats.Agility +=3
+	res.Character.Stats.Intelligence +=8
 
 	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()
 	res.Character.Stats.FocusMax = res.Character.Stats.DetermineMaxFocus()

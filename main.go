@@ -55,6 +55,7 @@ func main() {
 		if townConsole.Actions[option] == "Rest" {
 			color.Cyan("\n\n\nFOOOOOOO\n\n\n")
 			player.Character.Rest()
+			bandit.Character.Rest()
 		}
 
 		fmt.Println("\n\nA strange bandit appears")
