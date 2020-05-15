@@ -56,3 +56,8 @@ func (stats *Stats) DetermineMaxHealth() int {
 func (stats *Stats) DetermineMaxFocus() int {
 	return stats.Intelligence * 10
 }
+
+func (stats *Stats) DisplayHealth() string {
+	return fmt.Sprintf("(%d/d)", stats.Health, stats.MaxHealth)
+}
+

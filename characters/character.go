@@ -31,7 +31,7 @@ func (self *Character) Attack(other *Character) {
 		color.Cyan("%s dodges the hit\n", other.Stats.Name)
 	}
 	
-	color.Red("%s deals %d damage\n", self.Stats.Name, damage)
+	color.Red("%s %s deals %d damage\n", self.Stats.Name, self.StatsDisplayHealth(), damage)
 	other.Stats.Health -= damage
 }
 
