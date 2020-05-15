@@ -31,7 +31,7 @@ func (self *Character) Attack(other *Character) {
 		color.Cyan("%s dodges the hit\n", other.Stats.Name)
 	}
 	
-	color.Red("%s %s deals %d damage\n", self.Stats.Name, self.StatsDisplayHealth(), damage)
+	color.Red("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	other.Stats.Health -= damage
 }
 
@@ -58,8 +58,8 @@ func (self *Character) Duel(other *Character) {
 
 // Rest
 func (self *Character) Rest() {
-	self.Stats.HealthMax = self.Stats.DetermineMaxHealth()
-	self.Stats.FocusMax = self.Stats.DetermineMaxFocus()
+	self.Stats.MaxHealth = self.Stats.DetermineMaxHealth()
+	self.Stats.MaxFocus = self.Stats.DetermineMaxFocus()
 
 	self.Stats.Health = self.Stats.DetermineMaxHealth()
 	self.Stats.Focus = self.Stats.DetermineMaxFocus()

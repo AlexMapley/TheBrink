@@ -24,10 +24,10 @@ func NewPlayer(name string, class string) Player {
 		Agility: 5,
 		Intelligence: 5,
 	}
-	stats.HealthMax = stats.DetermineMaxHealth()
-	stats.FocusMax = stats.DetermineMaxFocus()
-	stats.Health = stats.HealthMax
-	stats.Focus =  stats.FocusMax
+	stats.MaxHealth = stats.DetermineMaxHealth()
+	stats.MaxFocus = stats.DetermineMaxFocus()
+	stats.Health = stats.MaxHealth
+	stats.Focus =  stats.MaxFocus
 	player.Character.Stats = stats
 
 	// Set player class
