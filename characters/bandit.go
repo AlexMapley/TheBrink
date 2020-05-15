@@ -42,8 +42,8 @@ func LevelUpBandit(bandit Bandit) Bandit{
 	res.Character.Stats.Vitality +=1
 
 	// increase second tier stats
-	res.Character.Stats.HealthMax = stats.DetermineMaxHealth()
-	res.Character.Stats.FocusMax = stats.DetermineMaxFocus()
+	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()
+	res.Character.Stats.FocusMax = res.Character.Stats.DetermineMaxFocus()
 
 	return res
 }
