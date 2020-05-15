@@ -18,7 +18,7 @@ func (self *Character) Attack(other *Character) {
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
 
 	// Dodge Chance
-	dodgeThreshold := rand.Intn(100)
+	dodgeThreshold := rand.Intn(200)
 	if (other.Stats.DodgeValue() >= dodgeThreshold) {
 		damage = 0
 		color.Cyan("%s dodges the hit\n", other.Stats.Name)
