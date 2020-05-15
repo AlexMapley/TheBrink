@@ -20,10 +20,9 @@ func NewBandit(name string) Bandit {
 		Intelligence: 4,
 
 	}
-	stats.HeallthMax = stats.HeallthMaxValue()
-	stats.FocusMax = stats.FocusMaxValue()
-	stats.FocusMax = stats.FocusMaxValue()
-	stats.Health = stats.HeallthMax
+	stats.HealthMax = stats.DetermineHealthMax()
+	stats.FocusMax = stats.DetermineMaxFocus()
+	stats.Health = stats.HealthMax
 	stats.Focus = stats.FocusMax
 	bandit.Character.Stats = stats
 

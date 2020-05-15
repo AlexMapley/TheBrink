@@ -27,7 +27,7 @@ func (stats *Stats) Display() {
 		stats.Name,
 		stats.Level,
 		stats.Health,
-		stats.HeallthMax,
+		stats.HealthMax,
 		stats.FocusMax,
 		stats.Focus,
 		stats.Vitality,
