@@ -40,7 +40,7 @@ func NewPlayer(name string) Player {
 
 
 func LevelMultiplier(player Player) Player{
-	res = NewPlayer(player.stats.Name)
+	res := NewPlayer(player.Character.Stats.Name)
 	res.Character = player.Character
 
 	res.Character.Stats.Level +=1

@@ -30,7 +30,7 @@ func NewBandit(name string) Bandit {
 }
 
 func LevelMultiplier(bandit Bandit) Bandit{
-	res = NewBandit(bandit.stats.Name)
+	res := NewBandit(bandit.Character.Stats.Name)
 	res.Character = bandit.Character
 
 	res.Character.Stats.Level +=1
