@@ -62,12 +62,12 @@ func LevelUpPlayer(player Player) Player{
 	res.Character = player.Character
 
 	res.Character.Stats.Level +=1
-	
+
 	// increase core stats
-	res.Character.Stats.Vitality += bandit.Character.Stats.LevelBonuses.Vitality
-	res.Character.Stats.Strength += bandit.Character.Stats.LevelBonuses.Strength
-	res.Character.Stats.Agility += bandit.Character.Stats.LevelBonuses.Agility
-	res.Character.Stats.Intelligence += bandit.Character.Stats.LevelBonuses.Intelligence
+	res.Character.Stats.Vitality += player.Character.Stats.LevelBonuses.Vitality
+	res.Character.Stats.Strength += player.Character.Stats.LevelBonuses.Strength
+	res.Character.Stats.Agility += player.Character.Stats.LevelBonuses.Agility
+	res.Character.Stats.Intelligence += player.Character.Stats.LevelBonuses.Intelligence
 	
 
 	// rest
