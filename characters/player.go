@@ -30,6 +30,18 @@ func NewPlayer(name string, class string) Player {
 	stats.Focus =  stats.FocusMax
 	player.Character.Stats = stats
 
+	// Set player class
+	switch class {
+	case "warrior":
+		player.Character = Warrior(player.Character)
+	case "rogue":
+		player.Character = Rogue(player.Character)
+	case "wizard":
+		player.Character = Wizard(player.Character)
+
+	}
+	stats.Cl
+
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {
 		Gold: 100,
@@ -59,6 +71,8 @@ func Warrior(player Player) Player{
 	res := NewPlayer(player.Character.Stats.Name)
 	res.Character = player.Character
 
+	res.Character.Stats.Class = "Warrior"
+
 	res.Character.Stats.Vitality +=4
 	res.Character.Stats.Strength +=5
 	res.Character.Stats.Agility +=3
@@ -74,6 +88,8 @@ func Rogue(player Player) Player{
 	res := NewPlayer(player.Character.Stats.Name)
 	res.Character = player.Character
 
+	res.Character.Stats.Class = "Rogue"
+
 	res.Character.Stats.Vitality +=3
 	res.Character.Stats.Strength +=3
 	res.Character.Stats.Agility +=6
@@ -88,6 +104,8 @@ func Rogue(player Player) Player{
 func Wizard(player Player) Player{
 	res := NewPlayer(player.Character.Stats.Name)
 	res.Character = player.Character
+
+	res.Character.Stats.Class = "Wizard"
 
 	res.Character.Stats.Vitality +=2
 	res.Character.Stats.Strength +=2

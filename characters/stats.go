@@ -6,6 +6,7 @@ import (
 
 type Stats struct {
 	Name string
+	Class string
 	Level int
 
 	XPCap int
