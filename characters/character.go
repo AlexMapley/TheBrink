@@ -45,8 +45,13 @@ func (self *Character) Duel(other *Character) {
 
 		time.Sleep(100 * time.Millisecond)
 
+		// self Attack
 		self.Attack(other)
-		other.Attack(self)
+
+		// other Attack
+		if (other.Stats.Health  > 0) {
+			other.Attack(self)
+		}
 	}
 
 	if (self.Stats.Health >= other.Stats.Health) {
