@@ -51,6 +51,9 @@ func main() {
 
 			fmt.Println("\n\nA strange bandit appears")
 			player.Character.Duel(&bandit.Character)
+
+			// reset bandit
+			bandit.Character.Rest()
 		} 
 		if townConsole.Actions[option] == "Stats" {
 			player.Character.Stats.Display()

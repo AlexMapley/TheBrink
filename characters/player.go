@@ -61,8 +61,8 @@ func LevelUpPlayer(player Player) Player{
 	res.Character.Stats.Agility +=1
 	res.Character.Stats.Intelligence +=1
 
-	res.Character.Stats.HealthMax = res.Character.Stats.DetermineMaxHealth()
-	res.Character.Stats.FocusMax = res.Character.Stats.DetermineMaxFocus()
+	// rest
+	res.Character.Rest()
 
 	return res
 }
