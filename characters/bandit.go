@@ -20,7 +20,7 @@ func NewBandit(name string) Bandit {
 		Intelligence: 4,
 
 	}
-	stats.HealthMax = stats.DetermineHealthMax()
+	stats.HealthMax = stats.DetermineMaxHealth()
 	stats.FocusMax = stats.DetermineMaxFocus()
 	stats.Health = stats.HealthMax
 	stats.Focus = stats.FocusMax
@@ -29,10 +29,15 @@ func NewBandit(name string) Bandit {
 	return bandit
 }
 
-func LevelMultiplier(stats *Stats) {
-	stats.Level +=1
-	stats.Vilaity +=1
-	stats.Strength +=1
-	stats.Agility +=2
-	stats.Vilaity +=1
+func LevelMultiplier(bandit Bandit) Bandit{
+	res = NewBandit(bandit.stats.Name)
+	res.Character = bandit.Character
+
+	res.Character.Stats.Level +=1
+	res.Character.Stats.Vilaity +=1
+	res.Character.Stats.Strength +=1
+	res.Character.Stats.Agility +=2
+	res.Character.Stats.Vilaity +=1
+
+	return res
 }

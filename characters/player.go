@@ -24,7 +24,7 @@ func NewPlayer(name string) Player {
 		Agility: 5,
 		Intelligence: 5,
 	}
-	stats.HealthMax = stats.DetermineHealthMax()
+	stats.HealthMax = stats.DetermineMaxHealth()
 	stats.FocusMax = stats.DetermineMaxFocus()
 	stats.Health = stats.HealthMax
 	stats.Focus =  stats.FocusMax

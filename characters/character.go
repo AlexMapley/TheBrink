@@ -60,9 +60,9 @@ func (self *Character) Duel(other *Character) {
 
 // Rest
 func (self *Character) Rest() {
-	self.Stats.HealthMax = self.Stats.DetermineHealthMax()
+	self.Stats.HealthMax = self.Stats.DetermineMaxHealth()
 	self.Stats.FocusMax = self.Stats.DetermineMaxFocus()
 
-	self.Stats.Health = self.Stats.DetermineHealthMax()
+	self.Stats.Health = self.Stats.DetermineMaxHealth()
 	self.Stats.Focus = self.Stats.DetermineMaxFocus()
 }

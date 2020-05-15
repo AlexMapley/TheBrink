@@ -47,10 +47,10 @@ func (stats *Stats) DodgeValue() int {
 	return stats.Agility * 3
 }
 
-func (stats *Stats) HealthValue() int {
+func (stats *Stats) DetermineMaxHealth() int {
 	return (stats.Vitality * 8) + (stats.Strength * 2)
 }
 
-func (stats *Stats) FocusValue() int {
+func (stats *Stats) DetermineMaxFocus() int {
 	return stats.Intelligence * 10
 }
