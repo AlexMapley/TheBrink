@@ -28,7 +28,7 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	player := characters.NewPlayer(name)
+	player := characters.NewPlayer(name, "rogue")
 
 	// declare game enemies
 	bandit := characters.NewBandit("Mel")

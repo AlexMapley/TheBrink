@@ -12,6 +12,7 @@ func NewBandit(name string) Bandit {
 	// Set Stats
 	stats := Stats{
 		Name: name,
+		Class: "Vagabond",
 		Level: 1,
 		XPCap: 50,
 		Vitality: 3,
