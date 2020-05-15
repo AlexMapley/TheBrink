@@ -19,13 +19,12 @@ func NewBandit(name string) Bandit {
 		Strength: 3,
 		Agility: 6,
 		Intelligence: 4,
-		LevelBonuses: LevelBonus {
+		LevelBonuses: LevelBonuses {
 			Vitality: 1,
 			Strength: 1,
-			Agility: 2,
+			Agility: 3,
 			Intelligence: 1,
-		}
-
+		},
 	}
 	stats.MaxHealth = stats.DetermineMaxHealth()
 	stats.MaxFocus = stats.DetermineMaxFocus()

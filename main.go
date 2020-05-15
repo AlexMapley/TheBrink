@@ -43,7 +43,7 @@ func main() {
 		if option <= len(townConsole.Actions) {
 			color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
 		}
-
+		
 		if townConsole.Actions[option] == "Patrol the town" {
 			// level up player and bandit
 			player = characters.LevelUpPlayer(player)

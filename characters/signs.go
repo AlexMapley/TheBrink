@@ -13,7 +13,7 @@ func Warrior(character Character) Character{
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Vitality+=1
-	res.Stats.LevelBonuses.Stength+=1
+	res.Stats.LevelBonuses.Strength+=1
 
 	res.Stats.MaxHealth = res.Stats.DetermineMaxHealth()
 	res.Stats.MaxFocus = res.Stats.DetermineMaxFocus()
@@ -34,7 +34,7 @@ func Rogue(character Character) Character{
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Agility+=1
-	res.Stats.LevelBonuses.Stength+=1
+	res.Stats.LevelBonuses.Strength+=1
 
 	res.Stats.MaxHealth = res.Stats.DetermineMaxHealth()
 	res.Stats.MaxFocus = res.Stats.DetermineMaxFocus()
