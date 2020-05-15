@@ -39,7 +39,7 @@ func NewPlayer(name string) Player {
 }
 
 
-func LevelMultiplier(player Player) Player{
+func LevelUpBanditPlayer(player Player) Player{
 	res := NewPlayer(player.Character.Stats.Name)
 	res.Character = player.Character
 
