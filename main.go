@@ -52,12 +52,13 @@ func main() {
 			fmt.Println("\n\nA strange bandit appears")
 			player.Character.Duel(&bandit.Character)
 		} 
+		if townConsole.Actions[option] == "Stats" {
+			player.Character.Stats.Display()
+		}
 		if townConsole.Actions[option] == "Rest" {
 			player.Character.Rest()
 			bandit.Character.Rest()
-
 			fmt.Println("Your stats have been restored")
-			player.Character.Stats.Display()
 		}
 
 		// Day ends

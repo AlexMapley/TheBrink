@@ -21,7 +21,7 @@ func (self *Character) Attack(other *Character) {
 	// color.Cyan("Critical Threshold: %d\n", criticalThreshold)
 	if (self.Stats.CriticalValue() >= criticalThreshold) {
 		damage = damage*2
-		color.Cyan("%s scores a critical hit for %d damage\n", self.Stats.Name)
+		color.Cyan("%s scores a critical hit\n", self.Stats.Name)
 	}
 
 	dodgeThreshold := rand.Intn(100)
