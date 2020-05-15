@@ -30,6 +30,9 @@ func main() {
 
 	player := characters.NewPlayer(name)
 
+	// declare game enemies
+	bandit := characters.NewBandit("Mel")
+
 	// main game loop
 	for (player.Character.Stats.Health >= 0) {
 		fmt.Println("Your Stats:")
@@ -56,12 +59,15 @@ func main() {
 
 		fmt.Println("\n\nA strange bandit appears")
 
-		bandit := characters.NewBandit("Mel")
+		
 
 		player.Character.Duel(&bandit.Character)
 
 		// Day ends
 		metaGame.Day++
+
+		// level up enemies
+		bandit = LevelUpBandit(bandit)
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, metaGame.Day)
