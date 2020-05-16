@@ -40,10 +40,8 @@ func main() {
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
 
 
-		option = 1000000
-
-		for option <= len(townConsole.Actions) {
-			option := townConsole.ChooseAction()
+		for {
+			option = townConsole.ChooseAction()
 
 			if option <= len(townConsole.Actions) {
 				color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
@@ -58,15 +56,16 @@ func main() {
 	
 					// reset bandit
 					bandit.Character.Rest()
+					break
 				} 
 				if townConsole.Actions[option] == "Stats" {
 					player.Character.Stats.Display()
-					continue
 				}
 				if townConsole.Actions[option] == "Rest" {
 					player.Character.Rest()
 					bandit.Character.Rest()
 					fmt.Println("Your stats have been restored")
+					break
 				}
 			}
 		}
