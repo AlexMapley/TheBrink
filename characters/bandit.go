@@ -28,6 +28,12 @@ func NewBandit(name string) Bandit {
 	stats.Focus = stats.MaxFocus
 	bandit.Character.Stats = stats
 
+	// Set Bandit Inventory
+	bandit.Inventory = inventory.Inventory {
+		Owner: bandit.Character.Stats.Name,
+		Gold: 25,
+	}
+
 	return bandit
 }
 
