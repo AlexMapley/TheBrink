@@ -27,12 +27,12 @@ func (console *Console) ChooseAction() int {
 
 	input, e := strconv.Atoi(inputstr)
 	if e != nil {
-		logError(err)
+		return -1
 	}
 
 	return input-1
 }
 
 func logError(err error) {
-	color.Cyan("\n\n-------------------\nEncountered Error: %s\n-------------------\n\n", err.Error())
+	color.Red("\n\n-------------------\nEncountered Error: %s\n-------------------\n\n", err.Error())
 }

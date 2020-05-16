@@ -41,9 +41,9 @@ func main() {
 
 
 		for {
-			option = townConsole.ChooseAction()
+			option := townConsole.ChooseAction()
 
-			if option <= len(townConsole.Actions) {
+			if option > 0 && option <= len(townConsole.Actions) {
 				color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
 
 				if townConsole.Actions[option] == "Patrol the town" {
