@@ -30,7 +30,7 @@ func (console *Console) ChooseAction() int {
 		return -1
 	}
 
-	return input-1
+	return input
 }
 
 func logError(err error) {

@@ -50,7 +50,7 @@ func NewPlayer(name string, class string) Player {
 
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {
-		Owner: player.Stats.Name,
+		Owner: player.Character.Stats.Name,
 		Gold: 100,
 	}
 

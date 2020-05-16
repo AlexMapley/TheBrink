@@ -1,7 +1,12 @@
 package inventory
 
+import (
+	"github.com/fatih/color"
+)
+
 func (inventory *Inventory) Display() {
-	color.Cyan("\n-------------\n%s's Inventory\n-------------\nLevel: %d\bGold: %s\n\n",
-		Inventory.Gold,
+	color.Yellow("\n-------------\n%s's Inventory\n-------------\nGold: %d\n\n",
+		inventory.Owner,
+		inventory.Gold,
 	)
 }

@@ -2,8 +2,6 @@ package characters
 
 import (
 	"fmt"
-
-	"github.com/fatih/color"
 )
 
 type Stats struct {

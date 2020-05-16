@@ -1,5 +1,9 @@
 package characters
 
+import (
+	"github.com/fatih/color"
+)
+
 func (stats *Stats) Display() {
 	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nClass: %s\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\n\n",
 		stats.Name,

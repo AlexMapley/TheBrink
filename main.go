@@ -44,8 +44,14 @@ func main() {
 			option := townConsole.ChooseAction()
 
 			if option > 0 && option <= len(townConsole.Actions) {
-				color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
+				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option])
 
+				if townConsole.Actions[option] == "Stats" {
+					player.Character.Stats.Display()
+				}
+				if townConsole.Actions[option-1] == "Inventory" {
+					player.Inventory.Display()
+				}
 				if townConsole.Actions[option] == "Patrol the town" {
 					// level up player and bandit
 					player = characters.LevelUpPlayer(player)
@@ -57,11 +63,8 @@ func main() {
 					// reset bandit
 					bandit.Character.Rest()
 					break
-				} 
-				if townConsole.Actions[option] == "Stats" {
-					player.Character.Stats.Display()
 				}
-				if townConsole.Actions[option] == "Rest" {
+				if townConsole.Actions[option-1] == "Rest" {
 					player.Character.Rest()
 					bandit.Character.Rest()
 					fmt.Println("Your stats have been restored")
