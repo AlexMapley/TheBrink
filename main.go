@@ -44,15 +44,15 @@ func main() {
 			option := townConsole.ChooseAction()
 
 			if option > 0 && option <= len(townConsole.Actions) {
-				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option])
+				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
 
-				if townConsole.Actions[option] == "Stats" {
+				if townConsole.Actions[option-1] == "Stats" {
 					player.Character.Stats.Display()
 				}
 				if townConsole.Actions[option-1] == "Inventory" {
 					player.Inventory.Display()
 				}
-				if townConsole.Actions[option] == "Patrol the town" {
+				if townConsole.Actions[option-1] == "Patrol the town" {
 					// level up player and bandit
 					player = characters.LevelUpPlayer(player)
 					bandit = characters.LevelUpBandit(bandit)
