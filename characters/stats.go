@@ -4,36 +4,6 @@ import (
 	"fmt"
 )
 
-type Stats struct {
-	Name string
-	Class string
-	Level int
-
-	XPCap int
-
-
-	MaxHealth int
-	MaxFocus   int
-	Health int
-	Focus int
-
-	Strength     int
-	Vitality     int
-	Agility      int
-	Intelligence int
-
-	LevelBonuses LevelBonuses
-}
-
-type LevelBonuses struct {
-	Strength     int
-	Vitality     int
-	Agility      int
-	Intelligence int
-}
-
-
-
 func (stats Stats) CriticalValue() int {
 	return stats.Agility * 2
 }

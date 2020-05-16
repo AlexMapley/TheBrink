@@ -28,7 +28,7 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	player := characters.NewPlayer(name, "wizard")
+	player := characters.NewPlayer(name, "rogue")
 
 	// declare game enemies
 	bandit := characters.NewBandit("Mel")
@@ -53,21 +53,28 @@ func main() {
 					player.Inventory.Display()
 				}
 				if townConsole.Actions[option-1] == "Patrol the town" {
-					// level up player and bandit
-					player = characters.LevelUpPlayer(player)
-					bandit = characters.LevelUpBandit(bandit)
-	
 					fmt.Println("\n\nA strange bandit appears")
 					player.Character.Duel(&bandit.Character)
-	
+					
+					// loot bandit if won duel
+					if (player.Character.Stats.Health >= 0) {
+						player.Inventory.Loot(bandit.Inventory)
+					}
 					// reset bandit
 					bandit.Character.Rest()
 					break
 				}
 				if townConsole.Actions[option-1] == "Rest" {
 					player.Character.Rest()
-					bandit.Character.Rest()
 					fmt.Println("Your stats have been restored")
+					break
+				}
+				if townConsole.Actions[option-1] == "Level Up" {
+					// level up player and bandit
+					player = characters.LevelUpPlayer(player)
+					bandit = characters.LevelUpBandit(bandit)
+					player.Character.Rest()
+					bandit.Character.Rest()
 					break
 				}
 			}
