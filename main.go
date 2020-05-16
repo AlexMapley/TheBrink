@@ -28,7 +28,7 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	player := characters.NewPlayer(name, "warrior")
+	player := characters.NewPlayer(name, "wizard")
 
 	// declare game enemies
 	bandit := characters.NewBandit("Mel")
@@ -38,31 +38,37 @@ func main() {
 		townConsole := console.NewTownConsole()
 
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
-		option := townConsole.ChooseAction()
 
-		if option <= len(townConsole.Actions) {
-			color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
-		}
 
-		if townConsole.Actions[option] == "Patrol the town" {
-			// level up player and bandit
-			player = characters.LevelUpPlayer(player)
-			bandit = characters.LevelUpBandit(bandit)
+		option = 1000000
 
-			fmt.Println("\n\nA strange bandit appears")
-			player.Character.Duel(&bandit.Character)
+		for option <= len(townConsole.Actions) {
+			option := townConsole.ChooseAction()
 
-			// reset bandit
-			bandit.Character.Rest()
-		} 
-		if townConsole.Actions[option] == "Stats" {
-			player.Character.Stats.Display()
-			continue
-		}
-		if townConsole.Actions[option] == "Rest" {
-			player.Character.Rest()
-			bandit.Character.Rest()
-			fmt.Println("Your stats have been restored")
+			if option <= len(townConsole.Actions) {
+				color.Yellow("You have chosen option %d, %s", option+1, townConsole.Actions[option])
+
+				if townConsole.Actions[option] == "Patrol the town" {
+					// level up player and bandit
+					player = characters.LevelUpPlayer(player)
+					bandit = characters.LevelUpBandit(bandit)
+	
+					fmt.Println("\n\nA strange bandit appears")
+					player.Character.Duel(&bandit.Character)
+	
+					// reset bandit
+					bandit.Character.Rest()
+				} 
+				if townConsole.Actions[option] == "Stats" {
+					player.Character.Stats.Display()
+					continue
+				}
+				if townConsole.Actions[option] == "Rest" {
+					player.Character.Rest()
+					bandit.Character.Rest()
+					fmt.Println("Your stats have been restored")
+				}
+			}
 		}
 
 		// Day ends
