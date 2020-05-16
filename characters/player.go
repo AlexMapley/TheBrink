@@ -4,11 +4,6 @@ import (
 	"the_brink/inventory"
 )
 
-type Player struct {
-	Character Character
-	Inventory inventory.Inventory
-}
-
 func NewPlayer(name string, class string) Player {
 
 	// Base layer

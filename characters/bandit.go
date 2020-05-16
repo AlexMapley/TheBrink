@@ -1,9 +1,5 @@
 package characters
 
-type Bandit struct {
-	Character Character
-}
-
 func NewBandit(name string) Bandit {
 
 	// Base Layer

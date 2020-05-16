@@ -1,16 +1,5 @@
 package characters
 
-import (
-	"time"
-	"math/rand"
-
-	"github.com/fatih/color"
-)
-
-type Character struct {
-	Stats Stats
-}
-
 // Attack
 func (self *Character) Attack(other *Character) {
 	rand.Seed(time.Now().UnixNano())
