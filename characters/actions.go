@@ -1,5 +1,9 @@
 package characters
 
+import (
+	"time"
+	"math/rand"
+)
 // Attack
 func (self *Character) Attack(other *Character) {
 	rand.Seed(time.Now().UnixNano())

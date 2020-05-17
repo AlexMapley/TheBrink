@@ -1,9 +1,6 @@
 package characters
 
 import (
-	"time"
-	"math/rand"
-
 	"github.com/fatih/color"
 )
 
