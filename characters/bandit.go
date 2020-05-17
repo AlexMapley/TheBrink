@@ -39,7 +39,7 @@ func NewBandit(name string, level int) Bandit {
 			},
 			Skill {
 				Name: "Stun",
-				Cost: 30,
+				Cost: 45,
 				CoolDownMax: 7,
 				CoolDown: 0,
 			},
