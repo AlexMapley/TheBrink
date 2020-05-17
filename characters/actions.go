@@ -46,13 +46,12 @@ func (self *Character) Duel(other *Character) {
 		// self action
 		chosenSkill := self.ChooseSkill()
 		switch chosenSkill.Name {
-		case "BasicAttack":
-			self.BasicAttack(other)
 		case "DoubleStrike":
 			self.DoubleStrike(other)
-		}
 		case "LightningBolt":
 			self.LightningBolt(other)
+		default:
+			self.BasicAttack(other)
 		}
 		// self cooldowns
 		for i, skill := range self.Stats.SkillSlots {
@@ -68,7 +67,7 @@ func (self *Character) Duel(other *Character) {
 		if (other.Stats.Health  > 0) {
 			chosenSkill := other.ChooseSkill()
 			switch chosenSkill.Name {
-			case "BasicAttack":
+			default:
 				other.BasicAttack(self)
 			}
 			// other cooldowns

@@ -67,7 +67,7 @@ func (self *Character) DoubleStrike(other *Character) {
 
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("%s uses LightningBolt\n", self.Stats.Name)
-	damage = int(float*self.Stats.Intelligence) * 3.5)
+	damage := int(float64(self.Stats.Intelligence) * 3.5)
 
 	color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 }
