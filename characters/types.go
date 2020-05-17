@@ -35,6 +35,8 @@ type LevelBonuses struct {
 	Vitality     int
 	Agility      int
 	Intelligence int
+	
+	Expertise int
 }
 
 // Character Types

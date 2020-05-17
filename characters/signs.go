@@ -15,7 +15,7 @@ func Warrior(character Character) Character{
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Vitality += 1
 	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.Expertise += 1
+	res.Stats.LevelBonuses.Expertise += 2
 
 	return res
 }
@@ -35,7 +35,7 @@ func Rogue(character Character) Character{
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Agility+=1
 	res.Stats.LevelBonuses.Strength+=1
-	res.Stats.Expertise += 1
+	res.Stats.LevelBonuses.Expertise += 1
 
 	return res
 }
@@ -54,7 +54,7 @@ func Vagabond(character Character) Character{
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Agility+=2
-	res.Stats.Expertise += 1
+	res.Stats.LevelBonuses.Expertise += 1
 
 	return res
 }
@@ -72,7 +72,7 @@ func Wizard(character Character) Character{
 	res.Stats.Expertise += 2
 
 	// Levelling Stat Boosts
-	res.Stats.LevelBonuses.Intelligence+=1
+	res.Stats.LevelBonuses.Intelligence+=2
 	res.Stats.LevelBonuses.Vitality+=1
 
 	return res
