@@ -13,7 +13,6 @@ func NewPlayer(name string, class string) Player {
 	stats := Stats{
 		Name: name,
 		Level: 1,
-		XPCap: 100,
 		Vitality: 5,
 		Strength: 5,
 		Agility: 5,

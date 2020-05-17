@@ -1,5 +1,9 @@
 package characters
 
+import (
+	"the_brink/inventory"
+)
+
 func NewBandit(name string) Bandit {
 
 	// Base Layer
@@ -10,7 +14,6 @@ func NewBandit(name string) Bandit {
 		Name: name,
 		Class: "Vagabond",
 		Level: 1,
-		XPCap: 50,
 		Vitality: 3,
 		Strength: 3,
 		Agility: 6,

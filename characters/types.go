@@ -1,7 +1,8 @@
 package characters
 
+
 import (
-	"github.com/fatih/color"
+	"the_brink/inventory"
 )
 
 // Core Structs

@@ -3,6 +3,8 @@ package characters
 import (
 	"time"
 	"math/rand"
+
+	"github.com/fatih/color"
 )
 // Attack
 func (self *Character) Attack(other *Character) {
