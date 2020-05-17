@@ -28,6 +28,7 @@ type Stats struct {
 
 	// Bonuses
 	Expertise int
+	Block int
 }
 
 type LevelBonuses struct {
@@ -35,8 +36,9 @@ type LevelBonuses struct {
 	Vitality     int
 	Agility      int
 	Intelligence int
-	
+
 	Expertise int
+	Block int
 }
 
 // Character Types

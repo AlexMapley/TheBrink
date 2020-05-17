@@ -12,6 +12,10 @@ func (stats Stats) DodgeValue() int {
 	return stats.Agility * 3
 }
 
+func (stats Stats) BlockValue() int {
+	return stats.Strength * 2 + stats.Block
+}
+
 func (stats Stats) AccuracyRating() int {
 	return (stats.Agility + stats.Expertise)
 }
