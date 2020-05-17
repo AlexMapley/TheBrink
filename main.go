@@ -33,7 +33,7 @@ func main() {
 
 
 	// main game loop
-	for (player.Character.Stats.Health >= 0) {
+	for (player.Character.Stats.Health > 0) {
 		townConsole := console.NewTownConsole()
 
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
@@ -60,7 +60,7 @@ func main() {
 					player.Character.Duel(&bandit.Character)
 					
 					// loot bandit if won duel
-					if (player.Character.Stats.Health >= 0) {
+					if (player.Character.Stats.Health > 0) {
 						player.Inventory.Loot(&bandit.Inventory)
 					}
 					// reset bandit
