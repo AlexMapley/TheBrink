@@ -39,23 +39,9 @@ func NewBandit(name string, level int) Bandit {
 
 	// Level Up Bandit
 	for i := 1; i < level; i++ {
-		bandit.LevelUp()
+		bandit.Character.LevelUp()
 	}
 
 	return bandit
 }
 
-func (bandit *Bandit) LevelUpBandit() {
-
-	// increase level
-	bandit.Character.Stats.Level++
-
-	// increase core stats
-	bandit.Character.Stats.Vitality += bandit.Character.Stats.LevelBonuses.Vitality
-	bandit.Character.Stats.Strength += bandit.Character.Stats.LevelBonuses.Strength
-	bandit.Character.Stats.Agility += bandit.Character.Stats.LevelBonuses.Agility
-	bandit.Character.Stats.Intelligence += bandit.Character.Stats.LevelBonuses.Intelligence
-
-	// rest
-	bandit.Character.Rest()
-}

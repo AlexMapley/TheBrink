@@ -74,7 +74,7 @@ func main() {
 				}
 				if townConsole.Actions[option-1] == "Level Up" {
 					// level up player and bandit
-					player = player.LevelUp()
+					player.Character.LevelUp()
 
 					player.Character.Rest()
 
