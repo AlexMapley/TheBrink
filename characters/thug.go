@@ -12,19 +12,19 @@ func NewThug(name string, level int) Thug {
 			Status: Status{
 				Stunned: 0,
 			},
-		},
-		SkillSlots: []Skill{
-			Skill {
-				Name: "BasicAttack",
-				Cost: 0,
-				CoolDownMax: 1,
-				CoolDown: 0,
-			},
-			Skill {
-				Name: "Stun",
-				Cost: 45,
-				CoolDownMax: 7,
-				CoolDown: 0,
+			SkillSlots: []Skill{
+				Skill {
+					Name: "BasicAttack",
+					Cost: 0,
+					CoolDownMax: 1,
+					CoolDown: 0,
+				},
+				Skill {
+					Name: "Stun",
+					Cost: 45,
+					CoolDownMax: 7,
+					CoolDown: 0,
+				},
 			},
 		},
 	}

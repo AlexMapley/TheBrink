@@ -12,13 +12,13 @@ func NewPlayer(name string, class string) Player {
 			Status: Status{
 				Stunned: 0,
 			},
-		},
-		SkillSlots: []Skill{
-			Skill{
-				Name: "BasicAttack",
-				Cost: 0,
-				CoolDownMax: 1,
-				CoolDown: 0,
+			SkillSlots: []Skill{
+				Skill{
+					Name: "BasicAttack",
+					Cost: 0,
+					CoolDownMax: 1,
+					CoolDown: 0,
+				},
 			},
 		},
 	}
