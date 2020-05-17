@@ -38,11 +38,11 @@ func (self *Character) Attack(other *Character) {
 	
 	// Event Cases
 	if dodged {
-		color.Red("%s %s deals %d damage //DODGE\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if critical {
-		color.Red("%s %s deals %d damage //CRIT\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.HiRed("%s %s deals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.Red("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.White("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 	other.Stats.Health -= damage
 }
