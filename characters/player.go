@@ -24,6 +24,7 @@ func NewPlayer(name string, class string) Player {
 			Intelligence: 1,
 		},
 	}
+	player.Character.Stats = stats
 
 	// Set player class
 	switch class {
@@ -41,5 +42,6 @@ func NewPlayer(name string, class string) Player {
 		Gold: 100,
 	}
 
+	player.Character.Rest()
 	return player
 }

@@ -21,8 +21,8 @@ func NewBandit(name string, level int) Bandit {
 		LevelBonuses: LevelBonuses {
 			Vitality: 1,
 			Strength: 1,
-			Agility: 3,
-			Intelligence: 1,
+			Agility: 1,
+			Intelligence: 0,
 		},
 	}
 	bandit.Character.Stats = stats
@@ -41,7 +41,7 @@ func NewBandit(name string, level int) Bandit {
 		bandit.Character.LevelUp()
 	}
 
-
+	bandit.Character.Rest()
 	return bandit
 }
 
