@@ -19,7 +19,7 @@ docker-compose up
 
 ## Screenshots
 ![Intro](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/intro.png)
-![Stats](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/stats1.png)
-![MoreStats](https://github.com/AlexMapleythe_brink/blob/master/assets/screenshots/stats2.png)
+![Stats1](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/stats1.png)
+![Stats2](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/stats2.png)
 ![Inventory](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/inventory.png)
 ![Battle](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/battle.png)
