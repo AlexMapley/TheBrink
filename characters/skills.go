@@ -60,8 +60,8 @@ func (self *Character) BasicAttack(other *Character) {
 }
 
 
-// func (self *Character) BasicAttack(other *Character) {
-
-// func DoubleStrike() damage {
-
-// }
+func (self *Character) DoubleStrike(other *Character) {
+	color.HiGreen("\n-------------\n%s uses Double Strike\n-------------\n", self.Stats.Name)
+	self.BasicAttack(other)
+	self.BasicAttack(other)
+}

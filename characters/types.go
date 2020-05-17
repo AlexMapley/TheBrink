@@ -33,7 +33,7 @@ type Stats struct {
 	Focus int
 
 	// Skills
-	SkillSlots []SkillSlot
+	SkillSlots []Skill
 }
 
 // Level Bonsuses

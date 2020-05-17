@@ -24,10 +24,16 @@ func NewPlayer(name string, class string) Player {
 			Intelligence: 1,
 		},
 		SkillSlots: []Skill{
-			SkillSlot {
-				Name: "basic attack",
+			Skill{
+				Name: "BasicAttack",
 				Cost: 0,
 				CoolDown: 1,
+				CoolDownRemaining: 0,
+			},
+			Skill{
+				Name: "DoubleStrike",
+				Cost: 50,
+				CoolDown: 5,
 				CoolDownRemaining: 0,
 			},
 		},

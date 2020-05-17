@@ -44,21 +44,41 @@ func (self *Character) Duel(other *Character) {
 		time.Sleep(100 * time.Millisecond)
 
 		// self action
-		skill := self.ChooseSkill()
-		switch skill.Name {
+		chosenSkill := self.ChooseSkill()
+		switch chosenSkill.Name {
 		case "BasicAttack":
 			self.BasicAttack(other)
+		case "DoubleStrike":
+			self.DoubleStrike(other)
 		}
-
+		// self cooldowns
+		for skill in self.Stats.SkillSlots {
+			if skill.CoolDownRemaining > 0 {
+				skill.CoolDownRemaining--
+			}
+			if skill.Name == chosenSkill.Name {
+				skill.CoolDownRemaining = skill.Cooldown
+			}
+		}
 
 		// other action
 		if (other.Stats.Health  > 0) {
 			skill = other.ChooseSkill()
 			switch skill.Name {
 			case "BasicAttack":
-				self.BasicAttack(other)
+				other.BasicAttack(self)
 			}
 		}
+		// other cooldowns
+		for skill in other.Stats.SkillSlots {
+			if skill.CoolDownRemaining > 0 {
+				skill.CoolDownRemaining--
+			}
+			if skill.Name == chosenSkill.Name {
+				skill.CoolDownRemaining = skill.Cooldown
+			}
+		}
+		
 	}
 
 	if (self.Stats.Health >= other.Stats.Health) {
