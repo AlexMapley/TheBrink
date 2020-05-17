@@ -63,21 +63,22 @@ func (self *Character) Duel(other *Character) {
 
 		// other action
 		if (other.Stats.Health  > 0) {
-			skill = other.ChooseSkill()
-			switch skill.Name {
+			chosenSkill := other.ChooseSkill()
+			switch chosenSkill.Name {
 			case "BasicAttack":
 				other.BasicAttack(self)
 			}
-		}
-		// other cooldowns
-		for _, skill := range  other.Stats.SkillSlots {
-			if skill.CoolDownRemaining > 0 {
-				skill.CoolDownRemaining--
+			// other cooldowns
+			for _, skill := range  other.Stats.SkillSlots {
+				if skill.CoolDownRemaining > 0 {
+					skill.CoolDownRemaining--
+				}
+				if skill.Name == chosenSkill.Name {
+					skill.CoolDownRemaining = skill.CoolDown
+				}
 			}
-			if skill.Name == chosenSkill.Name {
-				skill.CoolDownRemaining = skill.CoolDown
-			}
 		}
+
 		
 	}
 
