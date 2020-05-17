@@ -8,6 +8,7 @@ import (
 // Character
 type Character struct {
 	Stats Stats
+	Status Status
 }
 
 // Stats
@@ -34,9 +35,6 @@ type Stats struct {
 
 	// Skills
 	SkillSlots []Skill
-
-	// Status
-	Status Status
 }
 
 // Level Bonsuses

@@ -7,7 +7,11 @@ import (
 func NewPlayer(name string, class string) Player {
 
 	// Base layer
-	player := Player{}
+	player := Player{
+		Status: Status{
+			Stunned: 0,
+		},
+	}
 
 	// Set stats
 	stats := Stats{
@@ -42,9 +46,6 @@ func NewPlayer(name string, class string) Player {
 				CoolDownMax: 6,
 				CoolDown: 0,
 			},
-		},
-		Status: Status{
-			Stunned: 0,
 		},
 	}
 	player.Character.Stats = stats

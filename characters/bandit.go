@@ -7,7 +7,11 @@ import (
 func NewBandit(name string, level int) Bandit {
 
 	// Base Layer
-	bandit := Bandit{}
+	bandit := Bandit{
+		Status: Status{
+			Stunned: 0,
+		},
+	}
 
 	// Set Stats
 	stats := Stats{
