@@ -22,7 +22,7 @@ func (self *Character) BasicAttack(other *Character) {
 
 	dodgeThreshold := 200 + (self.Stats.AccuracyRating() * 2)
 	criticalThreshold := 200
-	blockThreshold := 150 + (self.Stats.Strength * 2)
+	blockThreshold := 150 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
 
 	// Dodge Chance
 	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
@@ -30,7 +30,7 @@ func (self *Character) BasicAttack(other *Character) {
 		damage = 0
 	}
 	// Block Chance
-	if (self.Stats.BlockValue() >= rand.Intn(blockThreshold)) {
+	if (other.Stats.BlockValue() >= rand.Intn(blockThreshold)) {
 		blocked = true
 		damage = int (damage / 2)
 	}

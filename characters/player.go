@@ -38,13 +38,13 @@ func NewPlayer(name string, class string) Player {
 			},
 			Skill{
 				Name: "DoubleStrike",
-				Cost: 50,
+				Cost: 35,
 				CoolDownMax: 4,
 				CoolDown: 0,
 			},
 			Skill{
 				Name: "LightningBolt",
-				Cost: 75,
+				Cost: 60,
 				CoolDownMax: 6,
 				CoolDown: 0,
 			},
