@@ -51,8 +51,8 @@ type LevelBonuses struct {
 type Skill struct {
 	Name string
 	Cost int
+	CoolDownMax int
 	CoolDown int
-	CoolDownRemaining int
 }
 
 // Character Types

@@ -28,8 +28,8 @@ func NewBandit(name string, level int) Bandit {
 			Skill {
 				Name: "BasicAttack",
 				Cost: 0,
-				CoolDown: 1,
-				CoolDownRemaining: 0,
+				CoolDownMax: 1,
+				CoolDown: 0,
 			},
 		},
 	}

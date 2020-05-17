@@ -27,14 +27,14 @@ func NewPlayer(name string, class string) Player {
 			Skill{
 				Name: "BasicAttack",
 				Cost: 0,
-				CoolDown: 1,
-				CoolDownRemaining: 0,
+				CoolDownMax: 1,
+				CoolDown: 0,
 			},
 			Skill{
 				Name: "DoubleStrike",
 				Cost: 50,
-				CoolDown: 5,
-				CoolDownRemaining: 0,
+				CoolDownMax: 5,
+				CoolDown: 0,
 			},
 		},
 	}

@@ -2,6 +2,7 @@ package characters
 
 import (
 	"time"
+	"fmt"
 
 	"github.com/fatih/color"
 )
@@ -15,8 +16,10 @@ func (self *Character) ChooseSkill() Skill {
 
 	for _, skill := range self.Stats.SkillSlots {
 
+		fmt.Printf("\nDEBUG: Character skill: %+v\n\n", skill)
+
 		// check if skill is on cooldown
-		if skill.CoolDownRemaining > 0 {
+		if skill.CoolDown > 0 {
 			continue
 		}
 
@@ -26,7 +29,7 @@ func (self *Character) ChooseSkill() Skill {
 		}
 
 		// check if skill is higher preference
-		if skill.CoolDown > selectedSkill.CoolDown {
+		if skill.CoolDownMax > selectedSkill.CoolDownMax {
 			selectedSkill = skill
 		}
 	}
@@ -52,12 +55,12 @@ func (self *Character) Duel(other *Character) {
 			self.DoubleStrike(other)
 		}
 		// self cooldowns
-		for _, skill := range self.Stats.SkillSlots {
-			if skill.CoolDownRemaining > 0 {
-				skill.CoolDownRemaining--
-			}
+		for i, skill := range self.Stats.SkillSlots {
 			if skill.Name == chosenSkill.Name {
-				skill.CoolDownRemaining = skill.CoolDown
+				self.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+			}
+			if skill.CoolDown > 0 {
+				self.Stats.SkillSlots[i].CoolDown--
 			}
 		}
 
@@ -69,12 +72,12 @@ func (self *Character) Duel(other *Character) {
 				other.BasicAttack(self)
 			}
 			// other cooldowns
-			for _, skill := range  other.Stats.SkillSlots {
-				if skill.CoolDownRemaining > 0 {
-					skill.CoolDownRemaining--
-				}
+			for i, skill := range other.Stats.SkillSlots {
 				if skill.Name == chosenSkill.Name {
-					skill.CoolDownRemaining = skill.CoolDown
+					other.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+				}
+				if skill.CoolDown > 0 {
+					other.Stats.SkillSlots[i].CoolDown--
 				}
 			}
 		}
