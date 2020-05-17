@@ -19,7 +19,7 @@ func (stats *Stats) Display() {
 		stats.Intelligence,
 		stats.CriticalValue(),
 		stats.DodgeValue(),
-		stats.Blockalue(),
+		stats.BlockValue(),
 		stats.AccuracyRating(),
 	)
 }
