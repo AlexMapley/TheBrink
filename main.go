@@ -53,12 +53,13 @@ func main() {
 	}
 
 	// main game loop
+	mainLoop:
 	for (player.Character.Stats.Health > 0) {
 		townConsole := console.NewTownConsole()
 
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
 
-
+		dayLoop:
 		for {
 			option := townConsole.ChooseAction()
 
@@ -77,34 +78,36 @@ func main() {
 				
 				// Fight
 				case "Patrol the town":
-					// declare duel opponent
-					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 
-					fmt.Println("\n\nA strange bandit appears")
-					player.Character.Duel(&bandit.Character)
+					enemy := Character{}
+					if (DayCounter % 2 == 0) {
+						fmt.Println("\n\nA strange bandit appears")
+						enemy := characters.NewBandit("Mel", player.Character.Stats.Level)
+					} else {
+						fmt.Println("\n\nAn agry thug appears")
+						enemy := characters.NewThug("Dougy", player.Character.Stats.Level)
+					}
+					player.Character.Duel(&enemy.Character)
 					
 					// loot bandit if won duel
 					if (player.Character.Stats.Health > 0) {
-						player.Inventory.Loot(&bandit.Inventory)
+						player.Inventory.Loot(&enemy.Inventory)
 					}
-					// reset bandit
-					bandit.Character.Rest()
-					break
+					break dayLoop
 
 				// Rest
 				case "Rest":
 					player.Character.Rest()
 					fmt.Println("Your stats have been restored")
-					break
+					break dayLoop
 
 				// Level Up
 				case "Level Up":
 					// level up player and bandit
 					player.Character.LevelUp()
 					player.Character.Rest()
-					break
+					break dayLoop
 				}
-				break
 			}
 		}
 

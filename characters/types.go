@@ -74,3 +74,8 @@ type Bandit struct {
 	Inventory inventory.Inventory
 }
 
+type Thug struct {
+	Character Character
+	Inventory inventory.Inventory
+}
+
