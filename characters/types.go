@@ -48,7 +48,7 @@ type LevelBonuses struct {
 }
 
 // Skills
-type SkillSlot struct {
+type Skill struct {
 	Name string
 	Cost int
 	CoolDown int

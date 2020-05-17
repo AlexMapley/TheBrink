@@ -9,11 +9,11 @@ import (
 // ChooseSkill returns the highest cooldown
 // skill that is currently available
 // and castable
-func (self *Character) ChooseSkill {
+func (self *Character) ChooseSkill() Skill {
 
 	selectedSkill := self.Stats.SkillSlots[0]
 
-	for skill in self.Stats.SkillSlots {
+	for _, skill := range self.Stats.SkillSlots {
 
 		// check if skill is on cooldown
 		if skill.CoolDownRemaining > 0 {
@@ -26,7 +26,7 @@ func (self *Character) ChooseSkill {
 		}
 
 		// check if skill is higher preference
-		if skill.CoolDown > selectedSkill.Cooldown {
+		if skill.CoolDown > selectedSkill.CoolDown {
 			selectedSkill = skill
 		}
 	}
@@ -44,7 +44,7 @@ func (self *Character) Duel(other *Character) {
 		time.Sleep(100 * time.Millisecond)
 
 		// self action
-		skill = self.ChooseSkill()
+		skill := self.ChooseSkill()
 		switch skill.Name {
 		case "BasicAttack":
 			self.BasicAttack(other)
