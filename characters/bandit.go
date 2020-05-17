@@ -4,7 +4,7 @@ import (
 	"the_brink/inventory"
 )
 
-func NewBandit(name string) Bandit {
+func NewBandit(name string, level int) Bandit {
 
 	// Base Layer
 	bandit := Bandit{}
@@ -35,6 +35,11 @@ func NewBandit(name string) Bandit {
 	bandit.Inventory = inventory.Inventory {
 		Owner: bandit.Character.Stats.Name,
 		Gold: 25,
+	}
+
+	// Level Up Bandit
+	for int i := 1; i < level; i++ {
+		bandit = LevelUpBandit(bandit)
 	}
 
 	return bandit

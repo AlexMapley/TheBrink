@@ -30,8 +30,7 @@ func main() {
 
 	player := characters.NewPlayer(name, "rogue")
 
-	// declare game enemies
-	bandit := characters.NewBandit("Mel")
+
 
 	// main game loop
 	for (player.Character.Stats.Health >= 0) {
@@ -53,6 +52,10 @@ func main() {
 					player.Inventory.Display()
 				}
 				if townConsole.Actions[option-1] == "Patrol the town" {
+
+					// declare duel opponent
+					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
+
 					fmt.Println("\n\nA strange bandit appears")
 					player.Character.Duel(&bandit.Character)
 					
@@ -72,9 +75,9 @@ func main() {
 				if townConsole.Actions[option-1] == "Level Up" {
 					// level up player and bandit
 					player = characters.LevelUpPlayer(player)
-					bandit = characters.LevelUpBandit(bandit)
+
 					player.Character.Rest()
-					bandit.Character.Rest()
+
 					break
 				}
 			}
