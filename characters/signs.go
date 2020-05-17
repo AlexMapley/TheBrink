@@ -53,8 +53,8 @@ func Vagabond(character Character) Character{
 	res.Stats.Expertise += 1
 
 	// Levelling Stat Boosts
-	res.Stats.LevelBonuses.Agility+=2
-	res.Stats.LevelBonuses.Expertise += 1
+	res.Stats.LevelBonuses.Agility+=1
+	res.Stats.LevelBonuses.Vitality += 1
 
 	return res
 }
