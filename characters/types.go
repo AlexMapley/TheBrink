@@ -16,15 +16,20 @@ type Stats struct {
 	Level int
 	LevelBonuses LevelBonuses
 
+	// Core Stats
 	Strength     int
 	Vitality     int
 	Agility      int
 	Intelligence int
 
+	// Resource Pool
 	MaxHealth int
 	MaxFocus int
 	Health int
 	Focus int
+
+	// Bonuses
+	ExpertiseBonus int
 }
 
 type LevelBonuses struct {

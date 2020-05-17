@@ -25,8 +25,8 @@ func NewBandit(name string, level int) Bandit {
 			Intelligence: 1,
 		},
 	}
-	stats.MaxHealth = stats.DetermineMaxHealth()
-	stats.MaxFocus = stats.DetermineMaxFocus()
+	stats.MaxHealth = stats.MaxHealth()
+	stats.MaxFocus = stats.MaxFocus()
 	stats.Health = stats.MaxHealth
 	stats.Focus = stats.MaxFocus
 	bandit.Character.Stats = stats
