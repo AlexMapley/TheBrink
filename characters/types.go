@@ -34,6 +34,9 @@ type Stats struct {
 
 	// Skills
 	SkillSlots []Skill
+
+	// Status
+	Status Status
 }
 
 // Level Bonsuses
@@ -47,6 +50,11 @@ type LevelBonuses struct {
 	Block int
 }
 
+// Status
+type Status struct {
+	Stunned int
+}
+
 // Skills
 type Skill struct {
 	Name string
@@ -54,6 +62,8 @@ type Skill struct {
 	CoolDownMax int
 	CoolDown int
 }
+
+
 
 // Character Types
 type Player struct {

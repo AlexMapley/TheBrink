@@ -45,15 +45,22 @@ func (self *Character) Duel(other *Character) {
 		time.Sleep(100 * time.Millisecond)
 
 		// self action
-		chosenSkill := self.ChooseSkill()
-		switch chosenSkill.Name {
-		case "DoubleStrike":
-			self.DoubleStrike(other)
-		case "LightningBolt":
-			self.LightningBolt(other)
-		default:
-			self.BasicAttack(other)
+		if self.Stats.Stunned == 0 {
+			chosenSkill := self.ChooseSkill()
+			switch chosenSkill.Name {
+			case "DoubleStrike":
+				self.DoubleStrike(other)
+			case "LightningBolt":
+				self.LightningBolt(other)
+			case "Stun":
+				self.Stun(other)
+			default:
+				self.BasicAttack(other)
+			}
+		} else {
+			self.Stats.Stunned--
 		}
+
 		// self cooldowns
 		for i, skill := range self.Stats.SkillSlots {
 			if skill.Name == chosenSkill.Name {
@@ -66,23 +73,33 @@ func (self *Character) Duel(other *Character) {
 
 		// other action
 		if (other.Stats.Health  > 0) {
-			chosenSkill := other.ChooseSkill()
-			switch chosenSkill.Name {
-			default:
-				other.BasicAttack(self)
+			if (other.Stats.stunned  == 0) {
+				chosenSkill := other.ChooseSkill()
+				switch chosenSkill.Name {
+				case "DoubleStrike":
+					other.DoubleStrike(self)
+				case "LightningBolt":
+					other.LightningBolt(self)
+				case "Stun":
+					other.Stun(self)
+				default:
+					other.BasicAttack(self)
+				}
+			} else {
+				other.Stats.Stunned--
 			}
-			// other cooldowns
-			for i, skill := range other.Stats.SkillSlots {
-				if skill.Name == chosenSkill.Name {
-					other.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
-				}
-				if skill.CoolDown > 0 {
-					other.Stats.SkillSlots[i].CoolDown--
-				}
+		} 
+			
+		// other cooldowns
+		for i, skill := range other.Stats.SkillSlots {
+			if skill.Name == chosenSkill.Name {
+				other.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+			}
+			if skill.CoolDown > 0 {
+				other.Stats.SkillSlots[i].CoolDown--
 			}
 		}
 
-		
 	}
 
 	if (self.Stats.Health >= other.Stats.Health) {

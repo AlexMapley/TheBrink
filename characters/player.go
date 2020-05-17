@@ -43,6 +43,9 @@ func NewPlayer(name string, class string) Player {
 				CoolDown: 0,
 			},
 		},
+		Status: Status{
+			Stunned: 0,
+		},
 	}
 	player.Character.Stats = stats
 

@@ -71,3 +71,8 @@ func (self *Character) LightningBolt(other *Character) {
 
 	color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 }
+
+func (self *Character) Stun(other *Character) {
+	color.HiGreen("* %s uses Stun *\n", self.Stats.Name)
+	other.Stats.Status.Stunned +=3
+}
