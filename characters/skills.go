@@ -84,7 +84,7 @@ func (self *Character) Stun(other *Character) {
 func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
-	heal := int(float64(self.Stats.Intelligence) * 2.5)
+	heal := int(float64(self.Stats.Intelligence) * 1.9)
 	color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 
 	self.Stats.Health += heal
