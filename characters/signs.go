@@ -17,9 +17,6 @@ func Warrior(character Character) Character{
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.Expertise += 1
 
-	res.Stats.MaxHealth = res.Stats.GetMaxHealth()
-	res.Stats.MaxFocus = res.Stats.GetMaxFocus()
-
 	return res
 }
 
@@ -59,9 +56,6 @@ func Vagabond(character Character) Character{
 	res.Stats.LevelBonuses.Agility+=2
 	res.Stats.Expertise += 1
 
-	res.Stats.MaxHealth = res.Stats.GetMaxHealth()
-	res.Stats.MaxFocus = res.Stats.GetMaxHealth()
-
 	return res
 }
 
@@ -80,9 +74,6 @@ func Wizard(character Character) Character{
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence+=1
 	res.Stats.LevelBonuses.Vitality+=1
-
-	res.Stats.MaxHealth = res.Stats.GetMaxHealth()
-	res.Stats.MaxFocus = res.Stats.GetMaxHealth()
 
 	return res
 }

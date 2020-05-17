@@ -75,16 +75,13 @@ func (self *Character) Duel(other *Character) {
 
 // Rest
 func (self *Character) Rest() {
-	self.Stats.MaxHealth = self.Stats.GetMaxHealth()
-	self.Stats.MaxFocus = self.Stats.GetMaxFocus()
-
 	self.Stats.Health = self.Stats.GetMaxHealth()
 	self.Stats.Focus = self.Stats.GetMaxFocus()
 }
 
 // Level Up
 func (self *Character) LevelUp() {
-
+	
 	// increase level
 	self.Stats.Level++
 
