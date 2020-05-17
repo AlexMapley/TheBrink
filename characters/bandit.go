@@ -27,7 +27,7 @@ func NewBandit(name string, level int) Bandit {
 		LevelBonuses: LevelBonuses {
 			Vitality: 1,
 			Strength: 1,
-			Agility: 2,
+			Agility: 1,
 			Intelligence: 1,
 		},
 		SkillSlots: []Skill{
@@ -40,7 +40,7 @@ func NewBandit(name string, level int) Bandit {
 			Skill {
 				Name: "Stun",
 				Cost: 30,
-				CoolDownMax: 5,
+				CoolDownMax: 7,
 				CoolDown: 0,
 			},
 		},
