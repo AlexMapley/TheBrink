@@ -13,7 +13,7 @@ func (self *Character) ChooseSkill() Skill {
 
 	selectedSkill := self.Stats.SkillSlots[0]
 
-	for skill := range self.Stats.SkillSlots {
+	for _, skill := range self.Stats.SkillSlots {
 
 		// check if skill is on cooldown
 		if skill.CoolDownRemaining > 0 {
@@ -52,12 +52,12 @@ func (self *Character) Duel(other *Character) {
 			self.DoubleStrike(other)
 		}
 		// self cooldowns
-		for skill := range self.Stats.SkillSlots {
+		for _, skill := range self.Stats.SkillSlots {
 			if skill.CoolDownRemaining > 0 {
 				skill.CoolDownRemaining--
 			}
 			if skill.Name == chosenSkill.Name {
-				skill.CoolDownRemaining = skill.Cooldown
+				skill.CoolDownRemaining = skill.CoolDown
 			}
 		}
 
@@ -70,12 +70,12 @@ func (self *Character) Duel(other *Character) {
 			}
 		}
 		// other cooldowns
-		for skill := range  other.Stats.SkillSlots {
+		for _, skill := range  other.Stats.SkillSlots {
 			if skill.CoolDownRemaining > 0 {
 				skill.CoolDownRemaining--
 			}
 			if skill.Name == chosenSkill.Name {
-				skill.CoolDownRemaining = skill.Cooldown
+				skill.CoolDownRemaining = skill.CoolDown
 			}
 		}
 		
