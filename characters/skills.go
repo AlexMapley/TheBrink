@@ -69,9 +69,9 @@ func (self *Character) DoubleStrike(other *Character) {
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
 	damage := int(float64(self.Stats.Intelligence) * 3.5)
-	other.Stats.Health -= damage
-
 	color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+
+	other.Stats.Health -= damage
 }
 
 // Stun
@@ -85,9 +85,10 @@ func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
 	heal := int(float64(self.Stats.Intelligence) * 2.5)
+	color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+
 	self.Stats.Health += heal
 	if self.Stats.Health > self.Stats.MaxHealth() {
 		self.Stats.Health = self.Stats.MaxHealth()
 	}
-	color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 }
