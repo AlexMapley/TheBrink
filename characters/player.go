@@ -51,23 +51,17 @@ func NewPlayer(name string, class string) Player {
 	return player
 }
 
+func (player *Player) LevelUpPlayer() {
 
-func LevelUpPlayer(player Player) Player{
-	res := NewPlayer(player.Character.Stats.Name, player.Character.Stats.Class)
-	res.Character = player.Character
-
-	res.Character.Stats.Level +=1
+	// increase level
+	player.Character.Stats.Level++
 
 	// increase core stats
-	res.Character.Stats.Vitality += player.Character.Stats.LevelBonuses.Vitality
-	res.Character.Stats.Strength += player.Character.Stats.LevelBonuses.Strength
-	res.Character.Stats.Agility += player.Character.Stats.LevelBonuses.Agility
-	res.Character.Stats.Intelligence += player.Character.Stats.LevelBonuses.Intelligence
-	
+	player.Character.Stats.Vitality += player.Character.Stats.LevelBonuses.Vitality
+	player.Character.Stats.Strength += player.Character.Stats.LevelBonuses.Strength
+	player.Character.Stats.Agility += player.Character.Stats.LevelBonuses.Agility
+	player.Character.Stats.Intelligence += player.Character.Stats.LevelBonuses.Intelligence
 
 	// rest
-	res.Character.Rest()
-
-	return res
+	player.Character.Rest()
 }
-
