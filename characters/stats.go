@@ -4,27 +4,27 @@ import (
 	"fmt"
 )
 
-func (stats Stats) GetCriticalValue() int {
+func (stats Stats) CriticalValue() int {
 	return stats.Agility * 2
 }
 
-func (stats Stats) GetDodgeValue() int {
+func (stats Stats) DodgeValue() int {
 	return stats.Agility * 3
 }
 
-func (stats Stats) GetAccuracyRating() int {
+func (stats Stats) AccuracyRating() int {
 	return (stats.Agility + stats.Expertise)
 }
 
-func (stats Stats) GetMaxHealth() int {
+func (stats Stats) MaxHealth() int {
 	return (stats.Vitality * 8) + (stats.Strength * 2)
 }
 
-func (stats Stats) GetMaxFocus() int {
+func (stats Stats) MaxFocus() int {
 	return stats.Intelligence * 10
 }
 
 func (stats Stats) DisplayHealth() string {
-	return fmt.Sprintf("(%d/%d)", stats.Health, stats.MaxHealth)
+	return fmt.Sprintf("(%d/%d)", stats.Health, stats.MaxHealth())
 }
 
