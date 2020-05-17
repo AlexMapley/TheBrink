@@ -6,6 +6,33 @@ import (
 	"github.com/fatih/color"
 )
 
+// ChooseSkill returns the highest cooldown
+// skill that is currently available
+// and castable
+func (self *Character) ChooseSkill {
+
+	selectedSkill := self.Stats.SkillSlots[0]
+
+	for skill in self.Stats.SkillSlots {
+
+		// check if skill is on cooldown
+		if skill.CoolDownRemaining > 0 {
+			continue
+		}
+
+		// check if we have the focus to cast
+		if skill.Cost > self.Stats.Focus {
+			continue
+		}
+
+		// check if skill is higher preference
+		if skill.CoolDown > selectedSkill.Cooldown {
+			selectedSkill = skill
+		}
+	}
+
+	return selectedSkill
+}
 
 // Duel will update both characters health
 func (self *Character) Duel(other *Character) {
@@ -16,12 +43,21 @@ func (self *Character) Duel(other *Character) {
 
 		time.Sleep(100 * time.Millisecond)
 
-		// self BasicAttack
-		self.BasicAttack(other)
+		// self action
+		skill = self.ChooseSkill()
+		switch skill.Name {
+		case "BasicAttack":
+			self.BasicAttack(other)
+		}
 
-		// other BasicAttack
+
+		// other action
 		if (other.Stats.Health  > 0) {
-			other.BasicAttack(self)
+			skill = other.ChooseSkill()
+			switch skill.Name {
+			case "BasicAttack":
+				self.BasicAttack(other)
+			}
 		}
 	}
 

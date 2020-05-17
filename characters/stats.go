@@ -5,7 +5,7 @@ import (
 )
 
 func (stats Stats) CriticalValue() int {
-	return stats.Agility * 2
+	return int(float64(stats.Agility) * float64(1.5))
 }
 
 func (stats Stats) DodgeValue() int {
