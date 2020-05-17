@@ -13,7 +13,6 @@ import (
 	"github.com/fatih/color"
 )
 
-var DayCounter int
 var trim string = "-----------------------------------------\n"
 var player characters.Player
 
@@ -78,7 +77,7 @@ func main() {
 				// Fight
 				case "Patrol the town":
 
-					if (DayCounter % 2 == 0) {
+					if (metaGame.Day % 2 == 0) {
 						fmt.Println("\n\nA strange bandit appears")
 						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 
@@ -86,7 +85,7 @@ func main() {
 					
 						// loot bandit if won
 						if (player.Character.Stats.Health > 0) {
-							player.Inventory.Loot(&enemy.Inventory)
+							player.Inventory.Loot(&bandit.Inventory)
 						}
 					} else {
 						fmt.Println("\n\nAn agry thug appears")
@@ -96,7 +95,7 @@ func main() {
 					
 						// loot thug if won
 						if (player.Character.Stats.Health > 0) {
-							player.Inventory.Loot(&enemy.Inventory)
+							player.Inventory.Loot(&thug.Inventory)
 						}
 					}
 
