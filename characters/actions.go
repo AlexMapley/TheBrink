@@ -1,6 +1,8 @@
 package characters
 
 import (
+	"time"
+
 	"github.com/fatih/color"
 )
 

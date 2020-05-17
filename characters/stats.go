@@ -9,7 +9,7 @@ func (stats Stats) CriticalValue() int {
 }
 
 func (stats Stats) DodgeValue() int {
-	return stats.Agility * 3
+	return stats.Agility * 2
 }
 
 func (stats Stats) BlockValue() int {

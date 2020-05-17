@@ -7,11 +7,11 @@ func Warrior(character Character) Character{
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 4
-	res.Stats.Strength += 5
-	res.Stats.Agility += 3
-	res.Stats.Intelligence += 3
-	res.Stats.Expertise += 2
-	res.Stats.Block += 2
+	res.Stats.Strength += 4
+	res.Stats.Agility += 2
+	res.Stats.Intelligence += 1
+	res.Stats.Expertise += 1
+	res.Stats.Block += 1
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Vitality += 1
@@ -28,10 +28,10 @@ func Rogue(character Character) Character{
 	res.Stats.Class = "Rogue"
 
 	// Raw Stat Boosts
-	res.Stats.Vitality +=3
-	res.Stats.Strength +=3
-	res.Stats.Agility +=6
-	res.Stats.Intelligence +=3
+	res.Stats.Vitality +=2
+	res.Stats.Strength +=2
+	res.Stats.Agility +=5
+	res.Stats.Intelligence +=2
 	res.Stats.Expertise += 1
 
 	// Levelling Stat Boosts
@@ -72,6 +72,7 @@ func Wizard(character Character) Character{
 	res.Stats.Agility += 3
 	res.Stats.Intelligence += 8
 	res.Stats.Expertise += 2
+	res.Stats.Block += 2
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence += 2
