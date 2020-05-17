@@ -48,6 +48,12 @@ func NewPlayer(name string, class string) Player {
 				CoolDownMax: 6,
 				CoolDown: 0,
 			},
+			Skill{
+				Name: "Heal",
+				Cost: 50,
+				CoolDownMax: 5,
+				CoolDown: 0,
+			},
 		},
 	}
 	player.Character.Stats = stats
