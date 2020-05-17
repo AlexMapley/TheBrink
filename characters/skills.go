@@ -1,5 +1,11 @@
 package characters
 
+import (
+	"time"
+	"math/rand"
+
+	"github.com/fatih/color"
+)
 
 // BasicAttack
 func (self *Character) BasicAttack(other *Character) {
