@@ -29,14 +29,10 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	fmt.Printf("Choose Your Class:\n1. rogue\n2. wrrior\n3. wizard\n")
+	fmt.Printf("Choose Your Class:\n1. rogue\n2. warrior\n3. wizard\n")
+	classConsole := console.NewClassConsole()
 	for {
-		classReader := bufio.NewReader(os.Stdin)
-		fmt.Print("Enter text: ")
-		class, _ := classReader.ReadString('\n')
-		class = strings.TrimSuffix(name, "\n")
-
-		switch class {
+		switch classConsole.Actions[option-1] {
 		case "rogue":
 			player = characters.NewPlayer(name, "rogue")
 			break
