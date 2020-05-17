@@ -15,6 +15,7 @@ import (
 
 var DayCounter int
 var trim string = "-----------------------------------------\n"
+var player characters.Player
 
 func main() {
 	metaGame := world.MetaGame{
@@ -28,9 +29,27 @@ func main() {
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	player := characters.NewPlayer(name, "rogue")
+	fmt.Printf("Choose Your Class:\n1. rogue\n2. wrrior\n3. wizard\n")
+	for {
+		classReader := bufio.NewReader(os.Stdin)
+		fmt.Print("Enter text: ")
+		class, _ := classReader.ReadString('\n')
+		class = strings.TrimSuffix(name, "\n")
 
-
+		switch class {
+		case "rogue":
+			player = characters.NewPlayer(name, "rogue")
+			break
+		case "warrior":
+			player = characters.NewPlayer(name, "warrior")
+			break
+		case "wizard":
+			player = characters.NewPlayer(name, "wizard")
+			break
+		default:
+			continue
+		}
+	}
 
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
