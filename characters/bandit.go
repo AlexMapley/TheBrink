@@ -21,8 +21,8 @@ func NewBandit(name string, level int) Bandit {
 		Class: "Vagabond",
 		Level: 1,
 		Vitality: 3,
-		Strength: 2,
-		Agility: 4,
+		Strength: 3,
+		Agility: 5,
 		Intelligence: 3,
 		LevelBonuses: LevelBonuses {
 			Vitality: 1,
