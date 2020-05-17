@@ -74,5 +74,5 @@ func (self *Character) LightningBolt(other *Character) {
 
 func (self *Character) Stun(other *Character) {
 	color.HiGreen("* %s uses Stun *\n", self.Stats.Name)
-	other.Stats.Status.Stunned +=3
+	other.Status.Stunned +=3
 }

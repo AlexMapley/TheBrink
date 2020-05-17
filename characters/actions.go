@@ -73,7 +73,7 @@ func (self *Character) Duel(other *Character) {
 		
 		// other action
 		if (other.Stats.Health  > 0) {
-			if (other.Status.stunned  == 0) {
+			if (other.Status.Stunned  == 0) {
 				chosenSkill := other.ChooseSkill()
 				switch chosenSkill.Name {
 				case "DoubleStrike":
