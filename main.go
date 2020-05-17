@@ -31,7 +31,7 @@ func main() {
 	name = strings.TrimSuffix(name, "\n")
 
 	// Choose Character
-	color.Cyan("\nChoose Your Class:\n1. rogue\n2. warrior\n3. wizard\n")
+	color.Cyan("\nWhat Class Do You Pick?\n")
 	classConsole := console.NewClassConsole()
 	for len(player.Character.Stats.Class) == 0 {
 		option := classConsole.ChooseAction()
@@ -66,12 +66,16 @@ func main() {
 				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
 
 				switch townConsole.Actions[option-1] {
+				
+				// Stats
 				case "Stats":
 					player.Character.Stats.Display()
-
+				
+				// Inventory
 				case "Inventory":
 					player.Inventory.Display()
-
+				
+				// Fight
 				case "Patrol the town":
 					// declare duel opponent
 					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
@@ -86,18 +90,21 @@ func main() {
 					// reset bandit
 					bandit.Character.Rest()
 					break
-				
+
+				// Rest
 				case "Rest":
 					player.Character.Rest()
 					fmt.Println("Your stats have been restored")
 					break
 
+				// Level Up
 				case "Level Up":
 					// level up player and bandit
 					player.Character.LevelUp()
 					player.Character.Rest()
 					break
 				}
+				break
 			}
 		}
 

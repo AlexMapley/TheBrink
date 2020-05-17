@@ -31,6 +31,7 @@ func (self *Character) ChooseSkill() Skill {
 		}
 	}
 
+	self.Stats.Focus -= selectedSkill.Cost
 	return selectedSkill
 }
 
