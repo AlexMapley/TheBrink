@@ -24,6 +24,7 @@ func NewBandit(name string, level int) Bandit {
 			Agility: 1,
 			Intelligence: 0,
 		},
+		SkillSlots: {},
 	}
 	bandit.Character.Stats = stats
 

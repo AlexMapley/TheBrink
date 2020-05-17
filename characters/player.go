@@ -23,6 +23,7 @@ func NewPlayer(name string, class string) Player {
 			Agility: 1,
 			Intelligence: 1,
 		},
+		SkillSlots: {},
 	}
 	player.Character.Stats = stats
 

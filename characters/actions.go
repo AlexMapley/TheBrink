@@ -6,8 +6,8 @@ import (
 
 	"github.com/fatih/color"
 )
-// Attack
-func (self *Character) Attack(other *Character) {
+// BasicAttack
+func (self *Character) BasicAttack(other *Character) {
 	rand.Seed(time.Now().UnixNano())
 
 	// Events
@@ -68,12 +68,12 @@ func (self *Character) Duel(other *Character) {
 
 		time.Sleep(100 * time.Millisecond)
 
-		// self Attack
-		self.Attack(other)
+		// self BasicAttack
+		self.BasicAttack(other)
 
-		// other Attack
+		// other BasicAttack
 		if (other.Stats.Health  > 0) {
-			other.Attack(self)
+			other.BasicAttack(self)
 		}
 	}
 
