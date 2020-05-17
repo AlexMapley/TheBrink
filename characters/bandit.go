@@ -8,8 +8,10 @@ func NewBandit(name string, level int) Bandit {
 
 	// Base Layer
 	bandit := Bandit{
-		Status: Status{
-			Stunned: 0,
+		Character: Character {
+			Status: Status{
+				Stunned: 0,
+			},
 		},
 	}
 

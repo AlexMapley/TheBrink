@@ -8,8 +8,10 @@ func NewPlayer(name string, class string) Player {
 
 	// Base layer
 	player := Player{
-		Status: Status{
-			Stunned: 0,
+		Character: Character {
+			Status: Status{
+				Stunned: 0,
+			},
 		},
 	}
 

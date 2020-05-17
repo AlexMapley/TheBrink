@@ -57,20 +57,20 @@ func (self *Character) Duel(other *Character) {
 			default:
 				self.BasicAttack(other)
 			}
+			// self cooldowns
+			for i, skill := range self.Stats.SkillSlots {
+				if skill.Name == chosenSkill.Name {
+					self.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+				}
+				if skill.CoolDown > 0 {
+					self.Stats.SkillSlots[i].CoolDown--
+				}
+			}
 		} else {
 			self.Status.Stunned--
 		}
 
-		// self cooldowns
-		for i, skill := range self.Stats.SkillSlots {
-			if skill.Name == chosenSkill.Name {
-				self.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
-			}
-			if skill.CoolDown > 0 {
-				self.Stats.SkillSlots[i].CoolDown--
-			}
-		}
-
+		
 		// other action
 		if (other.Stats.Health  > 0) {
 			if (other.Status.stunned  == 0) {
@@ -85,20 +85,21 @@ func (self *Character) Duel(other *Character) {
 				default:
 					other.BasicAttack(self)
 				}
+				// other cooldowns
+				for i, skill := range other.Stats.SkillSlots {
+					if skill.Name == chosenSkill.Name {
+						other.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+					}
+					if skill.CoolDown > 0 {
+						other.Stats.SkillSlots[i].CoolDown--
+					}
+				}
 			} else {
 				other.Status.Stunned--
 			}
 		} 
 			
-		// other cooldowns
-		for i, skill := range other.Stats.SkillSlots {
-			if skill.Name == chosenSkill.Name {
-				other.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
-			}
-			if skill.CoolDown > 0 {
-				other.Stats.SkillSlots[i].CoolDown--
-			}
-		}
+	
 
 	}
 
