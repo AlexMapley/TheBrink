@@ -17,7 +17,7 @@ func (stats Stats) MaxHealth() int {
 }
 
 func (stats Stats) AccuracyRating() int {
-	return (stats.Vitality * 8) + (stats.Strength * 2)
+	return (stats.Agility + stats.Expertise)
 }
 
 func (stats Stats) MaxFocus() int {

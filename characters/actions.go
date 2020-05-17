@@ -16,7 +16,7 @@ func (self *Character) Attack(other *Character) {
 
 	// Generate base multipliers
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
-	dodgeThreshold := rand.Intn(200)
+	dodgeThreshold := rand.Intn(200) + (self.Stats.AccuracyRating() *2)
 	criticalThreshold := rand.Intn(200)
 
 	// Dodge Chance

@@ -29,7 +29,7 @@ type Stats struct {
 	Focus int
 
 	// Bonuses
-	ExpertiseBonus int
+	Expertise int
 }
 
 type LevelBonuses struct {
