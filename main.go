@@ -53,7 +53,6 @@ func main() {
 	}
 
 	// main game loop
-	mainLoop:
 	for (player.Character.Stats.Health > 0) {
 		townConsole := console.NewTownConsole()
 
@@ -79,7 +78,7 @@ func main() {
 				// Fight
 				case "Patrol the town":
 
-					enemy := Character{}
+					enemy := characters.Character{}
 					if (DayCounter % 2 == 0) {
 						fmt.Println("\n\nA strange bandit appears")
 						enemy := characters.NewBandit("Mel", player.Character.Stats.Level)
