@@ -58,7 +58,7 @@ func main() {
 					
 					// loot bandit if won duel
 					if (player.Character.Stats.Health >= 0) {
-						player.Inventory.Loot(bandit.Inventory)
+						player.Inventory.Loot(&bandit.Inventory)
 					}
 					// reset bandit
 					bandit.Character.Rest()
