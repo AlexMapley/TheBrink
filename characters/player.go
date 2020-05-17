@@ -13,6 +13,14 @@ func NewPlayer(name string, class string) Player {
 				Stunned: 0,
 			},
 		},
+		SkillSlots: []Skill{
+			Skill{
+				Name: "BasicAttack",
+				Cost: 0,
+				CoolDownMax: 1,
+				CoolDown: 0,
+			},
+		},
 	}
 
 	// Set stats
@@ -28,14 +36,6 @@ func NewPlayer(name string, class string) Player {
 			Strength: 1,
 			Agility: 1,
 			Intelligence: 1,
-		},
-		SkillSlots: []Skill{
-			Skill{
-				Name: "BasicAttack",
-				Cost: 0,
-				CoolDownMax: 1,
-				CoolDown: 0,
-			},
 		},
 	}
 	player.Character.Stats = stats

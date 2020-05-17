@@ -12,6 +12,20 @@ func NewBandit(name string, level int) Bandit {
 			Status: Status{
 				Stunned: 0,
 			},
+			SkillSlots: []Skill{
+				Skill {
+					Name: "BasicAttack",
+					Cost: 0,
+					CoolDownMax: 1,
+					CoolDown: 0,
+				},
+				Skill{
+					Name: "DoubleStrike",
+					Cost: 35,
+					CoolDownMax: 4,
+					CoolDown: 0,
+				},
+			},
 		},
 	}
 
@@ -29,20 +43,6 @@ func NewBandit(name string, level int) Bandit {
 			Strength: 1,
 			Agility: 1,
 			Intelligence: 1,
-		},
-		SkillSlots: []Skill{
-			Skill {
-				Name: "BasicAttack",
-				Cost: 0,
-				CoolDownMax: 1,
-				CoolDown: 0,
-			},
-			Skill{
-				Name: "DoubleStrike",
-				Cost: 35,
-				CoolDownMax: 4,
-				CoolDown: 0,
-			},
 		},
 	}
 	bandit.Character.Stats = stats

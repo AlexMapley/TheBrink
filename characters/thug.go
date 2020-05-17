@@ -13,6 +13,20 @@ func NewThug(name string, level int) Thug {
 				Stunned: 0,
 			},
 		},
+		SkillSlots: []Skill{
+			Skill {
+				Name: "BasicAttack",
+				Cost: 0,
+				CoolDownMax: 1,
+				CoolDown: 0,
+			},
+			Skill {
+				Name: "Stun",
+				Cost: 45,
+				CoolDownMax: 7,
+				CoolDown: 0,
+			},
+		},
 	}
 
 	// Set Stats
@@ -29,20 +43,6 @@ func NewThug(name string, level int) Thug {
 			Strength: 1,
 			Agility: 0,
 			Intelligence: 1,
-		},
-		SkillSlots: []Skill{
-			Skill {
-				Name: "BasicAttack",
-				Cost: 0,
-				CoolDownMax: 1,
-				CoolDown: 0,
-			},
-			Skill {
-				Name: "Stun",
-				Cost: 45,
-				CoolDownMax: 7,
-				CoolDown: 0,
-			},
 		},
 	}
 	thug.Character.Stats = stats
