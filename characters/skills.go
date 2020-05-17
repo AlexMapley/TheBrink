@@ -80,7 +80,7 @@ func (self *Character) Stun(other *Character) {
 }
 
 // Heal
-func (self *Character) Heal( {
+func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
 	heal := int(float64(self.Stats.Intelligence) * 2.5)

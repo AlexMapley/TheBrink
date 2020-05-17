@@ -9,6 +9,7 @@ import (
 type Character struct {
 	Stats Stats
 	Status Status
+	SkillSlots []Skill
 }
 
 // Stats
@@ -32,9 +33,6 @@ type Stats struct {
 	// Resource Pool
 	Health int
 	Focus int
-
-	// Skills
-	SkillSlots []Skill
 }
 
 // Level Bonsuses

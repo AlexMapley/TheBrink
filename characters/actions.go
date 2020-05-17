@@ -11,9 +11,9 @@ import (
 // and castable
 func (self *Character) ChooseSkill() Skill {
 
-	selectedSkill := self.Stats.SkillSlots[0]
+	selectedSkill := self.SkillSlots[0]
 
-	for _, skill := range self.Stats.SkillSlots {
+	for _, skill := range self.SkillSlots {
 
 		// check if skill is on cooldown
 		if skill.CoolDown > 0 {
@@ -54,16 +54,18 @@ func (self *Character) Duel(other *Character) {
 				self.LightningBolt(other)
 			case "Stun":
 				self.Stun(other)
+			case "Heal":
+				self.Heal()
 			default:
 				self.BasicAttack(other)
 			}
 			// self cooldowns
-			for i, skill := range self.Stats.SkillSlots {
+			for i, skill := range self.SkillSlots {
 				if skill.Name == chosenSkill.Name {
-					self.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+					self.SkillSlots[i].CoolDown = skill.CoolDownMax
 				}
 				if skill.CoolDown > 0 {
-					self.Stats.SkillSlots[i].CoolDown--
+					self.SkillSlots[i].CoolDown--
 				}
 			}
 		} else {
@@ -82,16 +84,18 @@ func (self *Character) Duel(other *Character) {
 					other.LightningBolt(self)
 				case "Stun":
 					other.Stun(self)
+				case "Heal":
+					other.Heal()
 				default:
 					other.BasicAttack(self)
 				}
 				// other cooldowns
-				for i, skill := range other.Stats.SkillSlots {
+				for i, skill := range other.SkillSlots {
 					if skill.Name == chosenSkill.Name {
-						other.Stats.SkillSlots[i].CoolDown = skill.CoolDownMax
+						other.SkillSlots[i].CoolDown = skill.CoolDownMax
 					}
 					if skill.CoolDown > 0 {
-						other.Stats.SkillSlots[i].CoolDown--
+						other.SkillSlots[i].CoolDown--
 					}
 				}
 			} else {
@@ -118,8 +122,8 @@ func (self *Character) Rest() {
 	self.Stats.Focus = self.Stats.MaxFocus()
 
 	// Reset Skill Cooldowns
-	for i := range self.Stats.SkillSlots {
-		self.Stats.SkillSlots[i].CoolDown = 0
+	for i := range self.SkillSlots {
+		self.SkillSlots[i].CoolDown = 0
 	}
 }
 

@@ -19,6 +19,17 @@ func Warrior(character Character) Character{
 	res.Stats.LevelBonuses.Expertise += 1
 	res.Stats.LevelBonuses.Block += 1
 
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "DoubleStrike",
+			Cost: 35,
+			CoolDownMax: 4,
+			CoolDown: 0,
+		},
+	)
+
 	return res
 }
 
@@ -38,6 +49,17 @@ func Rogue(character Character) Character{
 	res.Stats.LevelBonuses.Agility += 1
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Expertise += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "DoubleStrike",
+			Cost: 35,
+			CoolDownMax: 4,
+			CoolDown: 0,
+		},
+	)
 
 	return res
 }
@@ -77,6 +99,26 @@ func Wizard(character Character) Character{
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence += 2
 	res.Stats.LevelBonuses.Vitality += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "LightningBolt",
+			Cost: 60,
+			CoolDownMax: 6,
+			CoolDown: 0,
+		},
+	)
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "Heal",
+			Cost: 50,
+			CoolDownMax: 5,
+			CoolDown: 0,
+		},
+	)
 
 	return res
 }
