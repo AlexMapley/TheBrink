@@ -78,20 +78,28 @@ func main() {
 				// Fight
 				case "Patrol the town":
 
-					enemy := characters.Character{}
 					if (DayCounter % 2 == 0) {
 						fmt.Println("\n\nA strange bandit appears")
-						enemy := characters.NewBandit("Mel", player.Character.Stats.Level)
+						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
+
+						player.Character.Duel(&bandit.Character)
+					
+						// loot bandit if won
+						if (player.Character.Stats.Health > 0) {
+							player.Inventory.Loot(&enemy.Inventory)
+						}
 					} else {
 						fmt.Println("\n\nAn agry thug appears")
-						enemy := characters.NewThug("Dougy", player.Character.Stats.Level)
-					}
-					player.Character.Duel(&enemy.Character)
+						thug := characters.NewThug("Dougy", player.Character.Stats.Level)
+
+						player.Character.Duel(&thug.Character)
 					
-					// loot bandit if won duel
-					if (player.Character.Stats.Health > 0) {
-						player.Inventory.Loot(&enemy.Inventory)
+						// loot thug if won
+						if (player.Character.Stats.Health > 0) {
+							player.Inventory.Loot(&enemy.Inventory)
+						}
 					}
+
 					break dayLoop
 
 				// Rest
