@@ -24,10 +24,7 @@ func NewPlayer(name string, class string) Player {
 			Intelligence: 1,
 		},
 	}
-	stats.MaxHealth = stats.MaxHealth()
-	stats.MaxFocus = stats.MaxFocus()
-	stats.Health = stats.MaxHealth
-	stats.Focus =  stats.MaxFocus
+
 	player.Character.Stats = stats
 
 	// Set player class
@@ -40,7 +37,11 @@ func NewPlayer(name string, class string) Player {
 		player.Character = Wizard(player.Character)
 	}
 
-	player.Character.Rest()
+	// Determine starting health and focus
+	stats.MaxHealth = stats.GetMaxHealth()
+	stats.MaxFocus = statsGet.MaxFocus()
+	stats.Health = stats.MaxHealth
+	stats.Focus =  stats.MaxFocus
 
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {

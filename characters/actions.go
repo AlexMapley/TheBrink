@@ -16,17 +16,17 @@ func (self *Character) Attack(other *Character) {
 
 	// Generate base multipliers
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
-	dodgeThreshold := rand.Intn(200) + (self.Stats.AccuracyRating() *2)
+	dodgeThreshold := rand.Intn(200) + (self.Stats.GetAccuracyRating() *2)
 	criticalThreshold := rand.Intn(200)
 
 	// Dodge Chance
-	if (other.Stats.DodgeValue() >= dodgeThreshold) {
+	if (other.Stats.GetDodgeValue() >= dodgeThreshold) {
 		dodged = true
 		damage = 0
 	}
 	// Critical Chance,
 	// cannot happen on a successful dodge
-	if (self.Stats.CriticalValue() >= criticalThreshold) {
+	if (self.Stats.GetCriticalValue() >= criticalThreshold) {
 		critical = true
 		damage = damage*2
 	}
@@ -75,11 +75,11 @@ func (self *Character) Duel(other *Character) {
 
 // Rest
 func (self *Character) Rest() {
-	self.Stats.MaxHealth = self.Stats.MaxHealth()
-	self.Stats.MaxFocus = self.Stats.MaxFocus()
+	self.Stats.MaxHealth = self.Stats.GetMaxHealth()
+	self.Stats.MaxFocus = self.Stats.GetMaxFocus()
 
-	self.Stats.Health = self.Stats.MaxHealth()
-	self.Stats.Focus = self.Stats.MaxFocus()
+	self.Stats.Health = self.Stats.GetMaxHealth()
+	self.Stats.Focus = self.Stats.GetMaxFocus()
 }
 
 // Level Up
