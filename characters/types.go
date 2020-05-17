@@ -33,7 +33,7 @@ type Stats struct {
 	Focus int
 
 	// Skills
-	SkillSlots SkillSlot[]
+	SkillSlots []SkillSlot
 }
 
 // Level Bonsuses
@@ -48,10 +48,11 @@ type LevelBonuses struct {
 }
 
 // Skills
-type SkillSlot {
-	Name string,
-	Cost int,
-	CooldDown int,
+type SkillSlot struct {
+	Name string
+	Cost int
+	CoolDown int
+	CoolDownRemaining int
 }
 
 // Character Types

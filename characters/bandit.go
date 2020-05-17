@@ -21,10 +21,17 @@ func NewBandit(name string, level int) Bandit {
 		LevelBonuses: LevelBonuses {
 			Vitality: 1,
 			Strength: 1,
-			Agility: 1,
+			Agility: 2,
 			Intelligence: 0,
 		},
-		SkillSlots: {},
+		SkillSlots: []SkillSlot{
+			SkillSlot {
+				Name: "basic attack",
+				Cost: 0,
+				CoolDown: 1,
+				CoolDownRemaining: 0,
+			},
+		},
 	}
 	bandit.Character.Stats = stats
 
