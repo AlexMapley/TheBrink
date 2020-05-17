@@ -5,7 +5,7 @@ import (
 )
 
 func (stats *Stats) Display() {
-	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nClass: %s\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\nAccuracy Rating: %d\n\n",
+	color.Cyan("\n-------------\n%s\n-------------\nLevel: %d\nClass: %s\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\nBlock: %d\nAccuracy Rating: %d\n\n",
 		stats.Name,
 		stats.Level,
 		stats.Class,
@@ -19,6 +19,7 @@ func (stats *Stats) Display() {
 		stats.Intelligence,
 		stats.CriticalValue(),
 		stats.DodgeValue(),
+		stats.Blockalue(),
 		stats.AccuracyRating(),
 	)
 }
