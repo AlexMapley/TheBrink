@@ -17,33 +17,38 @@ var DayCounter int
 var trim string = "-----------------------------------------\n"
 var player characters.Player
 
+
 func main() {
 	metaGame := world.MetaGame{
 		Day: 1,
 	}
 
-	fmt.Println("What is your name?")
 
+	// Create Character
+	color.Cyan("What is your name?\n")
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter text: ")
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSuffix(name, "\n")
 
-	fmt.Printf("Choose Your Class:\n1. rogue\n2. warrior\n3. wizard\n")
+	// Choose Character
+	color.Cyan("\nChoose Your Class:\n1. rogue\n2. warrior\n3. wizard\n")
 	classConsole := console.NewClassConsole()
-	for {
-		switch classConsole.Actions[option-1] {
-		case "rogue":
-			player = characters.NewPlayer(name, "rogue")
-			break
-		case "warrior":
-			player = characters.NewPlayer(name, "warrior")
-			break
-		case "wizard":
-			player = characters.NewPlayer(name, "wizard")
-			break
-		default:
-			continue
+	for len(player.Character.Stats.Class) == 0 {
+		option := classConsole.ChooseAction()
+		if option > 0 && option <= len(classConsole.Actions) {
+			switch classConsole.Actions[option-1] {
+			case "Rogue":
+				player = characters.NewPlayer(name, "rogue")
+				break
+			case "Warrior":
+				player = characters.NewPlayer(name, "warrior")
+				break
+			case "Wizard":
+				player = characters.NewPlayer(name, "wizard")
+				break
+			default:
+				continue
+			}
 		}
 	}
 
@@ -60,14 +65,14 @@ func main() {
 			if option > 0 && option <= len(townConsole.Actions) {
 				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
 
-				if townConsole.Actions[option-1] == "Stats" {
+				switch townConsole.Actions[option-1] {
+				case "Stats":
 					player.Character.Stats.Display()
-				}
-				if townConsole.Actions[option-1] == "Inventory" {
-					player.Inventory.Display()
-				}
-				if townConsole.Actions[option-1] == "Patrol the town" {
 
+				case "Inventory":
+					player.Inventory.Display()
+
+				case "Patrol the town":
 					// declare duel opponent
 					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 
@@ -81,18 +86,16 @@ func main() {
 					// reset bandit
 					bandit.Character.Rest()
 					break
-				}
-				if townConsole.Actions[option-1] == "Rest" {
+				
+				case "Rest":
 					player.Character.Rest()
 					fmt.Println("Your stats have been restored")
 					break
-				}
-				if townConsole.Actions[option-1] == "Level Up" {
+
+				case "Level Up":
 					// level up player and bandit
 					player.Character.LevelUp()
-
 					player.Character.Rest()
-
 					break
 				}
 			}
