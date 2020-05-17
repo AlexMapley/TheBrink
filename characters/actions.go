@@ -2,7 +2,6 @@ package characters
 
 import (
 	"time"
-	"fmt"
 
 	"github.com/fatih/color"
 )
@@ -15,8 +14,6 @@ func (self *Character) ChooseSkill() Skill {
 	selectedSkill := self.Stats.SkillSlots[0]
 
 	for _, skill := range self.Stats.SkillSlots {
-
-		fmt.Printf("\nDEBUG: Character skill: %+v\n\n", skill)
 
 		// check if skill is on cooldown
 		if skill.CoolDown > 0 {
