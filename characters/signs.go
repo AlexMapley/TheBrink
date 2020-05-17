@@ -17,8 +17,8 @@ func Warrior(character Character) Character{
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.Expertise += 1
 
-	res.Stats.MaxHealth = res.Stats.MaxHealth()
-	res.Stats.MaxFocus = res.Stats.MaxFocus()
+	res.Stats.MaxHealth = res.Stats.GetMaxHealth()
+	res.Stats.MaxFocus = res.Stats.GetMaxFocus()
 
 	return res
 }
@@ -39,10 +39,6 @@ func Rogue(character Character) Character{
 	res.Stats.LevelBonuses.Agility+=1
 	res.Stats.LevelBonuses.Strength+=1
 	res.Stats.Expertise += 1
-
-	res.Stats.MaxHealth = res.Stats.MaxHealth()
-	res.Stats.MaxFocus = res.Stats.MaxFocus()
-
 
 	return res
 }

@@ -23,8 +23,6 @@ type Stats struct {
 	Intelligence int
 
 	// Resource Pool
-	MaxHealth int
-	MaxFocus int
 	Health int
 	Focus int
 
