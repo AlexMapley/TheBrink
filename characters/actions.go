@@ -10,6 +10,10 @@ import (
 func (self *Character) Attack(other *Character) {
 	rand.Seed(time.Now().UnixNano())
 
+	// Events
+	dodged := false
+	critical := false
+
 	// Generate base multipliers
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
 	dodgeThreshold := rand.Intn(200)
@@ -17,14 +21,14 @@ func (self *Character) Attack(other *Character) {
 
 	// Dodge Chance
 	if (other.Stats.DodgeValue() >= dodgeThreshold) {
+		dodged = true
 		damage = 0
-		color.Cyan("%s dodges the hit\n", other.Stats.Name)
 	}
-	// Critical Chance -
+	// Critical Chance,
 	// cannot happen on a successful dodge
-	else if (self.Stats.CriticalValue() >= criticalThreshold) {
+	if (self.Stats.CriticalValue() >= criticalThreshold) {
+		critical = true
 		damage = damage*2
-		color.Cyan("%s scores a critical hit\n", self.Stats.Name)
 	}
 
 	// Damage Multiplier 
@@ -32,7 +36,14 @@ func (self *Character) Attack(other *Character) {
 	damage = int(damage * DamangeMultiplier)
 	damage = int(damage / 100)
 	
-	color.Red("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	// Event Cases
+	if dodged {
+		color.Red("%s %s deals %d damage //DODGE\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	} else if critical {
+		color.Red("%s %s deals %d damage //CRIT\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	} else {
+		color.Red("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	}
 	other.Stats.Health -= damage
 }
 
