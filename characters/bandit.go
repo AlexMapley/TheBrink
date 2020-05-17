@@ -27,22 +27,20 @@ func NewBandit(name string, level int) Bandit {
 	}
 	bandit.Character.Stats = stats
 
-	// Set Bandit Inventory
+	// Set class
+	bandit.Character = Vagabond(bandit.Character)
+
+	// Set Inventory
 	bandit.Inventory = inventory.Inventory {
 		Owner: bandit.Character.Stats.Name,
 		Gold: 25,
 	}
 
-	// Level Up Bandit
+	// Level Up
 	for i := 1; i < level; i++ {
 		bandit.Character.LevelUp()
 	}
 
-	// Determine starting health and focus
-	stats.MaxHealth = stats.GetMaxHealth()
-	stats.MaxFocus = statsGet.MaxFocus()
-	stats.Health = stats.MaxHealth
-	stats.Focus =  stats.MaxFocus
 
 	return bandit
 }

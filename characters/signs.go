@@ -47,6 +47,28 @@ func Rogue(character Character) Character{
 	return res
 }
 
+func Vagabond(character Character) Character{
+	res := character
+
+	res.Stats.Class = "Vagabond"
+
+	// Raw Stat Boosts
+	res.Stats.Vitality +=0
+	res.Stats.Strength +=1
+	res.Stats.Agility +=3
+	res.Stats.Intelligence +=1
+	res.Stats.Expertise += 1
+
+	// Levelling Stat Boosts
+	res.Stats.LevelBonuses.Agility+=2
+	res.Stats.Expertise += 1
+
+	res.Stats.MaxHealth = res.Stats.GetMaxHealth()
+	res.Stats.MaxFocus = res.Stats.GetMaxHealth()
+
+	return res
+}
+
 func Wizard(character Character) Character{
 	res := character
 
@@ -63,8 +85,9 @@ func Wizard(character Character) Character{
 	res.Stats.LevelBonuses.Intelligence+=1
 	res.Stats.LevelBonuses.Vitality+=1
 
-	res.Stats.MaxHealth = res.Stats.MaxHealth()
-	res.Stats.MaxFocus = res.Stats.MaxFocus()
+	res.Stats.MaxHealth = res.Stats.GetMaxHealth()
+	res.Stats.MaxFocus = res.Stats.GetMaxHealth()
 
 	return res
 }
+

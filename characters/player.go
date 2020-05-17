@@ -25,8 +25,6 @@ func NewPlayer(name string, class string) Player {
 		},
 	}
 
-	player.Character.Stats = stats
-
 	// Set player class
 	switch class {
 	case "warrior":
@@ -36,12 +34,6 @@ func NewPlayer(name string, class string) Player {
 	case "wizard":
 		player.Character = Wizard(player.Character)
 	}
-
-	// Determine starting health and focus
-	stats.MaxHealth = stats.GetMaxHealth()
-	stats.MaxFocus = statsGet.MaxFocus()
-	stats.Health = stats.MaxHealth
-	stats.Focus =  stats.MaxFocus
 
 	// Set Player Inventory
 	player.Inventory = inventory.Inventory {
