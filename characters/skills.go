@@ -40,7 +40,6 @@ func (self *Character) BasicAttack(other *Character) {
 		damage = damage * 2
 	}
 
-
 	// Damage Multiplier 
 	DamangeMultiplier := rand.Intn(100)
 	damage = int(damage * DamangeMultiplier)
@@ -61,7 +60,14 @@ func (self *Character) BasicAttack(other *Character) {
 
 
 func (self *Character) DoubleStrike(other *Character) {
-	color.HiGreen("\n-------------\n%s uses Double Strike\n-------------\n", self.Stats.Name)
+	color.HiGreen("%s uses Double Strike\n", self.Stats.Name)
 	self.BasicAttack(other)
 	self.BasicAttack(other)
+}
+
+func (self *Character) LightningBolt(other *Character) {
+	color.HiGreen("%s uses LightningBolt\n", self.Stats.Name)
+	damage = int(float*self.Stats.Intelligence) * 3.5)
+
+	color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 }
