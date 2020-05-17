@@ -69,3 +69,19 @@ func (self *Character) Rest() {
 	self.Stats.Health = self.Stats.DetermineMaxHealth()
 	self.Stats.Focus = self.Stats.DetermineMaxFocus()
 }
+
+// Level Up
+func (self *Character) LevelUp() {
+
+	// increase level
+	self.Stats.Level++
+
+	// increase core stats
+	self.Stats.Vitality += self.Stats.LevelBonuses.Vitality
+	self.Stats.Strength += self.Stats.LevelBonuses.Strength
+	self.Stats.Agility += self.Stats.LevelBonuses.Agility
+	self.Stats.Intelligence += self.Stats.LevelBonuses.Intelligence
+
+	// rest
+	self.Rest()
+}
