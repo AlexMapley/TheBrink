@@ -9,6 +9,5 @@ type MetaGame struct {
 type World struct {
 	XMax int
 	YMax int
-	Grid map[string]geom.Point
-
+	Grid map[geom.Point]string
 }
