@@ -18,5 +18,5 @@ func (world *World) Display() {
 		}
 		terminal += line + "\n"
 	}
-	color.Cyan("\n\nTerminal: %s", terminal)
+	color.Green("\n\nTerminal: %s", terminal)
 }
