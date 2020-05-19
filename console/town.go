@@ -4,7 +4,7 @@ func NewTownConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 6)
+	actions := make([]string, 7)
 	actions[0] = "Stats"
 	actions[1] = "Skills"
 	actions[2] = "Inventory"
