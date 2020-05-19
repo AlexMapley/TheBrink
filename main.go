@@ -15,12 +15,21 @@ import (
 
 var trim string = "-----------------------------------------\n"
 var player characters.Player
+var world world.World
+var metaGame world.MetaGame
 
 
 func main() {
-	metaGame := world.MetaGame{
+	// Build World
+	metaGame = world.MetaGame{
 		Day: 1,
 	}
+	world = world.World{
+		YMax: 100,
+		YMax: 100,
+
+	}
+
 
 
 	// Create Character

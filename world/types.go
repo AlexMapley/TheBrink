@@ -6,8 +6,9 @@ type MetaGame struct {
 	Day int
 }
 
-type Map struct {
+type World struct {
 	XMax int
 	YMax int
-	Grid []geom.Point
+	Grid map[string]geom.Point
+
 }
