@@ -6,7 +6,7 @@ import (
 )
 
 
-var trim string = "----------------------------------------------------------------------------------------------\n"
+var trim string = "^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^\n"
 
 func (world *World) Display() {
 	terminal := trim
@@ -22,5 +22,5 @@ func (world *World) Display() {
 		terminal += line + "\n"
 	}
 	terminal += trim
-	color.Green("%s", terminal)
+	color.Cyan("%s", terminal)
 }
