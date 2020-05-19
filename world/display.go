@@ -6,7 +6,7 @@ import (
 )
 
 func (world *World) Display() {
-	terminal = ""
+	terminal := ""
 	for x := 0; x < world.XMax; x++ {
 		line := ""
 		for y := 0; y < world.YMax; y++ {
@@ -19,5 +19,5 @@ func (world *World) Display() {
 		terminal += line
 	}
 	return
-	fmt.Printf("\n\n\nFOOOOOOOOOOO: %s", line)
+	fmt.Printf("\n\nTerminal: %s", terminal)
 }
