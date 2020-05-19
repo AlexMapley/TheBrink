@@ -6,10 +6,13 @@ import (
 )
 
 
-var trim string = "^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^\n"
+var trim string = "^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^\n"
 
 func (world *World) Display() {
-	terminal := trim
+	color.Green("%s", trim)
+
+	terminal := ""
+
 	for y := 0; y < world.YMax; y++ {
 		line := ""
 		for x := 0; x < world.XMax; x++ {
@@ -21,6 +24,7 @@ func (world *World) Display() {
 		}
 		terminal += line + "\n"
 	}
-	terminal += trim
+
 	color.Cyan("%s", terminal)
+	color.Green("%s", trim)
 }
