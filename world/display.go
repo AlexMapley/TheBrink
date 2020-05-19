@@ -3,7 +3,6 @@ package world
 import (
 	"golang.org/x/mobile/geom"
 	"github.com/fatih/color"
-	"fmt"
 )
 
 func (world *World) Display() {
