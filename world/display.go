@@ -14,10 +14,9 @@ func (world *World) Display() {
 				X: geom.Pt(x),
 				Y: geom.Pt(y),
 			}
-			line += world.Grid[point] + "\n"
+			line += world.Grid[point]
 		}
-		terminal += line
+		terminal += line + "\n"
 	}
-	return
 	fmt.Printf("\n\nTerminal: %s", terminal)
 }
