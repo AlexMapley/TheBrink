@@ -7,5 +7,7 @@ type MetaGame struct {
 }
 
 type Map struct {
+	XMax int
+	YMax int
 	Grid []geom.Point
 }
