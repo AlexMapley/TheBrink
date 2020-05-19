@@ -25,7 +25,7 @@ func main() {
 	world := world.World{
 		XMax: 100,
 		YMax: 100,
-		Grid: world.NewGrid(XMax, YMax),
+		Grid: world.NewGrid(100, 50),
 	}
 
 	world.Display()

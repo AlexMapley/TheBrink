@@ -2,6 +2,7 @@ package world
 
 import (
 	"golang.org/x/mobile/geom"
+	"github.com/fatih/color"
 	"fmt"
 )
 
@@ -18,5 +19,5 @@ func (world *World) Display() {
 		}
 		terminal += line + "\n"
 	}
-	fmt.Printf("\n\nTerminal: %s", terminal)
+	color.Cyan("\n\nTerminal: %s", terminal)
 }
