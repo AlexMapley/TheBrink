@@ -3,6 +3,7 @@ package characters
 
 import (
 	"the_brink/inventory"
+	"golang.org/x/mobile/geom"
 )
 
 // Character
@@ -10,6 +11,7 @@ type Character struct {
 	Stats Stats
 	Status Status
 	SkillSlots []Skill
+	Coordinates geom.Point
 }
 
 // Stats

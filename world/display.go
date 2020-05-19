@@ -5,11 +5,14 @@ import (
 	"github.com/fatih/color"
 )
 
+
+var trim string = "----------------------------------------------------------------------------------------------\n"
+
 func (world *World) Display() {
-	terminal := ""
-	for x := 0; x < world.XMax; x++ {
+	terminal := trim
+	for y := 0; y < world.YMax; y++ {
 		line := ""
-		for y := 0; y < world.YMax; y++ {
+		for x := 0; x < world.XMax; x++ {
 			point := geom.Point{
 				X: geom.Pt(x),
 				Y: geom.Pt(y),
@@ -18,5 +21,6 @@ func (world *World) Display() {
 		}
 		terminal += line + "\n"
 	}
-	color.Green("\n\nTerminal: %s", terminal)
+	terminal += trim
+	color.Green("%s", terminal)
 }
