@@ -8,9 +8,10 @@ func NewTownConsole() Console {
 	actions[0] = "Stats"
 	actions[1] = "Skills"
 	actions[2] = "Inventory"
-	actions[3] = "Patrol the town"
-	actions[4] = "Rest"
-	actions[5] = "Level Up"
+	actions[3] = "Map"
+	actions[4] = "Patrol the town"
+	actions[5] = "Rest"
+	actions[6] = "Level Up"
 
 	console.Actions = actions
 

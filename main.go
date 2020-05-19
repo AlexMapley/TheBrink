@@ -28,9 +28,6 @@ func main() {
 		Grid: world.NewGrid(100, 50),
 	}
 
-	world.Display()
-
-
 	// Create Character
 	color.Cyan("What is your name?\n")
 	reader := bufio.NewReader(os.Stdin)
@@ -81,6 +78,9 @@ func main() {
 				// Inventory
 				case "Inventory":
 					player.Inventory.Display()
+
+				case "Map":
+					world.Display()
 				
 				// Fight
 				case "Patrol the town":
