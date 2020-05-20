@@ -20,9 +20,9 @@ func (self *Character) BasicAttack(other *Character) {
 	// Generate base multipliers
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
 
-	dodgeThreshold := 200 + (self.Stats.AccuracyRating() * 2)
-	criticalThreshold := 200
-	blockThreshold := 150 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
+	dodgeThreshold := 400 + (self.Stats.AccuracyRating() * 2)
+	criticalThreshold := 300
+	blockThreshold := 250 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
 
 	// Dodge Chance
 	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {

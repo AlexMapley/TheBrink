@@ -60,7 +60,7 @@ func main() {
 	for (player.Character.Stats.Health > 0) {
 
 		if metaGame.Day == 15 {
-			color.Magenta("\n\n%sYou feel a darnkness come over the land...%s\n\n", trim, trim)
+			color.Magenta("\n\n%sYou feel a darnkness come over the land...\n%s\n\n", trim, trim)
 		}
 
 		townConsole := console.NewTownConsole()
