@@ -58,6 +58,11 @@ func main() {
 
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
+
+		if metaGame.Day == 15
+			color.Magenta("\n\n%sYou feel a darnkness come over the land...%s\n\n", trim, trim)
+		}
+
 		townConsole := console.NewTownConsole()
 
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
@@ -89,6 +94,11 @@ func main() {
 						fmt.Println("\n\nA strange bandit appears")
 						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 
+						// Mutation 1
+						if metaGame.Day > 15 {
+							thug, _ = characters.Infected(thug)
+						}
+
 						player.Character.Duel(&bandit.Character)
 					
 						// loot bandit if won
@@ -98,6 +108,11 @@ func main() {
 					} else {
 						fmt.Println("\n\nAn agry thug appears")
 						thug := characters.NewThug("Dougy", player.Character.Stats.Level)
+
+						// Mutation 1
+						if metaGame.Day > 15 {
+							thug, _ = characters.Infected(thug)
+						}
 
 						player.Character.Duel(&thug.Character)
 					
@@ -127,7 +142,7 @@ func main() {
 					var accepted bool
 					player.Character, accepted = characters.Paladin(player.Character)
 					if !accepted {
-						color.HiRed("\n\n\nAttempting to become a Paladin, you foolishly die\n\n\n")
+						color.HiRed("\n\n%sAttempting to become a Paladin, you foolishly die%s\n\n", trim, trim)
 						player.Character.Stats.Health -= 1000000
 					}
 					break dayLoop

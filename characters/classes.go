@@ -152,6 +152,8 @@ func Wizard(character Character) (Character, bool){
 // Tier 2 Classes
 // - Level Restricted
 ////////////////////
+
+// Paladin
 func Paladin(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
@@ -186,6 +188,37 @@ func Paladin(character Character) (Character, bool){
 			CoolDown: 0,
 		},
 	)
+
+	return res, true
+}
+
+// Infected
+func Infected(character Character) (Character, bool){
+	// Reject If:
+	// - unit has a class already
+	if character.Stats.Level < 10 {
+		return character, false
+	}
+
+	res := character
+
+	res.Stats.Class = "Infected " + res.Stats.Class
+
+	// Raw Stat Boost
+	res.Stats.Vitality += 0
+	res.Stats.Strength += 0
+	res.Stats.Agility += 0
+	res.Stats.Intelligence += 0
+	res.Stats.Expertise += 0
+	res.Stats.Block += 0
+
+	// Levelling Stat Boosts
+	res.Stats.LevelBonuses.Strength += 1
+	res.Stats.LevelBonuses.Agility += 1
+	res.Stats.LevelBonuses.Intelligence += 1
+	res.Stats.LevelBonuses.Vitality += 1
+	res.Stats.LevelBonuses.Expertise += 1
+	res.Stats.LevelBonuses.Block += 1
 
 	return res, true
 }
