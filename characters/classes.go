@@ -1,18 +1,18 @@
 package characters
 
-//////////////////////
+//////////////////
 // Tier 1 Classes
 // - Can be applied to any base character
-// - Rejects the mutation if a character
-//////////////////////
+// - requires no prior class
+////////////////////
 func Rogue(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
 	if res.Stats.Class != "" {
-		return res, false
+		return character, false
 	}
-	res := character
 
+	res := character
 	res.Stats.Class = "Rogue"
 
 	// Raw Stat Boosts
@@ -45,7 +45,7 @@ func Vagabond(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
 	if res.Stats.Class != "" {
-		return res, false
+		return character, false
 	}
 
 	res := character
@@ -69,7 +69,7 @@ func Warrior(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
 	if res.Stats.Class != "" {
-		return res, false
+		return character, false
 	}
 
 	res := character
@@ -107,7 +107,7 @@ func Wizard(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
 	if res.Stats.Class != "" {
-		return res, false
+		return character, false
 	}
 
 	res := character
@@ -148,10 +148,10 @@ func Wizard(character Character) (Character, bool){
 	return res, true
 }
 
-//////////////////////
+//////////////////
 // Tier 2 Classes
-//
-//////////////////////
+// - Level Restricted
+////////////////////
 func Paladin(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
