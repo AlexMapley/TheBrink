@@ -114,15 +114,15 @@ func Wizard(character Character) (Character, bool){
 	res.Stats.Class = "Wizard"
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 2
-	res.Stats.Strength += 2
-	res.Stats.Agility += 2
+	res.Stats.Vitality += 1
+	res.Stats.Strength += 1
+	res.Stats.Agility += 1
 	res.Stats.Intelligence += 8
 	res.Stats.Expertise += 1
 	res.Stats.Block += 1
 
 	// Levelling Stat Boosts
-	res.Stats.LevelBonuses.Intelligence += 2
+	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 1
 
 	// Add Skills
