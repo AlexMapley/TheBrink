@@ -36,5 +36,7 @@ Let your character fight for themselves in automatic battles:
 
 ![Battle](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/battle.png)
 
+![Battle2](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/battle2.png)
+
 ## Current Build
 High Score: Wizard Level 151
