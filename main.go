@@ -112,7 +112,7 @@ func main() {
 				// Rest
 				case "Rest":
 					player.Character.Rest()
-					fmt.Println("Your stats have been restored")
+				color.Green("Your stats have been restored\n")
 					break dayLoop
 
 				// Level Up
@@ -127,8 +127,10 @@ func main() {
 				case "Become Paladin":
 					var accepted
 					character, accepted = characters.Paladin(player.Character)
-					player.Character.LevelUp()
-					player.Character.Rest()
+					if !accepted {
+						color.HiRed("\n\n\nAttempting to become a Paladin, you foolishly die\n\n\n")
+						player.Character.Stats.Health -= 1000000
+					}
 					break dayLoop
 				}
 			}
