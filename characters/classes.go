@@ -8,7 +8,7 @@ package characters
 func Rogue(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if res.Stats.Class != "" {
+	if character.Stats.Class != "" {
 		return character, false
 	}
 
@@ -44,7 +44,7 @@ func Rogue(character Character) (Character, bool){
 func Vagabond(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if res.Stats.Class != "" {
+	if character.Stats.Class != "" {
 		return character, false
 	}
 
@@ -68,7 +68,7 @@ func Vagabond(character Character) (Character, bool){
 func Warrior(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if res.Stats.Class != "" {
+	if character.Stats.Class != "" {
 		return character, false
 	}
 
@@ -106,7 +106,7 @@ func Warrior(character Character) (Character, bool){
 func Wizard(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if res.Stats.Class != "" {
+	if character.Stats.Class != "" {
 		return character, false
 	}
 
