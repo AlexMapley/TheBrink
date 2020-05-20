@@ -1,4 +1,4 @@
-package consoloe
+package console
 
 type Console struct {
 	Actions []string
