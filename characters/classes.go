@@ -140,7 +140,7 @@ func Wizard(character Character) (Character, bool){
 		Skill{
 			Name: "Ice Blast",
 			Cost: 40,
-			CoolDownMax: 7,
+			CoolDownMax: 9,
 			CoolDown: 0,
 		},
 	)
