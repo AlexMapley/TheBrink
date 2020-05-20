@@ -52,6 +52,8 @@ func (self *Character) Duel(other *Character) {
 				self.DoubleStrike(other)
 			case "LightningBolt":
 				self.LightningBolt(other)
+			case "IceBlast":
+				self.IceBlast(other)
 			case "Stun":
 				self.Stun(other)
 			case "Heal":

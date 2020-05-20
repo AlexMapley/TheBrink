@@ -155,7 +155,7 @@ func Wizard(character Character) (Character, bool){
 func Paladin(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if character.Stats.Level <= 10 {
+	if character.Stats.Level < 10 {
 		return character, false
 	}
 
