@@ -152,7 +152,6 @@ func Wizard(character Character) (Character, bool){
 // Tier 2 Classes
 //
 //////////////////////
-
 func Paladin(character Character) (Character, bool){
 
 	// Reject Condition

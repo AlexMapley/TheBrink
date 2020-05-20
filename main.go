@@ -122,6 +122,15 @@ func main() {
 					player.Character.Rest()
 					break dayLoop
 				}
+
+				// Become Paladin
+				case "Become Paladin":
+					var accepted
+					character, accepted = characters.Paladin(player.Character)
+					player.Character.LevelUp()
+					player.Character.Rest()
+					break dayLoop
+				}
 			}
 		}
 
