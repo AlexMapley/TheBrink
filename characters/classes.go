@@ -138,7 +138,7 @@ func Wizard(character Character) (Character, bool){
 	res.SkillSlots = append(
 		res.SkillSlots, 
 		Skill{
-			Name: "Ice Blast",
+			Name: "IceBlast",
 			Cost: 40,
 			CoolDownMax: 9,
 			CoolDown: 0,
@@ -160,9 +160,8 @@ func Paladin(character Character) (Character, bool){
 	if character.Stats.Level < 10 {
 		return character, false
 	}
-
+	
 	res := character
-
 	res.Stats.Class = res.Stats.Class + " Paladin"
 
 	// Raw Stat Boost
