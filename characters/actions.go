@@ -11,7 +11,7 @@ import (
 // and castable
 func (self *Character) ChooseSkill() Skill {
 
-	selectedSkill := self.SkillSlots[0]
+	selectedSkill := Skill{}
 
 	for _, skill := range self.SkillSlots {
 
