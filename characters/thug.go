@@ -48,7 +48,7 @@ func NewThug(name string, level int) Thug {
 	thug.Character.Stats = stats
 
 	// Set class
-	thug.Character = Vagabond(thug.Character)
+	thug.Character, _ = Vagabond(thug.Character)
 
 	// Set Inventory
 	thug.Inventory = inventory.Inventory {

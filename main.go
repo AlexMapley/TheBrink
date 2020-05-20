@@ -121,7 +121,6 @@ func main() {
 					player.Character.LevelUp()
 					player.Character.Rest()
 					break dayLoop
-				}
 
 				// Become Paladin
 				case "Become Paladin":

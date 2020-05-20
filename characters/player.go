@@ -43,11 +43,11 @@ func NewPlayer(name string, class string) Player {
 	// Set player class
 	switch class {
 	case "warrior":
-		player.Character = Warrior(player.Character)
+		player.Character, _ = Warrior(player.Character)
 	case "rogue":
-		player.Character = Rogue(player.Character)
+		player.Character, _ = Rogue(player.Character)
 	case "wizard":
-		player.Character = Wizard(player.Character)
+		player.Character, _ = Wizard(player.Character)
 	}
 
 	// Set Player Inventory
