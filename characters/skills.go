@@ -68,7 +68,7 @@ func (self *Character) DoubleStrike(other *Character) {
 // IceBlast
 func (self *Character) IceBlast(other *Character) {
 	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
-	damage := int(float64(self.Stats.Intelligence) * 2)
+	damage := int(float64(self.Stats.Intelligence) * 1.8)
 	color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 
 	other.Stats.Health -= damage
@@ -91,7 +91,7 @@ func (self *Character) Heal() {
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
-	damage := int(float64(self.Stats.Intelligence) * 3.2)
+	damage := int(float64(self.Stats.Intelligence) * 2.9)
 	color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 
 	other.Stats.Health -= damage
