@@ -1,6 +1,11 @@
 package characters
 
-func Rogue(character Character) Character{
+//////////////////////
+// Tier 1 Classes
+// - Can be applied to any base character
+// - Rejects the mutation if a character
+//////////////////////
+func Rogue(character Character) (Character, bool){
 	res := character
 
 	res.Stats.Class = "Rogue"
@@ -28,7 +33,7 @@ func Rogue(character Character) Character{
 		},
 	)
 
-	return res
+	return res, true
 }
 
 func Vagabond(character Character) Character{
@@ -47,7 +52,7 @@ func Vagabond(character Character) Character{
 	res.Stats.LevelBonuses.Agility += 1
 	res.Stats.LevelBonuses.Vitality += 1
 
-	return res
+	return res, true
 }
 
 func Warrior(character Character) Character{
@@ -80,7 +85,7 @@ func Warrior(character Character) Character{
 		},
 	)
 
-	return res
+	return res, true
 }
 
 func Wizard(character Character) Character{
@@ -113,6 +118,52 @@ func Wizard(character Character) Character{
 	res.SkillSlots = append(
 		res.SkillSlots, 
 		Skill{
+			Name: "Ice Blast",
+			Cost: 40,
+			CoolDownMax: 7,
+			CoolDown: 0,
+		},
+	)
+
+	return res, true
+}
+
+//////////////////////
+// Tier 2 Classes
+//
+//////////////////////
+
+func Paladin(character Character) Character{
+	res := character
+
+	res.Stats.Class += " Paladin"
+
+	// Raw Stat Boost
+	res.Stats.Vitality += 4
+	res.Stats.Strength += 4
+	res.Stats.Agility += 0
+	res.Stats.Intelligence += 3
+	res.Stats.Expertise += 2
+	res.Stats.Block += 5
+
+	// Levelling Stat Boosts
+	res.Stats.LevelBonuses.Strength += 1
+	res.Stats.LevelBonuses.Intelligence += 1
+	res.Stats.LevelBonuses.Vitality += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "LightningBolt",
+			Cost: 60,
+			CoolDownMax: 6,
+			CoolDown: 0,
+		},
+	)
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
 			Name: "Heal",
 			Cost: 50,
 			CoolDownMax: 5,
@@ -120,6 +171,5 @@ func Wizard(character Character) Character{
 		},
 	)
 
-	return res
+	return res, true
 }
-
