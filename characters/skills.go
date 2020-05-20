@@ -65,6 +65,29 @@ func (self *Character) DoubleStrike(other *Character) {
 	self.BasicAttack(other)
 }
 
+// IceBlast
+func (self *Character) LightningBolt(other *Character) {
+	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
+	damage := int(float64(self.Stats.Intelligence) * 2)
+	color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+
+	other.Stats.Health -= damage
+	other.Status.Stunned +=2
+}
+
+// Heal
+func (self *Character) Heal() {
+	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
+
+	heal := int(float64(self.Stats.Intelligence) * 1.9)
+	color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+
+	self.Stats.Health += heal
+	if self.Stats.Health > self.Stats.MaxHealth() {
+		self.Stats.Health = self.Stats.MaxHealth()
+	}
+}
+
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
@@ -80,15 +103,3 @@ func (self *Character) Stun(other *Character) {
 	other.Status.Stunned +=3
 }
 
-// Heal
-func (self *Character) Heal() {
-	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
-
-	heal := int(float64(self.Stats.Intelligence) * 1.9)
-	color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
-
-	self.Stats.Health += heal
-	if self.Stats.Health > self.Stats.MaxHealth() {
-		self.Stats.Health = self.Stats.MaxHealth()
-	}
-}

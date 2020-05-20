@@ -155,15 +155,6 @@ func Paladin(character Character) Character{
 	res.SkillSlots = append(
 		res.SkillSlots, 
 		Skill{
-			Name: "LightningBolt",
-			Cost: 60,
-			CoolDownMax: 6,
-			CoolDown: 0,
-		},
-	)
-	res.SkillSlots = append(
-		res.SkillSlots, 
-		Skill{
 			Name: "Heal",
 			Cost: 50,
 			CoolDownMax: 5,
