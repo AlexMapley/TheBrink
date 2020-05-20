@@ -12,6 +12,7 @@ func NewTownConsole() Console {
 	actions[4] = "Patrol the town"
 	actions[5] = "Rest"
 	actions[6] = "Level Up"
+	actions[6] = "Become Paladin"
 
 	console.Actions = actions
 

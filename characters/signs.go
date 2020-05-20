@@ -8,6 +8,11 @@ package characters
 func Rogue(character Character) (Character, bool){
 	res := character
 
+	// reject if has any class
+	if res.Stats.Class != "" {
+		return res, false
+	}
+
 	res.Stats.Class = "Rogue"
 
 	// Raw Stat Boosts
@@ -36,8 +41,13 @@ func Rogue(character Character) (Character, bool){
 	return res, true
 }
 
-func Vagabond(character Character) Character{
+func Vagabond(character Character) (Character, bool){
 	res := character
+
+	// reject if has any class
+	if res.Stats.Class != "" {
+		return res, false
+	}
 
 	res.Stats.Class = "Vagabond"
 
@@ -55,8 +65,13 @@ func Vagabond(character Character) Character{
 	return res, true
 }
 
-func Warrior(character Character) Character{
+func Warrior(character Character) (Character, bool){
 	res := character
+
+	// reject if has any class
+	if res.Stats.Class != "" {
+		return res, false
+	}
 
 	res.Stats.Class = "Warrior"
 
@@ -88,8 +103,13 @@ func Warrior(character Character) Character{
 	return res, true
 }
 
-func Wizard(character Character) Character{
+func Wizard(character Character) (Character, bool){
 	res := character
+
+	// reject if has any class
+	if res.Stats.Class != "" {
+		return res, false
+	}
 
 	res.Stats.Class = "Wizard"
 
@@ -133,10 +153,14 @@ func Wizard(character Character) Character{
 //
 //////////////////////
 
-func Paladin(character Character) Character{
-	res := character
+func Paladin(character Character) (Character, bool){
 
-	res.Stats.Class += " Paladin"
+	// Reject Condition
+	if character.Stats.Level <= 10 {
+		return character, false
+	}
+
+	res.Stats.Class = res.Stats.Class + " Paladin"
 
 	// Raw Stat Boost
 	res.Stats.Vitality += 4
