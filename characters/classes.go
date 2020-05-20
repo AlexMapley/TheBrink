@@ -159,7 +159,7 @@ func Paladin(character Character) (Character, bool){
 		return character, false
 	}
 
-	res = character
+	res := character
 
 	res.Stats.Class = res.Stats.Class + " Paladin"
 
