@@ -58,6 +58,9 @@ func NewBandit(name string, level int) Bandit {
 
 	// Level Up
 	for i := 1; i < level; i++ {
+		if i == 10 {
+			bandit.Character, _ = Infected(bandit.Character)
+		}
 		bandit.Character.LevelUp()
 	}
 

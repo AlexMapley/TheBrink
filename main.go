@@ -94,11 +94,6 @@ func main() {
 						fmt.Println("\n\nA strange bandit appears")
 						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 
-						// Mutation 1
-						if metaGame.Day > 15 {
-							bandit.Character, _ = characters.Infected(bandit.Character)
-						}
-
 						player.Character.Duel(&bandit.Character)
 					
 						// loot bandit if won
@@ -108,11 +103,6 @@ func main() {
 					} else {
 						fmt.Println("\n\nAn agry thug appears")
 						thug := characters.NewThug("Dougy", player.Character.Stats.Level)
-
-						// Mutation 1
-						if metaGame.Day > 15 {
-							thug.Character, _ = characters.Infected(thug.Character)
-						}
 
 						player.Character.Duel(&thug.Character)
 					
