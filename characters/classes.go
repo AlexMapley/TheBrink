@@ -179,7 +179,7 @@ func Paladin(character Character) (Character, bool){
 		Skill{
 			Name: "Heal",
 			Cost: 50,
-			CoolDownInitial: 0,
+			CoolDownInitial: 8,
 			CoolDownMax: 5,
 			CoolDown: 0,
 		},
