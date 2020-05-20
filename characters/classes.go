@@ -6,12 +6,12 @@ package characters
 // - Rejects the mutation if a character
 //////////////////////
 func Rogue(character Character) (Character, bool){
-	res := character
-
-	// reject if has any class
+	// Reject If:
+	// - unit has a class already
 	if res.Stats.Class != "" {
 		return res, false
 	}
+	res := character
 
 	res.Stats.Class = "Rogue"
 
@@ -42,13 +42,13 @@ func Rogue(character Character) (Character, bool){
 }
 
 func Vagabond(character Character) (Character, bool){
-	res := character
-
-	// reject if has any class
+	// Reject If:
+	// - unit has a class already
 	if res.Stats.Class != "" {
 		return res, false
 	}
 
+	res := character
 	res.Stats.Class = "Vagabond"
 
 	// Raw Stat Boosts
@@ -66,13 +66,13 @@ func Vagabond(character Character) (Character, bool){
 }
 
 func Warrior(character Character) (Character, bool){
-	res := character
-
-	// reject if has any class
+	// Reject If:
+	// - unit has a class already
 	if res.Stats.Class != "" {
 		return res, false
 	}
 
+	res := character
 	res.Stats.Class = "Warrior"
 
 	// Raw Stat Boosts
@@ -104,13 +104,13 @@ func Warrior(character Character) (Character, bool){
 }
 
 func Wizard(character Character) (Character, bool){
-	res := character
-
-	// reject if has any class
+	// Reject If:
+	// - unit has a class already
 	if res.Stats.Class != "" {
 		return res, false
 	}
 
+	res := character
 	res.Stats.Class = "Wizard"
 
 	// Raw Stat Boosts
@@ -153,11 +153,13 @@ func Wizard(character Character) (Character, bool){
 //
 //////////////////////
 func Paladin(character Character) (Character, bool){
-
-	// Reject Condition
+	// Reject If:
+	// - unit has a class already
 	if character.Stats.Level <= 10 {
 		return character, false
 	}
+
+	res = character
 
 	res.Stats.Class = res.Stats.Class + " Paladin"
 
