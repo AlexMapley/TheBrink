@@ -33,6 +33,7 @@ func Rogue(character Character) (Character, bool){
 		Skill{
 			Name: "DoubleStrike",
 			Cost: 35,
+			CoolDownInitial: 0,
 			CoolDownMax: 4,
 			CoolDown: 0,
 		},
@@ -95,6 +96,7 @@ func Warrior(character Character) (Character, bool){
 		Skill{
 			Name: "DoubleStrike",
 			Cost: 35,
+			CoolDownInitial: 0,
 			CoolDownMax: 4,
 			CoolDown: 0,
 		},
@@ -131,6 +133,7 @@ func Wizard(character Character) (Character, bool){
 		Skill{
 			Name: "LightningBolt",
 			Cost: 60,
+			CoolDownInitial: 0,
 			CoolDownMax: 6,
 			CoolDown: 0,
 		},
@@ -140,6 +143,7 @@ func Wizard(character Character) (Character, bool){
 		Skill{
 			Name: "IceBlast",
 			Cost: 40,
+			CoolDownInitial: 0,
 			CoolDownMax: 9,
 			CoolDown: 0,
 		},
@@ -175,8 +179,9 @@ func Paladin(character Character) (Character, bool){
 		Skill{
 			Name: "Heal",
 			Cost: 50,
+			CoolDownInitial: 0,
 			CoolDownMax: 5,
-			CoolDown: 4,
+			CoolDown: 0,
 		},
 	)
 

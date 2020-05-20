@@ -125,7 +125,7 @@ func (self *Character) Rest() {
 
 	// Reset Skill Cooldowns
 	for i := range self.SkillSlots {
-		self.SkillSlots[i].CoolDown = 0
+		self.SkillSlots[i].CoolDown = self.SkillSlots[i].CoolDownInitial
 	}
 }
 

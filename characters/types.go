@@ -57,6 +57,7 @@ type Status struct {
 type Skill struct {
 	Name string
 	Cost int
+	CoolDownInitial int
 	CoolDownMax int
 	CoolDown int
 }
