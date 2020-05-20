@@ -59,7 +59,7 @@ func main() {
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
 
-		if metaGame.Day == 15
+		if metaGame.Day == 15 {
 			color.Magenta("\n\n%sYou feel a darnkness come over the land...%s\n\n", trim, trim)
 		}
 
@@ -96,7 +96,7 @@ func main() {
 
 						// Mutation 1
 						if metaGame.Day > 15 {
-							thug, _ = characters.Infected(thug)
+							bandit.Character, _ = characters.Infected(bandit.Character)
 						}
 
 						player.Character.Duel(&bandit.Character)
@@ -111,7 +111,7 @@ func main() {
 
 						// Mutation 1
 						if metaGame.Day > 15 {
-							thug, _ = characters.Infected(thug)
+							thug.Character, _ = characters.Infected(thug.Character)
 						}
 
 						player.Character.Duel(&thug.Character)
