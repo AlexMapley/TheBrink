@@ -7,10 +7,7 @@ import (
 	"github.com/fatih/color"
 )
 
-type Console struct {
-	Actions []string
-}
-
+// ChooseAction
 func (console *Console) ChooseAction() int {
 
 	// List Potential Actions
@@ -18,6 +15,28 @@ func (console *Console) ChooseAction() int {
 	for number, option := range console.Actions {
 		color.Cyan("%d. %s\n", (number + 1), option)
 	}
+
+	var inputstr string
+	_, err := fmt.Scanf("%s", &inputstr)
+	if err != nil {
+		logError(err)
+	}
+
+	input, e := strconv.Atoi(inputstr)
+	if e != nil {
+		return -1
+	}
+
+	return input
+}
+
+// ChooseDirection
+func (console *Console) ChooseDirection() int {
+
+	// fmt.Println("Choose option:")
+	// for number, option := range console.Actions {
+	// 	color.Cyan("%d. %s\n", (number + 1), option)
+	// }
 
 	var inputstr string
 	_, err := fmt.Scanf("%s", &inputstr)
