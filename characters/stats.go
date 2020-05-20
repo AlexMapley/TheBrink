@@ -5,15 +5,15 @@ import (
 )
 
 func (stats Stats) CriticalValue() int {
-	return int(float64(stats.Agility) * float64(1.5))
+	return int(float64(stats.Agility) * float64(1.45)) - stats.Level
 }
 
 func (stats Stats) DodgeValue() int {
-	return stats.Agility * 2
+	return (stats.Agility * 1.9) - stats.Level
 }
 
 func (stats Stats) BlockValue() int {
-	return stats.Strength * 2 + stats.Block
+	return (stats.Strength * 1.9 + stats.Block) - stats.Level
 }
 
 func (stats Stats) AccuracyRating() int {

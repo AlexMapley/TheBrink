@@ -20,7 +20,7 @@ func (self *Character) BasicAttack(other *Character) {
 	// Generate base multipliers
 	damage := self.Stats.Strength + (self.Stats.Agility/2)
 
-	dodgeThreshold := 400 + (self.Stats.AccuracyRating() * 2)
+	dodgeThreshold := 350 + (self.Stats.AccuracyRating() * 2)
 	criticalThreshold := 300
 	blockThreshold := 250 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
 
