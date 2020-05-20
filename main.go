@@ -124,8 +124,8 @@ func main() {
 
 				// Become Paladin
 				case "Become Paladin":
-					var accepted
-					character, accepted = characters.Paladin(player.Character)
+					var accepted bool
+					player.Character, accepted = characters.Paladin(player.Character)
 					if !accepted {
 						color.HiRed("\n\n\nAttempting to become a Paladin, you foolishly die\n\n\n")
 						player.Character.Stats.Health -= 1000000
