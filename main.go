@@ -11,12 +11,14 @@ import (
 	"the_brink/party"
 	"the_brink/world"
 
+	"golang.org/x/mobile/geom"
+
 	"github.com/fatih/color"
 )
 
 var trim string = "-----------------------------------------\n"
 var player characters.Player
-var party party.Party
+var playerParty party.Party
 
 
 func main() {
@@ -59,14 +61,14 @@ func main() {
 	}
 
 	// Create Party
-	party := party.Party{
-		Coodinates := geom.Point{
+	playerParty = party.Party{
+		Coodinates: geom.Point{
 			X: geom.Pt(50),
 			Y: geom.Pt(50),
-		}
-		Characters := []characters.Character{
+		},
+		Characters: []characters.Character{
 			player.Character,
-		}
+		},
 	}
 
 
