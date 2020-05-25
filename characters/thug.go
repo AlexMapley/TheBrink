@@ -9,7 +9,6 @@ func NewThug(name string, level int) Thug {
 	// Base Layer
 	thug := Thug{
 		Character: Character {
-			ClassHash: 1,
 			Status: Status{
 				Stunned: 0,
 			},
