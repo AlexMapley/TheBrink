@@ -5,27 +5,27 @@ import (
 )
 
 func (stats Stats) CriticalValue() int {
-	return int (float32(stats.Agility) * 1.45 - float32(stats.Level))
+	return int ( (float32(stats.Agility) * 1.45) - (float32(stats.Level) * 1.2) )
 }
 
 func (stats Stats) DodgeValue() int {
-	return int ((float32(stats.Agility) * 1.9) - float32(stats.Level))
+	return int ( (float32(stats.Agility) * 1.9) - float32(stats.Level) )
 }
 
 func (stats Stats) BlockValue() int {
-	return int (float32(stats.Strength) * 1.9 + float32(stats.Block) - float32(stats.Level))
+	return int ( (float32(stats.Strength) * 1.9) + float32(stats.Block) - (float32(stats.Level) * 1.2) )
 }
 
 func (stats Stats) AccuracyRating() int {
-	return int (float32(stats.Agility) + float32(stats.Expertise))
+	return int ( float32(stats.Agility) + float32(stats.Expertise) )
 }
 
 func (stats Stats) MaxHealth() int {
-	return int ((float32(stats.Vitality) * 8) + (float32(stats.Strength) * 2))
+	return int ( (float32(stats.Vitality) * 8) + (float32(stats.Strength) * 2) )
 }
 
 func (stats Stats) MaxFocus() int {
-	return int (float32(stats.Intelligence) * 5)
+	return int ( float32(stats.Intelligence) * 5 )
 }
 
 func (stats Stats) DisplayHealth() string {
