@@ -1,6 +1,10 @@
 package console
 
 import (
+	"fmt"
+	"os"
+	"os/exec"
+
 	"the_brink/party"
 	"the_brink/world"
 
@@ -15,12 +19,8 @@ func NewMapConsole() Console {
 
 	// set default options
 	actions := make([]string, 5)
-	actions[0] = "Left"
-	actions[1] = "Right"
-	actions[2] = "Up"
-	actions[3] = "Down"
-	actions[4] = "Exit"
-	
+	actions[0] = "Arrow | WASD Keys for Movement"
+	actions[1] = "x | q to exit"
 
 	console.Actions = actions
 	return console
@@ -34,6 +34,7 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 	// Main Menu Loop
 	menuLoop:
 	for {
+		
 		
 		// Generate Map fields
 		terminal := ""
@@ -56,12 +57,20 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 		color.Cyan("%s", terminal)
 		color.Green("%s", trim)
 
-		option := console.ChooseAction()
+		_ = console.ChooseAction()
+	
+		reader := bufio.NewReader(os.Stdin)
+		char, _, err := reader.ReadRune()
 
-		if option > 0 && option <= len(console.Actions) {
-			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
+		fmt.Printf("\n\nKey pressed: %s\n\n", string(char))
+		fmt.Printf("\n\nRune pressed: %s\n\n", string(rune(char)))
 
-			switch console.Actions[option-1] {
+		if err != nil {
+			fmt.Pritln(err.Error())
+		}
+
+
+		switch rune(char) {
 			// Left
 			case "Left":
 				playerParty.Move(-1,0)
@@ -85,7 +94,8 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 			// Exit
 			case "Exit":
 				break menuLoop
-			}
 		}
+
+		i++
 	}
 }
