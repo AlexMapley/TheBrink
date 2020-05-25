@@ -22,16 +22,6 @@ var playerParty party.Party
 
 
 func main() {
-	// Build World
-	metaGame := world.MetaGame{
-		Day: 1,
-	}
-	world := world.World{
-		XMax: 100,
-		YMax: 50,
-		Grid: world.NewGrid(100, 50),
-	}
-
 	// Create Character
 	color.Cyan("What is your name?\n")
 	reader := bufio.NewReader(os.Stdin)
@@ -70,6 +60,20 @@ func main() {
 			player.Character,
 		},
 	}
+
+		// Build World
+		metaGame := world.MetaGame{
+			Day: 1,
+		}
+		world := world.World{
+			XMax: 100,
+			YMax: 50,
+			Grid: world.NewGrid(100, 50),
+			Parties: []party.Party{
+				playerParty,
+			},
+		}
+	
 
 
 	// main game loop
