@@ -4,7 +4,6 @@ import (
 	"the_brink/party"
 	"the_brink/world"
 
-	"golang.org/x/mobile/geom"
 	"github.com/fatih/color"
 )
 
@@ -35,11 +34,11 @@ func DisplayMapConsole(world *world.World, playerParty *party.Party) {
 	for y := 0; y < world.YMax; y++ {
 		line := []rune{}
 		for x := 0; x < world.XMax; x++ {
-			point := geom.Point{
-				X: geom.Pt(x),
-				Y: geom.Pt(y),
+			tile := world.Tiles{
+				X: x,
+				Y: y,
 			}
-			line = append(line, world.Grid[point])
+			line = append(line, world.Tiles[tile])
 		}
 		terminal += string(line) + "\n"
 	}
