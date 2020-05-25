@@ -16,7 +16,7 @@ func (console *Console) DisplayActions() {
 	for number, option := range console.Actions {
 		color.Cyan("%d. %s\n", (number + 1), option)
 	}
-)
+}
 
 // ChooseAction
 func (console *Console) ChooseAction() int {
