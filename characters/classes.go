@@ -14,6 +14,7 @@ func Rogue(character Character) (Character, bool){
 
 	res := character
 	res.Stats.Class = "Rogue"
+	res.Stats.ClassHash *= 3
 
 	// Raw Stat Boosts
 	res.Stats.Vitality +=2
@@ -51,6 +52,7 @@ func Vagabond(character Character) (Character, bool){
 
 	res := character
 	res.Stats.Class = "Vagabond"
+	res.Stats.ClassHash *= 5
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 0
@@ -75,6 +77,7 @@ func Warrior(character Character) (Character, bool){
 
 	res := character
 	res.Stats.Class = "Warrior"
+	res.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 4
@@ -114,6 +117,7 @@ func Wizard(character Character) (Character, bool){
 
 	res := character
 	res.Stats.Class = "Wizard"
+	res.Stats.ClassHash *= 7
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 1
@@ -164,9 +168,16 @@ func Paladin(character Character) (Character, bool){
 	if character.Stats.Level < 10 {
 		return character, false
 	}
+
+	// Null Effect if:
+	// - ClassHash mod condition
+	if character.Stats.ClassHash % 11 == 0 {
+		return character, true
+	}
 	
 	res := character
 	res.Stats.Class = res.Stats.Class + " Paladin"
+	res.Stats.ClassHash *= 11
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1

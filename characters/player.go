@@ -27,6 +27,7 @@ func NewPlayer(name string, class string) Player {
 	// Set stats
 	stats := Stats{
 		Name: name,
+		ClassHash: 1,
 		Level: 1,
 		Vitality: 5,
 		Strength: 5,

@@ -34,6 +34,7 @@ func NewThug(name string, level int) Thug {
 	stats := Stats{
 		Name: name,
 		Class: "Vagabond",
+		ClassHash: 1,
 		Level: 1,
 		Vitality: 4,
 		Strength: 5,

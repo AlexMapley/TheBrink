@@ -7,7 +7,6 @@ import (
 
 // Character
 type Character struct {
-	ClassHash int64
 	Stats Stats
 	Status Status
 	SkillSlots []Skill
@@ -19,6 +18,7 @@ type Stats struct {
 	// Info
 	Name string
 	Class string
+	ClassHash int64
 	Level int
 	LevelBonuses LevelBonuses
 

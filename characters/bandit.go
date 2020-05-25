@@ -9,7 +9,6 @@ func NewBandit(name string, level int) Bandit {
 	// Base Layer
 	bandit := Bandit{
 		Character: Character {
-			ClassHash: 1,
 			Status: Status{
 				Stunned: 0,
 			},
@@ -34,6 +33,7 @@ func NewBandit(name string, level int) Bandit {
 	stats := Stats{
 		Name: name,
 		Class: "Vagabond",
+		ClassHash: 1,
 		Level: 1,
 		Vitality: 3,
 		Strength: 3,
