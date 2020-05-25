@@ -7,6 +7,7 @@ import (
 	"the_brink/world"
 
 	"github.com/fatih/color"
+	"github.com/eiannone/keyboard"
 )
 
 
@@ -16,7 +17,7 @@ func NewMapConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 5)
+	actions := make([]string, 2)
 	actions[0] = "Arrow | WASD Keys for Movement"
 	actions[1] = "x | q to exit"
 
@@ -28,6 +29,13 @@ func NewMapConsole() Console {
 func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 
 	console := NewMapConsole()
+
+	if err := keyboard.Open(); err != nil {
+		panic(err)
+	}
+	defer func() {
+		_ = keyboard.Close()
+	}()
 
 	// Main Menu Loop
 	menuLoop:
@@ -53,14 +61,22 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 		color.Green("%s", trim)
 		color.Cyan("%s", terminal)
 		color.Green("%s", trim)
+		console.DisplayActions()
 
-		char = console.ChooseKey()
+		// char := console.ChooseKey()
 
-		fmt.Printf("\n\nKey pressed: %s\n\n", string(char))
-		fmt.Printf("\n\nRune pressed: %s\n\n", string(rune(char)))
+		// fmt.Printf("\n\nKey pressed: %s\n\n", string(char))
+		// fmt.Printf("\n\nRune pressed: %s\n\n", string(rune(char)))
 
 
-
+		char, key, err := keyboard.GetKey()
+		if err != nil {
+			panic(err)
+		}
+		fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
+        if key == keyboard.KeyEsc {
+			break
+		}
 
 		switch string(char) {
 			// Left
