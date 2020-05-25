@@ -5,11 +5,11 @@ import (
 )
 
 func (stats Stats) CriticalValue() int {
-	return int ( (float32(stats.Agility) * 1.45) - (float32(stats.Level) * 1.2) )
+	return int ( (float32(stats.Agility) * 1.45) - (float32(stats.Level) * 1.25) )
 }
 
 func (stats Stats) DodgeValue() int {
-	return int ( (float32(stats.Agility) * 1.85) - float32(stats.Level ( 1.1 )) )
+	return int ( (float32(stats.Agility) * 1.85) - (float32(stats.Level) *  1.15) )
 }
 
 func (stats Stats) BlockValue() int {
