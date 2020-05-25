@@ -2,8 +2,6 @@ package console
 
 import (
 	"fmt"
-	"os"
-	"os/exec"
 
 	"the_brink/party"
 	"the_brink/world"
@@ -35,7 +33,6 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 	menuLoop:
 	for {
 		
-		
 		// Generate Map fields
 		terminal := ""
 
@@ -57,20 +54,15 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 		color.Cyan("%s", terminal)
 		color.Green("%s", trim)
 
-		_ = console.ChooseAction()
-	
-		reader := bufio.NewReader(os.Stdin)
-		char, _, err := reader.ReadRune()
+		char = console.ChooseKey()
 
 		fmt.Printf("\n\nKey pressed: %s\n\n", string(char))
 		fmt.Printf("\n\nRune pressed: %s\n\n", string(rune(char)))
 
-		if err != nil {
-			fmt.Pritln(err.Error())
-		}
 
 
-		switch rune(char) {
+
+		switch string(char) {
 			// Left
 			case "Left":
 				playerParty.Move(-1,0)
@@ -95,7 +87,5 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 			case "Exit":
 				break menuLoop
 		}
-
-		i++
 	}
 }

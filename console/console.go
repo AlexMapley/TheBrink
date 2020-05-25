@@ -3,6 +3,8 @@ package console
 import (
 	"fmt"
 	"strconv"
+	"os"
+	"os/exec"
 
 	"github.com/fatih/color"
 )
@@ -31,25 +33,21 @@ func (console *Console) ChooseAction() int {
 }
 
 // ChooseDirection
-func (console *Console) ChooseDirection() int {
+func (console *Console) ChooseKey() string {
 
-	// fmt.Println("Choose option:")
-	// for number, option := range console.Actions {
-	// 	color.Cyan("%d. %s\n", (number + 1), option)
-	// }
+	fmt.Println("Choose option:")
+	for number, option := range console.Actions {
+		color.Cyan("%d. %s\n", (number + 1), option)
+	}
 
-	var inputstr string
-	_, err := fmt.Scanf("%s", &inputstr)
+	_ := exec.Command("/bin/stty", "-F", "/dev/tty", "-icanon", "min", "1") // worked ok
+	var keybuf [1]byte
+	char, err := os.Stdin.Read(keybuf[0:1])
 	if err != nil {
-		logError(err)
+		fmt.Println(err.Error())
 	}
 
-	input, e := strconv.Atoi(inputstr)
-	if e != nil {
-		return -1
-	}
-
-	return input
+	return char
 }
 
 func logError(err error) {
