@@ -53,7 +53,7 @@ func main() {
 		X: 25,
 		Y: 25,
 		Characters: []characters.Character{
-			player.Character,
+			&player.Character,
 		},
 		Rune: 'A',
 	}
@@ -128,10 +128,10 @@ func main() {
 
 					break dayLoop
 
-				// Rest
+				// Rest Party
 				case "Rest":
-					player.Character.Rest()
-				color.Green("Your stats have been restored\n")
+					playerParty.Rest()
+					color.Green("Your party's stats have been restored\n")
 					break dayLoop
 
 				// Level Up

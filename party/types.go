@@ -8,6 +8,6 @@ import (
 type Party struct {
 	X int
 	Y int
-	Characters []characters.Character
+	Members []*characters.Character
 	Rune rune
 }
