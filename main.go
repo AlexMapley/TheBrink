@@ -62,20 +62,19 @@ func main() {
 		Rune: 'A',
 	}
 
-		// Build World
-		metaGame := world.MetaGame{
-			Day: 1,
-		}
-		world := world.World{
-			XMax: 100,
-			YMax: 50,
-			Grid: world.NewGrid(100, 50),
-			Parties: []party.Party{
-				playerParty,
-			},
-		}
-	
-
+	// Build World
+	metaGame := world.MetaGame{
+		Day: 1,
+	}
+	world := world.World{
+		XMax: 100,
+		YMax: 50,
+		Grid: world.NewGrid(100, 50),
+		Parties: []party.Party{
+			playerParty,
+		},
+	}
+	world.UpdateParties()
 
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
@@ -84,9 +83,8 @@ func main() {
 			color.Magenta("\n\n%sYou feel a darnkness come over the land...\n%s\n\n", trim, trim)
 		}
 
-		townConsole := console.NewTownConsole()
-
 		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
+		townConsole := console.NewTownConsole()
 
 		dayLoop:
 		for {
@@ -103,7 +101,7 @@ func main() {
 
 				// Map
 				case "Map":
-					console.DisplayMapConsole(world)
+					console.DisplayMapConsole(&world)
 				
 				// Fight
 				case "Patrol the town":

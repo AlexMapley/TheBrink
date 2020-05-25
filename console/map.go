@@ -44,7 +44,7 @@ func DisplayMapConsole(world *world.World) {
 	color.Cyan("%s", terminal)
 	color.Green("%s", trim)
 
-	console := NewCharacterConsole()
+	console := NewMapConsole()
 
 	// Main Menu Loop
 	menuLoop:
