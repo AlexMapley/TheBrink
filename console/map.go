@@ -19,7 +19,7 @@ func NewMapConsole() Console {
 	// set default options
 	actions := make([]string, 2)
 	actions[0] = "Arrow | WASD Keys for Movement"
-	actions[1] = "x | q to exit"
+	actions[1] = "x | q | esc to exit"
 
 	console.Actions = actions
 	return console
@@ -100,7 +100,7 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 				gameWorld.UpdateMap()
 
 			// Exit
-			case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC,  key == keyboard.KeyCtrlD, char == 'q':
+			case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC,  key == keyboard.KeyCtrlD, char == 'q', char == 'x':
 				break menuLoop
 		}
 	}
