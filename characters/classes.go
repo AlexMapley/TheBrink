@@ -211,7 +211,7 @@ func Infected(character Character) (Character, bool){
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 2
 	res.Stats.LevelBonuses.Agility += 2
-	res.Stats.LevelBonuses.Intelligence += 2
+	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 2
 	res.Stats.LevelBonuses.Expertise += 2
 	res.Stats.LevelBonuses.Block += 2

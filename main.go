@@ -129,7 +129,7 @@ func main() {
 					var accepted bool
 					player.Character, accepted = characters.Paladin(player.Character)
 					if !accepted {
-						color.HiRed("\n\n%sAttempting to become a Paladin, you foolishly die%s\n\n", trim, trim)
+						color.HiRed("\n\n%sAttempting to become a Paladin, you foolishly die\n%s\n\n", trim, trim)
 						player.Character.Stats.Health -= 1000000
 					}
 					break dayLoop
