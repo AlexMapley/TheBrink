@@ -53,8 +53,8 @@ func main() {
 	// Create Party
 	playerParty = party.Party{
 		Coodinates: geom.Point{
-			X: geom.Pt(50),
-			Y: geom.Pt(50),
+			X: geom.Pt(25),
+			Y: geom.Pt(25),
 		},
 		Characters: []characters.Character{
 			player.Character,
