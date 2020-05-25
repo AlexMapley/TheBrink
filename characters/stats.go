@@ -25,7 +25,7 @@ func (stats Stats) MaxHealth() int {
 }
 
 func (stats Stats) MaxFocus() int {
-	return int (float32(stats.Intelligence) * 1)
+	return int (float32(stats.Intelligence) * 5)
 }
 
 func (stats Stats) DisplayHealth() string {
