@@ -31,10 +31,10 @@ func DisplayCharacterConsole(character *characters.Character) {
 	for {
 		option := console.ChooseAction()
 
-		if option > 0 && option <= len(townConsole.Actions) {
-			color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
+		if option > 0 && option <= len(console.Actions) {
+			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
 
-			switch townConsole.Actions[option-1] {
+			switch console.Actions[option-1] {
 			
 			// Stats
 			case "Stats":
