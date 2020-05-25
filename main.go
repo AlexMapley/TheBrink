@@ -8,6 +8,7 @@ import (
 
 	"the_brink/characters"
 	"the_brink/console"
+	"the_brink/party"
 	"the_brink/world"
 
 	"github.com/fatih/color"
@@ -15,6 +16,7 @@ import (
 
 var trim string = "-----------------------------------------\n"
 var player characters.Player
+var party party.Party
 
 
 func main() {
@@ -55,6 +57,18 @@ func main() {
 			}
 		}
 	}
+
+	// Create Party
+	party := party.Party{
+		Coodinates := geom.Point{
+			X: geom.Pt(50),
+			Y: geom.Pt(50),
+		}
+		Characters := []characters.Character{
+			player.Character,
+		}
+	}
+
 
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
