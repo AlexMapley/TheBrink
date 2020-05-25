@@ -59,7 +59,7 @@ func main() {
 		Characters: []characters.Character{
 			player.Character,
 		},
-		Rune: rune("A"),
+		Rune: 'A',
 	}
 
 		// Build World
