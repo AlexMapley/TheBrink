@@ -3,12 +3,13 @@ package party
 
 import (
 	"the_brink/characters"
-	
-	"golang.org/x/mobile/geom"
+	"the_brink/world"
 )
 
 type Party struct {
-	Coodinates geom.Point
+	XCoordinate int
+	YCoordinate int
+	Tile world.Tile
 	Characters []characters.Character
 	Rune rune
 }

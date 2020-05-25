@@ -1,6 +1,7 @@
 package console
 
 import (
+	"the_brink/party"
 	"the_brink/world"
 
 	"golang.org/x/mobile/geom"
@@ -14,8 +15,12 @@ func NewMapConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 1)
-	actions[0] = "Exit"
+	actions := make([]string, 5)
+	actions[0] = "Up"
+	actions[1] = "Down"
+	actions[2] = "Left"
+	actions[3] = "Right"
+	actions[4] = "Exit"
 	
 
 	console.Actions = actions
@@ -23,7 +28,7 @@ func NewMapConsole() Console {
 }
 
 
-func DisplayMapConsole(world *world.World) {
+func DisplayMapConsole(world *world.World, playerParty *party.Party) {
 	color.Green("%s", trim)
 
 	terminal := ""
@@ -55,6 +60,22 @@ func DisplayMapConsole(world *world.World) {
 			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
 
 			switch console.Actions[option-1] {
+			// Exit
+			case "Up":
+				break menuLoop
+
+			// Exit
+			case "Down":
+				break menuLoop
+
+			// Exit
+			case "Left":
+				break menuLoop
+
+			// Exit
+			case "Right":
+				break menuLoop
+
 			// Exit
 			case "Exit":
 				break menuLoop

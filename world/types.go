@@ -1,7 +1,6 @@
 package world
 
 import (
-	"golang.org/x/mobile/geom"
 	"the_brink/party"
 )
 
@@ -9,9 +8,14 @@ type MetaGame struct {
 	Day int
 }
 
+type Tile struct {
+	X int
+	Y int
+}
+
 type World struct {
 	XMax int
 	YMax int
-	Grid map[geom.Point]rune
+	Tiles map[Tile]rune
 	Parties []party.Party
 }

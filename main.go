@@ -11,8 +11,6 @@ import (
 	"the_brink/party"
 	"the_brink/world"
 
-	"golang.org/x/mobile/geom"
-
 	"github.com/fatih/color"
 )
 
@@ -52,9 +50,9 @@ func main() {
 
 	// Create Party
 	playerParty = party.Party{
-		Coodinates: geom.Point{
-			X: geom.Pt(25),
-			Y: geom.Pt(25),
+		Coodinates: world.Tile{
+			X: 25,
+			Y: 25,
 		},
 		Characters: []characters.Character{
 			player.Character,
@@ -101,7 +99,7 @@ func main() {
 
 				// Map
 				case "Map":
-					console.DisplayMapConsole(&world)
+					console.DisplayMapConsole(&world, &playerParty)
 				
 				// Fight
 				case "Patrol the town":

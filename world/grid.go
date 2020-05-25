@@ -1,17 +1,13 @@
 package world
 
-import (
-	"golang.org/x/mobile/geom"
-)
-
 // NewGrid will return a blank grid
-func NewGrid(xMax int, yMax int) map[geom.Point]rune {
-	grid := map[geom.Point]rune{}
+func NewGrid(xMax int, yMax int) map[Tile]rune {
+	grid := map[Tile]rune{}
 	for y := 0; y < yMax; y++ {
 		for x := 0; x < xMax; x++ {
-			point := geom.Point{
-				X: geom.Pt(x),
-				Y: geom.Pt(y),
+			tile := Tile{
+				X: x,
+				Y: y,
 			}
 			grid[point] = '.'
 		}
