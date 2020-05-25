@@ -17,5 +17,5 @@ type World struct {
 	XMax int
 	YMax int
 	Tiles map[Tile]rune
-	Parties []party.Party
+	Parties []*party.Party
 }

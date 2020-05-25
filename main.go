@@ -66,11 +66,13 @@ func main() {
 		XMax: 100,
 		YMax: 50,
 		Tiles: world.NewGrid(100, 50),
-		Parties: []party.Party{
-			playerParty,
+		Parties: []*party.Party{
+			&playerParty,
 		},
 	}
-	world.UpdateParties()
+
+	// Set Map
+	world.UpdateMap()
 
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
