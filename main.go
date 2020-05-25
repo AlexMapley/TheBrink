@@ -95,7 +95,7 @@ func main() {
 					
 						// loot bandit if won
 						if (player.Character.Stats.Health > 0) {
-							player.Inventory.Loot(&bandit.Inventory)
+							player.Character.Inventory.Loot(&bandit.Character.Inventory)
 						}
 					} else {
 						fmt.Println("\n\nAn agry thug appears")
@@ -105,7 +105,7 @@ func main() {
 					
 						// loot thug if won
 						if (player.Character.Stats.Health > 0) {
-							player.Inventory.Loot(&thug.Inventory)
+							player.Character.Inventory.Loot(&thug.Character.Inventory)
 						}
 					}
 

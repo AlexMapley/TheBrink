@@ -23,7 +23,7 @@ func NewCharacterConsole() Console {
 }
 
 
-func DisplayCharacterConsole(character *characters.Character) {
+func DisplayCharacterConsole(character characters.Character) {
 
 	console := NewCharacterConsole()
 
