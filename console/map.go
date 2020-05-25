@@ -15,10 +15,10 @@ func NewMapConsole() Console {
 
 	// set default options
 	actions := make([]string, 5)
-	actions[0] = "Up"
-	actions[1] = "Down"
-	actions[2] = "Left"
-	actions[3] = "Right"
+	actions[0] = "Left"
+	actions[1] = "Right"
+	actions[2] = "Up"
+	actions[3] = "Down"
 	actions[4] = "Exit"
 	
 
@@ -37,7 +37,9 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 		
 		// Generate Map fields
 		terminal := ""
-		for y := 0; y < gameWorld.YMax; y++ {
+
+		// Print from top left to bottom right
+		for y := gameWorld.YMax - 1; y >= 0 ; y-- {
 			line := []rune{}
 			for x := 0; x < gameWorld.XMax; x++ {
 				tile := world.Tile{
@@ -60,6 +62,16 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
 
 			switch console.Actions[option-1] {
+			// Left
+			case "Left":
+				playerParty.Move(-1,0)
+				gameWorld.UpdateMap()
+
+			// Right
+			case "Right":
+				playerParty.Move(1,0)
+				gameWorld.UpdateMap()
+
 			// Up
 			case "Up":
 				playerParty.Move(0,1)
@@ -68,16 +80,6 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 			// Down
 			case "Down":
 				playerParty.Move(0,-1)
-				gameWorld.UpdateMap()
-
-			// Left
-			case "Left":
-				playerParty.Move(-1,0)
-				gameWorld.UpdateMap()
-
-			// Righ
-			case "Right":
-				playerParty.Move(1,0)
 				gameWorld.UpdateMap()
 
 			// Exit

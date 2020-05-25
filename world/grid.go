@@ -33,7 +33,7 @@ func (world *World) UpdateMap() {
 
 	// Move parties
 	for _, party := range world.Parties {
-		coordinates := Tile{
+		coordinates := Tile {
 			X: party.X,
 			Y: party.Y,
 		}
