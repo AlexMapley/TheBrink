@@ -9,7 +9,7 @@ func (stats Stats) CriticalValue() int {
 }
 
 func (stats Stats) DodgeValue() int {
-	return int ( (float32(stats.Agility) * 1.9) - float32(stats.Level) )
+	return int ( (float32(stats.Agility) * 1.85) - float32(stats.Level ( 1.1 )) )
 }
 
 func (stats Stats) BlockValue() int {
