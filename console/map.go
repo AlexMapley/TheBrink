@@ -78,29 +78,29 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 			break
 		}
 
-		switch key {
+		switch {
 			// Move Left
-			case KeyArrowLeft:
+			case key == keyboard.KeyArrowLeft, char == 'a':
 				playerParty.Move(-1,0)
 				gameWorld.UpdateMap()
 
 			// Move Right
-			case KeyArrowRight:
+			case key == keyboard.KeyArrowRight, char == 'd':
 				playerParty.Move(1,0)
 				gameWorld.UpdateMap()
 
 			// Move Up
-			case KeyArrowUp:
+			case key == keyboard.KeyArrowUp, char == 'w':
 				playerParty.Move(0,1)
 				gameWorld.UpdateMap()
 
 			// Move Down
-			case KeyArrowDown:
+			case key == keyboard.KeyArrowDown, char == 's':
 				playerParty.Move(0,-1)
 				gameWorld.UpdateMap()
 
 			// Exit
-			case keyboard.KeyEsc:
+			case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC,  key == keyboard.KeyCtrlD, char == 'q':
 				break menuLoop
 		}
 	}
