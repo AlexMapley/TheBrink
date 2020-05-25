@@ -1,6 +1,8 @@
 package console
 
 import (
+	"the_brink/world"
+
 	"golang.org/x/mobile/geom"
 	"github.com/fatih/color"
 )
@@ -21,11 +23,12 @@ func NewMapConsole() Console {
 }
 
 
-func Display(world *World) {
+func DisplayMapConsole(world *world.World) {
 	color.Green("%s", trim)
 
 	terminal := ""
 
+	// Generate Map fields
 	for y := 0; y < world.YMax; y++ {
 		line := []rune{}
 		for x := 0; x < world.XMax; x++ {

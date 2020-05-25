@@ -103,7 +103,7 @@ func main() {
 
 				// Map
 				case "Map":
-					world.Display()
+					console.DisplayMapConsole(world)
 				
 				// Fight
 				case "Patrol the town":
