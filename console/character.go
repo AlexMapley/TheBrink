@@ -1,5 +1,11 @@
 package console
 
+import (
+	"the_brink/characters"
+	
+	"github.com/fatih/color"
+)
+
 
 func NewCharacterConsole() Console {
 	console := Console{}
@@ -37,7 +43,6 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Inventory
 			case "Inventory":
 				character.Inventory.Display()
-			}
 
 			// Exit
 			case "Exit":
