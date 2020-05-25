@@ -27,18 +27,18 @@ func NewMapConsole() Console {
 }
 
 
-func DisplayMapConsole(world *world.World, playerParty *party.Party) {
+func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 
 	// Generate Map fields
 	terminal := ""
-	for y := 0; y < world.YMax; y++ {
+	for y := 0; y < gameWorld.YMax; y++ {
 		line := []rune{}
-		for x := 0; x < world.XMax; x++ {
-			tile := world.Tiles{
+		for x := 0; x < gameWorld.XMax; x++ {
+			tile := world.Tile{
 				X: x,
 				Y: y,
 			}
-			line = append(line, world.Tiles[tile])
+			line = append(line, gameWorld.Tiles[tile])
 		}
 		terminal += string(line) + "\n"
 	}
@@ -63,22 +63,22 @@ func DisplayMapConsole(world *world.World, playerParty *party.Party) {
 			// Up
 			case "Up":
 				playerParty.Move(0,1)
-				world.UpdateParties()
+				gameWorld.UpdateParties()
 
 			// Down
 			case "Down":
 				playerParty.Move(0,-1)
-				world.UpdateParties()
+				gameWorld.UpdateParties()
 
 			// Left
 			case "Left":
 				playerParty.Move(-1,0)
-				world.UpdateParties()
+				gameWorld.UpdateParties()
 
 			// Righ
 			case "Right":
 				playerParty.Move(1,0)
-				world.UpdateParties()
+				gameWorld.UpdateParties()
 
 			// Exit
 			case "Exit":

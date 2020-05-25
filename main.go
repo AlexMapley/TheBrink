@@ -50,10 +50,8 @@ func main() {
 
 	// Create Party
 	playerParty = party.Party{
-		Coodinates: world.Tile{
-			X: 25,
-			Y: 25,
-		},
+		X: 25,
+		Y: 25,
 		Characters: []characters.Character{
 			player.Character,
 		},
@@ -67,7 +65,7 @@ func main() {
 	world := world.World{
 		XMax: 100,
 		YMax: 50,
-		Grid: world.NewGrid(100, 50),
+		Tiles: world.NewGrid(100, 50),
 		Parties: []party.Party{
 			playerParty,
 		},
