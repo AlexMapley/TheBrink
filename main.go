@@ -52,7 +52,7 @@ func main() {
 	playerParty = party.Party{
 		X: 25,
 		Y: 25,
-		Characters: []characters.Character{
+		Members: []*characters.Character{
 			&player.Character,
 		},
 		Rune: 'A',

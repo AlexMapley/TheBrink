@@ -9,6 +9,7 @@ func NewPlayer(name string, class string) Player {
 	// Base layer
 	player := Player{
 		Character: Character {
+			ClassHash: 1,
 			Status: Status{
 				Stunned: 0,
 			},

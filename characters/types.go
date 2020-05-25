@@ -7,6 +7,7 @@ import (
 
 // Character
 type Character struct {
+	ClassHash int64
 	Stats Stats
 	Status Status
 	SkillSlots []Skill
