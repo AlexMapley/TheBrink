@@ -76,14 +76,11 @@ func main() {
 
 				switch townConsole.Actions[option-1] {
 				
-				// Stats
-				case "Stats":
-					player.Character.Stats.Display()
-				
-				// Inventory
-				case "Inventory":
-					player.Inventory.Display()
+				// Character Menu
+				case "Character":
+					console.DisplayCharacterConsole(player.Character)
 
+				// Map
 				case "Map":
 					world.Display()
 				

@@ -4,15 +4,13 @@ func NewTownConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 8)
-	actions[0] = "Stats"
-	actions[1] = "Skills"
-	actions[2] = "Inventory"
-	actions[3] = "Map"
-	actions[4] = "Patrol the town"
-	actions[5] = "Rest"
-	actions[6] = "Level Up"
-	actions[7] = "Become Paladin"
+	actions := make([]string, 6)
+	actions[0] = "Character"
+	actions[1] = "Map"
+	actions[2] = "Patrol the town"
+	actions[3] = "Rest"
+	actions[4] = "Level Up"
+	actions[5] = "Become Paladin"
 
 	console.Actions = actions
 
