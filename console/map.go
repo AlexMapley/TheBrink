@@ -29,11 +29,9 @@ func NewMapConsole() Console {
 
 
 func DisplayMapConsole(world *world.World, playerParty *party.Party) {
-	color.Green("%s", trim)
-
-	terminal := ""
 
 	// Generate Map fields
+	terminal := ""
 	for y := 0; y < world.YMax; y++ {
 		line := []rune{}
 		for x := 0; x < world.XMax; x++ {
@@ -46,14 +44,17 @@ func DisplayMapConsole(world *world.World, playerParty *party.Party) {
 		terminal += string(line) + "\n"
 	}
 
-	color.Cyan("%s", terminal)
-	color.Green("%s", trim)
-
 	console := NewMapConsole()
 
 	// Main Menu Loop
 	menuLoop:
 	for {
+		
+		// Diplay
+		color.Green("%s", trim)
+		color.Cyan("%s", terminal)
+		color.Green("%s", trim)
+
 		option := console.ChooseAction()
 
 		if option > 0 && option <= len(console.Actions) {
