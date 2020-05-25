@@ -12,6 +12,6 @@ type MetaGame struct {
 type World struct {
 	XMax int
 	YMax int
-	Grid map[geom.Point]string
+	Grid map[geom.Point]rune
 	Parties []party.Party
 }
