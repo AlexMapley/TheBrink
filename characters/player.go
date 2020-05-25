@@ -51,7 +51,7 @@ func NewPlayer(name string, class string) Player {
 	}
 
 	// Set Player Inventory
-	player.Inventory = inventory.Inventory {
+	player.Character.Inventory = inventory.Inventory {
 		Owner: player.Character.Stats.Name,
 		Gold: 100,
 	}

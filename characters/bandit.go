@@ -51,7 +51,7 @@ func NewBandit(name string, level int) Bandit {
 	bandit.Character, _ = Vagabond(bandit.Character)
 
 	// Set Inventory
-	bandit.Inventory = inventory.Inventory {
+	bandit.Character.Inventory = inventory.Inventory {
 		Owner: bandit.Character.Stats.Name,
 		Gold: 25,
 	}

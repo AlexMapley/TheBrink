@@ -12,6 +12,7 @@ type Character struct {
 	Status Status
 	SkillSlots []Skill
 	Coordinates geom.Point
+	Inventory inventory.Inventory
 }
 
 // Stats
@@ -67,16 +68,13 @@ type Skill struct {
 // Character Types
 type Player struct {
 	Character Character
-	Inventory inventory.Inventory
 }
 
 type Bandit struct {
 	Character Character
-	Inventory inventory.Inventory
 }
 
 type Thug struct {
 	Character Character
-	Inventory inventory.Inventory
 }
 
