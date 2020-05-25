@@ -10,5 +10,5 @@ import (
 type Party struct {
 	Coodinates geom.Point
 	Characters []characters.Character
-	Rune 
+	Rune rune
 }

@@ -14,15 +14,15 @@ func (world *World) Display() {
 	terminal := ""
 
 	for y := 0; y < world.YMax; y++ {
-		line := ""
+		line := []rune{}
 		for x := 0; x < world.XMax; x++ {
 			point := geom.Point{
 				X: geom.Pt(x),
 				Y: geom.Pt(y),
 			}
-			line += world.Grid[point]
+			line = append(line, world.Grid[point])
 		}
-		terminal += line + "\n"
+		terminal += string(line) + "\n"
 	}
 
 	color.Cyan("%s", terminal)
