@@ -65,7 +65,7 @@ func main() {
 	world := world.World{
 		XMax: 100,
 		YMax: 50,
-		Tiles: world.NewGrid(100, 50),
+		Tiles: world.CreateMap(100, 50),
 		Parties: []*party.Party{
 			&playerParty,
 		},

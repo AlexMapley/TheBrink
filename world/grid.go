@@ -21,8 +21,8 @@ func (world *World) UpdateMap() {
 	// Regerate map from scratch
 	// TODO: Optimize me
 	grid := map[Tile]rune{}
-	for y := 0; y < world.XMax; y++ {
-		for x := 0; x < world.YMax; x++ {
+	for y := 0; y < world.YMax; y++ {
+		for x := 0; x < world.XMax; x++ {
 			tile := Tile{
 				X: x,
 				Y: y,
