@@ -60,21 +60,25 @@ func DisplayMapConsole(world *world.World, playerParty *party.Party) {
 			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
 
 			switch console.Actions[option-1] {
-			// Exit
+			// Up
 			case "Up":
-				break menuLoop
+				playerParty.Move(0,1)
+				world.UpdateParties()
 
-			// Exit
+			// Down
 			case "Down":
-				break menuLoop
+				playerParty.Move(0,-1)
+				world.UpdateParties()
 
-			// Exit
+			// Left
 			case "Left":
-				break menuLoop
+				playerParty.Move(-1,0)
+				world.UpdateParties()
 
-			// Exit
+			// Righ
 			case "Right":
-				break menuLoop
+				playerParty.Move(1,0)
+				world.UpdateParties()
 
 			// Exit
 			case "Exit":

@@ -9,7 +9,7 @@ func NewGrid(xMax int, yMax int) map[Tile]rune {
 				X: x,
 				Y: y,
 			}
-			grid[point] = '.'
+			grid[tile] = '.'
 		}
 	}
 	return grid
@@ -18,6 +18,10 @@ func NewGrid(xMax int, yMax int) map[Tile]rune {
 // UpdateParties will set the position and rune for all existent parties
 func (world *World) UpdateParties() {
 	for _, party := range world.Parties {
-		world.Grid[party.Coodinates] = party.Rune
+		coordinates := Tile{
+			X: party.X,
+			Y: party.Y,
+		}
+		world.Tiles[coordinates] = party.Rune
 	}
 }

@@ -6,8 +6,8 @@ import (
 )
 
 type Party struct {
-	XCoordinate int
-	YCoordinate int
+	X int
+	Y int
 	Characters []characters.Character
 	Rune rune
 }
