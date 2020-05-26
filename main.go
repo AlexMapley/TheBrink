@@ -134,13 +134,6 @@ func main() {
 					color.Green("Your party's stats have been restored\n")
 					break dayLoop
 
-				// Level Up
-				case "Level Up":
-					// level up player and bandit
-					player.Character.LevelUp()
-					player.Character.Rest()
-					break dayLoop
-
 				// Become Paladin
 				case "Become Paladin":
 					var accepted bool

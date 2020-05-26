@@ -11,10 +11,11 @@ func NewCharacterConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 3)
+	actions := make([]string, 4)
 	actions[0] = "Stats"
 	actions[1] = "Inventory"
-	actions[2] = "Exit"
+	actions[2] = "Level Up"
+	actions[3] = "Exit"
 	
 
 	console.Actions = actions
@@ -43,6 +44,13 @@ func DisplayCharacterConsole(character characters.Character) {
 			// Inventory
 			case "Inventory":
 				character.Inventory.Display()
+			
+			// Level Up
+			case "Level Up":
+				// level up player and bandit
+				character.LevelUp()
+				character.Rest()
+				break menuLoop
 
 			// Exit
 			case "Exit":
