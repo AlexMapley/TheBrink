@@ -59,7 +59,7 @@ func (self *Character) Duel(other *Character) {
 			case "Heal":
 				self.Heal()
 			default:
-				self.BasicAttack(other)
+				self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
 			}
 			// self cooldowns
 			for i, skill := range self.SkillSlots {
@@ -89,7 +89,7 @@ func (self *Character) Duel(other *Character) {
 				case "Heal":
 					other.Heal()
 				default:
-					other.BasicAttack(self)
+					other.BasicAttack(self, self.Stats.Strength + (self.Stats.Agility/2))
 				}
 				// other cooldowns
 				for i, skill := range other.SkillSlots {

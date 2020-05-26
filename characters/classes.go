@@ -159,45 +159,8 @@ func Wizard(character Character) (Character, bool){
 //////////////////
 // Tier 2 Classes
 // - Level Restricted
+// - ClassHash Restricted
 ////////////////////
-
-// Paladin
-func Paladin(character Character) (Character, bool){
-	// Reject If:
-	// - unit has a class already
-	if character.Stats.Level < 10 {
-		return character, false
-	}
-
-	// Null Effect if:
-	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 {
-		return character, true
-	}
-	
-	res := character
-	res.Stats.Class = res.Stats.Class + " Paladin"
-	res.Stats.ClassHash *= 11
-
-	// Levelling Stat Boosts
-	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Intelligence += 1
-	res.Stats.LevelBonuses.Vitality += 1
-
-	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots, 
-		Skill{
-			Name: "Heal",
-			Cost: 50,
-			CoolDownInitial: 5,
-			CoolDownMax: 5,
-			CoolDown: 5,
-		},
-	)
-
-	return res, true
-}
 
 // Infected
 func Infected(character Character) (Character, bool){
@@ -226,6 +189,77 @@ func Infected(character Character) (Character, bool){
 	res.Stats.LevelBonuses.Vitality += 2
 	res.Stats.LevelBonuses.Expertise += 2
 	res.Stats.LevelBonuses.Block += 2
+
+	return res, true
+}
+
+// Paladin
+func Paladin(character Character) (Character, bool){
+	// Reject If:
+	// - unit has a class already
+	if character.Stats.Level < 10 {
+		return character, false
+	}
+	// - ClassHash mod condition
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 {
+		return character, false
+	}
+	
+	res := character
+	res.Stats.Class = res.Stats.Class + " Paladin"
+	res.Stats.ClassHash *= 11
+
+	// Levelling Stat Boosts
+	res.Stats.LevelBonuses.Strength += 1
+	res.Stats.LevelBonuses.Intelligence += 1
+	res.Stats.LevelBonuses.Vitality += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "Heal",
+			Cost: 50,
+			CoolDownInitial: 5,
+			CoolDownMax: 5,
+			CoolDown: 5,
+		},
+	)
+
+	return res, true
+}
+// NightBlade
+func NightBlade(character Character) (Character, bool){
+	// Reject If:
+	// - unit has a class already
+	if character.Stats.Level < 10 {
+		return character, false
+	}
+	// - ClassHash mod condition
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 {
+		return character, false
+	}
+	
+	res := character
+	res.Stats.Class = res.Stats.Class + " NightBlade"
+	res.Stats.ClassHash *= 11
+
+	// Levelling Stat Boosts
+	res.Stats.LevelBonuses.Strength += 1
+	res.Stats.LevelBonuses.Intelligence += 1
+	res.Stats.LevelBonuses.Agility += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "GhostBlade",
+			Cost: 45,
+			CoolDownInitial: 0,
+			CoolDownMax: 4,
+			CoolDown: 4,
+		},
+	)
 
 	return res, true
 }

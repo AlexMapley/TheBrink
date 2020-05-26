@@ -8,7 +8,7 @@ import (
 )
 
 // BasicAttack
-func (self *Character) BasicAttack(other *Character) {
+func (self *Character) BasicAttack(other *Character, base int) {
 	rand.Seed(time.Now().UnixNano())
 
 	// Events
@@ -18,7 +18,7 @@ func (self *Character) BasicAttack(other *Character) {
 	
 
 	// Generate base multipliers
-	damage := self.Stats.Strength + (self.Stats.Agility/2)
+	damage := base
 
 	dodgeThreshold := 320 + (self.Stats.AccuracyRating() * 2)
 	criticalThreshold := 320
@@ -65,14 +65,14 @@ func (self *Character) DoubleStrike(other *Character) {
 	self.BasicAttack(other)
 }
 
-// IceBlast
-func (self *Character) IceBlast(other *Character) {
-	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
-	damage := int(float64(self.Stats.Intelligence) * 1.8)
-	color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+// GhostBlade
+func (self *Character) GhostBlade(other *Character) {
+	color.HiGreen("* %s uses GhostBlad *\n", self.Stats.Name)
+	self.BasicAttack(other, (self.Stats.Strength*.7) + (self.Stats.Agility*.8) + (self.Stats.Intelligence*.7))
 
-	other.Stats.Health -= damage
-	other.Status.Stunned +=2
+	color.Magenta("%s %s stuns for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth())
+
+	other.Status.Stunned +=1
 }
 
 // Heal
@@ -86,6 +86,16 @@ func (self *Character) Heal() {
 	if self.Stats.Health > self.Stats.MaxHealth() {
 		self.Stats.Health = self.Stats.MaxHealth()
 	}
+}
+
+// IceBlast
+func (self *Character) IceBlast(other *Character) {
+	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
+	damage := int(float64(self.Stats.Intelligence) * 1.8)
+	color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+
+	other.Stats.Health -= damage
+	other.Status.Stunned +=2
 }
 
 // LightningBolt
