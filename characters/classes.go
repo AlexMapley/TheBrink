@@ -187,8 +187,9 @@ func Infected(character Character) (Character, bool){
 	res.Stats.LevelBonuses.Agility += 2
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 2
-	res.Stats.LevelBonuses.Expertise += 2
-	res.Stats.LevelBonuses.Block += 2
+	res.Stats.LevelBonuses.Expertise += 1
+	res.Stats.LevelBonuses.Block += 1
+	res.Stats.LevelBonuses.Critical += 1
 
 	return res, true
 }

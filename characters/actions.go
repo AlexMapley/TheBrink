@@ -142,7 +142,11 @@ func (self *Character) LevelUp() {
 	self.Stats.Strength += self.Stats.LevelBonuses.Strength
 	self.Stats.Agility += self.Stats.LevelBonuses.Agility
 	self.Stats.Intelligence += self.Stats.LevelBonuses.Intelligence
+
+	// increase secondary stats
 	self.Stats.Expertise += self.Stats.LevelBonuses.Expertise
+	self.Stats.Block += self.Stats.LevelBonuses.Block
+	self.Stats.Critical += self.Stats.LevelBonuses.Critical
 
 	// rest
 	self.Rest()
