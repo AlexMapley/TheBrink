@@ -61,14 +61,14 @@ func (self *Character) BasicAttack(other *Character, base int) {
 // DoubleStrike
 func (self *Character) DoubleStrike(other *Character) {
 	color.HiGreen("* %s uses Double Strike *\n", self.Stats.Name)
-	self.BasicAttack(other)
-	self.BasicAttack(other)
+	self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
+	self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
 }
 
 // GhostBlade
 func (self *Character) GhostBlade(other *Character) {
 	color.HiGreen("* %s uses GhostBlad *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength*.7) + (self.Stats.Agility*.8) + (self.Stats.Intelligence*.7))
+	self.BasicAttack(other, (self.Stats.Strength/2) + (self.Stats.Agility) + (self.Stats.Intelligence))
 
 	color.Magenta("%s %s stuns for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth())
 

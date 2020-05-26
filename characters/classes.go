@@ -201,7 +201,7 @@ func Paladin(character Character) (Character, bool){
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 {
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 {
 		return character, false
 	}
 	
@@ -236,7 +236,7 @@ func NightBlade(character Character) (Character, bool){
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 {
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 {
 		return character, false
 	}
 	
