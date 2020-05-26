@@ -67,8 +67,8 @@ func (self *Character) DoubleStrike(other *Character) {
 
 // GhostBlade
 func (self *Character) GhostBlade(other *Character) {
-	color.HiGreen("* %s uses GhostBlad *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength/2) + (self.Stats.Agility) + (self.Stats.Intelligence))
+	color.HiGreen("* %s uses GhostBlade *\n", self.Stats.Name)
+	self.BasicAttack(other, (self.Stats.Strength/2) + (self.Stats.Agility*2) + (self.Stats.Intelligence*2))
 
 	color.Magenta("%s %s stuns for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth())
 

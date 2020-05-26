@@ -50,6 +50,8 @@ func (self *Character) Duel(other *Character) {
 			switch chosenSkill.Name {
 			case "DoubleStrike":
 				self.DoubleStrike(other)
+			case "GhostBlade":
+				self.GhostBlade(other)
 			case "LightningBolt":
 				self.LightningBolt(other)
 			case "IceBlast":
