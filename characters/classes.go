@@ -213,6 +213,7 @@ func Paladin(character Character) (Character, bool){
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 1
+	es.Stats.LevelBonuses.Block += 1
 
 	// Add Skills
 	res.SkillSlots = append(
@@ -248,6 +249,7 @@ func NightBlade(character Character) (Character, bool){
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Agility += 1
+	res.Stats.LevelBonuses.Critical += 1
 
 	// Add Skills
 	res.SkillSlots = append(
