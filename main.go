@@ -95,7 +95,7 @@ func main() {
 				
 				// Character Menu
 				case "Character":
-					console.DisplayCharacterConsole(player.Character)
+					console.DisplayCharacterConsole(&player.Character)
 
 				// Map
 				case "Map":
