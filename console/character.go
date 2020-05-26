@@ -50,7 +50,6 @@ func DisplayCharacterConsole(character characters.Character) {
 				// level up player and bandit
 				character.LevelUp()
 				character.Rest()
-				break menuLoop
 
 			// Exit
 			case "Exit":
