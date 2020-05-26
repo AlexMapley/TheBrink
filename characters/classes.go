@@ -256,8 +256,8 @@ func NightBlade(character Character) (Character, bool){
 			Name: "GhostBlade",
 			Cost: 45,
 			CoolDownInitial: 0,
-			CoolDownMax: 4,
-			CoolDown: 4,
+			CoolDownMax: 5,
+			CoolDown: 0,
 		},
 	)
 
