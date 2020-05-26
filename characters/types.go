@@ -31,6 +31,7 @@ type Stats struct {
 	// Bonuses
 	Expertise int
 	Block int
+	Critical int
 
 	// Resource Pool
 	Health int

@@ -5,7 +5,7 @@ import (
 )
 
 func (stats Stats) CriticalValue() int {
-	return int ( (float32(stats.Agility) * 1.45) - (float32(stats.Level) * 1.25) )
+	return int ( (float32(stats.Agility) * 1.45) - (float32(stats.Level) * 1.25) )  + float32(stats.Critical)
 }
 
 func (stats Stats) DodgeValue() int {
@@ -13,7 +13,7 @@ func (stats Stats) DodgeValue() int {
 }
 
 func (stats Stats) BlockValue() int {
-	return int ( (float32(stats.Strength) * 1.9) + float32(stats.Block) - (float32(stats.Level) * 1.2) )
+	return int ( (float32(stats.Strength) * 1.9) - (float32(stats.Level) * 1.2) )  + float32(stats.Block)
 }
 
 func (stats Stats) AccuracyRating() int {
