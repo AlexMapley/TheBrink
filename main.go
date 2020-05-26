@@ -142,12 +142,11 @@ func main() {
 						color.HiRed("\n\n%sAttempting to become a Paladin, you fail\n%s\n\n", trim, trim)
 					}
 					break dayLoop
-				}
 
 				// Become NightBlade
 				case "Become NightBlade":
 					var accepted bool
-					player.Character, accepted = characters.Nightblade(player.Character)
+					player.Character, accepted = characters.NightBlade(player.Character)
 					if !accepted {
 						color.HiRed("\n\n%sAttempting to become a Nightblade, you foolishly die\n%s\n\n", trim, trim)
 					}
