@@ -1,4 +1,4 @@
-FROM golang
+FROM golang:latest
 
 COPY ./ /go/src/the_brink
 
