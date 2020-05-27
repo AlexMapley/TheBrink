@@ -59,8 +59,9 @@ func main() {
 	}
 
 	// Build World
-	metaGame := world.MetaGame{
+	saveFile := world.SaveFile{
 		Day: 1,
+		Party: playerParty,
 	}
 	world := world.World{
 		XMax: 100,
@@ -77,11 +78,11 @@ func main() {
 	// main game loop
 	for (player.Character.Stats.Health > 0) {
 
-		if metaGame.Day == 15 {
+		if saveFile.Day == 15 {
 			color.Magenta("\n\n%sYou feel a darnkness come over the land...\n%s\n\n", trim, trim)
 		}
 
-		color.Green("%sDay %d in town, what do you?\n%s", trim, metaGame.Day, trim)
+		color.Green("%sDay %d in town, what do you?\n%s", trim, saveFile.Day, trim)
 		townConsole := console.NewTownConsole()
 
 		dayLoop:
@@ -104,7 +105,7 @@ func main() {
 				// Fight
 				case "Patrol the town":
 
-					if (metaGame.Day % 2 == 0) {
+					if (saveFile.Day % 2 == 0) {
 						fmt.Println("\n\nA strange bandit appears")
 						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 
@@ -156,11 +157,11 @@ func main() {
 		}
 
 		// Day ends
-		metaGame.Day++
+		saveFile.Day++
 	}
 
-	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, metaGame.Day)
+	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, saveFile.Day)
 	fmt.Println("Your Stats:")
 	player.Character.Stats.Display()
-	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", metaGame.Day, player.Character.Stats.Name)
+	color.Cyan("\n\nOne day later (Day %d), %s is dead.\n\n\n", saveFile.Day, player.Character.Stats.Name)
 }
