@@ -61,7 +61,7 @@ func main() {
 	// Build World
 	saveFile := world.SaveFile{
 		Day: 1,
-		Party: playerParty,
+		Party: &playerParty,
 	}
 	world := world.World{
 		XMax: 100,
