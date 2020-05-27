@@ -43,31 +43,6 @@ func Rogue(character Character) (Character, bool){
 	return res, true
 }
 
-func Vagabond(character Character) (Character, bool){
-	// Reject If:
-	// - unit has a class already
-	if character.Stats.Class != "" {
-		return character, false
-	}
-
-	res := character
-	res.Stats.Class = "Vagabond"
-	res.Stats.ClassHash *= 5
-
-	// Raw Stat Boosts
-	res.Stats.Vitality += 0
-	res.Stats.Strength += 1
-	res.Stats.Agility += 3
-	res.Stats.Intelligence += 1
-	res.Stats.Expertise += 1
-
-	// Levelling Stat Boosts
-	res.Stats.LevelBonuses.Agility += 1
-	res.Stats.LevelBonuses.Vitality += 1
-
-	return res, true
-}
-
 func Warrior(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
@@ -211,7 +186,7 @@ func Paladin(character Character) (Character, bool){
 	res.Stats.ClassHash *= 11
 
 	// Levelling Stat Boosts
-	res.Stats.LevelBonuses.Strength += 1
+	res.Stats.LevelBonuses.Strength += 2
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 1
 	res.Stats.LevelBonuses.Block += 1
@@ -249,7 +224,7 @@ func NightBlade(character Character) (Character, bool){
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Intelligence += 1
-	res.Stats.LevelBonuses.Agility += 1
+	res.Stats.LevelBonuses.Agility += 2
 	res.Stats.LevelBonuses.Critical += 1
 
 	// Add Skills

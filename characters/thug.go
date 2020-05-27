@@ -32,7 +32,7 @@ func NewThug(name string, level int) Thug {
 	// Set Stats
 	stats := Stats{
 		Name: name,
-		Class: "Vagabond",
+		Class: "Thug",
 		ClassHash: 1,
 		Level: 1,
 		Vitality: 4,
@@ -40,16 +40,13 @@ func NewThug(name string, level int) Thug {
 		Agility: 2,
 		Intelligence: 2,
 		LevelBonuses: LevelBonuses {
-			Vitality: 2,
+			Vitality: 3,
 			Strength: 1,
-			Agility: 0,
-			Intelligence: 1,
+			Agility: 1,
+			Intelligence: 0,
 		},
 	}
 	thug.Character.Stats = stats
-
-	// Set class
-	thug.Character, _ = Vagabond(thug.Character)
 
 	// Set Inventory
 	thug.Character.Inventory = inventory.Inventory {
