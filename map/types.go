@@ -1,4 +1,4 @@
-package world
+package map
 
 import (
 	"the_brink/party"
@@ -10,13 +10,11 @@ type SaveFile struct {
 	Party *party.Party
 }
 
-// Tile represents a point on the map
 type Tile struct {
 	X int
 	Y int
 }
 
-// World holds all info for the map
 type World struct {
 	XMax int
 	YMax int
