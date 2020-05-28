@@ -101,7 +101,13 @@ func main() {
 				// Map
 				case "Map":
 					console.DisplayMapConsole(&world, &playerParty)
-				
+
+				// Rest Party
+				case "Rest":
+					playerParty.Rest()
+					color.Green("Your party's stats have been restored\n")
+					break dayLoop
+
 				// Fight
 				case "Patrol the town":
 
@@ -128,16 +134,12 @@ func main() {
 					}
 
 					break dayLoop
-
-				// Rest Party
-				case "Rest":
-					playerParty.Rest()
-					color.Green("Your party's stats have been restored\n")
-					break dayLoop
-		}
+				}
+			}
 
 		// Day ends
 		saveFile.Day++
+		}
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, saveFile.Day)

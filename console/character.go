@@ -56,7 +56,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Become Paladin
 			case "Become Paladin":
 				var accepted bool
-				player.Character, accepted = characters.Paladin(character)
+				*character, accepted = characters.Paladin(*character)
 				if !accepted {
 					color.HiBlue("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
 				} else {
@@ -66,7 +66,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Become NightBlade
 			case "Become NightBlade":
 				var accepted bool
-				player.Character, accepted = characters.NightBlade(character)
+				*character, accepted = characters.NightBlade(*character)
 				if !accepted {
 					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
 				} else {
@@ -76,7 +76,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Become Duelist
 			case "Become Duelist":
 				var accepted bool
-				player.Character, accepted = characters.Duelist(character)
+				*character, accepted = characters.Duelist(*character)
 				if !accepted {
 					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
 				} else {
