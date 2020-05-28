@@ -11,14 +11,15 @@ func NewCharacterConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 7)
+	actions := make([]string, 8)
 	actions[0] = "Stats"
-	actions[1] = "Inventory"
-	actions[2] = "Level Up"
-	actions[3] = "Exit"
-	actions[4] = "Become Paladin"
-	actions[5] = "Become NightBlade"
-	actions[6] = "Become Duelist"
+	actions[1] = "Skills"
+	actions[2] = "Inventory"
+	actions[3] = "Level Up"
+	actions[4] = "Exit"
+	actions[5] = "Become Paladin"
+	actions[6] = "Become NightBlade"
+	actions[7] = "Become Duelist"
 
 	console.Actions = actions
 
@@ -42,6 +43,10 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Stats
 			case "Stats":
 				character.Stats.Display()
+			
+			// Stats
+				case "Skills":
+					character.Stats.DisplaySkills()
 			
 			// Inventory
 			case "Inventory":
