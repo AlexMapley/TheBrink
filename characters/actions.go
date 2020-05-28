@@ -166,4 +166,5 @@ func (self *Character) LevelUp() bool {
 	// rest
 	self.Rest()
 
+	return true
 }
