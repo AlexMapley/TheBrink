@@ -272,7 +272,7 @@ func Duelist(character Character) (Character, bool){
 	res.SkillSlots = append(
 		res.SkillSlots, 
 		Skill{
-			Name: "Red",
+			Name: "Rend",
 			Cost: 70,
 			CoolDownInitial: 0,
 			CoolDownMax: 7,
