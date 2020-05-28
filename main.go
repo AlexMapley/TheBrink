@@ -134,26 +134,6 @@ func main() {
 					playerParty.Rest()
 					color.Green("Your party's stats have been restored\n")
 					break dayLoop
-
-				// Become Paladin
-				case "Become Paladin":
-					var accepted bool
-					player.Character, accepted = characters.Paladin(player.Character)
-					if !accepted {
-						color.HiRed("\n\n%sAttempting to become a Paladin, you fail\n%s\n\n", trim, trim)
-					}
-					break dayLoop
-
-				// Become NightBlade
-				case "Become NightBlade":
-					var accepted bool
-					player.Character, accepted = characters.NightBlade(player.Character)
-					if !accepted {
-						color.HiRed("\n\n%sAttempting to become a Nightblade, you foolishly die\n%s\n\n", trim, trim)
-					}
-					break dayLoop
-				}
-			}
 		}
 
 		// Day ends

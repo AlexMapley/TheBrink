@@ -11,11 +11,14 @@ func NewCharacterConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 4)
+	actions := make([]string, 6)
 	actions[0] = "Stats"
 	actions[1] = "Inventory"
 	actions[2] = "Level Up"
 	actions[3] = "Exit"
+	actions[4] = "Become Paladin"
+	actions[5] = "Become NightBlade"
+
 	
 
 	console.Actions = actions
@@ -44,6 +47,25 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Inventory
 			case "Inventory":
 				character.Inventory.Display()
+			
+
+			// Become Paladin
+			case "Become Paladin":
+				var accepted bool
+				player.Character, accepted = characters.Paladin(player.Character)
+				if !accepted {
+					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
+				}
+
+			// Become NightBlade
+			case "Become NightBlade":
+				var accepted bool
+				player.Character, accepted = characters.NightBlade(player.Character)
+				if !accepted {
+					color.HiRed("\n\n%sou cannot become a Nightblade\n%s\n\n", trim, trim)
+				}
+			}
+		}
 			
 			// Level Up
 			case "Level Up":
