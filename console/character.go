@@ -11,15 +11,14 @@ func NewCharacterConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 6)
+	actions := make([]string, 7)
 	actions[0] = "Stats"
 	actions[1] = "Inventory"
 	actions[2] = "Level Up"
 	actions[3] = "Exit"
 	actions[4] = "Become Paladin"
 	actions[5] = "Become NightBlade"
-
-	
+	actions[6] = "Become Duelist"
 
 	console.Actions = actions
 
@@ -48,13 +47,20 @@ func DisplayCharacterConsole(character *characters.Character) {
 			case "Inventory":
 				character.Inventory.Display()
 			
+			// Level Up
+			case "Level Up":
+				// level up player and bandit
+				character.LevelUp()
+				character.Rest()
 
 			// Become Paladin
 			case "Become Paladin":
 				var accepted bool
 				player.Character, accepted = characters.Paladin(player.Character)
 				if !accepted {
-					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
+					color.HiBlue("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
+				} else {
+					color.HiBlue("\n\n%You have become a Paladin\n%s\n\n", trim, trim)
 				}
 
 			// Become NightBlade
@@ -62,16 +68,21 @@ func DisplayCharacterConsole(character *characters.Character) {
 				var accepted bool
 				player.Character, accepted = characters.NightBlade(player.Character)
 				if !accepted {
-					color.HiRed("\n\n%sou cannot become a Nightblade\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
+				} else {
+					color.HiBlue("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
 				}
-			}
-		}
 			
-			// Level Up
-			case "Level Up":
-				// level up player and bandit
-				character.LevelUp()
-				character.Rest()
+			// Become Duelist
+			case "Become Duelist":
+				var accepted bool
+				player.Character, accepted = characters.Duelist(player.Character)
+				if !accepted {
+					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
+				} else {
+					color.HiBlue("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
+				}
+				
 
 			// Exit
 			case "Exit":

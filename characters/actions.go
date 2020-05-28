@@ -52,14 +52,16 @@ func (self *Character) Duel(other *Character) {
 				self.DoubleStrike(other)
 			case "GhostBlade":
 				self.GhostBlade(other)
+			case "Heal":
+				self.Heal()
 			case "LightningBolt":
 				self.LightningBolt(other)
 			case "IceBlast":
 				self.IceBlast(other)
 			case "Stun":
+				self.Rend(other)
+			case "Stun":
 				self.Stun(other)
-			case "Heal":
-				self.Heal()
 			default:
 				self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
 			}
@@ -84,12 +86,18 @@ func (self *Character) Duel(other *Character) {
 				switch chosenSkill.Name {
 				case "DoubleStrike":
 					other.DoubleStrike(self)
-				case "LightningBolt":
-					other.LightningBolt(self)
-				case "Stun":
-					other.Stun(self)
+				case "GhostBlade":
+					other.GhostBlade(self)
 				case "Heal":
 					other.Heal()
+				case "LightningBolt":
+					other.LightningBolt(self)
+				case "IceBlast":
+					other.IceBlast(self)
+				case "Stun":
+					other.Rend(self)
+				case "Stun":
+					other.Stun(self)
 				default:
 					other.BasicAttack(self, self.Stats.Strength + (self.Stats.Agility/2))
 				}

@@ -177,7 +177,7 @@ func Paladin(character Character) (Character, bool){
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 {
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 || character.Stats.ClassHash % 17 == 0 {
 		return character, false
 	}
 	
@@ -205,6 +205,7 @@ func Paladin(character Character) (Character, bool){
 
 	return res, true
 }
+
 // NightBlade
 func NightBlade(character Character) (Character, bool){
 	// Reject If:
@@ -213,19 +214,59 @@ func NightBlade(character Character) (Character, bool){
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 {
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 || character.Stats.ClassHash % 17 == 0 {
 		return character, false
 	}
 	
 	res := character
 	res.Stats.Class = res.Stats.Class + " NightBlade"
-	res.Stats.ClassHash *= 11
+	res.Stats.ClassHash *= 13
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Agility += 2
 	res.Stats.LevelBonuses.Critical += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots, 
+		Skill{
+			Name: "GhostBlade",
+			Cost: 45,
+			CoolDownInitial: 0,
+			CoolDownMax: 5,
+			CoolDown: 0,
+		},
+	)
+
+	return res, true
+}
+
+// Duelist
+func Duelist(character Character) (Character, bool){
+	// Reject If:
+	// - unit has a class already
+	if character.Stats.Level < 10 {
+		return character, false
+	}
+	// - ClassHash mod condition
+	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 || character.Stats.ClassHash % 17 == 0 {
+		return character, false
+	}
+	
+	res := character
+	res.Stats.Class = res.Stats.Class + " NightBlade"
+	res.Stats.ClassHash *= 17
+
+	// Levelling Stat Boosts
+	res.Stats.LevelBonuses.Strength += 1
+	res.Stats.LevelBonuses.Vitality += 1
+	res.Stats.LevelBonuses.Agility += 1
+	res.Stats.LevelBonuses.Critical += 1
+	res.Stats.LevelBonuses.Expertise += 1
+	res.Stats.LevelBonuses.Block += 1
+
 
 	// Add Skills
 	res.SkillSlots = append(
