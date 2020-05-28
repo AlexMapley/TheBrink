@@ -4,7 +4,7 @@ import (
 	"the_brink/inventory"
 )
 
-func NewPlayer(name string, class string) Player {
+func NewPlayer(name string) Player {
 
 	// Base layer
 	player := Player{
@@ -28,10 +28,10 @@ func NewPlayer(name string, class string) Player {
 		Name: name,
 		ClassHash: 1,
 		Level: 1,
-		Vitality: 5,
-		Strength: 5,
-		Agility: 5,
-		Intelligence: 5,
+		Vitality: 6,
+		Strength: 6,
+		Agility: 6,
+		Intelligence: 6,
 		LevelBonuses: LevelBonuses {
 			Vitality: 1,
 			Strength: 1,
@@ -40,16 +40,6 @@ func NewPlayer(name string, class string) Player {
 		},
 	}
 	player.Character.Stats = stats
-
-	// Set player class
-	switch class {
-	case "warrior":
-		player.Character, _ = Warrior(player.Character)
-	case "rogue":
-		player.Character, _ = Rogue(player.Character)
-	case "wizard":
-		player.Character, _ = Wizard(player.Character)
-	}
 
 	// Set Player Inventory
 	player.Character.Inventory = inventory.Inventory {

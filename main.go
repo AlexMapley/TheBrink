@@ -27,6 +27,7 @@ func main() {
 	name = strings.TrimSuffix(name, "\n")
 
 	// Choose Character
+	player := characters.NewPlayer(name)
 	color.Cyan("\nWhat Class Do You Pick?\n")
 	console.DisplayClassConsole(&player.Character)
 
