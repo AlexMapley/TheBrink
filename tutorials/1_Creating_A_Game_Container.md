@@ -22,13 +22,36 @@ func main() {
     var yourGame := "default video game title"
 	fmt.Printf("Welcome to your game: %s\n", yourGame)
 }
-
-
 ```
+
 ## Setting up your console
 We're going to be running your videogame out of a `docker` container capabale of running `golang`.
 
 The best docker container for this is argubaly `golang:latest`, which is regularly updated
 and kept up to the latest version of go.
 
-You can try writing a sm
+In the same directory as your `main.go`, add another file titled `Dockerfile` with the following:
+
+```docker
+FROM golang:latest
+
+COPY ./ /go/src/my_rpg
+
+RUN chmod +x /go/src/my_rpg/entrypoint.sh
+
+ENTRYPOINT /go/src/my_rpg/entrypoint.sh
+```
+
+In the same direcotry again, you can also add `entrypoint.sh`:
+
+```sh
+#!/bin/sh
+
+cd /go/src/my_rpg
+
+go clean
+go install ./...
+
+go build
+./my_rpg
+```
