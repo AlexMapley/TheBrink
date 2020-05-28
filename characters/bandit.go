@@ -59,7 +59,7 @@ func NewBandit(name string, level int) Bandit {
 		if i == 10 {
 			bandit.Character, _ = Infected(bandit.Character)
 		}
-		bandit.Character.LevelUp()
+		_ = bandit.Character.LevelUp()
 	}
 
 	bandit.Character.Rest()

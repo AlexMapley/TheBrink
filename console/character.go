@@ -55,8 +55,14 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Level Up
 			case "Level Up":
 				// level up player and bandit
-				character.LevelUp()
-				character.Rest()
+				success := character.LevelUp()
+				if success {
+					color.Yellow("\n\n%sYou have levelled up\n%s\n\n", trim, trim)
+					character.Rest()
+				} else {
+					color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
+				}
+
 
 			// Become Paladin
 			case "Become Paladin":

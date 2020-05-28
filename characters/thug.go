@@ -59,7 +59,7 @@ func NewThug(name string, level int) Thug {
 		if i == 10 {
 			thug.Character, _ = Infected(thug.Character)
 		}
-		thug.Character.LevelUp()
+		_ = thug.Character.LevelUp()
 	}
 
 	thug.Character.Rest()
