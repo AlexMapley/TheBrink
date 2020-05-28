@@ -41,7 +41,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	}
 
 	// Damage Multiplier 
-	DamangeMultiplier := rand.Intn(100)
+	DamangeMultiplier := rand.Intn(70) + 30
 	damage = int(damage * DamangeMultiplier)
 	damage = int(damage / 100)
 	
