@@ -19,12 +19,12 @@ package main
 
 func main() {
     // The beginning
-    var yourGame := "default video game title"
-	fmt.Printf("Welcome to your game: %s\n", yourGame)
+    var yourGame := "default rpg game title"
+	fmt.Printf("Welcome to your rpg: %s\n", yourGame)
 }
 ```
 
-## Setting up your console
+## Setting up your container
 We're going to be running your videogame out of a `docker` container capabale of running `golang`.
 
 The best docker container for this is argubaly `golang:latest`, which is regularly updated
@@ -55,3 +55,18 @@ go install ./...
 go build
 ./my_rpg
 ```
+
+## Entering your container
+Last script here - we can quickly enter our game console by adding what we call a **run** script.
+
+In the same direcotry as before, add the following `run.sh`:
+
+```sh
+#!/bin/sh
+
+docker build . --tag my_rpg
+
+docker run -ti my_rpg
+```
+
+Run that, and you should spin up a docker container that will automatically start your game.
