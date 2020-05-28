@@ -57,30 +57,30 @@ func DisplayCharacterConsole(character *characters.Character) {
 			case "Become Paladin":
 				var accepted bool
 				*character, accepted = characters.Paladin(*character)
-				if !accepted {
-					color.HiBlue("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
+				if accepted {
+					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
 				} else {
-					color.HiBlue("\n\n%You have become a Paladin\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%You cannot become a Paladin\n%s\n\n", trim, trim)
 				}
 
 			// Become NightBlade
 			case "Become NightBlade":
 				var accepted bool
 				*character, accepted = characters.NightBlade(*character)
-				if !accepted {
-					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
+				if accepted {
+					color.HiGreen("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
 				} else {
-					color.HiBlue("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
 				}
 			
 			// Become Duelist
 			case "Become Duelist":
 				var accepted bool
 				*character, accepted = characters.Duelist(*character)
-				if !accepted {
-					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
+				if accepted {
+					color.HiGreen("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
 				} else {
-					color.HiBlue("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
 				}
 				
 
