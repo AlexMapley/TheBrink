@@ -115,14 +115,12 @@ func main() {
 							player.Character.Inventory.Loot(&thug.Character.Inventory)
 						}
 					}
-
 					break dayLoop
 				}
 			}
-
+		}
 		// Day ends
 		saveFile.Day++
-		}
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, saveFile.Day)
