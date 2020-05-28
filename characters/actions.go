@@ -140,7 +140,10 @@ func (self *Character) Rest() {
 }
 
 // Level Up
-func (self *Character) LevelUp() {
+func (self *Character) LevelUp() bool {
+	if self.Stats.XP < 1000 {
+		return false
+	}
 
 	// increase level
 	self.Stats.Level++
@@ -156,6 +159,11 @@ func (self *Character) LevelUp() {
 	self.Stats.Block += self.Stats.LevelBonuses.Block
 	self.Stats.Critical += self.Stats.LevelBonuses.Critical
 
+
+	// Dock XP
+	self.Stats.XP -= 1000
+
 	// rest
 	self.Rest()
+
 }

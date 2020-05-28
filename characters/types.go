@@ -21,6 +21,7 @@ type Stats struct {
 	ClassHash int64
 	Level int
 	LevelBonuses LevelBonuses
+	XP int
 
 	// Core Attributes
 	Strength     int
