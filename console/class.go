@@ -29,7 +29,7 @@ func NewClassConsole() Console {
 
 func DisplayClassConsole(character *characters.Character) {
 
-	console := NewCharacterConsole()
+	console := NewClassConsole()
 
 	menuLoop:
 	for {
@@ -43,9 +43,10 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Warrior
 			case "Warrior":
 				var accepted bool
-				*character, accepted = characters.Paladin(*character)
+				*character, accepted = characters.Warrior(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Warrior\n%s\n\n", trim, trim)
+					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Warrior\n%s\n\n", trim, trim)
 				}
@@ -53,9 +54,10 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Rogue
 			case "Rogue":
 				var accepted bool
-				*character, accepted = characters.NightBlade(*character)
+				*character, accepted = characters.Rogue(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Rogue\n%s\n\n", trim, trim)
+					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Rogue\n%s\n\n", trim, trim)
 				}
@@ -63,9 +65,10 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Duelist
 			case "Wizard":
 				var accepted bool
-				*character, accepted = characters.Duelist(*character)
+				*character, accepted = characters.Wizard(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Wizard\n%s\n\n", trim, trim)
+					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Wizard\n%s\n\n", trim, trim)
 				}
@@ -77,6 +80,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Paladin(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
+					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
 				}
@@ -87,6 +91,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.NightBlade(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
+					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
 				}
@@ -97,6 +102,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Duelist(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
+					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
 				}
