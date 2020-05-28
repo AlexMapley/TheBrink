@@ -64,7 +64,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 
 			// Become Paladin
 			case "Class":
-				console.DisplayClassConsole(&player.Character)
+				DisplayClassConsole(character)
 
 			// Exit
 			case "Exit":

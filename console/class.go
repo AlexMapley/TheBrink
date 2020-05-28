@@ -1,5 +1,11 @@
 package console
 
+import (
+	"the_brink/characters"
+
+	"github.com/fatih/color"
+)
+
 func NewClassConsole() Console {
 	console := Console{}
 

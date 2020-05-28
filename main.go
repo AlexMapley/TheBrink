@@ -28,25 +28,7 @@ func main() {
 
 	// Choose Character
 	color.Cyan("\nWhat Class Do You Pick?\n")
-	classConsole := console.NewClassConsole()
-	for len(player.Character.Stats.Class) == 0 {
-		option := classConsole.ChooseAction()
-		if option > 0 && option <= len(classConsole.Actions) {
-			switch classConsole.Actions[option-1] {
-			case "Rogue":
-				player = characters.NewPlayer(name, "rogue")
-				break
-			case "Warrior":
-				player = characters.NewPlayer(name, "warrior")
-				break
-			case "Wizard":
-				player = characters.NewPlayer(name, "wizard")
-				break
-			default:
-				continue
-			}
-		}
-	}
+	console.DisplayClassConsole(&player.Character)
 
 	// Create Party
 	playerParty = party.Party{
