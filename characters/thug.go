@@ -35,6 +35,7 @@ func NewThug(name string, level int) Thug {
 		Class: "Thug",
 		ClassHash: 1,
 		Level: 1,
+		XP: 450,
 		Vitality: 4,
 		Strength: 5,
 		Agility: 2,

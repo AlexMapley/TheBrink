@@ -124,6 +124,9 @@ func (self *Character) Duel(other *Character) {
 		return
 	}
 	color.Cyan("%s Wins the duel\n", other.Stats.Name)
+
+	self.Stats.XP += other.Stats.XP
+	other.Stats.XP = 0
 }
 
 // Rest
