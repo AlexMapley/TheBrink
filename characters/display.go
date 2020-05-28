@@ -7,7 +7,7 @@ import (
 )
 
 func (stats *Stats) Display() {
-	text := fmt.Sprintf"\n-------------\n%s\n-------------\nLevel: %d\nClass: %s\nClassHash: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\nBlock: %d\nAccuracy Rating: %d\n\n",
+	text := fmt.Sprintf("\n-------------\n%s\n-------------\nLevel: %d\nClass: %s\nClassHash: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\nBlock: %d\nAccuracy Rating: %d\n\n",
 		stats.Name,
 		stats.Level,
 		stats.Class,
@@ -25,28 +25,21 @@ func (stats *Stats) Display() {
 		stats.BlockValue(),
 		stats.AccuracyRating(),
 	)
-	color.Cyan(text)
+	color.HiCyan(text)
 }
 
 func (character *Character) DisplaySkills() {
-	text := fmt.Sprintf"\n-------------\n%s's Skills\n-------------\n", character.Stats.Name)
+	text := fmt.Sprintf("\n----------------\n%s's Skills\n----------------\n", character.Stats.Name)
 
-	for _, skill := range character.Skillslots {
-		text += fmt.Sprintf("Name: %s\nCost: %d\nMax Cooldown: %d\n Initial Cooldown: %d",
+	for _, skill := range character.SkillSlots {
+		text += fmt.Sprintf("%s\nCost: %d\nMax Cooldown: %d\nInitial Cooldown: %d\n",
 			skill.Name,
 			skill.Cost,
 			skill.CoolDownMax,
 			skill.CoolDownInitial,
 		)
+		text += "------------\n"
 	}
-	color.Cyan(text)
-}
-
-// Skills
-type Skill struct {
-	Name string
-	Cost int
-	CoolDownInitial int
-	CoolDownMax int
-	CoolDown int
+	
+	color.HiCyan(text)
 }

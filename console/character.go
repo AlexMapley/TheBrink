@@ -46,7 +46,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 			
 			// Stats
 				case "Skills":
-					character.Stats.DisplaySkills()
+					character.DisplaySkills()
 			
 			// Inventory
 			case "Inventory":
