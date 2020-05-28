@@ -63,12 +63,6 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 		color.Green("%s", trim)
 		console.DisplayActions()
 
-		// char := console.ChooseKey()
-
-		// fmt.Printf("\n\nKey pressed: %s\n\n", string(char))
-		// fmt.Printf("\n\nRune pressed: %s\n\n", string(rune(char)))
-
-
 		char, key, err := keyboard.GetKey()
 		if err != nil {
 			panic(err)

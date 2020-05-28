@@ -16,8 +16,8 @@ func NewCharacterConsole() Console {
 	actions[1] = "Skills"
 	actions[2] = "Inventory"
 	actions[3] = "Level Up"
-	actions[5] = "Class"
-	actions[4] = "Exit"
+	actions[4] = "Class"
+	actions[5] = "Exit"
 
 	console.Actions = actions
 

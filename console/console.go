@@ -41,31 +41,6 @@ func (console *Console) ChooseAction() int {
 	return input
 }
 
-// ChooseDirection
-// func (console *Console) ChooseKey() string {
-
-// 	fmt.Println("Choose option:")
-// 	for number, option := range console.Actions {
-// 		color.Cyan("%d. %s\n", (number + 1), option)
-// 	}
-
-// 	// _ = exec.Command("/bin/stty", "-F", "/dev/tty", "-icanon", "min", "1") // worked ok
-// 	// var keybuf [1]byte
-// 	// _, err := os.Stdin.Read(keybuf[0:1])
-// 	// if err != nil {
-// 	// 	fmt.Println(err.Error())
-// 	// }
-
-// 	// return keybuf[0]
-// 	char, _, err := keyboard.GetSingleKey()
-// 	if (err != nil) {
-// 		panic(err)
-// 	}
-// 	fmt.Printf("You pressed: %q\r\n", char)
-
-// 	return string(char)
-// }
-
 func logError(err error) {
 	color.Red("\n\n-------------------\nEncountered Error: %s\n-------------------\n\n", err.Error())
 }
