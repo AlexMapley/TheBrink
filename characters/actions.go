@@ -121,12 +121,15 @@ func (self *Character) Duel(other *Character) {
 
 	if (self.Stats.Health >= other.Stats.Health) {
 		color.Cyan("\n%s Wins the duel\n", self.Stats.Name)
+		color.Red("\nOther xp is %d\n", other.Stats.XP)
+		self.Stats.XP += other.Stats.XP
+		other.Stats.XP = 0
+
 		return
 	}
+
 	color.Cyan("%s Wins the duel\n", other.Stats.Name)
 
-	self.Stats.XP += other.Stats.XP
-	other.Stats.XP = 0
 }
 
 // Rest
