@@ -267,7 +267,6 @@ func Duelist(character Character) (Character, bool){
 	res.Stats.LevelBonuses.Expertise += 1
 	res.Stats.LevelBonuses.Block += 1
 
-
 	// Add Skills
 	res.SkillSlots = append(
 		res.SkillSlots, 

@@ -58,8 +58,10 @@ func (self *Character) Duel(other *Character) {
 				self.IceBlast(other)
 			case "LightningBolt":
 				self.LightningBolt(other)
-			case "Stun":
+			case "Rend":
 				self.Rend(other)
+			case "Stun":
+				self.Stun(other)
 			default:
 				self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
 			}
@@ -92,8 +94,10 @@ func (self *Character) Duel(other *Character) {
 					other.IceBlast(self)
 				case "LightningBolt":
 					other.LightningBolt(self)
-				case "Stun":
+				case "Rend":
 					other.Rend(self)
+				case "Stun":
+					other.Stun(self)
 				default:
 					other.BasicAttack(self, self.Stats.Strength + (self.Stats.Agility/2))
 				}
