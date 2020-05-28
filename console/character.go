@@ -11,15 +11,13 @@ func NewCharacterConsole() Console {
 	console := Console{}
 
 	// set default options
-	actions := make([]string, 8)
+	actions := make([]string, 6)
 	actions[0] = "Stats"
 	actions[1] = "Skills"
 	actions[2] = "Inventory"
 	actions[3] = "Level Up"
+	actions[5] = "Class"
 	actions[4] = "Exit"
-	actions[5] = "Become Paladin"
-	actions[6] = "Become NightBlade"
-	actions[7] = "Become Duelist"
 
 	console.Actions = actions
 
@@ -65,35 +63,8 @@ func DisplayCharacterConsole(character *characters.Character) {
 
 
 			// Become Paladin
-			case "Become Paladin":
-				var accepted bool
-				*character, accepted = characters.Paladin(*character)
-				if accepted {
-					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
-				} else {
-					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
-				}
-
-			// Become NightBlade
-			case "Become NightBlade":
-				var accepted bool
-				*character, accepted = characters.NightBlade(*character)
-				if accepted {
-					color.HiGreen("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
-				} else {
-					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
-				}
-			
-			// Become Duelist
-			case "Become Duelist":
-				var accepted bool
-				*character, accepted = characters.Duelist(*character)
-				if accepted {
-					color.HiGreen("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
-				} else {
-					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
-				}
-				
+			case "Class":
+				console.DisplayClassConsole(&player.Character)
 
 			// Exit
 			case "Exit":
