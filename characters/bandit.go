@@ -36,7 +36,7 @@ func NewBandit(name string, level int) Bandit {
 		ClassHash: 1,
 		Level: 1,
 		XP: 300,
-		Vitality: 3,
+		Vitality: 5,
 		Strength: 3,
 		Agility: 5,
 		Intelligence: 3,
