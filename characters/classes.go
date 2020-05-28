@@ -256,7 +256,7 @@ func Duelist(character Character) (Character, bool){
 	}
 	
 	res := character
-	res.Stats.Class = res.Stats.Class + " NightBlade"
+	res.Stats.Class = res.Stats.Class + " Duelist"
 	res.Stats.ClassHash *= 17
 
 	// Levelling Stat Boosts
@@ -272,10 +272,10 @@ func Duelist(character Character) (Character, bool){
 	res.SkillSlots = append(
 		res.SkillSlots, 
 		Skill{
-			Name: "GhostBlade",
-			Cost: 45,
+			Name: "Red",
+			Cost: 70,
 			CoolDownInitial: 0,
-			CoolDownMax: 5,
+			CoolDownMax: 7,
 			CoolDown: 0,
 		},
 	)

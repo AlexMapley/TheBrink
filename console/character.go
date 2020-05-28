@@ -60,7 +60,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
 				} else {
-					color.HiRed("\n\n%You cannot become a Paladin\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
 				}
 
 			// Become NightBlade
