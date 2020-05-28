@@ -57,7 +57,7 @@ func NewBandit(name string, level int) Bandit {
 
 	// Level Up
 	for i := 1; i < level; i++ {
-		bandit.Character.XP += 1000
+		bandit.Character.Stats.XP += 1000
 		if i == 10 {
 			bandit.Character, _ = Infected(bandit.Character)
 		}
