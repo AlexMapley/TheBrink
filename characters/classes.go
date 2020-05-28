@@ -173,7 +173,7 @@ func Infected(character Character) (Character, bool){
 func Paladin(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if character.Stats.Level < 10 {
+	if character.Stats.Level < 5 {
 		return character, false
 	}
 	// - ClassHash mod condition
@@ -210,7 +210,7 @@ func Paladin(character Character) (Character, bool){
 func NightBlade(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if character.Stats.Level < 10 {
+	if character.Stats.Level < 5 {
 		return character, false
 	}
 	// - ClassHash mod condition
@@ -247,7 +247,7 @@ func NightBlade(character Character) (Character, bool){
 func Duelist(character Character) (Character, bool){
 	// Reject If:
 	// - unit has a class already
-	if character.Stats.Level < 10 {
+	if character.Stats.Level < 5 {
 		return character, false
 	}
 	// - ClassHash mod condition

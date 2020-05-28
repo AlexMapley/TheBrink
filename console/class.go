@@ -46,6 +46,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Warrior(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Warrior\n%s\n\n", trim, trim)
+					character.Rest()
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Warrior\n%s\n\n", trim, trim)
@@ -57,6 +58,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Rogue(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Rogue\n%s\n\n", trim, trim)
+					character.Rest()
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Rogue\n%s\n\n", trim, trim)
@@ -68,6 +70,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Wizard(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Wizard\n%s\n\n", trim, trim)
+					character.Rest()
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Wizard\n%s\n\n", trim, trim)
@@ -80,6 +83,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Paladin(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
+					character.Rest()
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
@@ -91,6 +95,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.NightBlade(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
+					character.Rest()
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
@@ -102,6 +107,7 @@ func DisplayClassConsole(character *characters.Character) {
 				*character, accepted = characters.Duelist(*character)
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
+					character.Rest()
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
