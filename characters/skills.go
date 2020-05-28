@@ -66,7 +66,7 @@ func (self *Character) DoubleStrike(other *Character) {
 }
 
 // Rend
-func (self *Character) DoubleStrike(other *Character) {
+func (self *Character) Rend(other *Character) {
 	color.HiGreen("* %s uses Rend *\n", self.Stats.Name)
 	self.BasicAttack(other, (self.Stats.Strength*2) + (self.Stats.Agility*2))
 }
