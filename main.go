@@ -70,9 +70,12 @@ func main() {
 
 		dayLoop:
 		for {
-			// swallow exit output, we don't want to
-			// ever exit the main game loop
-			option, _ := townConsole.ChooseAction()
+			option, exit := townConsole.ChooseAction()
+
+			// graceful exit
+			if exit {
+				player.Character.Stats.Health -= 10000
+			}
 
 			if option > 0 && option <= len(townConsole.Actions) {
 				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])

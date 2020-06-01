@@ -17,7 +17,7 @@ func NewCharacterConsole() Console {
 	actions[2] = "Inventory"
 	actions[3] = "Level Up"
 	actions[4] = "Class"
-	actions[5] = "Exit"
+	actions[5] = "x | q | esc to exit"
 
 	console.Actions = actions
 

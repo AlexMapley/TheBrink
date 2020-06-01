@@ -17,7 +17,7 @@ func NewClassConsole() Console {
 	actions[3] = "Paladin"
 	actions[4] = "Duelist"
 	actions[5] = "NightBlade"
-	actions[6] = "Exit"
+	actions[6] = "x | q | esc to exit"
 
 
 	console.Actions = actions
