@@ -21,12 +21,21 @@ func (console *Console) DisplayActions() {
 // ChooseAction
 func (console *Console) ChooseAction() (int, bool) {
 
+	// Open keyboard
+	if err := keyboard.Open(); err != nil {
+		logError(err)
+	}
+	defer func() {
+		_ = keyboard.Close()
+	}()
+
 	// List Potential Actions
 	fmt.Println("Choose option:")
 	for number, option := range console.Actions {
 		color.Cyan("%d. %s\n", (number + 1), option)
 	}
 
+	// Read action as key input
 	char, key, err := keyboard.GetKey()
 	if err != nil {
 		logError(err)

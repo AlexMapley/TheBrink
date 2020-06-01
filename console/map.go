@@ -30,6 +30,8 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 
 	console := NewMapConsole()
 
+
+	// Open keyboard
 	if err := keyboard.Open(); err != nil {
 		logError(err)
 	}
