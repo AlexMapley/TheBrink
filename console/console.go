@@ -29,7 +29,7 @@ func (console *Console) ChooseAction() (int, bool) {
 
 	char, key, err := keyboard.GetKey()
 	if err != nil {
-		panic(err)
+		logError(err)
 	}
 	fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
 

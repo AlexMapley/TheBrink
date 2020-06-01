@@ -31,7 +31,7 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 	console := NewMapConsole()
 
 	if err := keyboard.Open(); err != nil {
-		panic(err)
+		logError(err)
 	}
 	defer func() {
 		_ = keyboard.Close()
@@ -65,7 +65,7 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 
 		char, key, err := keyboard.GetKey()
 		if err != nil {
-			panic(err)
+			logError(err)
 		}
 		fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
         if key == keyboard.KeyEsc {

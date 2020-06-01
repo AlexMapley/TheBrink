@@ -32,16 +32,13 @@ func DisplayCharacterConsole(character *characters.Character) {
 	for {
 		option, exit := console.ChooseAction()
 
-		if exit:
+		if exit {
 			break
+		}
 
 		if option > 0 && option <= len(console.Actions) {
 
 			switch console.Actions[option-1] {
-
-			// Exit
-			case exit:
-				break menuLoop
 
 			// Stats
 			case "Stats":
@@ -65,7 +62,6 @@ func DisplayCharacterConsole(character *characters.Character) {
 				} else {
 					color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
 				}
-
 
 			// Open up class console
 			case "Class":

@@ -33,11 +33,13 @@ func DisplayClassConsole(character *characters.Character) {
 
 	menuLoop:
 	for {
-		option := console.ChooseAction()
+		option, exit := console.ChooseAction()
+
+		if exit {
+			break
+		}
 
 		if option > 0 && option <= len(console.Actions) {
-			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
-
 			switch console.Actions[option-1] {
 
 			// Become Warrior
@@ -112,10 +114,6 @@ func DisplayClassConsole(character *characters.Character) {
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
 				}
-
-			// Exit
-			case "Exit":
-				break menuLoop
 			}
 		}
 	}
