@@ -35,7 +35,7 @@ func DisplayClassConsole(character *characters.Character) {
 	for {
 		option, exit := console.ChooseAction()
 
-		fmt.Printf("\n\nGot option %s\n", option)
+		color.HiRed("\n\nGot option %d\n", option)
 
 		if exit {
 			break menuLoop
