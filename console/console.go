@@ -19,7 +19,7 @@ func (console *Console) DisplayActions() {
 }
 
 // ChooseAction
-func (console *Console) ChooseAction() int {
+func (console *Console) ChooseAction() (int, bool) {
 
 	// List Potential Actions
 	fmt.Println("Choose option:")
@@ -27,18 +27,24 @@ func (console *Console) ChooseAction() int {
 		color.Cyan("%d. %s\n", (number + 1), option)
 	}
 
-	var inputstr string
-	_, err := fmt.Scanf("%s", &inputstr)
+	char, key, err := keyboard.GetKey()
 	if err != nil {
-		logError(err)
+		panic(err)
 	}
+	fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
 
-	input, e := strconv.Atoi(inputstr)
-	if e != nil {
-		return -1
+
+	option, err := strconv.Atoi(char)
+
+	switch {
+		// Exit
+		case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC,  key == keyboard.KeyCtrlD, char == 'q', char == 'x':
+			return -1, true
+		case err != nil && option >= 0:
+			return option, false
+		default
+			return -1, false
 	}
-
-	return input
 }
 
 func logError(err error) {

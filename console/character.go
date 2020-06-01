@@ -29,15 +29,20 @@ func DisplayCharacterConsole(character *characters.Character) {
 
 	console := NewCharacterConsole()
 
-	menuLoop:
 	for {
-		option := console.ChooseAction()
+		option, exit := console.ChooseAction()
+
+		if exit:
+			break
 
 		if option > 0 && option <= len(console.Actions) {
-			color.Green("You have chosen option %d, %s", option, console.Actions[option-1])
 
 			switch console.Actions[option-1] {
-			
+
+			// Exit
+			case exit:
+				break menuLoop
+
 			// Stats
 			case "Stats":
 				character.Stats.Display()
@@ -62,13 +67,9 @@ func DisplayCharacterConsole(character *characters.Character) {
 				}
 
 
-			// Become Paladin
+			// Open up class console
 			case "Class":
 				DisplayClassConsole(character)
-
-			// Exit
-			case "Exit":
-				break menuLoop
 			}
 		}
 	}
