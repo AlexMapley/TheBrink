@@ -29,11 +29,12 @@ func DisplayCharacterConsole(character *characters.Character) {
 
 	console := NewCharacterConsole()
 
+	menuLoop:
 	for {
 		option, exit := console.ChooseAction()
 
 		if exit {
-			break
+			break menuLoop
 		}
 
 		if option > 0 && option <= len(console.Actions) {

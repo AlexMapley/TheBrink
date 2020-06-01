@@ -44,6 +44,11 @@ func (console *Console) ChooseAction() (int, bool) {
 
 
 	option, err := strconv.Atoi(string(char))
+	if err != nil {
+		logError(err)
+	}
+
+	fmt.Printf("Casted to action %d\r\n", option)
 
 	switch {
 		// Exit

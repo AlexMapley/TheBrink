@@ -35,8 +35,10 @@ func DisplayClassConsole(character *characters.Character) {
 	for {
 		option, exit := console.ChooseAction()
 
+		fmt.Printf("\n\nGot option %s\n", option)
+
 		if exit {
-			break
+			break menuLoop
 		}
 
 		if option > 0 && option <= len(console.Actions) {
