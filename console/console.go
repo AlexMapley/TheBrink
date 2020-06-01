@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/fatih/color"
-
+	"github.com/eiannone/keyboard"
 )
 
 // DisplayActions
@@ -34,7 +34,7 @@ func (console *Console) ChooseAction() (int, bool) {
 	fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
 
 
-	option, err := strconv.Atoi(char)
+	option, err := strconv.Atoi(string(char))
 
 	switch {
 		// Exit
@@ -42,7 +42,7 @@ func (console *Console) ChooseAction() (int, bool) {
 			return -1, true
 		case err != nil && option >= 0:
 			return option, false
-		default
+		default:
 			return -1, false
 	}
 }
