@@ -16,7 +16,6 @@ func (self *Party) Rest() {
 
 // Battle other party
 func (self *Party) Battle((self *Party) {
-
 	for _, selfPartyMember := range self.Members {
 		for _, otherPartyMember := range other.Members {
 			selfPartyMember.Duel(otherPartyMember)

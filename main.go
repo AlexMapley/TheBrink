@@ -31,7 +31,7 @@ func main() {
 	color.Cyan("\nWhat Class Do You Pick?\n")
 	console.DisplayClassConsole(&player.Character)
 
-	// Create Party
+	// Create Player Party
 	playerParty = party.Party{
 		X: 25,
 		Y: 25,
@@ -98,27 +98,32 @@ func main() {
 
 				// Fight
 				case "Patrol the town":
+					fmt.Println("\n\nA strange bandit appears")
+					fmt.Println("\n\nAn agry thug appears")
 
-					if (saveFile.Day % 2 == 0) {
-						fmt.Println("\n\nA strange bandit appears")
-						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
-
-						player.Character.Duel(&bandit.Character)
+					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
+					thug := characters.NewThug("Dougy", player.Character.Stats.Level)
+					enemyParty := party.Party{
+						X: 25,
+						Y: 25,
+						Members: []*characters.Character{
+							&bandit,
+							&thug,
+						},
+						Rune: 'B',
+					}
+				
+						
+					playerParty.Character.Duel(&thug.Character)
 					
-						// loot bandit if won
-						if (player.Character.Stats.Health > 0) {
-							player.Character.Inventory.Loot(&bandit.Character.Inventory)
-						}
-					} else {
-						fmt.Println("\n\nAn agry thug appears")
-						thug := characters.NewThug("Dougy", player.Character.Stats.Level)
+					// loot bandit if won
+					if (player.Character.Stats.Health > 0) {
+						player.Character.Inventory.Loot(&bandit.Character.Inventory)
+					}
 
-						player.Character.Duel(&thug.Character)
-					
-						// loot thug if won
-						if (player.Character.Stats.Health > 0) {
-							player.Character.Inventory.Loot(&thug.Character.Inventory)
-						}
+					// loot thug if won
+					if (player.Character.Stats.Health > 0) {
+						player.Character.Inventory.Loot(&thug.Character.Inventory)
 					}
 					break dayLoop
 				}
