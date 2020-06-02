@@ -36,15 +36,15 @@ func NewBandit(name string, level int) Bandit {
 		ClassHash: 1,
 		Level: 1,
 		XP: 300,
-		Vitality: 5,
-		Strength: 3,
-		Agility: 5,
+		Vitality: 3,
+		Strength: 2,
+		Agility: 4,
 		Intelligence: 3,
 		LevelBonuses: LevelBonuses {
 			Vitality: 1,
 			Strength: 1,
 			Agility: 2,
-			Intelligence: 2,
+			Intelligence: 1,
 		},
 	}
 	bandit.Character.Stats = stats

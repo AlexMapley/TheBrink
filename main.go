@@ -114,7 +114,7 @@ func main() {
 					}
 				
 						
-					playerParty.Duel(&enemyParty)
+					playerParty.Battle(&enemyParty)
 					
 					// loot bandit if won
 					if (player.Character.Stats.Health > 0) {
