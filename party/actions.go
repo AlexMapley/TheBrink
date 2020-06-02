@@ -1,11 +1,5 @@
 package party
 
-import (
-	"the_brink/characters"
-	
-	"github.com/fatih/color"
-)
-
 // Rest Whole Party
 func (self *Party) Rest() {
 
@@ -15,7 +9,7 @@ func (self *Party) Rest() {
 }
 
 // Battle other party
-func (self *Party) Battle((self *Party) {
+func (self *Party) Battle(other *Party) {
 	for _, selfPartyMember := range self.Members {
 		for _, otherPartyMember := range other.Members {
 			selfPartyMember.Duel(otherPartyMember)
