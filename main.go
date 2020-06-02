@@ -107,14 +107,14 @@ func main() {
 						X: 25,
 						Y: 25,
 						Members: []*characters.Character{
-							&bandit,
-							&thug,
+							&bandit.Character,
+							&thug.Character,
 						},
 						Rune: 'B',
 					}
 				
 						
-					playerParty.Character.Duel(&thug.Character)
+					playerParty.Duel(&enemyParty)
 					
 					// loot bandit if won
 					if (player.Character.Stats.Health > 0) {
