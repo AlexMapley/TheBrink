@@ -49,6 +49,7 @@ type LevelBonuses struct {
 	Expertise int
 	Block int
 	Critical int
+	Dodge int
 }
 
 // Status

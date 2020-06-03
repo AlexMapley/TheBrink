@@ -164,6 +164,7 @@ func (self *Character) LevelUp() bool {
 	self.Stats.Expertise += self.Stats.LevelBonuses.Expertise
 	self.Stats.Block += self.Stats.LevelBonuses.Block
 	self.Stats.Critical += self.Stats.LevelBonuses.Critical
+	self.Stats.Dodge += self.Stats.LevelBonuses.Dodge
 
 
 	// Dock XP

@@ -26,7 +26,8 @@ func Rogue(character Character) (Character, bool){
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Agility += 1
 	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Expertise += 1
+	res.Stats.LevelBonuses.Critical += 1
+	res.Stats.LevelBonuses.Dodge += 1
 
 	// Add Skills
 	res.SkillSlots = append(
@@ -55,8 +56,8 @@ func Warrior(character Character) (Character, bool){
 	res.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 4
-	res.Stats.Strength += 4
+	res.Stats.Vitality += 5
+	res.Stats.Strength += 5
 	res.Stats.Agility += 2
 	res.Stats.Intelligence += 1
 	res.Stats.Expertise += 1
@@ -99,12 +100,16 @@ func Wizard(character Character) (Character, bool){
 	res.Stats.Strength += 1
 	res.Stats.Agility += 1
 	res.Stats.Intelligence += 4
-	res.Stats.Expertise += 1
-	res.Stats.Block += 1
+	res.Stats.Expertise += 2
+	res.Stats.Block += 2
+	res.Stats.Dodge += 2
+	res.Stats.Critical += 2
 
 	// Levelling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 1
+	res.Stats.LevelBonuses.Dodge += 1
+	res.Stats.LevelBonuses.Expertise += 1
 
 	// Add Skills
 	res.SkillSlots = append(
