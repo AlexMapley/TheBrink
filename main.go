@@ -101,14 +101,14 @@ func main() {
 					fmt.Println("\n\nA strange bandit appears")
 					fmt.Println("\n\nAn agry thug appears")
 
-					thug := characters.NewThug("Dillan", player.Character.Stats.Level/2)
 					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
-					thug2 := characters.NewThug("Dougy", player.Character.Stats.Level)
+					thug1 := characters.NewThug("Dougy", player.Character.Stats.Level)
+					thug2 := characters.NewThug("Dillan", player.Character.Stats.Level/2)
 					enemyParty := party.Party{
 						X: 25,
 						Y: 25,
 						Members: []*characters.Character{
-							&thug.Character,
+							&thug1.Character,
 							&bandit.Character,
 							&thug2.Character,
 						},

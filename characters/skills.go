@@ -22,7 +22,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	criticalThreshold := 220
-	blockThreshold := 220 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
+	blockThreshold := 180 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
 
 	// Dodge Chance
 	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
