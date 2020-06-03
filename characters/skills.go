@@ -85,8 +85,18 @@ func (self *Character) GhostBlade(other *Character) {
 func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
-	heal := int(float64(self.Stats.Intelligence) * 2.1)
-	color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+	heal := int(float64(self.Stats.Intelligence) * 2.0 + float64(self.Stats.Vitality) * 0.3)
+
+	// Critical Chance
+	criticalThreshold := 170
+	if (self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)) {
+		critical = true
+		heal = damage * 2
+		color.HiMagenta("%s %s Heals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+	} else {
+		color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+
+	}
 
 	self.Stats.Health += heal
 	if self.Stats.Health > self.Stats.MaxHealth() {
