@@ -97,7 +97,7 @@ func main() {
 					break dayLoop
 
 				// Fight
-				case "Patrol the town":
+				case "Patrole the town":
 					fmt.Println("\n\nA strange bandit appears")
 					fmt.Println("\n\nAn agry thug appears")
 
