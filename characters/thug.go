@@ -57,6 +57,7 @@ func NewThug(name string, level int) Thug {
 
 	// Level Up
 	for i := 1; i < level; i++ {
+		thug.Character.Stats.XP += 1000
 		if i == 10 {
 			thug.Character, _ = Infected(thug.Character)
 		}
