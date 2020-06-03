@@ -118,15 +118,13 @@ func main() {
 						
 					playerParty.Battle(&enemyParty)
 					
-					// loot bandit if won
+					// loot enemy party if won
 					if (player.Character.Stats.Health > 0) {
 						player.Character.Inventory.Loot(&bandit.Character.Inventory)
+						player.Character.Inventory.Loot(&thug1.Character.Inventory)
+						player.Character.Inventory.Loot(&thug2.Character.Inventory)
 					}
 
-					// loot thug if won
-					if (player.Character.Stats.Health > 0) {
-						player.Character.Inventory.Loot(&thug.Character.Inventory)
-					}
 					break dayLoop
 				}
 			}
