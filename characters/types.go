@@ -33,6 +33,7 @@ type Stats struct {
 	Expertise int
 	Block int
 	Critical int
+	Dodge int
 
 	// Resource Pool
 	Health int

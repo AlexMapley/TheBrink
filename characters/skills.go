@@ -47,7 +47,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	
 	// Event Cases
 	if dodged {
-		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.White("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if blocked {
 		color.Cyan("%s %s deals %d damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if critical {
@@ -98,7 +98,16 @@ func (self *Character) Heal() {
 func (self *Character) IceBlast(other *Character) {
 	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
 	damage := int(float64(self.Stats.Intelligence) * 1.7)
-	color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+
+	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
+	// Dodge Chance
+	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
+		dodged = true
+		damage = 0
+		color.White("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	} else {
+		color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	}
 
 	other.Stats.Health -= damage
 	other.Status.Stunned +=2
@@ -108,7 +117,16 @@ func (self *Character) IceBlast(other *Character) {
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
 	damage := int(float64(self.Stats.Intelligence) * 2.7)
-	color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+
+	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
+	// Dodge Chance
+	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
+		dodged = true
+		damage = 0
+		color.White("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	} else {
+		color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	}
 
 	other.Stats.Health -= damage
 }
