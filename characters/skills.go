@@ -32,12 +32,12 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	// Block Chance
 	if (other.Stats.BlockValue() >= rand.Intn(blockThreshold)) {
 		blocked = true
-		damage = int (damage / 2)
+		damage /= 2
 	}
 	// Critical Chance
 	if (!blocked && self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)) {
 		critical = true
-		damage = damage * 2
+		damage *= 2
 	}
 
 	// Damage Multiplier 
@@ -90,8 +90,7 @@ func (self *Character) Heal() {
 	// Critical Chance
 	criticalThreshold := 170
 	if (self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)) {
-		critical = true
-		heal = damage * 2
+		heal *= 2
 		color.HiMagenta("%s %s Heals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 	} else {
 		color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
