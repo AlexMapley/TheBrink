@@ -31,7 +31,6 @@ func DisplayClassConsole(character *characters.Character) {
 menuLoop:
 	for {
 		option, exit := console.ChooseAction()
-
 		if option == -1 {
 			break menuLoop
 		}
