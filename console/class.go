@@ -19,19 +19,16 @@ func NewClassConsole() Console {
 	actions[5] = "NightBlade"
 	actions[6] = "x | q | esc to exit"
 
-
 	console.Actions = actions
 
 	return console
 }
 
-
-
 func DisplayClassConsole(character *characters.Character) {
 
 	console := NewClassConsole()
 
-	menuLoop:
+menuLoop:
 	for {
 		option, exit := console.ChooseAction()
 
@@ -67,7 +64,7 @@ func DisplayClassConsole(character *characters.Character) {
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Rogue\n%s\n\n", trim, trim)
 				}
-			
+
 			// Become Duelist
 			case "Wizard":
 				var accepted bool
@@ -79,7 +76,6 @@ func DisplayClassConsole(character *characters.Character) {
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Wizard\n%s\n\n", trim, trim)
 				}
-
 
 			// Become Paladin
 			case "Paladin":
@@ -104,7 +100,7 @@ func DisplayClassConsole(character *characters.Character) {
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
 				}
-			
+
 			// Become Duelist
 			case "Duelist":
 				var accepted bool

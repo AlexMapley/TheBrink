@@ -1,27 +1,26 @@
 package characters
 
-
 import (
 	"the_brink/inventory"
 )
 
 // Character
 type Character struct {
-	Stats Stats
-	Status Status
+	Stats      Stats
+	Status     Status
 	SkillSlots []Skill
-	Inventory inventory.Inventory
+	Inventory  inventory.Inventory
 }
 
 // Stats
 type Stats struct {
 	// Info
-	Name string
-	Class string
-	ClassHash int64
-	Level int
+	Name         string
+	Class        string
+	ClassHash    int64
+	Level        int
 	LevelBonuses LevelBonuses
-	XP int
+	XP           int
 
 	// Core Attributes
 	Strength     int
@@ -31,13 +30,13 @@ type Stats struct {
 
 	// Bonuses
 	Expertise int
-	Block int
-	Critical int
-	Dodge int
+	Block     int
+	Critical  int
+	Dodge     int
 
 	// Resource Pool
 	Health int
-	Focus int
+	Focus  int
 }
 
 // Level Bonsuses
@@ -48,9 +47,9 @@ type LevelBonuses struct {
 	Intelligence int
 
 	Expertise int
-	Block int
-	Critical int
-	Dodge int
+	Block     int
+	Critical  int
+	Dodge     int
 }
 
 // Status
@@ -60,14 +59,12 @@ type Status struct {
 
 // Skills
 type Skill struct {
-	Name string
-	Cost int
+	Name            string
+	Cost            int
 	CoolDownInitial int
-	CoolDownMax int
-	CoolDown int
+	CoolDownMax     int
+	CoolDown        int
 }
-
-
 
 // Character Types
 type Player struct {
@@ -81,4 +78,3 @@ type Bandit struct {
 type Thug struct {
 	Character Character
 }
-

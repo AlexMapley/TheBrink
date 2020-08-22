@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/fatih/color"
 	"github.com/eiannone/keyboard"
+	"github.com/fatih/color"
 )
 
 // DisplayActions
@@ -42,18 +42,17 @@ func (console *Console) ChooseAction() (int, bool) {
 	}
 	fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
 
-
 	option, err := strconv.Atoi(string(char))
 	fmt.Printf("Casted to action %d\r\n", option)
 
 	switch {
-		// Exit
-		case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC,  key == keyboard.KeyCtrlD, char == 'q', char == 'x':
-			return -1, true
-		case err == nil && option >= 0:
-			return option, false
-		default:
-			return -1, false
+	// Exit
+	case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC, key == keyboard.KeyCtrlD, char == 'q', char == 'x':
+		return -1, true
+	case err == nil && option >= 0:
+		return option, false
+	default:
+		return -1, false
 	}
 }
 

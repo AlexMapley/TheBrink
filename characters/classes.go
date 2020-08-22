@@ -5,7 +5,7 @@ package characters
 // - Can be applied to any base character
 // - requires no prior class
 ////////////////////
-func Rogue(character Character) (Character, bool){
+func Rogue(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
@@ -17,10 +17,10 @@ func Rogue(character Character) (Character, bool){
 	res.Stats.ClassHash *= 3
 
 	// Raw Stat Boosts
-	res.Stats.Vitality +=2
-	res.Stats.Strength +=2
-	res.Stats.Agility +=5
-	res.Stats.Intelligence +=2
+	res.Stats.Vitality += 2
+	res.Stats.Strength += 2
+	res.Stats.Agility += 5
+	res.Stats.Intelligence += 2
 	res.Stats.Expertise += 1
 
 	// Levelling Stat Boosts
@@ -31,20 +31,20 @@ func Rogue(character Character) (Character, bool){
 
 	// Add Skills
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "DoubleStrike",
-			Cost: 20,
+			Name:            "DoubleStrike",
+			Cost:            20,
 			CoolDownInitial: 0,
-			CoolDownMax: 4,
-			CoolDown: 0,
+			CoolDownMax:     4,
+			CoolDown:        0,
 		},
 	)
 
 	return res, true
 }
 
-func Warrior(character Character) (Character, bool){
+func Warrior(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
@@ -71,20 +71,20 @@ func Warrior(character Character) (Character, bool){
 
 	// Add Skills
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "DoubleStrike",
-			Cost: 25,
+			Name:            "DoubleStrike",
+			Cost:            25,
 			CoolDownInitial: 0,
-			CoolDownMax: 4,
-			CoolDown: 0,
+			CoolDownMax:     4,
+			CoolDown:        0,
 		},
 	)
 
 	return res, true
 }
 
-func Wizard(character Character) (Character, bool){
+func Wizard(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
@@ -113,23 +113,23 @@ func Wizard(character Character) (Character, bool){
 
 	// Add Skills
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "LightningBolt",
-			Cost: 55,
+			Name:            "LightningBolt",
+			Cost:            55,
 			CoolDownInitial: 0,
-			CoolDownMax: 6,
-			CoolDown: 0,
+			CoolDownMax:     6,
+			CoolDown:        0,
 		},
 	)
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "IceBlast",
-			Cost: 35,
+			Name:            "IceBlast",
+			Cost:            35,
 			CoolDownInitial: 0,
-			CoolDownMax: 9,
-			CoolDown: 0,
+			CoolDownMax:     9,
+			CoolDown:        0,
 		},
 	)
 
@@ -143,7 +143,7 @@ func Wizard(character Character) (Character, bool){
 ////////////////////
 
 // Infected
-func Infected(character Character) (Character, bool){
+func Infected(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Level < 10 {
@@ -175,17 +175,17 @@ func Infected(character Character) (Character, bool){
 }
 
 // Paladin
-func Paladin(character Character) (Character, bool){
+func Paladin(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Level < 5 {
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 || character.Stats.ClassHash % 17 == 0 {
+	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return character, false
 	}
-	
+
 	res := character
 	res.Stats.Class = res.Stats.Class + " Paladin"
 	res.Stats.ClassHash *= 11
@@ -198,13 +198,13 @@ func Paladin(character Character) (Character, bool){
 
 	// Add Skills
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "Heal",
-			Cost: 45,
+			Name:            "Heal",
+			Cost:            45,
 			CoolDownInitial: 5,
-			CoolDownMax: 5,
-			CoolDown: 5,
+			CoolDownMax:     5,
+			CoolDown:        5,
 		},
 	)
 
@@ -212,17 +212,17 @@ func Paladin(character Character) (Character, bool){
 }
 
 // NightBlade
-func NightBlade(character Character) (Character, bool){
+func NightBlade(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Level < 5 {
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 || character.Stats.ClassHash % 17 == 0 {
+	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return character, false
 	}
-	
+
 	res := character
 	res.Stats.Class = res.Stats.Class + " NightBlade"
 	res.Stats.ClassHash *= 13
@@ -235,13 +235,13 @@ func NightBlade(character Character) (Character, bool){
 
 	// Add Skills
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "GhostBlade",
-			Cost: 35,
+			Name:            "GhostBlade",
+			Cost:            35,
 			CoolDownInitial: 0,
-			CoolDownMax: 5,
-			CoolDown: 0,
+			CoolDownMax:     5,
+			CoolDown:        0,
 		},
 	)
 
@@ -249,17 +249,17 @@ func NightBlade(character Character) (Character, bool){
 }
 
 // Duelist
-func Duelist(character Character) (Character, bool){
+func Duelist(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Level < 5 {
 		return character, false
 	}
 	// - ClassHash mod condition
-	if character.Stats.ClassHash % 11 == 0 || character.Stats.ClassHash % 13 == 0 || character.Stats.ClassHash % 17 == 0 {
+	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return character, false
 	}
-	
+
 	res := character
 	res.Stats.Class = res.Stats.Class + " Duelist"
 	res.Stats.ClassHash *= 17
@@ -274,13 +274,13 @@ func Duelist(character Character) (Character, bool){
 
 	// Add Skills
 	res.SkillSlots = append(
-		res.SkillSlots, 
+		res.SkillSlots,
 		Skill{
-			Name: "Rend",
-			Cost: 50,
+			Name:            "Rend",
+			Cost:            50,
 			CoolDownInitial: 0,
-			CoolDownMax: 7,
-			CoolDown: 0,
+			CoolDownMax:     7,
+			CoolDown:        0,
 		},
 	)
 

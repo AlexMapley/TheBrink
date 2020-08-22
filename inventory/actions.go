@@ -1,6 +1,5 @@
 package inventory
 
-
 // Loot
 func (self *Inventory) Loot(other *Inventory) {
 

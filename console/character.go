@@ -2,10 +2,9 @@ package console
 
 import (
 	"the_brink/characters"
-	
+
 	"github.com/fatih/color"
 )
-
 
 func NewCharacterConsole() Console {
 	console := Console{}
@@ -24,12 +23,11 @@ func NewCharacterConsole() Console {
 	return console
 }
 
-
 func DisplayCharacterConsole(character *characters.Character) {
 
 	console := NewCharacterConsole()
 
-	menuLoop:
+menuLoop:
 	for {
 		option, exit := console.ChooseAction()
 
@@ -44,15 +42,15 @@ func DisplayCharacterConsole(character *characters.Character) {
 			// Stats
 			case "Stats":
 				character.Stats.Display()
-			
-			// Stats
-				case "Skills":
-					character.DisplaySkills()
-			
+
+				// Stats
+			case "Skills":
+				character.DisplaySkills()
+
 			// Inventory
 			case "Inventory":
 				character.Inventory.Display()
-			
+
 			// Level Up
 			case "Level Up":
 				// level up player and bandit

@@ -6,10 +6,9 @@ import (
 	"the_brink/party"
 	"the_brink/world"
 
-	"github.com/fatih/color"
 	"github.com/eiannone/keyboard"
+	"github.com/fatih/color"
 )
-
 
 var trim string = "^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^-^\n"
 
@@ -25,11 +24,9 @@ func NewMapConsole() Console {
 	return console
 }
 
-
 func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 
 	console := NewMapConsole()
-
 
 	// Open keyboard
 	if err := keyboard.Open(); err != nil {
@@ -40,14 +37,14 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 	}()
 
 	// Main Menu Loop
-	menuLoop:
+menuLoop:
 	for {
-		
+
 		// Generate Map fields
 		terminal := ""
 
 		// Print from top left to bottom right
-		for y := gameWorld.YMax - 1; y >= 0 ; y-- {
+		for y := gameWorld.YMax - 1; y >= 0; y-- {
 			line := []rune{}
 			for x := 0; x < gameWorld.XMax; x++ {
 				tile := world.Tile{
@@ -70,34 +67,34 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 			logError(err)
 		}
 		fmt.Printf("You pressed: rune %q, key %X\r\n", char, key)
-        if key == keyboard.KeyEsc {
+		if key == keyboard.KeyEsc {
 			break
 		}
 
 		switch {
-			// Move Left
-			case key == keyboard.KeyArrowLeft, char == 'a':
-				playerParty.Move(-1,0)
-				gameWorld.UpdateMap()
+		// Move Left
+		case key == keyboard.KeyArrowLeft, char == 'a':
+			playerParty.Move(-1, 0)
+			gameWorld.UpdateMap()
 
-			// Move Right
-			case key == keyboard.KeyArrowRight, char == 'd':
-				playerParty.Move(1,0)
-				gameWorld.UpdateMap()
+		// Move Right
+		case key == keyboard.KeyArrowRight, char == 'd':
+			playerParty.Move(1, 0)
+			gameWorld.UpdateMap()
 
-			// Move Up
-			case key == keyboard.KeyArrowUp, char == 'w':
-				playerParty.Move(0,1)
-				gameWorld.UpdateMap()
+		// Move Up
+		case key == keyboard.KeyArrowUp, char == 'w':
+			playerParty.Move(0, 1)
+			gameWorld.UpdateMap()
 
-			// Move Down
-			case key == keyboard.KeyArrowDown, char == 's':
-				playerParty.Move(0,-1)
-				gameWorld.UpdateMap()
+		// Move Down
+		case key == keyboard.KeyArrowDown, char == 's':
+			playerParty.Move(0, -1)
+			gameWorld.UpdateMap()
 
-			// Exit
-			case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC,  key == keyboard.KeyCtrlD, char == 'q', char == 'x':
-				break menuLoop
+		// Exit
+		case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC, key == keyboard.KeyCtrlD, char == 'q', char == 'x':
+			break menuLoop
 		}
 	}
 }

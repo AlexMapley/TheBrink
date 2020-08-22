@@ -1,8 +1,8 @@
 package characters
 
 import (
-	"time"
 	"math/rand"
+	"time"
 
 	"github.com/fatih/color"
 )
@@ -15,7 +15,6 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	dodged := false
 	critical := false
 	blocked := false
-	
 
 	// Generate base multipliers
 	damage := base
@@ -25,26 +24,26 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	blockThreshold := 180 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
 
 	// Dodge Chance
-	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
+	if other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) {
 		dodged = true
 		damage = 0
 	}
 	// Block Chance
-	if (other.Stats.BlockValue() >= rand.Intn(blockThreshold)) {
+	if other.Stats.BlockValue() >= rand.Intn(blockThreshold) {
 		blocked = true
 		damage /= 2
 	}
 	// Critical Chance
-	if (!blocked && self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)) {
+	if !blocked && self.Stats.CriticalValue() >= rand.Intn(criticalThreshold) {
 		critical = true
 		damage *= 2
 	}
 
-	// Damage Multiplier 
+	// Damage Multiplier
 	DamangeMultiplier := rand.Intn(70) + 30
 	damage = int(damage * DamangeMultiplier)
 	damage = int(damage / 100)
-	
+
 	// Event Cases
 	if dodged {
 		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
@@ -61,35 +60,35 @@ func (self *Character) BasicAttack(other *Character, base int) {
 // DoubleStrike
 func (self *Character) DoubleStrike(other *Character) {
 	color.HiGreen("* %s uses Double Strike *\n", self.Stats.Name)
-	self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
-	self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
+	self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
+	self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
 }
 
 // Rend
 func (self *Character) Rend(other *Character) {
 	color.HiGreen("* %s uses Rend *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength*3) + (self.Stats.Agility*2))
+	self.BasicAttack(other, (self.Stats.Strength*3)+(self.Stats.Agility*2))
 }
 
 // GhostBlade
 func (self *Character) GhostBlade(other *Character) {
 	color.HiGreen("* %s uses GhostBlade *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength/2) + (self.Stats.Agility*3) + (self.Stats.Intelligence*2))
+	self.BasicAttack(other, (self.Stats.Strength/2)+(self.Stats.Agility*3)+(self.Stats.Intelligence*2))
 
 	color.Magenta("%s %s stuns for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth())
 
-	other.Status.Stunned +=1
+	other.Status.Stunned += 1
 }
 
 // Heal
 func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
-	heal := int(float64(self.Stats.Intelligence) * 2.0 + float64(self.Stats.Vitality) * 0.3)
+	heal := int(float64(self.Stats.Intelligence)*2.0 + float64(self.Stats.Vitality)*0.3)
 
 	// Critical Chance
 	criticalThreshold := 170
-	if (self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)) {
+	if self.Stats.CriticalValue() >= rand.Intn(criticalThreshold) {
 		heal *= 2
 		color.HiMagenta("%s %s Heals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 	} else {
@@ -110,7 +109,7 @@ func (self *Character) IceBlast(other *Character) {
 
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	// Dodge Chance
-	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
+	if other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) {
 		damage = 0
 		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
@@ -118,7 +117,7 @@ func (self *Character) IceBlast(other *Character) {
 	}
 
 	other.Stats.Health -= damage
-	other.Status.Stunned +=2
+	other.Status.Stunned += 2
 }
 
 // LightningBolt
@@ -128,7 +127,7 @@ func (self *Character) LightningBolt(other *Character) {
 
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	// Dodge Chance
-	if (other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)) {
+	if other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) {
 		damage = 0
 		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
@@ -141,6 +140,5 @@ func (self *Character) LightningBolt(other *Character) {
 // Stun
 func (self *Character) Stun(other *Character) {
 	color.HiGreen("* %s uses Stun *\n", self.Stats.Name)
-	other.Status.Stunned +=3
+	other.Status.Stunned += 3
 }
-

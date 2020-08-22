@@ -8,22 +8,22 @@ func NewBandit(name string, level int) Bandit {
 
 	// Base Layer
 	bandit := Bandit{
-		Character: Character {
+		Character: Character{
 			Status: Status{
 				Stunned: 0,
 			},
 			SkillSlots: []Skill{
-				Skill {
-					Name: "BasicAttack",
-					Cost: 0,
+				Skill{
+					Name:        "BasicAttack",
+					Cost:        0,
 					CoolDownMax: 1,
-					CoolDown: 0,
+					CoolDown:    0,
 				},
 				Skill{
-					Name: "DoubleStrike",
-					Cost: 35,
+					Name:        "DoubleStrike",
+					Cost:        35,
 					CoolDownMax: 4,
-					CoolDown: 0,
+					CoolDown:    0,
 				},
 			},
 		},
@@ -31,28 +31,28 @@ func NewBandit(name string, level int) Bandit {
 
 	// Set Stats
 	stats := Stats{
-		Name: name,
-		Class: "Bandit",
-		ClassHash: 1,
-		Level: 1,
-		XP: 300,
-		Vitality: 2,
-		Strength: 2,
-		Agility: 3,
+		Name:         name,
+		Class:        "Bandit",
+		ClassHash:    1,
+		Level:        1,
+		XP:           300,
+		Vitality:     2,
+		Strength:     2,
+		Agility:      3,
 		Intelligence: 2,
-		LevelBonuses: LevelBonuses {
-			Vitality: 1,
-			Strength: 1,
-			Agility: 2,
+		LevelBonuses: LevelBonuses{
+			Vitality:     1,
+			Strength:     1,
+			Agility:      2,
 			Intelligence: 1,
 		},
 	}
 	bandit.Character.Stats = stats
 
 	// Set Inventory
-	bandit.Character.Inventory = inventory.Inventory {
+	bandit.Character.Inventory = inventory.Inventory{
 		Owner: bandit.Character.Stats.Name,
-		Gold: 25,
+		Gold:  25,
 	}
 
 	// Level Up
@@ -67,4 +67,3 @@ func NewBandit(name string, level int) Bandit {
 	bandit.Character.Rest()
 	return bandit
 }
-

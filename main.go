@@ -18,7 +18,6 @@ var trim string = "-----------------------------------------\n"
 var player characters.Player
 var playerParty party.Party
 
-
 func main() {
 	// Create Character
 	color.Cyan("What is your name?\n")
@@ -43,12 +42,12 @@ func main() {
 
 	// Build World
 	saveFile := world.SaveFile{
-		Day: 1,
+		Day:   1,
 		Party: &playerParty,
 	}
 	world := world.World{
-		XMax: 100,
-		YMax: 50,
+		XMax:  100,
+		YMax:  50,
 		Tiles: world.CreateMap(100, 50),
 		Parties: []*party.Party{
 			&playerParty,
@@ -59,7 +58,7 @@ func main() {
 	world.UpdateMap()
 
 	// main game loop
-	for (player.Character.Stats.Health > 0) {
+	for player.Character.Stats.Health > 0 {
 
 		if saveFile.Day == 15 {
 			color.Magenta("\n\n%sYou feel a darnkness come over the land...\n%s\n\n", trim, trim)
@@ -68,7 +67,7 @@ func main() {
 		color.Green("%sDay %d in town, what do you?\n%s", trim, saveFile.Day, trim)
 		townConsole := console.NewTownConsole()
 
-		dayLoop:
+	dayLoop:
 		for {
 			option, exit := townConsole.ChooseAction()
 
@@ -81,7 +80,7 @@ func main() {
 				color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
 
 				switch townConsole.Actions[option-1] {
-				
+
 				// Character Menu
 				case "Character":
 					console.DisplayCharacterConsole(&player.Character)
@@ -114,12 +113,11 @@ func main() {
 						},
 						Rune: 'B',
 					}
-				
-						
+
 					playerParty.Battle(&enemyParty)
-					
+
 					// loot enemy party if won
-					if (player.Character.Stats.Health > 0) {
+					if player.Character.Stats.Health > 0 {
 						player.Character.Inventory.Loot(&bandit.Character.Inventory)
 						player.Character.Inventory.Loot(&thug1.Character.Inventory)
 						player.Character.Inventory.Loot(&thug2.Character.Inventory)

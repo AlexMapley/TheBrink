@@ -40,7 +40,7 @@ func (self *Character) Duel(other *Character) {
 	self.Stats.Display()
 	other.Stats.Display()
 
-	for (self.Stats.Health > 0 && other.Stats.Health  > 0) {
+	for self.Stats.Health > 0 && other.Stats.Health > 0 {
 
 		time.Sleep(100 * time.Millisecond)
 
@@ -63,7 +63,7 @@ func (self *Character) Duel(other *Character) {
 			case "Stun":
 				self.Stun(other)
 			default:
-				self.BasicAttack(other, self.Stats.Strength + (self.Stats.Agility/2))
+				self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
 			}
 			// self cooldowns
 			for i, skill := range self.SkillSlots {
@@ -78,10 +78,9 @@ func (self *Character) Duel(other *Character) {
 			self.Status.Stunned--
 		}
 
-		
 		// other action
-		if (other.Stats.Health  > 0) {
-			if (other.Status.Stunned  == 0) {
+		if other.Stats.Health > 0 {
+			if other.Status.Stunned == 0 {
 				chosenSkill := other.ChooseSkill()
 				switch chosenSkill.Name {
 				case "DoubleStrike":
@@ -99,7 +98,7 @@ func (self *Character) Duel(other *Character) {
 				case "Stun":
 					other.Stun(self)
 				default:
-					other.BasicAttack(self, self.Stats.Strength + (self.Stats.Agility/2))
+					other.BasicAttack(self, self.Stats.Strength+(self.Stats.Agility/2))
 				}
 				// other cooldowns
 				for i, skill := range other.SkillSlots {
@@ -113,13 +112,11 @@ func (self *Character) Duel(other *Character) {
 			} else {
 				other.Status.Stunned--
 			}
-		} 
-			
-	
+		}
 
 	}
 
-	if (self.Stats.Health >= other.Stats.Health) {
+	if self.Stats.Health >= other.Stats.Health {
 		color.Cyan("\n%s Wins the duel\n", self.Stats.Name)
 		color.Red("\nOther xp is %d\n", other.Stats.XP)
 		self.Stats.XP += other.Stats.XP
@@ -165,7 +162,6 @@ func (self *Character) LevelUp() bool {
 	self.Stats.Block += self.Stats.LevelBonuses.Block
 	self.Stats.Critical += self.Stats.LevelBonuses.Critical
 	self.Stats.Dodge += self.Stats.LevelBonuses.Dodge
-
 
 	// Dock XP
 	self.Stats.XP -= 1000

@@ -41,6 +41,6 @@ func (character *Character) DisplaySkills() {
 		)
 		text += "------------\n"
 	}
-	
+
 	color.HiCyan(text)
 }
