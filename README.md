@@ -4,7 +4,7 @@
 To start up the go binary locally, you can run:
 
 ```shell
-bash run.go
+bash run.sh
 ```
 
 You can also start up a docker container running the program with:
