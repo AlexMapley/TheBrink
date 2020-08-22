@@ -122,14 +122,14 @@ func (self *Character) IceBlast(other *Character) {
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
-	damage := float64(self.Stats.Intelligence) * 2.3
+	damage := float64(self.Stats.Intelligence) * 2.1
 
 	// Dodge Chance
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	dodged := other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)
 	if dodged {
 		damage = 0
-		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 
 	// Critical Chance
@@ -143,7 +143,7 @@ func (self *Character) LightningBolt(other *Character) {
 	if critical {
 		color.HiRed("%s %s deals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Magenta("%s %s deals %f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 	other.Stats.Health -= int(damage)
 }

@@ -99,7 +99,7 @@ func Wizard(character Character) (Character, bool) {
 	res.Stats.Vitality += 2
 	res.Stats.Strength += 1
 	res.Stats.Agility += 2
-	res.Stats.Intelligence += 4
+	res.Stats.Intelligence += 7
 	res.Stats.Expertise += 2
 	res.Stats.Block += 2
 	res.Stats.Dodge += 2
