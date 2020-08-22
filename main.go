@@ -89,12 +89,6 @@ func main() {
 				case "Map":
 					console.DisplayMapConsole(&world, &playerParty)
 
-				// Rest Party
-				case "Rest":
-					playerParty.Rest()
-					color.Green("Your party's stats have been restored\n")
-					break dayCounter
-
 				// Fight
 				case "Patrole the town":
 					fmt.Println("\n\nA strange bandit appears")
@@ -128,13 +122,14 @@ func main() {
 					playerParty.Rest()
 					color.Green("Your party's stats have been restored\n")
 					break dayCounter
+
 				// Level Up Party
 				case "Level Up":
 					// level up player and bandit
-					success := character.LevelUp()
+					success := player.Character.LevelUp()
 					if success {
 						color.Yellow("\n\n%sYou have leveled up\n%s\n\n", trim, trim)
-						character.Rest()
+						player.Character.Rest()
 					} else {
 						color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
 					}
