@@ -28,7 +28,7 @@ func DisplayClassConsole(character *characters.Character) {
 
 	console := NewClassConsole()
 
-	menuLoop:
+menuLoop:
 	for {
 		option := console.ChooseAction()
 		if option == -1 {

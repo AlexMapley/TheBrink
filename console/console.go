@@ -19,7 +19,7 @@ func (console *Console) DisplayActions() {
 }
 
 // ChooseAction
-func (console *Console) ChooseAction() (int) {
+func (console *Console) ChooseAction() int {
 
 	// Open keyboard
 	if err := keyboard.Open(); err != nil {

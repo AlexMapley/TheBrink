@@ -17,7 +17,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	// Dodge Chance
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	dodged := other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)
-	if dodged {}
+	if dodged {
 		dodged = true
 		damage = 0
 	}
@@ -33,7 +33,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	// Critical Chance
 	criticalThreshold := 220
 	critical := self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)
-	if critical  {
+	if critical {
 		critical = true
 		damage *= 2
 	}
@@ -124,11 +124,9 @@ func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
 	damage := float64(self.Stats.Intelligence) * 2.3
 
-	
-
 	// Dodge Chance
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
-	dodged := other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) 
+	dodged := other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)
 	if dodged {
 		damage = 0
 		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
@@ -137,7 +135,7 @@ func (self *Character) LightningBolt(other *Character) {
 	// Critical Chance
 	criticalThreshold := 160
 	critical := self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)
-	if critical && !dodged  {
+	if critical && !dodged {
 		critical = true
 		damage *= 2
 	}

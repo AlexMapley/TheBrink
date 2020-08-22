@@ -116,7 +116,7 @@ func main() {
 						player.Character.Inventory.Loot(&thug2.Character.Inventory)
 					}
 					break dayCounter
-				
+
 				// Rest Party
 				case "Rest":
 					playerParty.Rest()
