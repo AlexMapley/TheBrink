@@ -32,6 +32,10 @@ menuLoop:
 	for {
 		option, exit := console.ChooseAction()
 
+		if option == -1 {
+			break menuLoop
+		}
+
 		color.HiRed("\n\nGot option %d\n", option)
 
 		if exit {
