@@ -23,7 +23,7 @@ func Rogue(character Character) (Character, bool) {
 	res.Stats.Intelligence += 2
 	res.Stats.Expertise += 1
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Agility += 1
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Critical += 1
@@ -63,7 +63,7 @@ func Warrior(character Character) (Character, bool) {
 	res.Stats.Expertise += 1
 	res.Stats.Block += 1
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Vitality += 1
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Expertise += 1
@@ -105,7 +105,7 @@ func Wizard(character Character) (Character, bool) {
 	res.Stats.Dodge += 2
 	res.Stats.Critical += 2
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 1
 	res.Stats.LevelBonuses.Dodge += 1
@@ -162,7 +162,7 @@ func Infected(character Character) (Character, bool) {
 	res.Stats.Expertise += 0
 	res.Stats.Block += 0
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Agility += 1
 	res.Stats.LevelBonuses.Intelligence += 1
@@ -190,7 +190,7 @@ func Paladin(character Character) (Character, bool) {
 	res.Stats.Class = res.Stats.Class + " Paladin"
 	res.Stats.ClassHash *= 11
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 2
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Vitality += 1
@@ -227,7 +227,7 @@ func NightBlade(character Character) (Character, bool) {
 	res.Stats.Class = res.Stats.Class + " NightBlade"
 	res.Stats.ClassHash *= 13
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Intelligence += 1
 	res.Stats.LevelBonuses.Agility += 2
@@ -264,7 +264,7 @@ func Duelist(character Character) (Character, bool) {
 	res.Stats.Class = res.Stats.Class + " Duelist"
 	res.Stats.ClassHash *= 17
 
-	// Levelling Stat Boosts
+	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Vitality += 1
 	res.Stats.LevelBonuses.Agility += 1

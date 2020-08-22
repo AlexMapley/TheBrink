@@ -9,7 +9,8 @@ func NewTownConsole() Console {
 	actions[1] = "Map"
 	actions[2] = "Patrole the town"
 	actions[3] = "Rest"
-	actions[4] = "x | q | esc to exit"
+	actions[4] = "Level Up"
+	actions[5] = "x | q | esc to exit"
 
 	console.Actions = actions
 

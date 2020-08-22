@@ -113,7 +113,6 @@ func main() {
 						},
 						Rune: 'B',
 					}
-
 					playerParty.Battle(&enemyParty)
 
 					// loot enemy party if won
@@ -122,8 +121,23 @@ func main() {
 						player.Character.Inventory.Loot(&thug1.Character.Inventory)
 						player.Character.Inventory.Loot(&thug2.Character.Inventory)
 					}
-
 					break dayCounter
+				
+				// Rest Party
+				case "Rest":
+					playerParty.Rest()
+					color.Green("Your party's stats have been restored\n")
+					break dayCounter
+				// Level Up Party
+				case "Level Up":
+					// level up player and bandit
+					success := character.LevelUp()
+					if success {
+						color.Yellow("\n\n%sYou have leveled up\n%s\n\n", trim, trim)
+						character.Rest()
+					} else {
+						color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
+					}
 				}
 			}
 		}
