@@ -69,7 +69,7 @@ func main() {
 
 	dayLoop:
 		for {
-			option, exit := townConsole.ChooseAction()
+			option := townConsole.ChooseAction()
 			if option == -1 {
 				player.Character.Stats.Health -= 10000
 				break dayLoop

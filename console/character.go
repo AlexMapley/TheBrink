@@ -29,7 +29,7 @@ func DisplayCharacterConsole(character *characters.Character) {
 
 menuLoop:
 	for {
-		option, exit := console.ChooseAction()
+		option := console.ChooseAction()
 		if option == -1 {
 			break menuLoop
 		}

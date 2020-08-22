@@ -19,7 +19,7 @@ func (console *Console) DisplayActions() {
 }
 
 // ChooseAction
-func (console *Console) ChooseAction() (int, bool) {
+func (console *Console) ChooseAction() (int) {
 
 	// Open keyboard
 	if err := keyboard.Open(); err != nil {
@@ -46,13 +46,14 @@ func (console *Console) ChooseAction() (int, bool) {
 	fmt.Printf("Casted to action %d\r\n", option)
 
 	switch {
+	case err == nil && option >= 0:
+		return option
+		
 	// Exit
 	case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC, key == keyboard.KeyCtrlD, char == 'q', char == 'x':
-		return -1, true
-	case err == nil && option >= 0:
-		return option, false
+		return -1
 	default:
-		return -1, false
+		return -1
 	}
 }
 

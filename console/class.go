@@ -30,16 +30,12 @@ func DisplayClassConsole(character *characters.Character) {
 
 menuLoop:
 	for {
-		option, exit := console.ChooseAction()
+		option := console.ChooseAction()
 		if option == -1 {
 			break menuLoop
 		}
 
 		color.HiRed("\n\nGot option %d\n", option)
-
-		if exit {
-			break menuLoop
-		}
 
 		if option > 0 && option <= len(console.Actions) {
 			switch console.Actions[option-1] {
