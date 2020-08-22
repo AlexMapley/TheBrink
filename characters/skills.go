@@ -19,21 +19,22 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	// Generate base multipliers
 	damage := base
 
-	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
-	criticalThreshold := 220
-	blockThreshold := 180 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
-
 	// Dodge Chance
+	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	if other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) {
 		dodged = true
 		damage = 0
 	}
+
 	// Block Chance
+	blockThreshold := 180 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
 	if other.Stats.BlockValue() >= rand.Intn(blockThreshold) {
 		blocked = true
 		damage /= 2
 	}
+
 	// Critical Chance
+	criticalThreshold := 220
 	if !blocked && self.Stats.CriticalValue() >= rand.Intn(criticalThreshold) {
 		critical = true
 		damage *= 2
@@ -123,18 +124,30 @@ func (self *Character) IceBlast(other *Character) {
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
-	damage := int(float64(self.Stats.Intelligence) * 2.7)
+	damage := float64(self.Stats.Intelligence) * 2.3
 
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
+
 	// Dodge Chance
 	if other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) {
 		damage = 0
 		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		
 	}
 
-	other.Stats.Health -= damage
+	// Critical Chance
+	if !blocked && self.Stats.CriticalValue() >= rand.Intn(criticalThreshold) {
+		critical = true
+		damage *= 2
+	}
+
+	if critical {
+		color.HiRed("%s %s deals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	} else {
+		color.Magenta("%s %s deals %d magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	}
+	other.Stats.Health -= int(damage)
 }
 
 // Stun

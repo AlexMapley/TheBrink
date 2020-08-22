@@ -116,7 +116,7 @@ func Wizard(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "LightningBolt",
-			Cost:            55,
+			Cost:            32,
 			CoolDownInitial: 0,
 			CoolDownMax:     6,
 			CoolDown:        0,
