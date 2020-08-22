@@ -57,7 +57,8 @@ func main() {
 	// Set Map
 	world.UpdateMap()
 
-	// main game loop
+	// MAIN GAME LOOP
+	// the inner `dayCounter`
 	for player.Character.Stats.Health > 0 {
 
 		if saveFile.Day == 15 {
@@ -67,12 +68,12 @@ func main() {
 		color.Green("%sDay %d in town, what do you?\n%s", trim, saveFile.Day, trim)
 		townConsole := console.NewTownConsole()
 
-	dayLoop:
+	dayCounter:
 		for {
 			option := townConsole.ChooseAction()
 			if option == -1 {
 				player.Character.Stats.Health -= 10000
-				break dayLoop
+				break dayCounter
 			}
 
 			if option > 0 && option <= len(townConsole.Actions) {
@@ -92,7 +93,7 @@ func main() {
 				case "Rest":
 					playerParty.Rest()
 					color.Green("Your party's stats have been restored\n")
-					break dayLoop
+					break dayCounter
 
 				// Fight
 				case "Patrole the town":
@@ -122,7 +123,7 @@ func main() {
 						player.Character.Inventory.Loot(&thug2.Character.Inventory)
 					}
 
-					break dayLoop
+					break dayCounter
 				}
 			}
 		}

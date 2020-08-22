@@ -48,7 +48,6 @@ func (console *Console) ChooseAction() (int) {
 	switch {
 	case err == nil && option >= 0:
 		return option
-		
 	// Exit
 	case key == keyboard.KeyEsc, key == keyboard.KeyCtrlC, key == keyboard.KeyCtrlD, char == 'q', char == 'x':
 		return -1
