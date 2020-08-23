@@ -133,6 +133,41 @@ func main() {
 					} else {
 						color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
 					}
+
+				// Time Warp
+				case "Time Warp":
+					for i := 0; i < 5; i++ {
+						fmt.Println("\n\nA strange bandit appears")
+						fmt.Println("\n\nAn agry thug appears")
+	
+						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
+						thug1 := characters.NewThug("Dougy", player.Character.Stats.Level)
+						thug2 := characters.NewThug("Dillan", player.Character.Stats.Level/2)
+						enemyParty := party.Party{
+							X: 25,
+							Y: 25,
+							Members: []*characters.Character{
+								&thug1.Character,
+								&bandit.Character,
+								&thug2.Character,
+							},
+							Rune: 'B',
+						}
+						playerParty.Battle(&enemyParty)
+
+						// Die as well
+						if player.Character.Stats.Health <= 0 {
+							break dayCounter
+						}
+	
+						// loot enemy party if won
+						if player.Character.Stats.Health > 0 {
+							player.Character.Inventory.Loot(&bandit.Character.Inventory)
+							player.Character.Inventory.Loot(&thug1.Character.Inventory)
+							player.Character.Inventory.Loot(&thug2.Character.Inventory)
+						}
+						playerParty.Rest()
+					}
 				}
 			}
 		}
