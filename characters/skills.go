@@ -8,30 +8,30 @@ import (
 )
 
 // BasicAttack
-func (self *Character) BasicAttack(other *Character, base int) {
+func (self *Character) BasicAttack(other *Character, base float64) {
 	rand.Seed(time.Now().UnixNano())
 
 	// Generate base multipliers
 	damage := base
 
-	// Dodge Chance
-	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
+	// Dodge Threshold
+	dodgeThreshold := 220 + int(self.Stats.AccuracyRating() * 2)
 	dodged := other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold)
 	if dodged {
 		dodged = true
 		damage = 0
 	}
 
-	// Block Chance
-	blockThreshold := 180 + (self.Stats.Strength * 2) + (self.Stats.AccuracyRating())
+	// Block Threshold
+	blockThreshold := 180 + (self.Stats.Strength * 2) + int(self.Stats.AccuracyRating())
 	blocked := other.Stats.BlockValue() >= rand.Intn(blockThreshold)
 	if blocked {
 		blocked = true
 		damage /= 2
 	}
 
-	// Critical Chance
-	criticalThreshold := 220
+	// Critical Threshold
+	criticalThreshold := 225
 	critical := int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold)
 	if critical {
 		critical = true
