@@ -7,7 +7,7 @@ import (
 )
 
 func (stats *Stats) Display() {
-	text := fmt.Sprintf("\n-------------\n%s\n-------------\nLevel: %d\nXP: %d\nClass: %s\nClassHash: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %d\nDodge: %d\nBlock: %d\nAccuracy Rating: %d\n\n",
+	text := fmt.Sprintf("\n-------------\n%s\n-------------\nLevel: %d\nXP: %d\nClass: %s\nClassHash: %d\nHealth: %d/%f\nFocus: %d/%f\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %f\nDodge: %f\nBlock: %f\nAccuracy Rating: %f\n\n",
 		stats.Name,
 		stats.Level,
 		stats.XP,

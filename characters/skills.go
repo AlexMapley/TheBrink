@@ -32,7 +32,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 
 	// Critical Chance
 	criticalThreshold := 220
-	critical := self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)
+	critical := int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold)
 	if critical {
 		critical = true
 		damage *= 2
@@ -87,7 +87,7 @@ func (self *Character) Heal() {
 
 	// Critical Chance
 	criticalThreshold := 170
-	if self.Stats.CriticalValue() >= rand.Intn(criticalThreshold) {
+	if int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold) {
 		heal *= 2
 		color.HiMagenta("%s %s Heals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 	} else {
@@ -96,8 +96,8 @@ func (self *Character) Heal() {
 	}
 
 	self.Stats.Health += heal
-	if self.Stats.Health > self.Stats.MaxHealth() {
-		self.Stats.Health = self.Stats.MaxHealth()
+	if self.Stats.Health > int(self.Stats.MaxHealth()) {
+		self.Stats.Health = int(self.Stats.MaxHealth())
 	}
 }
 
@@ -134,7 +134,7 @@ func (self *Character) LightningBolt(other *Character) {
 
 	// Critical Chance
 	criticalThreshold := 160
-	critical := self.Stats.CriticalValue() >= rand.Intn(criticalThreshold)
+	critical := int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold)
 	if critical && !dodged {
 		critical = true
 		damage *= 2

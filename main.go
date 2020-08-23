@@ -171,6 +171,7 @@ func main() {
 							player.Character.Inventory.Loot(&thug2.Character.Inventory)
 						}
 						playerParty.Rest()
+						player.Character.LevelUp()
 					}
 				}
 			}

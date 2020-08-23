@@ -133,8 +133,8 @@ func (self *Character) Duel(other *Character) {
 func (self *Character) Rest() {
 
 	// Reset Resource Pools
-	self.Stats.Health = self.Stats.MaxHealth()
-	self.Stats.Focus = self.Stats.MaxFocus()
+	self.Stats.Health = int(self.Stats.MaxHealth())
+	self.Stats.Focus = int(self.Stats.MaxFocus())
 
 	// Reset Skill Cooldowns
 	for i := range self.SkillSlots {

@@ -34,7 +34,7 @@ func Rogue(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Double Strike",
-			Cost:            20,
+			Cost:            18,
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
 			CoolDown:        0,
@@ -44,6 +44,7 @@ func Rogue(character Character) (Character, bool) {
 	return res, true
 }
 
+// Warrior
 func Warrior(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
@@ -73,10 +74,10 @@ func Warrior(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Double Strike",
-			Cost:            25,
+			Name:            "Rend",
+			Cost:            30,
 			CoolDownInitial: 0,
-			CoolDownMax:     4,
+			CoolDownMax:     7,
 			CoolDown:        0,
 		},
 	)
@@ -84,6 +85,7 @@ func Warrior(character Character) (Character, bool) {
 	return res, true
 }
 
+// Wizard
 func Wizard(character Character) (Character, bool) {
 	// Reject If:
 	// - unit has a class already
@@ -291,10 +293,10 @@ func Duelist(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Rend",
-			Cost:            50,
+			Name:            "Double Strike",
+			Cost:            11,
 			CoolDownInitial: 0,
-			CoolDownMax:     7,
+			CoolDownMax:     3,
 			CoolDown:        0,
 		},
 	)
