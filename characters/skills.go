@@ -8,11 +8,11 @@ import (
 )
 
 // BasicAttack
-func (self *Character) BasicAttack(other *Character, base float64) {
+func (self *Character) BasicAttack(other *Character, base int) {
 	rand.Seed(time.Now().UnixNano())
 
 	// Generate base multipliers
-	damage := base
+	damage := float64(base)
 
 	// Dodge Threshold
 	dodgeThreshold := 220 + int(self.Stats.AccuracyRating() * 2)
@@ -27,7 +27,7 @@ func (self *Character) BasicAttack(other *Character, base float64) {
 	blocked := other.Stats.BlockValue() >= rand.Intn(blockThreshold)
 	if blocked {
 		blocked = true
-		damage /= 2
+		damage /= 2.0
 	}
 
 	// Critical Threshold
@@ -35,23 +35,22 @@ func (self *Character) BasicAttack(other *Character, base float64) {
 	critical := int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold)
 	if critical {
 		critical = true
-		damage *= 2
+		damage *= 2.0
 	}
 
 	// Damage Multiplier
-	DamangeMultiplier := rand.Intn(70) + 30
-	damage = int(damage * DamangeMultiplier)
-	damage = int(damage / 100)
+	DamangeMultiplier := rand.Intn(120) + 30
+	damage = damage * float64(DamangeMultiplier) / 100
 
 	// Event Cases
 	if dodged {
-		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if blocked {
-		color.Cyan("%s %s deals %d damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Cyan("%s %s deals %f damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if critical {
-		color.HiRed("%s %s deals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.HiRed("%s %s deals %f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.White("%s %s deals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.White("%s %s deals %f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 	other.Stats.Health -= damage
 }
@@ -83,19 +82,19 @@ func (self *Character) GhostBlade(other *Character) {
 func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
-	heal := int(float64(self.Stats.Intelligence)*2.0 + float64(self.Stats.Vitality)*0.3)
+	heal := (2.0 * float64(self.Stats.Intelligence)) + (0.3 * float64(self.Stats.Vitality))
 
 	// Critical Chance
 	criticalThreshold := 170
 	if int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold) {
-		heal *= 2
-		color.HiMagenta("%s %s Heals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+		heal *= 2.0
+		color.HiMagenta("%s %s Heals %f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 	} else {
-		color.Magenta("%s %s Heals %d damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+		color.Magenta("%s %s Heals %f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 
 	}
 
-	self.Stats.Health += heal
+	self.Stats.Health += int(heal)
 	if self.Stats.Health > int(self.Stats.MaxHealth()) {
 		self.Stats.Health = int(self.Stats.MaxHealth())
 	}
@@ -104,18 +103,18 @@ func (self *Character) Heal() {
 // IceBlast
 func (self *Character) IceBlast(other *Character) {
 	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
-	damage := int(float64(self.Stats.Intelligence) * 1.7)
+	damage := float64(self.Stats.Intelligence) * 1.7)
 
 	dodgeThreshold := 220 + (self.Stats.AccuracyRating() * 2)
 	// Dodge Chance
-	if other.Stats.DodgeValue() >= rand.Intn(dodgeThreshold) {
+	if other.Stats.DodgeValue() >= rand.Intn(int(dodgeThreshold)) {
 		damage = 0
 		color.Yellow("%s %s deals %d damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
 		color.Magenta("%s %s deals %d magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 
-	other.Stats.Health -= damage
+	other.Stats.Health -= int(damage)
 	other.Status.Stunned += 2
 }
 
