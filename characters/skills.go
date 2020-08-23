@@ -125,7 +125,7 @@ func (self *Character) LightningBolt(other *Character) {
 
 	// Dodge Chance
 	dodgeThreshold := float64(220) + (self.Stats.AccuracyRating() * 2)
-	dodged := other.Stats.DodgeValue() >= rand.Intn(int(dodgeThreshold))
+	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
 		damage = 0
 		color.Yellow("%s %s deals %f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)

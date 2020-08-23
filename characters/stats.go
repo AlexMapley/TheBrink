@@ -29,5 +29,5 @@ func (stats Stats) MaxFocus() float64 {
 }
 
 func (stats Stats) DisplayHealth() string {
-	return fmt.Sprintf("(%d/%d)", stats.Health, stats.MaxHealth())
+	return fmt.Sprintf("(%d/%d)", int(stats.Health), int(stats.MaxHealth()))
 }
