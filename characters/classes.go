@@ -34,7 +34,7 @@ func Rogue(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Double Strike",
-			Cost:            18,
+			Cost:            float64(18),
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
 			CoolDown:        0,
@@ -75,7 +75,7 @@ func Warrior(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Rend",
-			Cost:            30,
+			Cost:            float64(30),
 			CoolDownInitial: 0,
 			CoolDownMax:     7,
 			CoolDown:        0,
@@ -118,7 +118,7 @@ func Wizard(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Lightning Bolt",
-			Cost:            24,
+			Cost:            float64(24),
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
 			CoolDown:        0,
@@ -128,7 +128,7 @@ func Wizard(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Ice Blast",
-			Cost:            35,
+			Cost:            float64(35),
 			CoolDownInitial: 5,
 			CoolDownMax:     6,
 			CoolDown:        0,
@@ -207,7 +207,7 @@ func Paladin(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Heal",
+			Name:            float64("Heal"),
 			Cost:            45,
 			CoolDownInitial: 5,
 			CoolDownMax:     5,
@@ -249,7 +249,7 @@ func NightBlade(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "GhostBlade",
+			Name:            float64("GhostBlade"),
 			Cost:            25,
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
@@ -293,7 +293,7 @@ func Duelist(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Double Strike",
+			Name:            float64("Double Strike"),
 			Cost:            11,
 			CoolDownInitial: 0,
 			CoolDownMax:     3,

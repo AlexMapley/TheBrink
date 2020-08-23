@@ -35,8 +35,8 @@ type Stats struct {
 	Dodge     int
 
 	// Resource Pool
-	Health int
-	Focus  int
+	Health float64
+	Focus  float64
 }
 
 // Level Bonsuses
@@ -60,7 +60,7 @@ type Status struct {
 // Skills
 type Skill struct {
 	Name            string
-	Cost            int
+	Cost            float64
 	CoolDownInitial int
 	CoolDownMax     int
 	CoolDown        int
