@@ -18,8 +18,8 @@ func Rogue(character Character) (Character, bool) {
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 2
-	res.Stats.Strength += 2
-	res.Stats.Agility += 5
+	res.Stats.Strength += 4
+	res.Stats.Agility += 6
 	res.Stats.Intelligence += 2
 	res.Stats.Expertise += 1
 
@@ -33,7 +33,7 @@ func Rogue(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "DoubleStrike",
+			Name:            "Double Strike",
 			Cost:            20,
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
@@ -73,7 +73,7 @@ func Warrior(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "DoubleStrike",
+			Name:            "Double Strike",
 			Cost:            25,
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
@@ -115,7 +115,7 @@ func Wizard(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "LightningBolt",
+			Name:            "Lightning Bolt",
 			Cost:            24,
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
@@ -125,7 +125,7 @@ func Wizard(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "IceBlast",
+			Name:            "Ice Blast",
 			Cost:            35,
 			CoolDownInitial: 5,
 			CoolDownMax:     6,
@@ -145,7 +145,7 @@ func Wizard(character Character) (Character, bool) {
 // Infected
 func Infected(character Character) (Character, bool) {
 	// Reject If:
-	// - unit has a class already
+	// * unit has a class already * //
 	if character.Stats.Level < 10 {
 		return character, false
 	}
@@ -177,11 +177,11 @@ func Infected(character Character) (Character, bool) {
 // Paladin
 func Paladin(character Character) (Character, bool) {
 	// Reject If:
-	// - unit has a class already
+	// * unit has a class already * //
 	if character.Stats.Level < 5 {
 		return character, false
 	}
-	// - ClassHash mod condition
+	// * ClassHash modulos are incompatible * //
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return character, false
 	}
@@ -189,6 +189,11 @@ func Paladin(character Character) (Character, bool) {
 	res := character
 	res.Stats.Class = res.Stats.Class + " Paladin"
 	res.Stats.ClassHash *= 11
+
+	// Raw stat boosts
+	res.Stats.Strength += 3
+	res.Stats.Vitality += 2
+	res.Stats.Intelligence += 1
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 2
@@ -214,11 +219,11 @@ func Paladin(character Character) (Character, bool) {
 // NightBlade
 func NightBlade(character Character) (Character, bool) {
 	// Reject If:
-	// - unit has a class already
+	// * unit has a class already * //
 	if character.Stats.Level < 5 {
 		return character, false
 	}
-	// - ClassHash mod condition
+	// * ClassHash modulos are incompatible * //
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return character, false
 	}
@@ -227,9 +232,14 @@ func NightBlade(character Character) (Character, bool) {
 	res.Stats.Class = res.Stats.Class + " NightBlade"
 	res.Stats.ClassHash *= 13
 
-	// leveling Stat Boosts
+	// Raw stat boosts
+	res.Stats.Intelligence += 3
+	res.Stats.Agility += 2
+	res.Stats.Vitality += 1
+
+	// Leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Intelligence += 1
+	res.Stats.LevelBonuses.Intelligence += 2
 	res.Stats.LevelBonuses.Agility += 2
 	res.Stats.LevelBonuses.Critical += 1
 
@@ -238,9 +248,9 @@ func NightBlade(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "GhostBlade",
-			Cost:            35,
+			Cost:            25,
 			CoolDownInitial: 0,
-			CoolDownMax:     5,
+			CoolDownMax:     4,
 			CoolDown:        0,
 		},
 	)
@@ -251,11 +261,11 @@ func NightBlade(character Character) (Character, bool) {
 // Duelist
 func Duelist(character Character) (Character, bool) {
 	// Reject If:
-	// - unit has a class already
+	// * unit has a class already * //
 	if character.Stats.Level < 5 {
 		return character, false
 	}
-	// - ClassHash mod condition
+	// * ClassHash modulos are incompatible * //
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return character, false
 	}
@@ -263,6 +273,11 @@ func Duelist(character Character) (Character, bool) {
 	res := character
 	res.Stats.Class = res.Stats.Class + " Duelist"
 	res.Stats.ClassHash *= 17
+
+	// Raw stat boosts
+	res.Stats.Agility += 3
+	res.Stats.Strength += 2
+	res.Stats.Vitality += 1
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1

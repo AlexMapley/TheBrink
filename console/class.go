@@ -16,7 +16,7 @@ func NewClassConsole() Console {
 	actions[2] = "Wizard"
 	actions[3] = "Paladin"
 	actions[4] = "Duelist"
-	actions[5] = "NightBlade"
+	actions[5] = "Nightblade"
 	actions[6] = "x | q | esc to exit"
 
 	console.Actions = actions
@@ -89,7 +89,7 @@ menuLoop:
 				}
 
 			// Become NightBlade
-			case "NightBlade":
+			case "Nightblade":
 				var accepted bool
 				*character, accepted = characters.NightBlade(*character)
 				if accepted {

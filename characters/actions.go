@@ -48,15 +48,15 @@ func (self *Character) Duel(other *Character) {
 		if self.Status.Stunned == 0 {
 			chosenSkill := self.ChooseSkill()
 			switch chosenSkill.Name {
-			case "DoubleStrike":
+			case "Double Strike":
 				self.DoubleStrike(other)
-			case "GhostBlade":
+			case "Ghost Blade":
 				self.GhostBlade(other)
 			case "Heal":
 				self.Heal()
-			case "IceBlast":
+			case "Ice Blast":
 				self.IceBlast(other)
-			case "LightningBolt":
+			case "Lightning Bolt":
 				self.LightningBolt(other)
 			case "Rend":
 				self.Rend(other)
@@ -83,15 +83,15 @@ func (self *Character) Duel(other *Character) {
 			if other.Status.Stunned == 0 {
 				chosenSkill := other.ChooseSkill()
 				switch chosenSkill.Name {
-				case "DoubleStrike":
+				case "Double Strike":
 					other.DoubleStrike(self)
-				case "GhostBlade":
+				case "Ghost Blade":
 					other.GhostBlade(self)
 				case "Heal":
 					other.Heal()
-				case "IceBlast":
+				case "Ice Blast":
 					other.IceBlast(self)
-				case "LightningBolt":
+				case "Lightning Bolt":
 					other.LightningBolt(self)
 				case "Rend":
 					other.Rend(self)

@@ -14,13 +14,13 @@ func NewBandit(name string, level int) Bandit {
 			},
 			SkillSlots: []Skill{
 				Skill{
-					Name:        "BasicAttack",
+					Name:        "Basic Attack",
 					Cost:        0,
 					CoolDownMax: 1,
 					CoolDown:    0,
 				},
 				Skill{
-					Name:        "DoubleStrike",
+					Name:        "Double Strike",
 					Cost:        35,
 					CoolDownMax: 4,
 					CoolDown:    0,
