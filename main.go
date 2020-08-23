@@ -91,8 +91,9 @@ func main() {
 
 				// Fight
 				case "Patrole the town":
-					fmt.Println("\n\nA strange bandit appears")
-					fmt.Println("\n\nAn agry thug appears")
+					fmt.Println("\n*An agry thug appears")
+					fmt.Println("\n*A strange bandit appears")
+					fmt.Println("\n*An weaker trainee appears")
 
 					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 					thug1 := characters.NewThug("Dougy", player.Character.Stats.Level)
@@ -137,8 +138,9 @@ func main() {
 				// Time Warp
 				case "Time Warp":
 					for i := 0; i < 5; i++ {
-						fmt.Println("\n\nA strange bandit appears")
-						fmt.Println("\n\nAn agry thug appears")
+						fmt.Println("\n*An agry thug appears")
+						fmt.Println("\n*A strange bandit appears")
+						fmt.Println("\n*An weaker trainee appears")
 	
 						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
 						thug1 := characters.NewThug("Dougy", player.Character.Stats.Level)
