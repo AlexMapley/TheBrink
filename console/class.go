@@ -12,11 +12,12 @@ func NewClassConsole(character *characters.Character) Console {
 	console := Console{}
 
 	if (character.Stats.Level < 6) {
-		actions:= make([]string, 4)
+		actions:= make([]string, 5)
 		actions[0] = "Rogue"
 		actions[1] = "Warrior"
 		actions[2] = "Wizard"
-		actions[3] = "x | q | esc to exit"
+		actions[3] = "Cleric"
+		actions[4] = "x | q | esc to exit"
 
 		console.Actions = actions
 		return console
@@ -26,10 +27,11 @@ func NewClassConsole(character *characters.Character) Console {
 	actions[0] = "Rogue"
 	actions[1] = "Warrior"
 	actions[2] = "Wizard"
-	actions[3] = "Paladin"
-	actions[4] = "Duelist"
-	actions[5] = "Nightblade"
-	actions[6] = "x | q | esc to exit"
+	actions[3] = "Cleric"
+	actions[4] = "Paladin"
+	actions[5] = "Duelist"
+	actions[6] = "Nightblade"
+	actions[7] = "x | q | esc to exit"
 
 	console.Actions = actions
 	return console

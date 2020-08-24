@@ -10,9 +10,12 @@ func (self *Party) Battle(other *Party) {
 }
 
 // Level Up Party
-func (self *Party) Battle(other *Party) {
+func (self *Party) LevelUp(other *Party) {
+	success := false
 	for _, selfPartyMember := range self.Members {
-		selfPartyMember.LevelUp()
+		if selfPartyMember.LevelUp() {
+			success = true
+		}
 	}
 }
 

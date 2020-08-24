@@ -79,7 +79,7 @@ func (self *Character) GhostBlade(other *Character) {
 }
 
 // Flash Heal
-func (self *Character) Heal() {
+func (self *Character) FlashHeal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
 
 	heal := (1.2 * float64(self.Stats.Intelligence)) + (0.2 * float64(self.Stats.Vitality))
@@ -171,16 +171,16 @@ func (self *Character) LightningBolt(other *Character) {
 }
 
 // Smite
-func (self *Character) LightningBolt(other *Character) {
+func (self *Character) Smite(other *Character) {
 	color.HiGreen("* %s uses Smite Bolt *\n", self.Stats.Name)
 	damage := 1.5 * float64(self.Stats.Intelligence) + 0.5 * float64(self.Stats.Vitality)
 
 	// Critical Chance
 	criticalThreshold := 160
 	critical := int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold)
-	if critical && !dodged {
+	if critical {
 		critical = true
-		damage *= 2
+		damage *= 1.8
 	}
 
 	if critical {
