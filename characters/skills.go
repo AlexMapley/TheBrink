@@ -18,8 +18,10 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	dodgeThreshold := 220 + int(self.Stats.AccuracyRating() * 2)
 	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
-		dodged = true
 		damage = 0
+
+		color.Yellow("%s %s deals 0 damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth())
+		return
 	}
 
 	// Block Threshold
@@ -43,9 +45,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	damage = damage * float64(DamangeMultiplier) / 1000
 
 	// Event Cases
-	if dodged {
-		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
-	} else if blocked {
+	if blocked {
 		color.Cyan("%s %s deals %.2f damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if critical {
 		color.HiRed("%s %s deals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
@@ -129,6 +129,7 @@ func (self *Character) LightningBolt(other *Character) {
 	if dodged {
 		damage = 0
 		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		return
 	}
 
 	// Critical Chance

@@ -98,14 +98,14 @@ func Wizard(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 7
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 2
-	res.Stats.Strength += 1
-	res.Stats.Agility += 2
+	res.Stats.Vitality += 3
+	res.Stats.Strength += 2
+	res.Stats.Agility += 3
 	res.Stats.Intelligence += 7
-	res.Stats.Expertise += 2
-	res.Stats.Block += 2
-	res.Stats.Dodge += 2
-	res.Stats.Critical += 2
+	res.Stats.Expertise += 3
+	res.Stats.Block += 3
+	res.Stats.Dodge += 3
+	res.Stats.Critical += 3
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence += 1
