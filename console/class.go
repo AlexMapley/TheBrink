@@ -8,20 +8,29 @@ import (
 
 func NewClassConsole(character *characters.Character) Console {
 	// Create default actions
-	actions := make([]string, 7)
+	var actions []string
+	console := Console{}
+
+	if (character.Stats.Level < 6) {
+		actions:= make([]string, 4)
+		actions[0] = "Rogue"
+		actions[1] = "Warrior"
+		actions[2] = "Wizard"
+		actions[3] = "x | q | esc to exit"
+
+		console.Actions = actions
+		return console
+	}
+
+	actions = make([]string, 7)
 	actions[0] = "Rogue"
 	actions[1] = "Warrior"
 	actions[2] = "Wizard"
-	if (character.Stats.Level >= 5) {
-		actions[3] = "Paladin"
-		actions[4] = "Duelist"
-		actions[5] = "Nightblade"
-		actions[6] = "x | q | esc to exit"
-	} else {
-		actions[3] = "x | q | esc to exit"
-	}
+	actions[3] = "Paladin"
+	actions[4] = "Duelist"
+	actions[5] = "Nightblade"
+	actions[6] = "x | q | esc to exit"
 
-	console := Console{}
 	console.Actions = actions
 	return console
 }

@@ -14,7 +14,7 @@ func (console *Console) DisplayActions() {
 	// List Potential Actions
 	fmt.Println("Choose option:")
 	for number, option := range console.Actions {
-		if option {
+		if (option != ""){
 			color.Cyan("%d. %s\n", (number + 1), option)
 		}
 	}
