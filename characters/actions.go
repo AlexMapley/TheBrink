@@ -89,6 +89,8 @@ func (self *Character) Duel(other *Character) {
 				switch chosenSkill.Name {
 				case "Double Strike":
 					other.DoubleStrike(self)
+				case "Flash Heal":
+					other.FlashHeal()
 				case "Ghost Blade":
 					other.GhostBlade(self)
 				case "Heal":
@@ -99,6 +101,8 @@ func (self *Character) Duel(other *Character) {
 					other.LightningBolt(self)
 				case "Rend":
 					other.Rend(self)
+				case "Smite":
+					other.Smite(self)
 				case "Stun":
 					other.Stun(self)
 				default:

@@ -20,7 +20,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	if dodged {
 		damage = 0
 
-		color.Yellow("%s %s deals 0 damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth())
+		color.Yellow("%s %s deals 0 damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
 		return
 	}
 
@@ -46,7 +46,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 
 	// Event Cases
 	if blocked {
-		color.Cyan("%s %s deals %.2f damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Cyan("%s %s deals %.2f damage (%s Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage, other.Stats.Name)
 	} else if critical {
 		color.HiRed("%s %s deals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
@@ -131,7 +131,7 @@ func (self *Character) IceBlast(other *Character) {
 	// Dodge Chance
 	if other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold))) {
 		damage = 0
-		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage, other.Stats.Name)
 	} else {
 		color.Magenta("%s %s deals %.2f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
@@ -150,7 +150,7 @@ func (self *Character) LightningBolt(other *Character) {
 	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
 		damage = 0
-		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage, other.Stats.Name)
 		return
 	}
 

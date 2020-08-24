@@ -10,19 +10,20 @@ func (self *Party) Battle(other *Party) {
 }
 
 // Level Up Party
-func (self *Party) LevelUp(other *Party) {
+func (self *Party) LevelUp() bool{
 	success := false
 	for _, selfPartyMember := range self.Members {
 		if selfPartyMember.LevelUp() {
 			success = true
 		}
 	}
+	return success
 }
 
 // Move updates a party's coordinates
-func (party *Party) Move(x, y int) {
-	party.X += x
-	party.Y += y
+func (self *Party) Move(x, y int) {
+	self.X += x
+	self.Y += y
 }
 
 // Rest Whole Party
