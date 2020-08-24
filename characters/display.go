@@ -7,7 +7,7 @@ import (
 )
 
 func (stats *Stats) Display() {
-	text := fmt.Sprintf("\n-------------\n%s\n-------------\nLevel: %d\nXP: %d\nClass: %s\nClassHash: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %f\nDodge: %f\nBlock: %f\nAccuracy Rating: %f\n\n",
+	text := fmt.Sprintf("\n-------------\n%s\n-------------\nLevel: %d\nXP: %d\nClass: %s\nClassHash: %d\nHealth: %d/%d\nFocus: %d/%d\nVitality: %d\nStrength: %d\nAgility: %d\nIntelligence: %d\nCritical: %.2f\nDodge: %.2f\nBlock: %.2f\nAccuracy Rating: %.2f\n\n",
 		stats.Name,
 		stats.Level,
 		stats.XP,
@@ -33,7 +33,7 @@ func (character *Character) DisplaySkills() {
 	text := fmt.Sprintf("\n----------------\n%s's Skills\n----------------\n", character.Stats.Name)
 
 	for _, skill := range character.SkillSlots {
-		text += fmt.Sprintf("%s\nCost: %f\nMax Cooldown: %d\nInitial Cooldown: %d\n",
+		text += fmt.Sprintf("%s\nCost: %.2f\nMax Cooldown: %d\nInitial Cooldown: %d\n",
 			skill.Name,
 			skill.Cost,
 			skill.CoolDownMax,

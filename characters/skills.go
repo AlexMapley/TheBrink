@@ -39,18 +39,18 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	}
 
 	// Damage Multiplier
-	DamangeMultiplier := rand.Intn(120) + 30
-	damage = damage * float64(DamangeMultiplier) / 100
+	DamangeMultiplier := rand.Intn(1200) + rand.Intn(800)
+	damage = damage * float64(DamangeMultiplier) / 1000
 
 	// Event Cases
 	if dodged {
-		color.Yellow("%s %s deals %f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if blocked {
-		color.Cyan("%s %s deals %f damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Cyan("%s %s deals %.2f damage (Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else if critical {
-		color.HiRed("%s %s deals %f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.HiRed("%s %s deals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.White("%s %s deals %f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.White("%s %s deals %.2f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 	other.Stats.Health -= damage
 }
@@ -88,9 +88,9 @@ func (self *Character) Heal() {
 	criticalThreshold := 170
 	if int(self.Stats.CriticalValue()) >= rand.Intn(int(criticalThreshold)) {
 		heal *= 2.0
-		color.HiMagenta("%s %s Heals %f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+		color.HiMagenta("%s %s Heals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 	} else {
-		color.Magenta("%s %s Heals %f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+		color.Magenta("%s %s Heals %.2f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
 
 	}
 
@@ -109,9 +109,9 @@ func (self *Character) IceBlast(other *Character) {
 	// Dodge Chance
 	if other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold))) {
 		damage = 0
-		color.Yellow("%s %s deals %f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.Magenta("%s %s deals %f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Magenta("%s %s deals %.2f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 
 	other.Stats.Health -= damage
@@ -128,7 +128,7 @@ func (self *Character) LightningBolt(other *Character) {
 	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
 		damage = 0
-		color.Yellow("%s %s deals %f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 
 	// Critical Chance
@@ -142,7 +142,7 @@ func (self *Character) LightningBolt(other *Character) {
 	if critical {
 		color.HiRed("%s %s deals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	} else {
-		color.Magenta("%s %s deals %f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Magenta("%s %s deals %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 	}
 	other.Stats.Health -= damage
 }
