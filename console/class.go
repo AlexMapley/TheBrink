@@ -6,29 +6,31 @@ import (
 	"github.com/fatih/color"
 )
 
-func NewClassConsole() Console {
-	console := Console{}
-
-	// set default options
+func NewClassConsole(character *characters.Character) Console {
+	// Create default actions
 	actions := make([]string, 7)
 	actions[0] = "Rogue"
 	actions[1] = "Warrior"
 	actions[2] = "Wizard"
-	actions[3] = "Paladin"
-	actions[4] = "Duelist"
-	actions[5] = "Nightblade"
-	actions[6] = "x | q | esc to exit"
+	if (character.Stats.Level >= 5) {
+		actions[3] = "Paladin"
+		actions[4] = "Duelist"
+		actions[5] = "Nightblade"
+		actions[6] = "x | q | esc to exit"
+	} else {
+		actions[3] = "x | q | esc to exit"
+	}
 
+	console := Console{}
 	console.Actions = actions
-
 	return console
 }
 
 func DisplayClassConsole(character *characters.Character) {
 
-	console := NewClassConsole()
+	console := NewClassConsole(character)
 
-menuLoop:
+	menuLoop:
 	for {
 		option := console.ChooseAction()
 		if option == -1 {
