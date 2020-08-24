@@ -22,7 +22,8 @@ func NewThug(name string, level int) Thug {
 				Skill{
 					Name:        "Stun",
 					Cost:        45,
-					CoolDownMax: 7,
+					CoolDownInitial: 2,
+					CoolDownMax: 6,
 					CoolDown:    0,
 				},
 			},

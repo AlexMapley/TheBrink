@@ -17,11 +17,11 @@ func Rogue(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 2
+	res.Stats.Vitality += 4
 	res.Stats.Strength += 4
-	res.Stats.Agility += 6
-	res.Stats.Intelligence += 2
-	res.Stats.Expertise += 1
+	res.Stats.Agility += 8
+	res.Stats.Intelligence += 3
+	res.Stats.Expertise += 2
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Agility += 1
@@ -34,9 +34,9 @@ func Rogue(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Double Strike",
-			Cost:            float64(18),
+			Cost:            float64(14),
 			CoolDownInitial: 0,
-			CoolDownMax:     4,
+			CoolDownMax:     3,
 			CoolDown:        0,
 		},
 	)
@@ -285,13 +285,19 @@ func NightBlade(character Character) (Character, bool) {
 	}
 
 	res := character
-	res.Stats.Class = res.Stats.Class + " NightBlade"
+	res.Stats.Class = res.Stats.Class + " Nightblade"
 	res.Stats.ClassHash *= 13
 
 	// Raw stat boosts
+	res.Stats.Vitality += 2
+	res.Stats.Strength += 1
+	res.Stats.Agility += 3
 	res.Stats.Intelligence += 3
-	res.Stats.Agility += 2
-	res.Stats.Vitality += 1
+	res.Stats.Expertise += 2
+	res.Stats.Block += 0
+	res.Stats.Dodge += 2
+	res.Stats.Critical += 2
+
 
 	// Leveling Stat Boosts
 	res.Stats.LevelBonuses.Strength += 1
@@ -303,8 +309,8 @@ func NightBlade(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "GhostBlade",
-			Cost:            float64(25),
+			Name:            "Ghost Blade",
+			Cost:            float64(24),
 			CoolDownInitial: 0,
 			CoolDownMax:     4,
 			CoolDown:        0,
