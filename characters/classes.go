@@ -172,9 +172,9 @@ func Cleric(character Character) (Character, bool) {
 		Skill{
 			Name:            "Flash Heal",
 			Cost:            float64(24),
-			CoolDownInitial: 5,
-			CoolDownMax:     5,
-			CoolDown:        5,
+			CoolDownInitial: 3,
+			CoolDownMax:     4,
+			CoolDown:        4,
 		},
 	)
 	res.SkillSlots = append(
@@ -182,7 +182,7 @@ func Cleric(character Character) (Character, bool) {
 		Skill{
 			Name:            "Smite",
 			Cost:            float64(18),
-			CoolDownInitial: 5,
+			CoolDownInitial: 0,
 			CoolDownMax:     5,
 			CoolDown:        5,
 		},

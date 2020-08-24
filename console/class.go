@@ -23,7 +23,7 @@ func NewClassConsole(character *characters.Character) Console {
 		return console
 	}
 
-	actions = make([]string, 7)
+	actions = make([]string, 8)
 	actions[0] = "Rogue"
 	actions[1] = "Warrior"
 	actions[2] = "Wizard"
@@ -77,7 +77,7 @@ func DisplayClassConsole(character *characters.Character) {
 					color.HiRed("\n\n%sYou cannot become a Rogue\n%s\n\n", trim, trim)
 				}
 
-			// Become Duelist
+			// Become Wizard
 			case "Wizard":
 				var accepted bool
 				*character, accepted = characters.Wizard(*character)
@@ -87,6 +87,18 @@ func DisplayClassConsole(character *characters.Character) {
 					break menuLoop
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Wizard\n%s\n\n", trim, trim)
+				}
+			
+			// Become Wizard
+			case "Cleric":
+				var accepted bool
+				*character, accepted = characters.Cleric(*character)
+				if accepted {
+					color.HiGreen("\n\n%sYou have become a Cleric\n%s\n\n", trim, trim)
+					character.Rest()
+					break menuLoop
+				} else {
+					color.HiRed("\n\n%sYou cannot become a Cleric\n%s\n\n", trim, trim)
 				}
 
 			// Become Paladin
