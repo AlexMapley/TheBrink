@@ -14,7 +14,7 @@ func Rogue(character Character) (Character, bool) {
 
 	res := character
 	res.Stats.Class = "Rogue"
-	res.Stats.ClassHash *= 3
+	res.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 2
@@ -54,7 +54,7 @@ func Warrior(character Character) (Character, bool) {
 
 	res := character
 	res.Stats.Class = "Warrior"
-	res.Stats.ClassHash *= 2
+	res.Stats.ClassHash *= 3
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 5
@@ -95,7 +95,7 @@ func Wizard(character Character) (Character, bool) {
 
 	res := character
 	res.Stats.Class = "Wizard"
-	res.Stats.ClassHash *= 7
+	res.Stats.ClassHash *= 5
 
 	// Raw Stat Boosts
 	res.Stats.Vitality += 3
@@ -137,6 +137,60 @@ func Wizard(character Character) (Character, bool) {
 
 	return res, true
 }
+
+// Cleric
+func Cleric(character Character) (Character, bool) {
+	// Reject If:
+	// - unit has a class already
+	if character.Stats.Class != "" {
+		return character, false
+	}
+
+	res := character
+	res.Stats.Class = "Cleric"
+	res.Stats.ClassHash *= 7
+
+	// Raw Stat Boosts
+	res.Stats.Vitality += 5
+	res.Stats.Strength += 2
+	res.Stats.Agility += 3
+	res.Stats.Intelligence += 6
+	res.Stats.Expertise += 3
+	res.Stats.Block += 3
+	res.Stats.Dodge += 2
+	res.Stats.Critical += 2
+
+	// leveling Stat Boosts
+	res.Stats.LevelBonuses.Intelligence += 1
+	res.Stats.LevelBonuses.Vitality += 1
+	res.Stats.LevelBonuses.Block += 1
+	res.Stats.LevelBonuses.Expertise += 1
+
+	// Add Skills
+	res.SkillSlots = append(
+		res.SkillSlots,
+		Skill{
+			Name:            "Flash Heal",
+			Cost:            float64(32),
+			CoolDownInitial: 5,
+			CoolDownMax:     5,
+			CoolDown:        5,
+		},
+	)
+	res.SkillSlots = append(
+		res.SkillSlots,
+		Skill{
+			Name:            "Smite",
+			Cost:            float64(24),
+			CoolDownInitial: 5,
+			CoolDownMax:     5,
+			CoolDown:        5,
+		},
+	)
+
+	return res, true
+}
+
 
 //////////////////
 // Tier 2 Classes

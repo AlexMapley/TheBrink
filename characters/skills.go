@@ -78,6 +78,28 @@ func (self *Character) GhostBlade(other *Character) {
 	other.Status.Stunned += 1
 }
 
+// Flash Heal
+func (self *Character) Heal() {
+	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
+
+	heal := (1.2 * float64(self.Stats.Intelligence)) + (0.2 * float64(self.Stats.Vitality))
+
+	// Critical Chance
+	criticalThreshold := 150
+	if int(self.Stats.CriticalValue()) >= rand.Intn(int(criticalThreshold)) {
+		heal *= 2.0
+		color.HiMagenta("%s %s Heals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+	} else {
+		color.Magenta("%s %s Heals %.2f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), heal)
+
+	}
+
+	self.Stats.Health += heal
+	if self.Stats.Health > self.Stats.MaxHealth() {
+		self.Stats.Health = self.Stats.MaxHealth()
+	}
+}
+
 // Heal
 func (self *Character) Heal() {
 	color.HiGreen("* %s uses Heal *\n", self.Stats.Name)
@@ -131,6 +153,27 @@ func (self *Character) LightningBolt(other *Character) {
 		color.Yellow("%s %s deals %.2f damage (Dodge)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
 		return
 	}
+
+	// Critical Chance
+	criticalThreshold := 160
+	critical := int(self.Stats.CriticalValue()) >= rand.Intn(criticalThreshold)
+	if critical && !dodged {
+		critical = true
+		damage *= 2
+	}
+
+	if critical {
+		color.HiRed("%s %s deals %d damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	} else {
+		color.Magenta("%s %s deals %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+	}
+	other.Stats.Health -= damage
+}
+
+// Smite
+func (self *Character) LightningBolt(other *Character) {
+	color.HiGreen("* %s uses Smite Bolt *\n", self.Stats.Name)
+	damage := 1.5 * float64(self.Stats.Intelligence) + 0.5 * float64(self.Stats.Vitality)
 
 	// Critical Chance
 	criticalThreshold := 160
