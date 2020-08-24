@@ -128,7 +128,7 @@ func main() {
 				// Level Up Party
 				case "Level Up":
 					// level up player and bandit
-					success := player.Character.LevelUp()
+					success := playerParty.LevelUp()
 					if success {
 						color.Yellow("\n\n%sYou have leveled up\n%s\n\n", trim, trim)
 						player.Character.Rest()

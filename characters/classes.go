@@ -129,7 +129,7 @@ func Wizard(character Character) (Character, bool) {
 		Skill{
 			Name:            "Ice Blast",
 			Cost:            float64(35),
-			CoolDownInitial: 5,
+			CoolDownInitial: 2,
 			CoolDownMax:     6,
 			CoolDown:        0,
 		},
@@ -349,6 +349,16 @@ func Duelist(character Character) (Character, bool) {
 		Skill{
 			Name:            "Double Strike",
 			Cost:            float64(11),
+			CoolDownInitial: 0,
+			CoolDownMax:     3,
+			CoolDown:        0,
+		},
+	)
+	res.SkillSlots = append(
+		res.SkillSlots,
+		Skill{
+			Name:            "Flash Heal",
+			Cost:            float64(16),
 			CoolDownInitial: 0,
 			CoolDownMax:     3,
 			CoolDown:        0,
