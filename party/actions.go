@@ -41,94 +41,66 @@ func (self *Party) Duel(otherParty *Party) {
 
 		time.Sleep(200 * time.Millisecond)
 
-		
-		if self.Status.Stunned == 0 {
-			chosenSkill := self.ChooseSkill()
-			switch chosenSkill.Name {
-			case "Double Strike":
-				self.DoubleStrike(other)
-			case "Flash Heal":
-				self.FlashHeal()
-			case "Ghost Blade":
-				self.GhostBlade(other)
-			case "Heal":
-				self.Heal()
-			case "Ice Blast":
-				self.IceBlast(other)
-			case "Lightning Bolt":
-				self.LightningBolt(other)
-			case "Rend":
-				self.Rend(other)
-			case "Smite":
-				self.Smite(other)
-			case "Stun":
-				self.Stun(other)
-			default:
-				self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
-			}
-			// self cooldowns
-			for i, skill := range self.SkillSlots {
-				if skill.Name == chosenSkill.Name {
-					self.SkillSlots[i].CoolDown = skill.CoolDownMax
-				}
-				if skill.CoolDown > 0 {
-					self.SkillSlots[i].CoolDown--
-				}
-			}
-		} else {
-			self.Status.Stunned--
-		}
+		for member := range selfParty.Members {
+			target := otherParty.TargetMember()
 
-		// other action
-		if other.Stats.Health > 0 {
-			if other.Status.Stunned == 0 {
-				chosenSkill := other.ChooseSkill()
+
+			if member.Status.Stunned == 0 {
+				chosenSkill := member.ChooseSkill()
 				switch chosenSkill.Name {
 				case "Double Strike":
-					other.DoubleStrike(self)
+					member.DoubleStrike(target)
 				case "Flash Heal":
-					other.FlashHeal()
+					member.FlashHeal()
 				case "Ghost Blade":
-					other.GhostBlade(self)
+					member.GhostBlade(target)
 				case "Heal":
-					other.Heal()
+					member.Heal()
 				case "Ice Blast":
-					other.IceBlast(self)
+					member.IceBlast(target)
 				case "Lightning Bolt":
-					other.LightningBolt(self)
+					member.LightningBolt(target)
 				case "Rend":
-					other.Rend(self)
+					member.Rend(target)
 				case "Smite":
-					other.Smite(self)
+					member.Smite(target)
 				case "Stun":
-					other.Stun(self)
+					member.Stun(target)
 				default:
-					other.BasicAttack(self, self.Stats.Strength+(self.Stats.Agility/2))
+					member.BasicAttack(target, member.Stats.Strength+(member.Stats.Agility/2))
 				}
-				// other cooldowns
-				for i, skill := range other.SkillSlots {
+				// self cooldowns
+				for i, skill := range member.SkillSlots {
 					if skill.Name == chosenSkill.Name {
-						other.SkillSlots[i].CoolDown = skill.CoolDownMax
+						member.SkillSlots[i].CoolDown = skill.CoolDownMax
 					}
 					if skill.CoolDown > 0 {
-						other.SkillSlots[i].CoolDown--
+						member.SkillSlots[i].CoolDown--
 					}
 				}
 			} else {
-				other.Status.Stunned--
+				member.Status.Stunned--
 			}
+	
+
+		}
+		
+		for member := range otherParty.Members {
+
 		}
 
+		
+
 	}
 
-	if self.Stats.Health >= other.Stats.Health {
-		color.Cyan("\n%s Wins the duel\n", self.Stats.Name)
-		color.Red("\nOther xp is %d\n", other.Stats.XP)
-		self.Stats.XP += other.Stats.XP
-		other.Stats.XP = 0
+	// if self.Stats.Health >= other.Stats.Health {
+	// 	color.Cyan("\n%s Wins the duel\n", self.Stats.Name)
+	// 	color.Red("\nOther xp is %d\n", other.Stats.XP)
+	// 	self.Stats.XP += other.Stats.XP
+	// 	other.Stats.XP = 0
 
-		return
-	}
+	// 	return
+	// }
 
-	color.Cyan("%s Wins the duel\n", other.Stats.Name)
+	// color.Cyan("%s Wins the duel\n", other.Stats.Name)
 }
