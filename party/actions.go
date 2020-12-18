@@ -2,6 +2,8 @@ package party
 
 import (
 	"time"
+
+	"github.com/fatih/color"
 )
 
 // Level Up Party
@@ -44,7 +46,7 @@ func (selfParty *Party) Duel(otherParty *Party) {
 	for selfParty.GetHealth() > 0 && otherParty.GetHealth() > 0 {
 		time.Sleep(200 * time.Millisecond)
 
-		for member := range selfParty.Members {
+		for _, member := range selfParty.Members {
 			target := otherParty.TargetMember()
 
 			if member.Status.Stunned == 0 {
@@ -85,7 +87,7 @@ func (selfParty *Party) Duel(otherParty *Party) {
 			}
 		}
 		
-		for member := range otherParty.Members {
+		for _, member := range otherParty.Members {
 			target := selfParty.TargetMember()
 
 			if member.Status.Stunned == 0 {
@@ -129,7 +131,7 @@ func (selfParty *Party) Duel(otherParty *Party) {
 	
 	}
 
-	if selfParty.Stats.GetHealth() >= otherParty.Stats.GetHealth() {
+	if selfParty.GetHealth() >= otherParty.GetHealth() {
 		color.Cyan("Player Wins the duel\n")
 		// color.Red("\nOther xp is %d\n", other.Stats.XP)
 		// self.Stats.XP += other.Stats.XP
