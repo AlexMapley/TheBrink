@@ -35,13 +35,13 @@ func (self *Party) Battle2(other *Party) {
 
 
 // Battle other party
-func (self *Party) Duel(other *Party) {
-	
-	for self.Stats.Health > 0 && other.Stats.Health > 0 {
+func (self *Party) Duel(otherParty *Party) {
 
-		time.Sleep(100 * time.Millisecond)
+	for selfParty.Stats.GetHealth() > 0 && otherParty.Stats.GetHealth() > 0 {
 
-		// self action
+		time.Sleep(200 * time.Millisecond)
+
+		
 		if self.Status.Stunned == 0 {
 			chosenSkill := self.ChooseSkill()
 			switch chosenSkill.Name {

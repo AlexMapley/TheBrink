@@ -1,12 +1,11 @@
 package party
 
-func (party *Party) TotalHealth() float64 {
-	var healthTotal float64
-	var healthMaxTotal float64
-
+// GetHealth returns the current and max health of the part,
+// for example (75,100) translating to a party at 75/100 health
+func (party *Party) GetHealth() (healthTotal float64, healthMaxTotal float64) {
 	for _, member := range party.Members {
 		healthTotal += member.Health
 		healthMaxTotal += member.MaxHealth()
 	}
-
+	return healthTotal, healthMaxTotal
 }
