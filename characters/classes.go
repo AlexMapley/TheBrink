@@ -17,11 +17,11 @@ func Rogue(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 4
-	res.Stats.Strength += 4
-	res.Stats.Agility += 8
-	res.Stats.Intelligence += 3
-	res.Stats.Expertise += 2
+	res.Stats.Vitality += 5
+	res.Stats.Strength += 5
+	res.Stats.Agility += 10
+	res.Stats.Intelligence += 4
+	res.Stats.Expertise += 4
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Agility += 1
