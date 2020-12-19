@@ -139,7 +139,7 @@ func (selfParty *Party) Battle(otherParty *Party) {
 
 	if selfParty.GetHealth() >= otherParty.GetHealth() {
 		for _, otherMember := range otherParty.Members {
-			for _, selfMember := range otherParty.Members {
+			for _, selfMember := range selfParty.Members {
 				selfMember.Stats.XP += otherMember.Stats.XP
 			}
 		}
