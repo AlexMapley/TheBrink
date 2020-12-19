@@ -138,13 +138,12 @@ func (selfParty *Party) Battle(otherParty *Party) {
 	}
 
 	if selfParty.GetHealth() >= otherParty.GetHealth() {
-		color.Cyan("Player Wins the duel\n")
-
-		var xp int
-		for _, member := range otherParty.Members {
-			xp += member.Stats.XP
+		for _, otherMember := range otherParty.Members {
+			for _, selfMember := range otherParty.Members {
+				selfMember.Stats.XP += otherMember.Stats.XP
+			}
 		}
-
+		color.Cyan("Player Wins the duel\n")
 		return
 	}
 
