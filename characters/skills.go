@@ -73,7 +73,7 @@ func (self *Character) GhostBlade(other *Character) {
 	color.HiGreen("* %s uses GhostBlade *\n", self.Stats.Name)
 	self.BasicAttack(other, (self.Stats.Strength/2)+(self.Stats.Agility*3)+(self.Stats.Intelligence*2))
 
-	color.Magenta("%s %s stuns for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth())
+	color.Magenta("%s %s stuns %s for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
 
 	other.Status.Stunned += 1
 }
@@ -131,9 +131,9 @@ func (self *Character) IceBlast(other *Character) {
 	// Dodge Chance
 	if other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold))) {
 		damage = 0
-		color.Yellow("%s %s deals %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage, other.Stats.Name)
+		color.Yellow("%s %s deals %s %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
 	} else {
-		color.Magenta("%s %s deals %.2f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Magenta("%s %s deals %s s%.2f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}
 
 	other.Stats.Health -= damage
@@ -150,7 +150,7 @@ func (self *Character) LightningBolt(other *Character) {
 	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
 		damage = 0
-		color.Yellow("%s %s deals %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage, other.Stats.Name)
+		color.Yellow("%s %s deals %s %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
 		return
 	}
 
@@ -163,9 +163,9 @@ func (self *Character) LightningBolt(other *Character) {
 	}
 
 	if critical {
-		color.HiRed("%s %s deals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.HiRed("%s %s deals %s %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	} else {
-		color.Magenta("%s %s deals %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Magenta("%s %s deals %s %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}
 	other.Stats.Health -= damage
 }
@@ -184,9 +184,9 @@ func (self *Character) Smite(other *Character) {
 	}
 
 	if critical {
-		color.HiRed("%s %s deals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.HiRed("%s %s deals %s %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	} else {
-		color.Magenta("%s %s deals %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.Magenta("%s %s deals %s %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}
 	other.Stats.Health -= damage
 }

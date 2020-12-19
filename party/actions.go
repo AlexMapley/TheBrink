@@ -41,12 +41,15 @@ func (self *Party) Battle2(other *Party) {
 
 
 // Battle other party
-func (selfParty *Party) Duel(otherParty *Party) {
+func (selfParty *Party) Battle(otherParty *Party) {
 
 	for selfParty.GetHealth() > 0 && otherParty.GetHealth() > 0 {
 		time.Sleep(200 * time.Millisecond)
 
 		for _, member := range selfParty.Members {
+			if member.Stats.Health <= 0 {
+				continue
+			}
 			target := otherParty.TargetMember()
 
 			if member.Status.Stunned == 0 {
@@ -88,6 +91,9 @@ func (selfParty *Party) Duel(otherParty *Party) {
 		}
 		
 		for _, member := range otherParty.Members {
+			if member.Stats.Health <= 0 {
+				continue
+			}
 			target := selfParty.TargetMember()
 
 			if member.Status.Stunned == 0 {

@@ -14,7 +14,7 @@ func (party *Party) TargetMember() *characters.Character {
 
 	for {
 		randomPartyMember := party.Members[rand.Intn(len(party.Members))]
-		if randomPartyMember.Health > 0 {
+		if randomPartyMember.Stats.Health > 0 {
 			return randomPartyMember
 		}
 	}
