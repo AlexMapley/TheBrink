@@ -43,8 +43,10 @@ func (self *Party) Battle2(other *Party) {
 // Battle other party
 func (selfParty *Party) Battle(otherParty *Party) {
 
+	round := 1
 	for selfParty.GetHealth() > 0 && otherParty.GetHealth() > 0 {
-		time.Sleep(200 * time.Millisecond)
+		time.Sleep(150 * time.Millisecond)
+		color.Green("\n\nRound %d", round)
 
 		for _, member := range selfParty.Members {
 			if member.Stats.Health <= 0 {
@@ -87,6 +89,9 @@ func (selfParty *Party) Battle(otherParty *Party) {
 				}
 			} else {
 				member.Status.Stunned--
+			}
+			if target.Stats.Health <= 0 {
+				color.HiRed("%s Dies", target.Stats.Name)
 			}
 		}
 		
@@ -132,9 +137,11 @@ func (selfParty *Party) Battle(otherParty *Party) {
 			} else {
 				member.Status.Stunned--
 			}
+			if target.Stats.Health <= 0 {
+				color.HiRed("%s Dies", target.Stats.Name)
+			}
 		}
-
-	
+		round++
 	}
 
 	if selfParty.GetHealth() >= otherParty.GetHealth() {
