@@ -20,7 +20,7 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	if dodged {
 		damage = 0
 
-		color.Yellow("%s %s deals 0 damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
+		color.Yellow("%s %s deals %s 0 damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, other.Stats.Name)
 		return
 	}
 
@@ -46,11 +46,11 @@ func (self *Character) BasicAttack(other *Character, base int) {
 
 	// Event Cases
 	if blocked {
-		color.Cyan("%s %s deals %.2f damage (%s Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage, other.Stats.Name)
+		color.Cyan("%s %s deals %s %.2f damage (%s Blocked)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
 	} else if critical {
-		color.HiRed("%s %s deals %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.HiRed("%s %s deals %s %.2f damage (Critical)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	} else {
-		color.White("%s %s deals %.2f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), damage)
+		color.White("%s %s deals %s %.2f damage\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}
 	other.Stats.Health -= damage
 }
@@ -133,7 +133,7 @@ func (self *Character) IceBlast(other *Character) {
 		damage = 0
 		color.Yellow("%s %s deals %s %.2f damage (%s Dodged)\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
 	} else {
-		color.Magenta("%s %s deals %s s%.2f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
+		color.Magenta("%s %s deals %s %.2f magic damage, and stuns for 2 turns\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}
 
 	other.Stats.Health -= damage
