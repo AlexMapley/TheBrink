@@ -172,16 +172,13 @@ func main() {
 							player.Character.Inventory.Loot(&trickster.Character.Inventory)
 						}
 
-						// loot enemy party if won
-						if player.Character.Stats.Health > 0 {
-							player.Character.Inventory.Loot(&bandit.Character.Inventory)
-							player.Character.Inventory.Loot(&thug.Character.Inventory)
-							player.Character.Inventory.Loot(&trickster.Character.Inventory)
-						}
 						playerParty.Rest()
 						player.Character.LevelUp()
 						sidekick.Character.LevelUp()
 					}
+					player.Character.Stats.Display()
+					sidekick.Character.Stats.Display()
+					break dayCounter
 				}
 			}
 		}

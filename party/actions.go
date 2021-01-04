@@ -77,11 +77,11 @@ func (selfParty *Party) Battle(otherParty *Party) {
 						member.SkillSlots[i].CoolDown--
 					}
 				}
+				if target.Stats.Health <= 0 {
+					color.HiRed("%s Dies", target.Stats.Name)
+				}
 			} else {
 				member.Status.Stunned--
-			}
-			if target.Stats.Health <= 0 {
-				color.HiRed("%s Dies", target.Stats.Name)
 			}
 		}
 		
@@ -124,11 +124,11 @@ func (selfParty *Party) Battle(otherParty *Party) {
 						member.SkillSlots[i].CoolDown--
 					}
 				}
+				if target.Stats.Health <= 0 {
+					color.HiRed("%s Dies", target.Stats.Name)
+				}
 			} else {
 				member.Status.Stunned--
-			}
-			if target.Stats.Health <= 0 {
-				color.HiRed("%s Dies", target.Stats.Name)
 			}
 		}
 		round++
@@ -140,9 +140,9 @@ func (selfParty *Party) Battle(otherParty *Party) {
 				selfMember.Stats.XP += otherMember.Stats.XP
 			}
 		}
-		color.Cyan("Player Wins the duel\n")
+		color.Cyan("Player Party wins the battle\n")
 		return
 	}
 
-	color.Cyan("Enemy Wins the duel\n")
+	color.Cyan("Enemy Party wins the battle\n")
 }
