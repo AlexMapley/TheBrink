@@ -31,7 +31,7 @@ func main() {
 	color.Cyan("\nWhat Class Do You Pick?\n")
 	console.DisplayClassConsole(&player.Character)
 
-	sidekick := characters.NewSidekick("Doge", 5)
+	sidekick := characters.NewSidekick("Doug")
 
 	// Create Player Party
 	playerParty = party.Party{

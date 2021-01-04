@@ -19,13 +19,11 @@ func NewSidekick(name string) Sidekick {
 					CoolDownMax: 1,
 					CoolDown:    0,
 				},
-				SkillSlots: []Skill{
-					Skill{
-						Name:        "Bark",
-						Cost:        0,
-						CoolDownMax: 4,
-						CoolDown:    0,
-					},
+				Skill{
+					Name:        "Bark",
+					Cost:        0,
+					CoolDownMax: 4,
+					CoolDown:    0,
 				},
 			},
 		},
