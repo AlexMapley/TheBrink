@@ -52,12 +52,12 @@ func (self *Character) Duel(other *Character) {
 				self.DoubleStrike(other)
 			case "Flash Heal":
 				self.FlashHeal()
-			case "Ghost Blade":
-				self.GhostBlade(other)
+			case "Sneak Attack":
+				self.SneakAttack(other)
 			case "Heal":
 				self.Heal()
-			case "Ice Blast":
-				self.IceBlast(other)
+			case "Icicle":
+				self.Icicle(other)
 			case "Lightning Bolt":
 				self.LightningBolt(other)
 			case "Rend":
@@ -91,12 +91,12 @@ func (self *Character) Duel(other *Character) {
 					other.DoubleStrike(self)
 				case "Flash Heal":
 					other.FlashHeal()
-				case "Ghost Blade":
-					other.GhostBlade(self)
+				case "Sneak Attack":
+					other.SneakAttack(self)
 				case "Heal":
 					other.Heal()
-				case "Ice Blast":
-					other.IceBlast(self)
+				case "Icicle":
+					other.Icicle(self)
 				case "Lightning Bolt":
 					other.LightningBolt(self)
 				case "Rend":

@@ -4,7 +4,7 @@ import (
 	"the_brink/inventory"
 )
 
-func NewThug(name string, level int) Thug {
+func NewTrickster(name string, level int) Thug {
 
 	// Base Layer
 	thug := Thug{
@@ -20,10 +20,10 @@ func NewThug(name string, level int) Thug {
 					CoolDown:    0,
 				},
 				Skill{
-					Name:        "Stun",
-					Cost:        45,
-					CoolDownInitial: 2,
-					CoolDownMax: 6,
+					Name:        "SneakAttack",
+					Cost:        35,
+					CoolDownInitial: 7,
+					CoolDownMax: 7,
 					CoolDown:    0,
 				},
 			},
@@ -33,19 +33,19 @@ func NewThug(name string, level int) Thug {
 	// Set Stats
 	stats := Stats{
 		Name:         name,
-		Class:        "Thug",
+		Class:        "Trickster",
 		ClassHash:    1,
 		Level:        1,
 		XP:           450,
-		Vitality:     5,
-		Strength:     4,
-		Agility:      2,
-		Intelligence: 1,
+		Vitality:     3,
+		Strength:     2,
+		Agility:      4,
+		Intelligence: 6,
 		LevelBonuses: LevelBonuses{
-			Vitality:     2,
-			Strength:     2,
+			Vitality:     1,
+			Strength:     1,
 			Agility:      1,
-			Intelligence: 0,
+			Intelligence: 2,
 		},
 	}
 	thug.Character.Stats = stats

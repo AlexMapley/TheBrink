@@ -127,7 +127,7 @@ func Wizard(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Ice Blast",
+			Name:            "Icicle",
 			Cost:            float64(35),
 			CoolDownInitial: 2,
 			CoolDownMax:     6,
@@ -309,7 +309,7 @@ func NightBlade(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Ghost Blade",
+			Name:            "Sneak Attack",
 			Cost:            float64(24),
 			CoolDownInitial: 0,
 			CoolDownMax:     4,

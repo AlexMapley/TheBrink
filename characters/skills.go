@@ -62,15 +62,11 @@ func (self *Character) DoubleStrike(other *Character) {
 	self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
 }
 
-// Rend
-func (self *Character) Rend(other *Character) {
-	color.HiGreen("* %s uses Rend *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength*3)+(self.Stats.Agility*2))
-}
 
-// GhostBlade
-func (self *Character) GhostBlade(other *Character) {
-	color.HiGreen("* %s uses GhostBlade *\n", self.Stats.Name)
+
+// Sneak Attack
+func (self *Character) SneakAttack(other *Character) {
+	color.HiGreen("* %s uses SneakAttack *\n", self.Stats.Name)
 	self.BasicAttack(other, (self.Stats.Strength/2)+(self.Stats.Agility*3)+(self.Stats.Intelligence*2))
 
 	color.Magenta("%s %s stuns %s for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
@@ -122,9 +118,9 @@ func (self *Character) Heal() {
 	}
 }
 
-// IceBlast
-func (self *Character) IceBlast(other *Character) {
-	color.HiGreen("* %s uses Ice Blast *\n", self.Stats.Name)
+// Icicle
+func (self *Character) Icicle(other *Character) {
+	color.HiGreen("* %s uses Icicle *\n", self.Stats.Name)
 	damage := float64(self.Stats.Intelligence) * 1.7
 
 	dodgeThreshold := float64(220) + (self.Stats.AccuracyRating() * 2)
@@ -168,6 +164,12 @@ func (self *Character) LightningBolt(other *Character) {
 		color.Magenta("%s %s deals %s %.2f magic damage\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}
 	other.Stats.Health -= damage
+}
+
+// Rend
+func (self *Character) Rend(other *Character) {
+	color.HiGreen("* %s uses Rend *\n", self.Stats.Name)
+	self.BasicAttack(other, (self.Stats.Strength*3)+(self.Stats.Agility*2))
 }
 
 // Smite

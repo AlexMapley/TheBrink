@@ -31,16 +31,6 @@ func (self *Party) Rest() {
 }
 
 // Battle other party
-func (self *Party) Battle2(other *Party) {
-	for _, selfPartyMember := range self.Members {
-		for _, otherPartyMember := range other.Members {
-			selfPartyMember.Duel(otherPartyMember)
-		}
-	}
-}
-
-
-// Battle other party
 func (selfParty *Party) Battle(otherParty *Party) {
 
 	round := 1
@@ -61,12 +51,12 @@ func (selfParty *Party) Battle(otherParty *Party) {
 					member.DoubleStrike(target)
 				case "Flash Heal":
 					member.FlashHeal()
-				case "Ghost Blade":
-					member.GhostBlade(target)
+				case "Sneak Attack":
+					member.SneakAttack(target)
 				case "Heal":
 					member.Heal()
-				case "Ice Blast":
-					member.IceBlast(target)
+				case "Icicle":
+					member.Icicle(target)
 				case "Lightning Bolt":
 					member.LightningBolt(target)
 				case "Rend":
@@ -108,12 +98,12 @@ func (selfParty *Party) Battle(otherParty *Party) {
 					member.DoubleStrike(target)
 				case "Flash Heal":
 					member.FlashHeal()
-				case "Ghost Blade":
-					member.GhostBlade(target)
+				case "Sneak Attack":
+					member.SneakAttack(target)
 				case "Heal":
 					member.Heal()
-				case "Ice Blast":
-					member.IceBlast(target)
+				case "Icicle":
+					member.Icicle(target)
 				case "Lightning Bolt":
 					member.LightningBolt(target)
 				case "Rend":
@@ -144,7 +134,7 @@ func (selfParty *Party) Battle(otherParty *Party) {
 		round++
 	}
 
-	if selfParty.GetHealth() >= otherParty.GetHealth() {
+	if selfParty.GetHealth() > 0 {
 		for _, otherMember := range otherParty.Members {
 			for _, selfMember := range selfParty.Members {
 				selfMember.Stats.XP += otherMember.Stats.XP

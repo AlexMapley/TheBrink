@@ -12,6 +12,7 @@ import (
 	"the_brink/world"
 
 	"github.com/fatih/color"
+	"github.com/Pallinder/go-randomdata"
 )
 
 var trim string = "-----------------------------------------\n"
@@ -30,12 +31,15 @@ func main() {
 	color.Cyan("\nWhat Class Do You Pick?\n")
 	console.DisplayClassConsole(&player.Character)
 
+	sidekick := characters.NewSidekick("Doge", 5)
+
 	// Create Player Party
 	playerParty = party.Party{
 		X: 25,
 		Y: 25,
 		Members: []*characters.Character{
 			&player.Character,
+			&sidekick.Character,
 		},
 		Rune: 'A',
 	}
@@ -89,23 +93,24 @@ func main() {
 				case "Map":
 					console.DisplayMapConsole(&world, &playerParty)
 
-				// Fight
-				case "Patrole the town":
-					color.HiRed("\n\n%sNew Fight\n%s\n\n", trim, trim)
-					fmt.Println("\n** An agry thug appears")
-					fmt.Println("\n** A strange bandit appears")
-					fmt.Println("\n** An weaker trainee appears")
+				// Defend the Town
+				case "Defend the Town":
+					color.HiRed("\n\n%sNew Fight\n%s\n", trim, trim)
+					fmt.Println("** An agry thug appears")
+					fmt.Println("** A strange bandit appears")
+					fmt.Println("** An weaker trainee appears")
 
-					bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
-					thug1 := characters.NewThug("Dougy", player.Character.Stats.Level)
-					thug2 := characters.NewThug("Dillan", player.Character.Stats.Level/2)
+					bandit := characters.NewBandit(randomdata.FullName(randomdata.RandomGender), player.Character.Stats.Level)
+					thug := characters.NewThug(randomdata.FullName(randomdata.RandomGender), player.Character.Stats.Level)
+					trickster := characters.NewTrickster(randomdata.FullName(randomdata.RandomGender), player.Character.Stats.Level-1)
+
 					enemyParty := party.Party{
 						X: 25,
 						Y: 25,
 						Members: []*characters.Character{
-							&thug1.Character,
 							&bandit.Character,
-							&thug2.Character,
+							&thug.Character,
+							&trickster.Character,
 						},
 						Rune: 'B',
 					}
@@ -114,8 +119,8 @@ func main() {
 					// loot enemy party if won
 					if player.Character.Stats.Health > 0 {
 						player.Character.Inventory.Loot(&bandit.Character.Inventory)
-						player.Character.Inventory.Loot(&thug1.Character.Inventory)
-						player.Character.Inventory.Loot(&thug2.Character.Inventory)
+						player.Character.Inventory.Loot(&thug.Character.Inventory)
+						player.Character.Inventory.Loot(&trickster.Character.Inventory)
 					}
 					break dayCounter
 
@@ -172,6 +177,7 @@ func main() {
 						}
 						playerParty.Rest()
 						player.Character.LevelUp()
+						sidekick.Character.LevelUp()
 					}
 				}
 			}

@@ -71,10 +71,18 @@ type Player struct {
 	Character Character
 }
 
+type Sidekick struct {
+	Character Character
+}
+
 type Bandit struct {
 	Character Character
 }
 
 type Thug struct {
+	Character Character
+}
+
+type Trickster struct {
 	Character Character
 }

@@ -7,7 +7,7 @@ func NewTownConsole() Console {
 	actions := make([]string, 7)
 	actions[0] = "Character"
 	actions[1] = "Map"
-	actions[2] = "Patrole the town"
+	actions[2] = "Defend the Town"
 	actions[3] = "Rest"
 	actions[4] = "Level Up"
 	actions[5] = "Time Warp"
