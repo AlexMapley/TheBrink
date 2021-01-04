@@ -354,12 +354,23 @@ func Swordsman(character Character) (Character, bool) {
 		res.SkillSlots,
 		Skill{
 			Name:            "Double Strike",
-			Cost:            float64(11),
+			Cost:            float64(12),
 			CoolDownInitial: 0,
-			CoolDownMax:     3,
+			CoolDownMax:     4,
 			CoolDown:        0,
 		},
 	)
+		// Add Skills
+		res.SkillSlots = append(
+			res.SkillSlots,
+			Skill{
+				Name:            "Slash",
+				Cost:            float64(28),
+				CoolDownInitial: 1,
+				CoolDownMax:     6,
+				CoolDown:        0,
+			},
+		)
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{

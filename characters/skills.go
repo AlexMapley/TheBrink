@@ -162,7 +162,7 @@ func (self *Character) LightningBolt(other *Character) {
 
 // Smite
 func (self *Character) Smite(other *Character) {
-	color.HiGreen("* %s uses Smite *\n", self.Stats.Name)
+	color.HiGreen("* %s smites %s *\n", self.Stats.Name, other.Stats.Name)
 	damage := 1.5 * float64(self.Stats.Intelligence) + 0.5 * float64(self.Stats.Vitality)
 
 	// Critical Chance
@@ -200,6 +200,6 @@ func (self *Character) SneakAttack(other *Character) {
 
 // Stun
 func (self *Character) Stun(other *Character) {
-	color.HiGreen("* %s uses Stun *\n", self.Stats.Name)
+	color.HiGreen("* %s knocks the wind out of %s *\n", self.Stats.Name, other.Stats.Name)
 	other.Status.Stunned += 3
 }
