@@ -59,14 +59,14 @@ func (selfParty *Party) Battle(otherParty *Party) {
 					member.Icicle(target)
 				case "Lightning Bolt":
 					member.LightningBolt(target)
-				case "Rend":
-					member.Rend(target)
+				case "Slash":
+					member.Slash(target)
 				case "Smite":
 					member.Smite(target)
 				case "Stun":
 					member.Stun(target)
 				default:
-					member.BasicAttack(target, member.Stats.Strength+(member.Stats.Agility/2))
+					member.Attack(target, member.Stats.Strength+(member.Stats.Agility/2))
 				}
 				// self cooldowns
 				for i, skill := range member.SkillSlots {
@@ -106,14 +106,14 @@ func (selfParty *Party) Battle(otherParty *Party) {
 					member.Icicle(target)
 				case "Lightning Bolt":
 					member.LightningBolt(target)
-				case "Rend":
-					member.Rend(target)
+				case "Slash":
+					member.Slash(target)
 				case "Smite":
 					member.Smite(target)
 				case "Stun":
 					member.Stun(target)
 				default:
-					member.BasicAttack(target, member.Stats.Strength+(member.Stats.Agility/2))
+					member.Attack(target, member.Stats.Strength+(member.Stats.Agility/2))
 				}
 				// self cooldowns
 				for i, skill := range member.SkillSlots {

@@ -74,7 +74,7 @@ func Warrior(character Character) (Character, bool) {
 	res.SkillSlots = append(
 		res.SkillSlots,
 		Skill{
-			Name:            "Rend",
+			Name:            "Slash",
 			Cost:            float64(30),
 			CoolDownInitial: 0,
 			CoolDownMax:     7,
@@ -320,8 +320,8 @@ func NightBlade(character Character) (Character, bool) {
 	return res, true
 }
 
-// Duelist
-func Duelist(character Character) (Character, bool) {
+// Swordsman
+func Swordsman(character Character) (Character, bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
@@ -333,7 +333,7 @@ func Duelist(character Character) (Character, bool) {
 	}
 
 	res := character
-	res.Stats.Class = res.Stats.Class + " Duelist"
+	res.Stats.Class = res.Stats.Class + " Swordsman"
 	res.Stats.ClassHash *= 17
 
 	// Raw stat boosts

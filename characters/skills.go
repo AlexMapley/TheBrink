@@ -7,8 +7,8 @@ import (
 	"github.com/fatih/color"
 )
 
-// BasicAttack
-func (self *Character) BasicAttack(other *Character, base int) {
+// Attack
+func (self *Character) Attack(other *Character, base int) {
 	rand.Seed(time.Now().UnixNano())
 
 	// Generate base multipliers
@@ -55,23 +55,17 @@ func (self *Character) BasicAttack(other *Character, base int) {
 	other.Stats.Health -= damage
 }
 
-// DoubleStrike
-func (self *Character) DoubleStrike(other *Character) {
-	color.HiGreen("* %s uses Double Strike *\n", self.Stats.Name)
-	self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
-	self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
+// Bark
+func (self *Character) Bark(other *Character) {
+	color.HiGreen("* %s barks at %s *\n", self.Stats.Name, other.Stats.Name)
+	other.Status.Stunned += 2
 }
 
-
-
-// Sneak Attack
-func (self *Character) SneakAttack(other *Character) {
-	color.HiGreen("* %s uses SneakAttack *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength/2)+(self.Stats.Agility*3)+(self.Stats.Intelligence*2))
-
-	color.Magenta("%s %s stuns %s for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
-
-	other.Status.Stunned += 1
+// DoubleStrike
+func (self *Character) DoubleStrike(other *Character) {
+	color.HiGreen("* %s hits twice at %s *\n", self.Stats.Name,other.Stats.Name)
+	self.Attack(other, self.Stats.Strength+(self.Stats.Agility/2))
+	self.Attack(other, self.Stats.Strength+(self.Stats.Agility/2))
 }
 
 // Flash Heal
@@ -120,7 +114,7 @@ func (self *Character) Heal() {
 
 // Icicle
 func (self *Character) Icicle(other *Character) {
-	color.HiGreen("* %s uses Icicle *\n", self.Stats.Name)
+	color.HiGreen("* %s shoots an icicle at %s *\n", self.Stats.Name,other.Stats.Name)
 	damage := float64(self.Stats.Intelligence) * 1.7
 
 	dodgeThreshold := float64(220) + (self.Stats.AccuracyRating() * 2)
@@ -138,7 +132,7 @@ func (self *Character) Icicle(other *Character) {
 
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
-	color.HiGreen("* %s uses Lightning Bolt *\n", self.Stats.Name)
+	color.HiGreen("* %s uses rips some lightning at %s *\n", self.Stats.Name,other.Stats.Name)
 	damage := float64(self.Stats.Intelligence) * 2.1
 
 	// Dodge Chance
@@ -166,12 +160,6 @@ func (self *Character) LightningBolt(other *Character) {
 	other.Stats.Health -= damage
 }
 
-// Rend
-func (self *Character) Rend(other *Character) {
-	color.HiGreen("* %s uses Rend *\n", self.Stats.Name)
-	self.BasicAttack(other, (self.Stats.Strength*3)+(self.Stats.Agility*2))
-}
-
 // Smite
 func (self *Character) Smite(other *Character) {
 	color.HiGreen("* %s uses Smite *\n", self.Stats.Name)
@@ -192,6 +180,23 @@ func (self *Character) Smite(other *Character) {
 	}
 	other.Stats.Health -= damage
 }
+
+// Slash
+func (self *Character) Slash(other *Character) {
+	color.HiGreen("* %s slashes %s *\n", self.Stats.Name, other.Stats.Name)
+	self.Attack(other, (self.Stats.Strength*3)+(self.Stats.Agility*2))
+}
+
+// Sneak Attack
+func (self *Character) SneakAttack(other *Character) {
+	color.HiGreen("* %s uses SneakAttack *\n", self.Stats.Name)
+	self.Attack(other, (self.Stats.Strength/2)+(self.Stats.Agility*3)+(self.Stats.Intelligence*2))
+
+	color.Magenta("%s %s stuns %s for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
+
+	other.Status.Stunned += 1
+}
+
 
 // Stun
 func (self *Character) Stun(other *Character) {

@@ -29,7 +29,7 @@ func NewClassConsole(character *characters.Character) Console {
 	actions[2] = "Wizard"
 	actions[3] = "Cleric"
 	actions[4] = "Paladin"
-	actions[5] = "Duelist"
+	actions[5] = "Swordsman"
 	actions[6] = "Nightblade"
 	actions[7] = "x | q | esc to exit"
 
@@ -125,16 +125,16 @@ func DisplayClassConsole(character *characters.Character) {
 					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
 				}
 
-			// Become Duelist
-			case "Duelist":
+			// Become Swordsman
+			case "Swordsman":
 				var accepted bool
-				*character, accepted = characters.Duelist(*character)
+				*character, accepted = characters.Swordsman(*character)
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Duelist\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%sYou have become a Swordsman\n%s\n\n", trim, trim)
 					character.Rest()
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Duelist\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%sYou cannot become a Swordsman\n%s\n\n", trim, trim)
 				}
 			}
 		}

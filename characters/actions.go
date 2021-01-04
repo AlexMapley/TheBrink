@@ -62,14 +62,14 @@ func (self *Character) Duel(other *Character) {
 				self.Icicle(other)
 			case "Lightning Bolt":
 				self.LightningBolt(other)
-			case "Rend":
-				self.Rend(other)
+			case "Slash":
+				self.Slash(other)
 			case "Smite":
 				self.Smite(other)
 			case "Stun":
 				self.Stun(other)
 			default:
-				self.BasicAttack(other, self.Stats.Strength+(self.Stats.Agility/2))
+				self.Attack(other, self.Stats.Strength+(self.Stats.Agility/2))
 			}
 			// self cooldowns
 			for i, skill := range self.SkillSlots {
@@ -103,14 +103,14 @@ func (self *Character) Duel(other *Character) {
 					other.Icicle(self)
 				case "Lightning Bolt":
 					other.LightningBolt(self)
-				case "Rend":
-					other.Rend(self)
+				case "Slash":
+					other.Slash(self)
 				case "Smite":
 					other.Smite(self)
 				case "Stun":
 					other.Stun(self)
 				default:
-					other.BasicAttack(self, self.Stats.Strength+(self.Stats.Agility/2))
+					other.Attack(self, self.Stats.Strength+(self.Stats.Agility/2))
 				}
 				// other cooldowns
 				for i, skill := range other.SkillSlots {
