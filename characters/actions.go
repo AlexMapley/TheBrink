@@ -48,6 +48,8 @@ func (self *Character) Duel(other *Character) {
 		if self.Status.Stunned == 0 {
 			chosenSkill := self.ChooseSkill()
 			switch chosenSkill.Name {
+			case "Bark":
+				self.Bark(other)
 			case "Double Strike":
 				self.DoubleStrike(other)
 			case "Flash Heal":
@@ -87,6 +89,8 @@ func (self *Character) Duel(other *Character) {
 			if other.Status.Stunned == 0 {
 				chosenSkill := other.ChooseSkill()
 				switch chosenSkill.Name {
+				case "Bark":
+					other.Bark(self)
 				case "Double Strike":
 					other.DoubleStrike(self)
 				case "Flash Heal":

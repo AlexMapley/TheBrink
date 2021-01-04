@@ -100,9 +100,9 @@ func main() {
 					fmt.Println("** A strange bandit appears")
 					fmt.Println("** An weaker trainee appears")
 
-					bandit := characters.NewBandit(randomdata.FullName(randomdata.RandomGender), player.Character.Stats.Level)
-					thug := characters.NewThug(randomdata.FullName(randomdata.RandomGender), player.Character.Stats.Level)
-					trickster := characters.NewTrickster(randomdata.FullName(randomdata.RandomGender), player.Character.Stats.Level-1)
+					bandit := characters.NewBandit(randomdata.FirstName(randomdata.Female), player.Character.Stats.Level)
+					thug := characters.NewThug(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level)
+					trickster := characters.NewTrickster(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level-1)
 
 					enemyParty := party.Party{
 						X: 25,
@@ -144,36 +144,39 @@ func main() {
 				// Time Warp
 				case "Time Warp":
 					for i := 0; i < 5; i++ {
-						color.HiRed("\n\n%sNew Fight\n%s\n\n", trim, trim)
-						fmt.Println("\n** An agry thug appears")
-						fmt.Println("\n** A strange bandit appears")
-						fmt.Println("\n** An weaker trainee appears")
+						color.HiRed("\n\n%sNew Fight\n%s\n", trim, trim)
+						fmt.Println("** An agry thug appears")
+						fmt.Println("** A strange bandit appears")
+						fmt.Println("** An weaker trainee appears")
 	
-						bandit := characters.NewBandit("Mel", player.Character.Stats.Level)
-						thug1 := characters.NewThug("Dougy", player.Character.Stats.Level)
-						thug2 := characters.NewThug("Dillan", player.Character.Stats.Level/2)
+						bandit := characters.NewBandit(randomdata.FirstName(randomdata.Female), player.Character.Stats.Level)
+						thug := characters.NewThug(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level)
+						trickster := characters.NewTrickster(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level-1)
+	
 						enemyParty := party.Party{
 							X: 25,
 							Y: 25,
 							Members: []*characters.Character{
-								&thug1.Character,
 								&bandit.Character,
-								&thug2.Character,
+								&thug.Character,
+								&trickster.Character,
 							},
 							Rune: 'B',
 						}
 						playerParty.Battle(&enemyParty)
-
-						// Die as well
-						if player.Character.Stats.Health <= 0 {
-							break dayCounter
-						}
 	
 						// loot enemy party if won
 						if player.Character.Stats.Health > 0 {
 							player.Character.Inventory.Loot(&bandit.Character.Inventory)
-							player.Character.Inventory.Loot(&thug1.Character.Inventory)
-							player.Character.Inventory.Loot(&thug2.Character.Inventory)
+							player.Character.Inventory.Loot(&thug.Character.Inventory)
+							player.Character.Inventory.Loot(&trickster.Character.Inventory)
+						}
+
+						// loot enemy party if won
+						if player.Character.Stats.Health > 0 {
+							player.Character.Inventory.Loot(&bandit.Character.Inventory)
+							player.Character.Inventory.Loot(&thug.Character.Inventory)
+							player.Character.Inventory.Loot(&trickster.Character.Inventory)
 						}
 						playerParty.Rest()
 						player.Character.LevelUp()
