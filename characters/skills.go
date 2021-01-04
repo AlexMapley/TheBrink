@@ -132,7 +132,7 @@ func (self *Character) Icicle(other *Character) {
 
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
-	color.HiGreen("* %s uses rips some lightning at %s *\n", self.Stats.Name,other.Stats.Name)
+	color.HiGreen("* %s rips some lightning at %s *\n", self.Stats.Name,other.Stats.Name)
 	damage := float64(self.Stats.Intelligence) * 2.1
 
 	// Dodge Chance

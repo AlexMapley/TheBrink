@@ -47,6 +47,8 @@ func (selfParty *Party) Battle(otherParty *Party) {
 			if member.Status.Stunned == 0 {
 				chosenSkill := member.ChooseSkill()
 				switch chosenSkill.Name {
+				case "Bark":
+					member.Bark(target)
 				case "Double Strike":
 					member.DoubleStrike(target)
 				case "Flash Heal":
@@ -94,6 +96,8 @@ func (selfParty *Party) Battle(otherParty *Party) {
 			if member.Status.Stunned == 0 {
 				chosenSkill := member.ChooseSkill()
 				switch chosenSkill.Name {
+				case "Bark":
+					member.Bark(target)
 				case "Double Strike":
 					member.DoubleStrike(target)
 				case "Flash Heal":

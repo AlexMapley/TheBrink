@@ -37,7 +37,7 @@ func NewTrickster(name string, level int) Thug {
 		ClassHash:    1,
 		Level:        1,
 		XP:           450,
-		Vitality:     3,
+		Vitality:     6,
 		Strength:     2,
 		Agility:      4,
 		Intelligence: 6,
