@@ -2,7 +2,6 @@ package console
 
 import (
 	"fmt"
-
 	"the_brink/party"
 	"the_brink/world"
 

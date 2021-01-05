@@ -6,9 +6,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
-
 	_ "net/http/pprof"
-
 	"the_brink/characters"
 	"the_brink/console"
 	"the_brink/party"

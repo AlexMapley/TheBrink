@@ -1,11 +1,5 @@
 package party
 
-import (
-	"time"
-
-	"github.com/fatih/color"
-)
-
 // Level Up Party
 func (self *Party) LevelUp() bool{
 	success := false

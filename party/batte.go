@@ -3,8 +3,8 @@ package party
 import (
 	"math/rand"
 	"time"
-
 	"the_brink/characters"
+
 	"github.com/fatih/color"
   )
 

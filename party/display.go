@@ -2,7 +2,6 @@ package party
 
 // import (
 // 	"fmt"
-
 // 	"github.com/fatih/color"
 // )
 
