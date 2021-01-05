@@ -3,8 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
+
+	_ "net/http/pprof"
 
 	"the_brink/characters"
 	"the_brink/console"
@@ -20,6 +23,17 @@ var player characters.Player
 var playerParty party.Party
 
 func main() {
+
+	// Run pprof in the background
+	// go to 
+	// go func() {
+	// 	log.Println(http.ListenAndServe("localhost:6060", nil))
+	// }()
+	// Add the following
+	go func() {
+		http.ListenAndServe(":6060", nil)
+	}()
+
 	// Create Character
 	color.Cyan("What is your name?\n")
 	reader := bufio.NewReader(os.Stdin)

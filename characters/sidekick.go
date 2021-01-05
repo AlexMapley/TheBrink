@@ -21,7 +21,7 @@ func NewSidekick(name string) Sidekick {
 				},
 				Skill{
 					Name:        "Bark",
-					Cost:        0,
+					Cost:        3,
 					CoolDownMax: 4,
 					CoolDown:    0,
 				},
