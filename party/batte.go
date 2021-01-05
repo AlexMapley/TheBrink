@@ -13,12 +13,13 @@ func (party *Party) TargetMember() *characters.Character {
 
 	rand.Seed(time.Now().Unix())
 
-	for {
+	for i := 0; i < len(party.Members); i++ {
 		randomPartyMember := party.Members[rand.Intn(len(party.Members))]
 		if randomPartyMember.Stats.Health > 0 {
 			return randomPartyMember
 		}
 	}
+	return nil
 }
 
 
@@ -35,6 +36,9 @@ func (selfParty *Party) Battle(otherParty *Party) {
 				continue
 			}
 			target := otherParty.TargetMember()
+			if target == nil {
+				continue
+			}
 
 			if member.Status.Stunned == 0 {
 				chosenSkill := member.ChooseSkill()
@@ -84,6 +88,9 @@ func (selfParty *Party) Battle(otherParty *Party) {
 				continue
 			}
 			target := selfParty.TargetMember()
+			if target == nil {
+				continue
+			}
 
 			if member.Status.Stunned == 0 {
 				chosenSkill := member.ChooseSkill()

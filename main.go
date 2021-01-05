@@ -23,11 +23,7 @@ var playerParty party.Party
 func main() {
 
 	// Run pprof in the background
-	// go to 
-	// go func() {
-	// 	log.Println(http.ListenAndServe("localhost:6060", nil))
-	// }()
-	// Add the following
+	// check it out at http://localhost:6060/debug/pprof/
 	go func() {
 		http.ListenAndServe(":6060", nil)
 	}()
