@@ -1,6 +1,7 @@
 package party
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 	"the_brink/characters"
@@ -11,10 +12,13 @@ import (
 // TargetMember returns an attackble player from the party
 func (party *Party) TargetMember() *characters.Character {
 
-	rand.Seed(time.Now().Unix())
-
+	// for all members of the party
 	for i := 0; i < len(party.Members); i++ {
-		randomPartyMember := party.Members[rand.Intn(len(party.Members))]
+		
+		randomIndex := rand.Intn(len(party.Members))
+		fmt.Printf("random index: %v\n", randomIndex)
+
+		randomPartyMember := party.Members[ randomIndex]
 		if randomPartyMember.Stats.Health > 0 {
 			return randomPartyMember
 		}
@@ -31,33 +35,42 @@ func (selfParty *Party) Battle(otherParty *Party) {
 		time.Sleep(150 * time.Millisecond)
 		color.Green("\n\nRound %d", round)
 
+		fmt.Println("break 1")
 		for _, member := range selfParty.Members {
+			fmt.Println("break 2")
 			// skip turn if dead
 			if member.Stats.Health <= 0 {
 				continue
 			}
 			// find target
 			target := otherParty.TargetMember()
+			fmt.Printf("Target: %s\n", target.Stats.Name)
 			if target == nil {
 				continue
 			}
 
 			// member action
+			fmt.Println("break 3")
 			member.Act(target)
+			
 		}
 		
 		for _, member := range otherParty.Members {
+			fmt.Println("break 4")
+
 			// skip turn if dead
 			if member.Stats.Health <= 0 {
 				continue
 			}
 			// find target
-			target := otherParty.TargetMember()
+			target := selfParty.TargetMember()
+			fmt.Printf("Target: %s\n", target.Stats.Name)
 			if target == nil {
 				continue
 			}
 
 			// member action
+			fmt.Println("break 5")
 			member.Act(target)
 		}
 		round++

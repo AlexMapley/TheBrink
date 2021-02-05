@@ -134,6 +134,7 @@ func (self *Character) Icicle(other *Character) {
 
 // Knock The Wind Out
 func (self *Character) KnockTheWindOut(other *Character) {
+	color.HiGreen("* %s knocks the wind out of %s *\n", self.Stats.Name, other.Stats.Name)
 	self.Attack(other, self.Stats.Strength)
 	self.Stun(other, 2)
 }
