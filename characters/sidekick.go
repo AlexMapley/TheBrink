@@ -32,6 +32,7 @@ func NewSidekick(name string) Sidekick {
 	// Set stats
 	stats := Stats{
 		Name:         name,
+		Class:        "Sidekick",
 		ClassHash:    1,
 		Level:        1,
 		Vitality:     7,
