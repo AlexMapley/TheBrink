@@ -1,7 +1,6 @@
 package characters
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/fatih/color"
@@ -40,8 +39,7 @@ func (self *Character) ChooseSkill() Skill {
 // against onself or an option target,
 // lowering cooldowns and status effects
 func (character *Character) Act(target *Character) {
-	
-	fmt.Println("break3")
+
 	var chosenSkill Skill
 	if character.Status.Stunned <= 0 {
 		chosenSkill = character.ChooseSkill()

@@ -1,7 +1,6 @@
 package party
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 	"the_brink/characters"
@@ -45,7 +44,6 @@ func (selfParty *Party) Battle(otherParty *Party) {
 			}
 
 			// member action
-			fmt.Println("break 1")
 			member.Act(target)
 			
 		}
@@ -63,7 +61,6 @@ func (selfParty *Party) Battle(otherParty *Party) {
 			}
 
 			// member action
-			fmt.Println("break 2")
 			member.Act(target)
 		}
 		round++
