@@ -58,7 +58,9 @@ func (self *Character) Attack(other *Character, base int) {
 // Bark
 func (self *Character) Bark(other *Character) {
 	color.HiGreen("* %s barks at %s *\n", self.Stats.Name, other.Stats.Name)
-	other.Status.Stunned += 2
+	self.Attack(other, self.Stats.Intelligence)
+
+	self.Stun(other, 2) 
 }
 
 // DoubleStrike
@@ -127,7 +129,7 @@ func (self *Character) Icicle(other *Character) {
 	}
 
 	other.Stats.Health -= damage
-	other.Status.Stunned += 2
+	self.Stun(other, 2)
 }
 
 // LightningBolt
@@ -194,12 +196,12 @@ func (self *Character) SneakAttack(other *Character) {
 
 	color.Magenta("%s %s stuns %s for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
 
-	other.Status.Stunned += 1
+	self.Stun(other, 1)
 }
 
 
 // Stun
 func (self *Character) Stun(other *Character) {
 	color.HiGreen("* %s knocks the wind out of %s *\n", self.Stats.Name, other.Stats.Name)
-	other.Status.Stunned += 3
+	self.Stun(other, 2)
 }

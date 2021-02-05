@@ -104,9 +104,9 @@ func main() {
 				// Defend the Town
 				case "Defend the Town":
 					color.HiRed("\n\n%sNew Fight\n%s\n", trim, trim)
-					fmt.Println("** An agry thug appears")
-					fmt.Println("** A strange bandit appears")
-					fmt.Println("** An weaker trainee appears")
+					fmt.Println("** An agry thug blocks you off")
+					fmt.Println("** A strange bandit appears not far behind")
+					fmt.Println("** An shifty trickster lurks beside them")
 
 					bandit := characters.NewBandit(randomdata.FirstName(randomdata.Female), player.Character.Stats.Level)
 					thug := characters.NewThug(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level)
