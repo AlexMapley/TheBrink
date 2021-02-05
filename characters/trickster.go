@@ -42,7 +42,7 @@ func NewTrickster(name string, level int) Thug {
 		Agility:      4,
 		Intelligence: 6,
 		LevelBonuses: LevelBonuses{
-			Vitality:     1,
+			Vitality:     2,
 			Strength:     1,
 			Agility:      1,
 			Intelligence: 2,

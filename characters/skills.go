@@ -15,7 +15,7 @@ func (self *Character) Attack(other *Character, base int) {
 	damage := float64(base)
 
 	// Dodge Threshold
-	dodgeThreshold := 220 + int(self.Stats.AccuracyRating() * 2)
+	dodgeThreshold := 235 + int(self.Stats.AccuracyRating() * 1.75)
 	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
 		damage = 0
@@ -33,7 +33,7 @@ func (self *Character) Attack(other *Character, base int) {
 	}
 
 	// Critical Threshold
-	criticalThreshold := 225
+	criticalThreshold := 225 + (2 * self.Stats.Level)
 	critical := self.Stats.CriticalValue() >= float64(rand.Intn(int(criticalThreshold)))
 	if critical {
 		critical = true

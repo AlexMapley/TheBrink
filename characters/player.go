@@ -33,7 +33,7 @@ func NewPlayer(name string) Player {
 		Agility:      8,
 		Intelligence: 9,
 		LevelBonuses: LevelBonuses{
-			Vitality:     1,
+			Vitality:     2,
 			Strength:     1,
 			Agility:      1,
 			Intelligence: 1,

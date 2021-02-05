@@ -42,7 +42,7 @@ func NewThug(name string, level int) Thug {
 		Agility:      2,
 		Intelligence: 1,
 		LevelBonuses: LevelBonuses{
-			Vitality:     2,
+			Vitality:     3,
 			Strength:     2,
 			Agility:      1,
 			Intelligence: 0,

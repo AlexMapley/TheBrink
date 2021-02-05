@@ -222,9 +222,9 @@ func Infected(character Character) (Character, bool) {
 	res.Stats.LevelBonuses.Strength += 1
 	res.Stats.LevelBonuses.Agility += 1
 	res.Stats.LevelBonuses.Intelligence += 1
-	res.Stats.LevelBonuses.Vitality += 1
+	res.Stats.LevelBonuses.Vitality += 2
 	res.Stats.LevelBonuses.Expertise += 1
-	res.Stats.LevelBonuses.Block += 0
+	res.Stats.LevelBonuses.Block += 1
 	res.Stats.LevelBonuses.Critical += 1
 
 	return res, true
@@ -304,6 +304,7 @@ func NightBlade(character Character) (Character, bool) {
 	res.Stats.LevelBonuses.Intelligence += 2
 	res.Stats.LevelBonuses.Agility += 2
 	res.Stats.LevelBonuses.Critical += 1
+	res.Stats.LevelBonuses.Dodge += 1
 
 	// Add Skills
 	res.SkillSlots = append(
@@ -348,6 +349,7 @@ func Swordsman(character Character) (Character, bool) {
 	res.Stats.LevelBonuses.Critical += 1
 	res.Stats.LevelBonuses.Expertise += 1
 	res.Stats.LevelBonuses.Block += 1
+	res.Stats.LevelBonuses.Dodge += 1
 
 	// Add Skills
 	res.SkillSlots = append(

@@ -33,14 +33,14 @@ func NewSidekick(name string) Sidekick {
 	stats := Stats{
 		Name:         name,
 		Class:        "Sidekick",
-		ClassHash:    1,
+		ClassHash:    19,
 		Level:        1,
 		Vitality:     7,
 		Strength:     3,
 		Agility:      4,
 		Intelligence: 3,
 		LevelBonuses: LevelBonuses{
-			Vitality:     1,
+			Vitality:     2,
 			Strength:     1,
 			Agility:      1,
 			Intelligence: 1,
