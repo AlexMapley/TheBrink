@@ -134,7 +134,7 @@ func (self *Character) Icicle(other *Character) {
 
 // Knock The Wind Out
 func (self *Character) KnockTheWindOut(other *Character) {
-	self.Attack(other, self.Stats.Stength)
+	self.Attack(other, self.Stats.Strength)
 	self.Stun(other, 2)
 }
 
