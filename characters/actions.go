@@ -35,6 +35,50 @@ func (self *Character) ChooseSkill() Skill {
 	return selectedSkill
 }
 
+func (self *Character) DoSkill(target *Character) {
+	if member.Status.Stunned == 0 {
+		chosenSkill := member.ChooseSkill()
+		switch chosenSkill.Name {
+		case "Bark":
+			member.Bark(target)
+		case "Double Strike":
+			member.DoubleStrike(target)
+		case "Flash Heal":
+			member.FlashHeal()
+		case "Sneak Attack":
+			member.SneakAttack(target)
+		case "Heal":
+			member.Heal()
+		case "Icicle":
+			member.Icicle(target)
+		case "Lightning Bolt":
+			member.LightningBolt(target)
+		case "Slash":
+			member.Slash(target)
+		case "Smite":
+			member.Smite(target)
+		case "Stun":
+			member.Stun(target)
+		default:
+			member.Attack(target, member.Stats.Strength+(member.Stats.Agility/2))
+		}
+		// self cooldowns
+		for i, skill := range member.SkillSlots {
+			if skill.Name == chosenSkill.Name {
+				member.SkillSlots[i].CoolDown = skill.CoolDownMax
+			}
+			if skill.CoolDown > 0 {
+				member.SkillSlots[i].CoolDown--
+			}
+		}
+		if target.Stats.Health <= 0 {
+			color.HiRed("%s Dies", target.Stats.Name)
+		}
+		continue
+	}
+	member.Status.Stunned--
+}
+
 // Duel will update both characters health
 func (self *Character) Duel(other *Character) {
 	self.Stats.Display()
