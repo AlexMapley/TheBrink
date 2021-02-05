@@ -1,6 +1,7 @@
 package characters
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/fatih/color"
@@ -39,8 +40,11 @@ func (self *Character) ChooseSkill() Skill {
 // against onself or an option target,
 // lowering cooldowns and status effects
 func (character *Character) Act(target *Character) {
-	if character.Status.Stunned == 0 {
-		chosenSkill := character.ChooseSkill()
+	
+	fmt.Println("break3")
+	var chosenSkill Skill
+	if character.Status.Stunned <= 0 {
+		chosenSkill = character.ChooseSkill()
 		switch chosenSkill.Name {
 		case "Bark":
 			character.Bark(target)
@@ -65,20 +69,20 @@ func (character *Character) Act(target *Character) {
 		default:
 			character.Attack(target, character.Stats.Strength+(character.Stats.Agility/2))
 		}
-		// self cooldowns
-		for i, skill := range character.SkillSlots {
-			if skill.Name == chosenSkill.Name {
-				character.SkillSlots[i].CoolDown = skill.CoolDownMax
-			}
-			if skill.CoolDown > 0 {
-				character.SkillSlots[i].CoolDown--
-			}
-		}
 		if target.Stats.Health <= 0 {
 			color.HiRed("%s Dies", target.Stats.Name)
 		}
 	}
+	// self cooldowns
 	character.Status.Stunned--
+	for i, skill := range character.SkillSlots {
+		if skill.Name == chosenSkill.Name {
+			character.SkillSlots[i].CoolDown = skill.CoolDownMax
+		}
+		if skill.CoolDown > 0 {
+			character.SkillSlots[i].CoolDown--
+		}
+	}
 }
 
 // Duel will update both characters health

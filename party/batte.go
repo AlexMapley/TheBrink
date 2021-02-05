@@ -16,8 +16,6 @@ func (party *Party) TargetMember() *characters.Character {
 	for i := 0; i < len(party.Members); i++ {
 		
 		randomIndex := rand.Intn(len(party.Members))
-		fmt.Printf("random index: %v\n", randomIndex)
-
 		randomPartyMember := party.Members[ randomIndex]
 		if randomPartyMember.Stats.Health > 0 {
 			return randomPartyMember
@@ -35,28 +33,24 @@ func (selfParty *Party) Battle(otherParty *Party) {
 		time.Sleep(150 * time.Millisecond)
 		color.Green("\n\nRound %d", round)
 
-		fmt.Println("break 1")
 		for _, member := range selfParty.Members {
-			fmt.Println("break 2")
 			// skip turn if dead
 			if member.Stats.Health <= 0 {
 				continue
 			}
 			// find target
 			target := otherParty.TargetMember()
-			fmt.Printf("Target: %s\n", target.Stats.Name)
 			if target == nil {
 				continue
 			}
 
 			// member action
-			fmt.Println("break 3")
+			fmt.Println("break 1")
 			member.Act(target)
 			
 		}
 		
 		for _, member := range otherParty.Members {
-			fmt.Println("break 4")
 
 			// skip turn if dead
 			if member.Stats.Health <= 0 {
@@ -64,13 +58,12 @@ func (selfParty *Party) Battle(otherParty *Party) {
 			}
 			// find target
 			target := selfParty.TargetMember()
-			fmt.Printf("Target: %s\n", target.Stats.Name)
 			if target == nil {
 				continue
 			}
 
 			// member action
-			fmt.Println("break 5")
+			fmt.Println("break 2")
 			member.Act(target)
 		}
 		round++
