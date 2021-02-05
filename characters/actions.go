@@ -35,48 +35,50 @@ func (self *Character) ChooseSkill() Skill {
 	return selectedSkill
 }
 
-func (self *Character) DoSkill(target *Character) {
-	if member.Status.Stunned == 0 {
-		chosenSkill := member.ChooseSkill()
+// Act will perform a skill
+// against onself or an option target,
+// lowering cooldowns and status effects
+func (character *Character) Act(target *Character) {
+	if character.Status.Stunned == 0 {
+		chosenSkill := character.ChooseSkill()
 		switch chosenSkill.Name {
 		case "Bark":
-			member.Bark(target)
+			character.Bark(target)
 		case "Double Strike":
-			member.DoubleStrike(target)
+			character.DoubleStrike(target)
 		case "Flash Heal":
-			member.FlashHeal()
-		case "Sneak Attack":
-			member.SneakAttack(target)
+			character.FlashHeal()
+		case "Knock The Wind Out":
+			character.KnockTheWindOut(target)
 		case "Heal":
-			member.Heal()
+			character.Heal()
 		case "Icicle":
-			member.Icicle(target)
+			character.Icicle(target)
 		case "Lightning Bolt":
-			member.LightningBolt(target)
+			character.LightningBolt(target)
 		case "Slash":
-			member.Slash(target)
+			character.Slash(target)
 		case "Smite":
-			member.Smite(target)
-		case "Stun":
-			member.Stun(target)
+			character.Smite(target)
+		case "Sneak Attack":
+			character.SneakAttack(target)
 		default:
-			member.Attack(target, member.Stats.Strength+(member.Stats.Agility/2))
+			character.Attack(target, character.Stats.Strength+(character.Stats.Agility/2))
 		}
 		// self cooldowns
-		for i, skill := range member.SkillSlots {
+		for i, skill := range character.SkillSlots {
 			if skill.Name == chosenSkill.Name {
-				member.SkillSlots[i].CoolDown = skill.CoolDownMax
+				character.SkillSlots[i].CoolDown = skill.CoolDownMax
 			}
 			if skill.CoolDown > 0 {
-				member.SkillSlots[i].CoolDown--
+				character.SkillSlots[i].CoolDown--
 			}
 		}
 		if target.Stats.Health <= 0 {
 			color.HiRed("%s Dies", target.Stats.Name)
 		}
-		continue
 	}
-	member.Status.Stunned--
+	character.Status.Stunned--
 }
 
 // Duel will update both characters health
@@ -89,88 +91,10 @@ func (self *Character) Duel(other *Character) {
 		time.Sleep(100 * time.Millisecond)
 
 		// self action
-		if self.Status.Stunned == 0 {
-			chosenSkill := self.ChooseSkill()
-			switch chosenSkill.Name {
-			case "Bark":
-				self.Bark(other)
-			case "Double Strike":
-				self.DoubleStrike(other)
-			case "Flash Heal":
-				self.FlashHeal()
-			case "Heal":
-				self.Heal()
-			case "Knock The Wind Out":
-				self.KnockTheWindOut(other)
-			case "Icicle":
-				self.Icicle(other)
-			case "Lightning Bolt":
-				self.LightningBolt(other)
-			case "Slash":
-				self.Slash(other)
-			case "Smite":
-				self.Smite(other)
-			case "Sneak Attack":
-				self.SneakAttack(other)
-			default:
-				self.Attack(other, self.Stats.Strength+(self.Stats.Agility/2))
-			}
-			// self cooldowns
-			for i, skill := range self.SkillSlots {
-				if skill.Name == chosenSkill.Name {
-					self.SkillSlots[i].CoolDown = skill.CoolDownMax
-				}
-				if skill.CoolDown > 0 {
-					self.SkillSlots[i].CoolDown--
-				}
-			}
-		} else {
-			self.Status.Stunned--
-		}
+		self.Act(other)
 
 		// other action
-		if other.Stats.Health > 0 {
-			if other.Status.Stunned == 0 {
-				chosenSkill := other.ChooseSkill()
-				switch chosenSkill.Name {
-				case "Bark":
-					other.Bark(self)
-				case "Double Strike":
-					other.DoubleStrike(self)
-				case "Flash Heal":
-					other.FlashHeal()
-				case "Heal":
-					other.Heal()
-				case "Knock The Wind Out":
-					other.KnockTheWindOut(self)
-				case "Icicle":
-					other.Icicle(self)
-				case "Lightning Bolt":
-					other.LightningBolt(self)
-				case "Slash":
-					other.Slash(self)
-				case "Smite":
-					other.Smite(self)
-				case "Sneak Attack":
-					other.SneakAttack(self)
-				default:
-					other.Attack(self, other.Stats.Strength+(other.Stats.Agility/2))
-				}
-				// other cooldowns
-				for i, skill := range other.SkillSlots {
-					if skill.Name == chosenSkill.Name {
-						other.SkillSlots[i].CoolDown = skill.CoolDownMax
-					}
-					if skill.CoolDown > 0 {
-						other.SkillSlots[i].CoolDown--
-					}
-				}
-			} else {
-				// Recover from round of stun
-				other.Status.Stunned--
-			}
-		}
-
+		other.Act(self)
 	}
 
 	if self.Stats.Health >= other.Stats.Health {
