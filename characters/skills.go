@@ -132,6 +132,12 @@ func (self *Character) Icicle(other *Character) {
 	self.Stun(other, 2)
 }
 
+// Knock The Wind Out
+func (self *Character) KnockTheWindOut(other *Character) {
+	self.Attack(other, self.Stats.Stength)
+	self.Stun(other, 2)
+}
+
 // LightningBolt
 func (self *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s rips some lightning at %s *\n", self.Stats.Name,other.Stats.Name)
@@ -197,11 +203,4 @@ func (self *Character) SneakAttack(other *Character) {
 	color.Magenta("%s %s stuns %s for 1 turn\n", self.Stats.Name, self.Stats.DisplayHealth(), other.Stats.Name)
 
 	self.Stun(other, 1)
-}
-
-
-// Stun
-func (self *Character) Stun(other *Character) {
-	color.HiGreen("* %s knocks the wind out of %s *\n", self.Stats.Name, other.Stats.Name)
-	self.Stun(other, 2)
 }

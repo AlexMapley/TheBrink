@@ -54,10 +54,10 @@ func (self *Character) Duel(other *Character) {
 				self.DoubleStrike(other)
 			case "Flash Heal":
 				self.FlashHeal()
-			case "Sneak Attack":
-				self.SneakAttack(other)
 			case "Heal":
 				self.Heal()
+			case "Knock The Wind Out":
+				self.KnockTheWindOut(other)
 			case "Icicle":
 				self.Icicle(other)
 			case "Lightning Bolt":
@@ -66,8 +66,8 @@ func (self *Character) Duel(other *Character) {
 				self.Slash(other)
 			case "Smite":
 				self.Smite(other)
-			case "Stun":
-				self.Stun(other)
+			case "Sneak Attack":
+				self.SneakAttack(other)
 			default:
 				self.Attack(other, self.Stats.Strength+(self.Stats.Agility/2))
 			}
@@ -95,10 +95,10 @@ func (self *Character) Duel(other *Character) {
 					other.DoubleStrike(self)
 				case "Flash Heal":
 					other.FlashHeal()
-				case "Sneak Attack":
-					other.SneakAttack(self)
 				case "Heal":
 					other.Heal()
+				case "Knock The Wind Out":
+					other.KnockTheWindOut(self)
 				case "Icicle":
 					other.Icicle(self)
 				case "Lightning Bolt":
@@ -107,10 +107,10 @@ func (self *Character) Duel(other *Character) {
 					other.Slash(self)
 				case "Smite":
 					other.Smite(self)
-				case "Stun":
-					other.Stun(self)
+				case "Sneak Attack":
+					other.SneakAttack(self)
 				default:
-					other.Attack(self, self.Stats.Strength+(self.Stats.Agility/2))
+					other.Attack(self, other.Stats.Strength+(other.Stats.Agility/2))
 				}
 				// other cooldowns
 				for i, skill := range other.SkillSlots {
@@ -122,6 +122,7 @@ func (self *Character) Duel(other *Character) {
 					}
 				}
 			} else {
+				// Recover from round of stun
 				other.Status.Stunned--
 			}
 		}
