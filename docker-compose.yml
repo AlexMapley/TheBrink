@@ -1,0 +1,6 @@
+version: "3.0"
+services:
+  the_brink:
+    build: .
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
