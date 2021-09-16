@@ -9,10 +9,14 @@ bash run.sh
 
 You can also start up a docker container running the program with:
 
+build image:
 ```shell
-docker-compose up
+docker-compose build  the_brink
 ```
-
+run image:
+```shell
+docker-compose run --rm  the_brink
+```
 ## Dependencies
 - Docker
 - `docker-compose`
