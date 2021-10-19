@@ -1,8 +1,11 @@
 package world
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
-var persistentTerrain map[Tile]rune{}
+var persistentTerrain map[Tile]rune
 
 // CreateMap will return a blank grid
 func CreateMap(xMax int, yMax int) map[Tile]rune {
@@ -19,20 +22,17 @@ func CreateMap(xMax int, yMax int) map[Tile]rune {
 
 	// Create randomized persistent terrain
 	// Bushes
-	bushes := map[Tile]rune{}
 	for i := 0; i < 10; i++ {
-		x := fmt.Print(rand.Intn(xMax))
-		y := fmt.Print(rand.Intn(yMax))
+		x := rand.Intn(xMax)
+		y := rand.Intn(yMax)
 		tile := Tile{
 			X: x,
 			Y: y,
 		}
+		fmt.Println(x)
+		fmt.Println(y)
 		grid[tile] = '*'
 	}
-	for key, value := range bushes {
-		grid[key] = value
-	}
-
 
 	return grid
 }

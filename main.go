@@ -22,6 +22,20 @@ var playerParty party.Party
 
 func main() {
 
+	// Build World
+	saveFile := world.SaveFile{
+		Day:   1,
+		Party: &playerParty,
+	}
+	world := world.World{
+		XMax:  100,
+		YMax:  40,
+		Tiles: world.CreateMap(100, 40),
+		Parties: []*party.Party{
+			&playerParty,
+		},
+	}
+
 	// Run pprof in the background
 	// check it out at http://localhost:6060/debug/pprof/
 	go func() {
@@ -50,20 +64,6 @@ func main() {
 			&sidekick.Character,
 		},
 		Rune: 'A',
-	}
-
-	// Build World
-	saveFile := world.SaveFile{
-		Day:   1,
-		Party: &playerParty,
-	}
-	world := world.World{
-		XMax:  100,
-		YMax:  50,
-		Tiles: world.CreateMap(100, 50),
-		Parties: []*party.Party{
-			&playerParty,
-		},
 	}
 
 	// Set Map
