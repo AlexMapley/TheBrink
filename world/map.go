@@ -1,5 +1,9 @@
 package world
 
+import "math/rand"
+
+var persistentTerrain map[Tile]rune{}
+
 // CreateMap will return a blank grid
 func CreateMap(xMax int, yMax int) map[Tile]rune {
 	grid := map[Tile]rune{}
@@ -12,6 +16,24 @@ func CreateMap(xMax int, yMax int) map[Tile]rune {
 			grid[tile] = '.'
 		}
 	}
+
+	// Create randomized persistent terrain
+	// Bushes
+	bushes := map[Tile]rune{}
+	for i := 0; i < 10; i++ {
+		x := fmt.Print(rand.Intn(xMax))
+		y := fmt.Print(rand.Intn(yMax))
+		tile := Tile{
+			X: x,
+			Y: y,
+		}
+		grid[tile] = '*'
+	}
+	for key, value := range bushes {
+		grid[key] = value
+	}
+
+
 	return grid
 }
 
@@ -31,6 +53,9 @@ func (world *World) UpdateMap() {
 		}
 	}
 
+	// Load persistent terrain
+
+
 	// Move parties
 	for _, party := range world.Parties {
 		coordinates := Tile{
@@ -41,5 +66,4 @@ func (world *World) UpdateMap() {
 	}
 
 	world.Tiles = grid
-
 }
