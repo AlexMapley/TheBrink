@@ -129,6 +129,8 @@ func main() {
 						player.Character.Inventory.Loot(&bandit.Character.Inventory)
 						player.Character.Inventory.Loot(&thug.Character.Inventory)
 						player.Character.Inventory.Loot(&trickster.Character.Inventory)
+					} else {
+						break dayCounter
 					}
 					break dayCounter
 
@@ -178,6 +180,8 @@ func main() {
 							player.Character.Inventory.Loot(&bandit.Character.Inventory)
 							player.Character.Inventory.Loot(&thug.Character.Inventory)
 							player.Character.Inventory.Loot(&trickster.Character.Inventory)
+						} else {
+							break dayCounter
 						}
 
 						playerParty.Rest()
