@@ -25,7 +25,7 @@ func CreateMap(xMax int, yMax int) map[Tile]int {
 
 	// Create randomized persistent terrain
 	// Bushes
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 50; i++ {
 		x := rand.Intn(xMax)
 		y := rand.Intn(yMax)
 		tile := Tile{
@@ -52,8 +52,8 @@ func (world *World) UpdateMap() {
 			}
 
 			// don't overwrite bushes
-			if world.Tiles[tile] != 46 {
-				world.Tiles[tile] = 42
+			if world.Tiles[tile] != 42 {  // '*'
+				world.Tiles[tile] = 46    // '.'
 			}
 		}
 	}
