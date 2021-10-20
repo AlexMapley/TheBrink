@@ -5,18 +5,22 @@ import (
 	"math/rand"
 )
 
-var persistentTerrain map[Tile]rune
+var persistentTerrain map[Tile]int
 
 // CreateMap will return a blank grid
-func CreateMap(xMax int, yMax int) map[Tile]rune {
-	grid := map[Tile]rune{}
+func CreateMap(xMax int, yMax int) map[Tile]int {
+	// Declare our map grid
+	grid := map[Tile]int{}
+
+	// Creat base map layer
 	for y := 0; y < yMax; y++ {
 		for x := 0; x < xMax; x++ {
 			tile := Tile{
 				X: x,
 				Y: y,
 			}
-			grid[tile] = '.'
+			// '.'
+			grid[tile] = 46 
 		}
 	}
 
@@ -31,7 +35,10 @@ func CreateMap(xMax int, yMax int) map[Tile]rune {
 		}
 		fmt.Println(x)
 		fmt.Println(y)
-		grid[tile] = '*'
+
+		// '*'
+		grid[tile] = 42
+		fmt.Printf("new grid tile: %s\n", rune(grid[tile]))
 	}
 
 	return grid
@@ -42,18 +49,22 @@ func (world *World) UpdateMap() {
 
 	// Regerate map from scratch
 	// TODO: Optimize me
-	grid := map[Tile]rune{}
+	grid := map[Tile]int{}
 	for y := 0; y < world.YMax; y++ {
 		for x := 0; x < world.XMax; x++ {
 			tile := Tile{
 				X: x,
 				Y: y,
 			}
-			grid[tile] = '.'
+			// don't overwrite bushes
+			if grid[tile] == '*' {
+				fmt.Println("oh noooo")
+			}
+			if grid[tile] != '*' {
+				grid[tile] = '.'
+			}
 		}
 	}
-
-	// Load persistent terrain
 
 
 	// Move parties

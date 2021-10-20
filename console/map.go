@@ -50,7 +50,7 @@ menuLoop:
 					X: x,
 					Y: y,
 				}
-				line = append(line, gameWorld.Tiles[tile])
+				line = append(line, rune(gameWorld.Tiles[tile]))
 			}
 			terminal += string(line) + "\n"
 		}

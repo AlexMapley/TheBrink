@@ -63,7 +63,7 @@ func main() {
 			&player.Character,
 			&sidekick.Character,
 		},
-		Rune: 'A',
+		Rune: 65, // 'A'
 	}
 
 	// Set Map
