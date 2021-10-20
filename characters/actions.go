@@ -32,6 +32,12 @@ func (self *Character) ChooseSkill() Skill {
 	}
 
 	self.Stats.Focus -= selectedSkill.Cost
+	
+	// don't want to go negative focus
+	if self.Stats.Focus < 0 {
+		self.Stats.Focus = 0
+	}
+
 	return selectedSkill
 }
 
