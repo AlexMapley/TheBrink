@@ -67,7 +67,7 @@ func main() {
 	}
 
 	// Set Map
-	world.UpdateMap()
+	// world.UpdateMap()
 
 	// MAIN GAME LOOP
 	// the inner `dayCounter`

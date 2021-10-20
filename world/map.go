@@ -1,7 +1,6 @@
 package world
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -33,12 +32,8 @@ func CreateMap(xMax int, yMax int) map[Tile]int {
 			X: x,
 			Y: y,
 		}
-		fmt.Println(x)
-		fmt.Println(y)
-
 		// '*'
 		grid[tile] = 42
-		fmt.Printf("new grid tile: %s\n", rune(grid[tile]))
 	}
 
 	return grid
@@ -49,19 +44,16 @@ func (world *World) UpdateMap() {
 
 	// Regerate map from scratch
 	// TODO: Optimize me
-	grid := map[Tile]int{}
 	for y := 0; y < world.YMax; y++ {
 		for x := 0; x < world.XMax; x++ {
 			tile := Tile{
 				X: x,
 				Y: y,
 			}
+
 			// don't overwrite bushes
-			if grid[tile] == '*' {
-				fmt.Println("oh noooo")
-			}
-			if grid[tile] != '*' {
-				grid[tile] = '.'
+			if world.Tiles[tile] != 46 {
+				world.Tiles[tile] = 42
 			}
 		}
 	}
@@ -73,8 +65,6 @@ func (world *World) UpdateMap() {
 			X: party.X,
 			Y: party.Y,
 		}
-		grid[coordinates] = party.Rune
+		world.Tiles[coordinates] = party.Rune
 	}
-
-	world.Tiles = grid
 }
