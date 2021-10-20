@@ -57,10 +57,10 @@ func (self *Character) Attack(other *Character, base int) {
 
 // Bark
 func (self *Character) Bark(other *Character) {
-	color.HiGreen("* %s barks at %s *\n", self.Stats.Name, other.Stats.Name)
+	color.HiGreen("* %s barks at %s, and stuns for 1 turn *\n", self.Stats.Name, other.Stats.Name)
 	self.Attack(other, self.Stats.Intelligence)
 
-	self.Stun(other, 2) 
+	self.Stun(other, 1) 
 }
 
 // DoubleStrike
@@ -134,7 +134,7 @@ func (self *Character) Icicle(other *Character) {
 
 // Knock The Wind Out
 func (self *Character) KnockTheWindOut(other *Character) {
-	color.HiGreen("* %s knocks the wind out of %s *\n", self.Stats.Name, other.Stats.Name)
+	color.HiGreen("* %s knocks the wind out of %s, stunning for 2 rounds *\n", self.Stats.Name, other.Stats.Name)
 	self.Attack(other, self.Stats.Strength)
 	self.Stun(other, 2)
 }

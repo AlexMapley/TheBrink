@@ -157,10 +157,10 @@ func main() {
 						color.HiRed("\n\n%sNew Fight\n%s\n", trim, trim)
 						fmt.Println("** An agry thug appears")
 						fmt.Println("** A strange bandit appears")
-						fmt.Println("** An weaker trainee appears")
+						fmt.Println("** An shifty rogue appears")
 	
 						bandit := characters.NewBandit(randomdata.FirstName(randomdata.Female), player.Character.Stats.Level)
-						thug := characters.NewThug(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level)
+						thug := characters.NewThug(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level-1)
 						trickster := characters.NewTrickster(randomdata.FirstName(randomdata.Male), player.Character.Stats.Level-1)
 	
 						enemyParty := party.Party{

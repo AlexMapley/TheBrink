@@ -17,8 +17,8 @@ func Rogue(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 5
-	res.Stats.Strength += 5
+	res.Stats.Vitality += 6
+	res.Stats.Strength += 6
 	res.Stats.Agility += 10
 	res.Stats.Intelligence += 4
 	res.Stats.Expertise += 4
@@ -57,12 +57,12 @@ func Warrior(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 3
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 5
-	res.Stats.Strength += 5
-	res.Stats.Agility += 2
-	res.Stats.Intelligence += 1
-	res.Stats.Expertise += 1
-	res.Stats.Block += 1
+	res.Stats.Vitality += 8
+	res.Stats.Strength += 8
+	res.Stats.Agility += 4
+	res.Stats.Intelligence += 2
+	res.Stats.Expertise += 2
+	res.Stats.Block += 2
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Vitality += 1
@@ -98,14 +98,14 @@ func Wizard(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 5
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 3
+	res.Stats.Vitality += 4
 	res.Stats.Strength += 2
 	res.Stats.Agility += 3
-	res.Stats.Intelligence += 7
-	res.Stats.Expertise += 3
-	res.Stats.Block += 3
-	res.Stats.Dodge += 3
-	res.Stats.Critical += 3
+	res.Stats.Intelligence += 9
+	res.Stats.Expertise += 4
+	res.Stats.Block += 4
+	res.Stats.Dodge += 4
+	res.Stats.Critical += 4
 
 	// leveling Stat Boosts
 	res.Stats.LevelBonuses.Intelligence += 1
@@ -151,12 +151,12 @@ func Cleric(character Character) (Character, bool) {
 	res.Stats.ClassHash *= 7
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 5
-	res.Stats.Strength += 2
+	res.Stats.Vitality += 6
+	res.Stats.Strength += 3
 	res.Stats.Agility += 3
-	res.Stats.Intelligence += 6
-	res.Stats.Expertise += 3
-	res.Stats.Block += 3
+	res.Stats.Intelligence += 7
+	res.Stats.Expertise += 4
+	res.Stats.Block += 5
 	res.Stats.Dodge += 2
 	res.Stats.Critical += 2
 
