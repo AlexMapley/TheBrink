@@ -134,12 +134,6 @@ func main() {
 					}
 					break dayCounter
 
-				// Rest Party
-				case "Rest":
-					playerParty.Rest()
-					color.Green("Your party's stats have been restored\n")
-					break dayCounter
-
 				// Level Up Party
 				case "Level Up":
 					// level up player and bandit
@@ -196,6 +190,9 @@ func main() {
 		}
 		// Day ends
 		saveFile.Day++
+
+		// Rest and reset abilities
+		playerParty.Rest()
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, saveFile.Day)

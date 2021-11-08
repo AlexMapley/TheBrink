@@ -12,10 +12,11 @@ import (
 func (party *Party) TargetMember() *characters.Character {
 
 	// for all members of the party
+	randomIndex := rand.Intn(len(party.Members))
 	for i := 0; i < len(party.Members); i++ {
 		
-		randomIndex := rand.Intn(len(party.Members))
-		randomPartyMember := party.Members[ randomIndex]
+		
+		randomPartyMember := party.Members[randomIndex]
 		if randomPartyMember.Stats.Health > 0 {
 			return randomPartyMember
 		}
