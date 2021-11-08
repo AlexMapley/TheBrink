@@ -75,7 +75,7 @@ func (character *Character) DoubleStrike(other *Character) {
 }
 
 // Flash Heal
-func (character *Character) FlashHeal() {
+func (character *Character) FlashHeal(other *Character) {
 	color.HiGreen("* %s uses Flash Heal *\n", character.Stats.Name)
 
 	heal := (1.1 * float64(character.Stats.Intelligence)) + (0.25 * float64(character.Stats.Vitality))
@@ -94,6 +94,9 @@ func (character *Character) FlashHeal() {
 	if character.Stats.Health > character.Stats.MaxHealth() {
 		character.Stats.Health = character.Stats.MaxHealth()
 	}
+
+	// A character will then attack after a flash heal
+	character.Attack(other, (character.Stats.Agility/2)+(character.Stats.Agility/2)+(character.Stats.Intelligence/2))
 }
 
 // Heal

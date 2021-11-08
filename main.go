@@ -168,7 +168,7 @@ func main() {
 					}
 					playerParty.Battle(&enemyParty)
 
-					// loot enemy party if won
+					// Loot enemy party if won
 					if player.Character.Stats.Health > 0 {
 						player.Character.Inventory.Loot(&bandit.Character.Inventory)
 						player.Character.Inventory.Loot(&thug.Character.Inventory)
@@ -179,6 +179,9 @@ func main() {
 
 					player.Character.LevelUp()
 					sidekick.Character.LevelUp()
+
+					// Increment day
+					saveFile.Day++
 				}
 				player.Character.Stats.Display()
 				sidekick.Character.Stats.Display()

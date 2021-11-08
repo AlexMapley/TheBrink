@@ -34,9 +34,9 @@ func NewPlayer(name string) Player {
 		Intelligence: 9,
 		LevelBonuses: LevelBonuses{
 			Vitality:     2,
-			Strength:     1,
-			Agility:      1,
-			Intelligence: 1,
+			Strength:     2,
+			Agility:      2,
+			Intelligence: 2,
 		},
 	}
 	player.Character.Stats = stats

@@ -55,7 +55,7 @@ func (character *Character) Act(target *Character) {
 		case "Double Strike":
 			character.DoubleStrike(target)
 		case "Flash Heal":
-			character.FlashHeal()
+			character.FlashHeal(target)
 		case "Heal":
 			character.Heal()
 		case "Icicle":
