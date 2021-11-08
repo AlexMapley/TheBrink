@@ -31,20 +31,20 @@ Mutation is meant to be a core theme of the game from the players viewpoint, so 
 ## Screenshots
 Bootup from a simple docker container:
 
-![Intro](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/intro.png)
+![Alt text](/assets/screenshots/intro.png?raw=true "foo")
 
 Level up your stats along the way:
 
-![Stats1](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/stats1.png)
+![Alt text](/assets/screenshots/stats1.png?raw=true)
 
-![Stats2](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/stats2.png)
+![Alt text](/assets/screenshots/stats2.png?raw=true)
 
 Collect loot (eventually):
 
-![Inventory](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/inventory.png)
+![Alt text](/assets/screenshots/inventory.png?raw=true)
 
 Let your character fight for themselves in automatic battles:
 
-![Battle](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/battle.png)
+![Alt text](/assets/screenshots/battle.png?raw=true)
 
-![Battle2](https://github.com/AlexMapley/the_brink/blob/master/assets/screenshots/battle2.png)
+![Alt text](/assets/screenshots/battle2.png?raw=true)
