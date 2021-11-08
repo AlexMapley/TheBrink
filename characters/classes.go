@@ -216,12 +216,12 @@ func (character *Character) MutateInfected() (allowed bool) {
 	character.Stats.LevelBonuses.Expertise += 1
 	character.Stats.LevelBonuses.Block += 1
 	character.Stats.LevelBonuses.Critical += 1
-	
+
 	return
 }
 
 // Paladin
-func (character *Character) Paladin() (allowed bool) {
+func (character *Character) MutatePaladin() (allowed bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {

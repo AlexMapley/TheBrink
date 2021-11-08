@@ -39,7 +39,7 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 menuLoop:
 	for {
 		// Print from top left to bottom right
-		mapScreen = gameWorld.PrintMap()
+		mapScreen := gameWorld.PrintMap()
 
 		// Diplay
 		color.Green("%s", trim)

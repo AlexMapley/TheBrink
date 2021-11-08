@@ -17,9 +17,16 @@ run image:
 ```shell
 docker-compose run --rm  the_brink
 ```
+
 ## Dependencies
 - Docker
 - `docker-compose`
+
+## Mutation
+This game is fairly freeform, and I've chosen to reject most principles of functional design - forgoing any seperation of distinct `inputs` and `outputs`.
+Most struct methods will instead act as `mutations`, updating the struct and returning a success/failure indicator.
+
+Mutation is meant to be a core theme of the game from the players viewpoint, so we'll embrace that idea in our code design as well.
 
 ## Screenshots
 Bootup from a simple docker container:

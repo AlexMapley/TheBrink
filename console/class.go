@@ -56,7 +56,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Warrior
 			case "Warrior":
 				var accepted bool
-				*character, accepted = characters.Warrior(*character)
+				accepted = character.MutateWarrior()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Warrior\n%s\n\n", trim, trim)
 					break menuLoop
@@ -67,7 +67,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Rogue
 			case "Rogue":
 				var accepted bool
-				*character, accepted = characters.Rogue(*character)
+				accepted = character.MutateRogue()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Rogue\n%s\n\n", trim, trim)
 					break menuLoop
@@ -78,7 +78,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Wizard
 			case "Wizard":
 				var accepted bool
-				*character, accepted = characters.Wizard(*character)
+				accepted = character.MutateWizard()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Wizard\n%s\n\n", trim, trim)
 					break menuLoop
@@ -89,7 +89,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Wizard
 			case "Cleric":
 				var accepted bool
-				*character, accepted = characters.Cleric(*character)
+				accepted = character.MutateCleric()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Cleric\n%s\n\n", trim, trim)
 					break menuLoop
@@ -100,7 +100,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Paladin
 			case "Paladin":
 				var accepted bool
-				*character, accepted = characters.Paladin(*character)
+				accepted = character.MutatePaladin()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
 					break menuLoop
@@ -111,7 +111,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become NightBlade
 			case "Nightblade":
 				var accepted bool
-				*character, accepted = characters.NightBlade(*character)
+				accepted = character.MutateNightBlade()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
 					break menuLoop
@@ -122,7 +122,7 @@ func DisplayClassConsole(character *characters.Character) {
 			// Become Swordsman
 			case "Swordsman":
 				var accepted bool
-				*character, accepted = characters.Swordsman(*character)
+				accepted = character.MutateSwordsman()
 				if accepted {
 					color.HiGreen("\n\n%sYou have become a Swordsman\n%s\n\n", trim, trim)
 					break menuLoop
