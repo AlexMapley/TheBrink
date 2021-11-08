@@ -28,9 +28,9 @@ func main() {
 		Party: &playerParty,
 	}
 	world := world.World{
-		XMax:  100,
-		YMax:  40,
-		Tiles: world.CreateMap(100, 36),
+		XMax:  81,
+		YMax:  25,
+		Tiles: world.CreateMap(81, 25),
 		Parties: []*party.Party{
 			&playerParty,
 		},
