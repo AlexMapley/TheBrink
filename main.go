@@ -75,8 +75,8 @@ func main() {
 		// Rest and reset abilities
 		playerParty.Rest()
 
-		if saveFile.Day == 15 {
-			color.Magenta("\n\n%sYou feel a darnkness come over the land...\n%s\n\n", trim, trim)
+		if saveFile.Day >= 15 {
+			color.Magenta("\n\n%sYou feel a darnkness come over the land...\n%s\n", trim, trim)
 		}
 
 		color.Green("%sDay %d in town, what do you?\n%s", trim, saveFile.Day, trim)

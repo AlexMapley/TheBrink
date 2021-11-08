@@ -207,8 +207,7 @@ func (character *Character) Slash(other *Character) {
 func (character *Character) SneakAttack(other *Character) {
 	color.HiGreen("* %s uses SneakAttack *\n", character.Stats.Name)
 	character.Attack(other, (character.Stats.Strength/2)+(character.Stats.Agility*3)+(character.Stats.Intelligence*2))
-
+	
 	color.Magenta("%s %s stuns %s for 1 turn\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name)
-
 	character.Stun(other, 1)
 }

@@ -78,7 +78,10 @@ func (character *Character) Act(target *Character) {
 		}
 	}
 	// self cooldowns
-	character.Status.Stunned--
+	if character.Status.Stunned <= 0 {
+		character.Status.Stunned--
+	}
+
 	for i, skill := range character.SkillSlots {
 		if skill.Name == chosenSkill.Name {
 			character.SkillSlots[i].CoolDown = skill.CoolDownMax
