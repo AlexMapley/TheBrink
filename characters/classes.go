@@ -9,11 +9,13 @@ package characters
 // MutateRogue
 func (character *Character) MutateRogue() (allowed bool) {
 
-	// Reject If:
+	// Reject if:
 	// - unit has a class already
 	if character.Stats.Class != "" {
 		return
 	}
+	// Otherwise accept
+	allowed = true
 
 	
 	character.Stats.Class = "Rogue"
@@ -48,11 +50,15 @@ func (character *Character) MutateRogue() (allowed bool) {
 
 // MutateWarrior
 func (character *Character)  MutateWarrior() (allowed bool) {
+
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
 		return
 	}
+	// Otherwise accept
+	allowed = true
+
 	character.Stats.Class = "Warrior"
 	character.Stats.ClassHash *= 3
 
@@ -86,11 +92,15 @@ func (character *Character)  MutateWarrior() (allowed bool) {
 
 // MutateWizard
 func (character *Character) MutateWizard() (allowed bool) {
+
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
 		return
 	}
+	// Otherwise accept
+	allowed = true
+
 	character.Stats.Class = "Wizard"
 	character.Stats.ClassHash *= 5
 
@@ -136,11 +146,15 @@ func (character *Character) MutateWizard() (allowed bool) {
 
 // MutateCleric
 func (character *Character) MutateCleric() (allowed bool) {
+
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
 		return
 	}
+	// Otherwise accept
+	allowed = true
+
 	character.Stats.Class = "Cleric"
 	character.Stats.ClassHash *= 7
 
@@ -193,11 +207,15 @@ func (character *Character) MutateCleric() (allowed bool) {
 
 // MutateInfected
 func (character *Character) MutateInfected() (allowed bool) {
+
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 10 {
 		allowed = false; return
 	}
+	// Otherwise accept
+	allowed = true
+
 	character.Stats.Class = "Infected " + character.Stats.Class
 
 	// Raw Stat Boost
@@ -220,8 +238,9 @@ func (character *Character) MutateInfected() (allowed bool) {
 	return
 }
 
-// Paladin
+// MutatePaladin
 func (character *Character) MutatePaladin() (allowed bool) {
+
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
@@ -231,6 +250,8 @@ func (character *Character) MutatePaladin() (allowed bool) {
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return
 	}
+	// Otherwise accept
+	allowed = true
 
 	character.Stats.Class = character.Stats.Class + " Paladin"
 	character.Stats.ClassHash *= 11
@@ -262,6 +283,7 @@ func (character *Character) MutatePaladin() (allowed bool) {
 
 // MutateNightBlade
 func (character *Character) MutateNightBlade() (allowed bool) {
+
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
@@ -271,6 +293,8 @@ func (character *Character) MutateNightBlade() (allowed bool) {
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return
 	}
+	// Otherwise accept
+	allowed = true
 
 	character.Stats.Class = character.Stats.Class + " Nightblade"
 	character.Stats.ClassHash *= 13
@@ -309,6 +333,7 @@ func (character *Character) MutateNightBlade() (allowed bool) {
 
 // MutateSwordsman
 func (character *Character) MutateSwordsman() (allowed bool) {
+
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
@@ -318,6 +343,8 @@ func (character *Character) MutateSwordsman() (allowed bool) {
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
 		return
 	}
+	// Otherwise accept
+	allowed = true
 
 	character.Stats.Class = character.Stats.Class + " Swordsman"
 	character.Stats.ClassHash *= 17
