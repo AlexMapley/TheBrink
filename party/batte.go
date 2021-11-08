@@ -27,7 +27,7 @@ func (party *Party) Battle(otherParty *Party) {
 
 	round := 1
 	for party.GetHealth() > 0 && otherParty.GetHealth() > 0 {
-		time.Sleep(150 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 		color.Green("\n\nRound %d", round)
 
 		for _, member := range party.Members {
