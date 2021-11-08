@@ -140,7 +140,6 @@ func main() {
 					success := playerParty.LevelUp()
 					if success {
 						color.Yellow("\n\n%sYou have leveled up\n%s\n\n", trim, trim)
-						player.Character.Rest()
 					} else {
 						color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
 					}
@@ -178,7 +177,6 @@ func main() {
 							break dayCounter
 						}
 
-						playerParty.Rest()
 						player.Character.LevelUp()
 						sidekick.Character.LevelUp()
 					}

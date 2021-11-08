@@ -231,7 +231,7 @@ func Infected(character Character) (Character, bool) {
 }
 
 // Paladin
-func Paladin(character Character) (Character, bool) {
+func Paladin(character Character) (char Character, bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
@@ -242,7 +242,7 @@ func Paladin(character Character) (Character, bool) {
 		return character, false
 	}
 
-	res := character
+	char = character
 	res.Stats.Class = res.Stats.Class + " Paladin"
 	res.Stats.ClassHash *= 11
 
