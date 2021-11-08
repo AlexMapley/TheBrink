@@ -68,3 +68,21 @@ func (world *World) UpdateMap() {
 		world.Tiles[coordinates] = party.Rune
 	}
 }
+
+func (world World) PrintMap() string {
+	terminal := ""
+
+	// Print from top left to bottom right
+	for y := world.YMax - 1; y >= 0; y-- {
+		line := []rune{}
+		for x := 0; x < world.XMax; x++ {
+			tile := Tile{
+				X: x,
+				Y: y,
+			}
+			line = append(line, rune(world.Tiles[tile]))
+		}
+		terminal += string(line) + "\n"
+	}
+	return terminal
+}

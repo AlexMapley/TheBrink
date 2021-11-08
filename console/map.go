@@ -38,26 +38,12 @@ func DisplayMapConsole(gameWorld *world.World, playerParty *party.Party) {
 	// Main Menu Loop
 menuLoop:
 	for {
-
-		// Generate Map fields
-		terminal := ""
-
 		// Print from top left to bottom right
-		for y := gameWorld.YMax - 1; y >= 0; y-- {
-			line := []rune{}
-			for x := 0; x < gameWorld.XMax; x++ {
-				tile := world.Tile{
-					X: x,
-					Y: y,
-				}
-				line = append(line, rune(gameWorld.Tiles[tile]))
-			}
-			terminal += string(line) + "\n"
-		}
+		mapScreen = gameWorld.PrintMap()
 
 		// Diplay
 		color.Green("%s", trim)
-		color.Cyan("%s", terminal)
+		color.Cyan("%s", mapScreen)
 		color.Green("%s", trim)
 		console.DisplayActions()
 

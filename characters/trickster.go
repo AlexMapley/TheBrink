@@ -4,10 +4,10 @@ import (
 	"the_brink/inventory"
 )
 
-func NewTrickster(name string, level int) Thug {
+func NewTrickster(name string, level int) Trickster {
 
 	// Base Layer
-	thug := Thug{
+	trickster := Trickster{
 		Character: Character{
 			Status: Status{
 				Stunned: 0,
@@ -48,23 +48,23 @@ func NewTrickster(name string, level int) Thug {
 			Intelligence: 2,
 		},
 	}
-	thug.Character.Stats = stats
+	trickster.Character.Stats = stats
 
 	// Set Inventory
-	thug.Character.Inventory = inventory.Inventory{
-		Owner: thug.Character.Stats.Name,
+	trickster.Character.Inventory = inventory.Inventory{
+		Owner: trickster.Character.Stats.Name,
 		Gold:  10,
 	}
 
 	// Level Up
 	for i := 1; i < level; i++ {
-		thug.Character.Stats.XP += 1000
+		trickster.Character.Stats.XP += 1000
 		if i == 10 {
-			thug.Character, _ = Infected(thug.Character)
+			_ = trickster.Character.MutateInfected()
 		}
-		_ = thug.Character.LevelUp()
+		_ = trickster.Character.LevelUp()
 	}
 
-	thug.Character.Rest()
-	return thug
+	trickster.Character.Rest()
+	return trickster
 }

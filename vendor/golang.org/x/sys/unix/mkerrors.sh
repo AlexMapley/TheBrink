@@ -617,7 +617,7 @@ struct tuple signals[] = {
 		echo -E '	{'$i', "'$i'" },'
 	done
 
-	# Use -E because on some systems bash builtin interprets \n itself.
+	# Use -E because on some systems bash builtin interprets \n itcharacter.
 	echo -E '
 };
 

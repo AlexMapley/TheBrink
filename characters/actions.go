@@ -9,11 +9,11 @@ import (
 // ChooseSkill returns the highest cooldown
 // skill that is currently available
 // and castable
-func (self *Character) ChooseSkill() Skill {
+func (character *Character) ChooseSkill() Skill {
 
 	selectedSkill := Skill{}
 
-	for _, skill := range self.SkillSlots {
+	for _, skill := range character.SkillSlots {
 
 		// check if skill is on cooldown
 		if skill.CoolDown > 0 {
@@ -21,7 +21,7 @@ func (self *Character) ChooseSkill() Skill {
 		}
 
 		// check if we have the focus to cast
-		if skill.Cost > self.Stats.Focus {
+		if skill.Cost > character.Stats.Focus {
 			continue
 		}
 
@@ -31,11 +31,11 @@ func (self *Character) ChooseSkill() Skill {
 		}
 	}
 
-	self.Stats.Focus -= selectedSkill.Cost
+	character.Stats.Focus -= selectedSkill.Cost
 	
 	// don't want to go negative focus
-	if self.Stats.Focus < 0 {
-		self.Stats.Focus = 0
+	if character.Stats.Focus < 0 {
+		character.Stats.Focus = 0
 	}
 
 	return selectedSkill
@@ -90,25 +90,25 @@ func (character *Character) Act(target *Character) {
 }
 
 // Duel will update both characters health
-func (self *Character) Duel(other *Character) {
-	self.Stats.Display()
+func (character *Character) Duel(other *Character) {
+	character.Stats.Display()
 	other.Stats.Display()
 
-	for self.Stats.Health > 0 && other.Stats.Health > 0 {
+	for character.Stats.Health > 0 && other.Stats.Health > 0 {
 
 		time.Sleep(100 * time.Millisecond)
 
 		// self action
-		self.Act(other)
+		character.Act(other)
 
 		// other action
-		other.Act(self)
+		other.Act(character)
 	}
 
-	if self.Stats.Health >= other.Stats.Health {
-		color.Cyan("\n%s Wins the duel\n", self.Stats.Name)
+	if character.Stats.Health >= other.Stats.Health {
+		color.Cyan("\n%s Wins the duel\n", character.Stats.Name)
 		color.Red("\nOther xp is %d\n", other.Stats.XP)
-		self.Stats.XP += other.Stats.XP
+		character.Stats.XP += other.Stats.XP
 		other.Stats.XP = 0
 
 		return
@@ -119,44 +119,44 @@ func (self *Character) Duel(other *Character) {
 }
 
 // Rest
-func (self *Character) Rest() {
+func (character *Character) Rest() {
 
 	// Reset Resource Pools
-	self.Stats.Health = self.Stats.MaxHealth()
-	self.Stats.Focus = self.Stats.MaxFocus()
+	character.Stats.Health = character.Stats.MaxHealth()
+	character.Stats.Focus = character.Stats.MaxFocus()
 
 	// Reset Skill Cooldowns
-	for i := range self.SkillSlots {
-		self.SkillSlots[i].CoolDown = self.SkillSlots[i].CoolDownInitial
+	for i := range character.SkillSlots {
+		character.SkillSlots[i].CoolDown = character.SkillSlots[i].CoolDownInitial
 	}
 }
 
 // Level Up
-func (self *Character) LevelUp() bool {
-	if self.Stats.XP < 1000 {
+func (character *Character) LevelUp() bool {
+	if character.Stats.XP < 1000 {
 		return false
 	}
 
 	// increase level
-	self.Stats.Level++
+	character.Stats.Level++
 
 	// increase core stats
-	self.Stats.Vitality += self.Stats.LevelBonuses.Vitality
-	self.Stats.Strength += self.Stats.LevelBonuses.Strength
-	self.Stats.Agility += self.Stats.LevelBonuses.Agility
-	self.Stats.Intelligence += self.Stats.LevelBonuses.Intelligence
+	character.Stats.Vitality += character.Stats.LevelBonuses.Vitality
+	character.Stats.Strength += character.Stats.LevelBonuses.Strength
+	character.Stats.Agility += character.Stats.LevelBonuses.Agility
+	character.Stats.Intelligence += character.Stats.LevelBonuses.Intelligence
 
 	// increase secondary stats
-	self.Stats.Expertise += self.Stats.LevelBonuses.Expertise
-	self.Stats.Block += self.Stats.LevelBonuses.Block
-	self.Stats.Critical += self.Stats.LevelBonuses.Critical
-	self.Stats.Dodge += self.Stats.LevelBonuses.Dodge
+	character.Stats.Expertise += character.Stats.LevelBonuses.Expertise
+	character.Stats.Block += character.Stats.LevelBonuses.Block
+	character.Stats.Critical += character.Stats.LevelBonuses.Critical
+	character.Stats.Dodge += character.Stats.LevelBonuses.Dodge
 
 	// Dock XP
-	self.Stats.XP -= 1000
+	character.Stats.XP -= 1000
 
 	// rest
-	self.Rest()
+	character.Rest()
 
 	return true
 }

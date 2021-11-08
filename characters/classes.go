@@ -5,33 +5,36 @@ package characters
 // - Can be applied to any base character
 // - requires no prior class
 ////////////////////
-func Rogue(character Character) (Character, bool) {
+
+// MutateRogue
+func (character *Character) MutateRogue() (allowed bool) {
+
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
-		return character, false
+		return
 	}
 
-	res := character
-	res.Stats.Class = "Rogue"
-	res.Stats.ClassHash *= 2
+	
+	character.Stats.Class = "Rogue"
+	character.Stats.ClassHash *= 2
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 6
-	res.Stats.Strength += 6
-	res.Stats.Agility += 10
-	res.Stats.Intelligence += 4
-	res.Stats.Expertise += 4
+	character.Stats.Vitality += 6
+	character.Stats.Strength += 6
+	character.Stats.Agility += 10
+	character.Stats.Intelligence += 4
+	character.Stats.Expertise += 4
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Agility += 1
-	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Critical += 1
-	res.Stats.LevelBonuses.Dodge += 1
+	character.Stats.LevelBonuses.Agility += 1
+	character.Stats.LevelBonuses.Strength += 1
+	character.Stats.LevelBonuses.Critical += 1
+	character.Stats.LevelBonuses.Dodge += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Double Strike",
 			Cost:            float64(14),
@@ -40,39 +43,36 @@ func Rogue(character Character) (Character, bool) {
 			CoolDown:        0,
 		},
 	)
-
-	return res, true
+	return
 }
 
-// Warrior
-func Warrior(character Character) (Character, bool) {
+// MutateWarrior
+func (character *Character)  MutateWarrior() (allowed bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
-		return character, false
+		return
 	}
-
-	res := character
-	res.Stats.Class = "Warrior"
-	res.Stats.ClassHash *= 3
+	character.Stats.Class = "Warrior"
+	character.Stats.ClassHash *= 3
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 8
-	res.Stats.Strength += 8
-	res.Stats.Agility += 4
-	res.Stats.Intelligence += 2
-	res.Stats.Expertise += 2
-	res.Stats.Block += 2
+	character.Stats.Vitality += 8
+	character.Stats.Strength += 8
+	character.Stats.Agility += 4
+	character.Stats.Intelligence += 2
+	character.Stats.Expertise += 2
+	character.Stats.Block += 2
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Vitality += 1
-	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Expertise += 1
-	res.Stats.LevelBonuses.Block += 1
+	character.Stats.LevelBonuses.Vitality += 1
+	character.Stats.LevelBonuses.Strength += 1
+	character.Stats.LevelBonuses.Expertise += 1
+	character.Stats.LevelBonuses.Block += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Slash",
 			Cost:            float64(30),
@@ -81,41 +81,38 @@ func Warrior(character Character) (Character, bool) {
 			CoolDown:        0,
 		},
 	)
-
-	return res, true
+	return
 }
 
-// Wizard
-func Wizard(character Character) (Character, bool) {
+// MutateWizard
+func (character *Character) MutateWizard() (allowed bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
-		return character, false
+		return
 	}
-
-	res := character
-	res.Stats.Class = "Wizard"
-	res.Stats.ClassHash *= 5
+	character.Stats.Class = "Wizard"
+	character.Stats.ClassHash *= 5
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 4
-	res.Stats.Strength += 2
-	res.Stats.Agility += 3
-	res.Stats.Intelligence += 9
-	res.Stats.Expertise += 4
-	res.Stats.Block += 4
-	res.Stats.Dodge += 4
-	res.Stats.Critical += 4
+	character.Stats.Vitality += 4
+	character.Stats.Strength += 2
+	character.Stats.Agility += 3
+	character.Stats.Intelligence += 9
+	character.Stats.Expertise += 4
+	character.Stats.Block += 4
+	character.Stats.Dodge += 4
+	character.Stats.Critical += 4
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Intelligence += 1
-	res.Stats.LevelBonuses.Vitality += 1
-	res.Stats.LevelBonuses.Dodge += 1
-	res.Stats.LevelBonuses.Expertise += 1
+	character.Stats.LevelBonuses.Intelligence += 1
+	character.Stats.LevelBonuses.Vitality += 1
+	character.Stats.LevelBonuses.Dodge += 1
+	character.Stats.LevelBonuses.Expertise += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Lightning Bolt",
 			Cost:            float64(24),
@@ -124,8 +121,8 @@ func Wizard(character Character) (Character, bool) {
 			CoolDown:        0,
 		},
 	)
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Icicle",
 			Cost:            float64(35),
@@ -134,41 +131,38 @@ func Wizard(character Character) (Character, bool) {
 			CoolDown:        0,
 		},
 	)
-
-	return res, true
+	return
 }
 
-// Cleric
-func Cleric(character Character) (Character, bool) {
+// MutateCleric
+func (character *Character) MutateCleric() (allowed bool) {
 	// Reject If:
 	// - unit has a class already
 	if character.Stats.Class != "" {
-		return character, false
+		return
 	}
-
-	res := character
-	res.Stats.Class = "Cleric"
-	res.Stats.ClassHash *= 7
+	character.Stats.Class = "Cleric"
+	character.Stats.ClassHash *= 7
 
 	// Raw Stat Boosts
-	res.Stats.Vitality += 6
-	res.Stats.Strength += 3
-	res.Stats.Agility += 3
-	res.Stats.Intelligence += 7
-	res.Stats.Expertise += 4
-	res.Stats.Block += 5
-	res.Stats.Dodge += 2
-	res.Stats.Critical += 2
+	character.Stats.Vitality += 6
+	character.Stats.Strength += 3
+	character.Stats.Agility += 3
+	character.Stats.Intelligence += 7
+	character.Stats.Expertise += 4
+	character.Stats.Block += 5
+	character.Stats.Dodge += 2
+	character.Stats.Critical += 2
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Intelligence += 1
-	res.Stats.LevelBonuses.Vitality += 1
-	res.Stats.LevelBonuses.Block += 1
-	res.Stats.LevelBonuses.Expertise += 1
+	character.Stats.LevelBonuses.Intelligence += 1
+	character.Stats.LevelBonuses.Vitality += 1
+	character.Stats.LevelBonuses.Block += 1
+	character.Stats.LevelBonuses.Expertise += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Flash Heal",
 			Cost:            float64(24),
@@ -177,8 +171,8 @@ func Cleric(character Character) (Character, bool) {
 			CoolDown:        4,
 		},
 	)
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Smite",
 			Cost:            float64(18),
@@ -187,8 +181,7 @@ func Cleric(character Character) (Character, bool) {
 			CoolDown:        5,
 		},
 	)
-
-	return res, true
+	return
 }
 
 
@@ -198,68 +191,64 @@ func Cleric(character Character) (Character, bool) {
 // - ClassHash Restricted
 ////////////////////
 
-// Infected
-func Infected(character Character) (Character, bool) {
+// MutateInfected
+func (character *Character) MutateInfected() (allowed bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 10 {
-		return character, false
+		allowed = false; return
 	}
-
-	res := character
-
-	res.Stats.Class = "Infected " + res.Stats.Class
+	character.Stats.Class = "Infected " + character.Stats.Class
 
 	// Raw Stat Boost
-	res.Stats.Vitality += 0
-	res.Stats.Strength += 0
-	res.Stats.Agility += 0
-	res.Stats.Intelligence += 0
-	res.Stats.Expertise += 0
-	res.Stats.Block += 0
+	character.Stats.Vitality += 0
+	character.Stats.Strength += 0
+	character.Stats.Agility += 0
+	character.Stats.Intelligence += 0
+	character.Stats.Expertise += 0
+	character.Stats.Block += 0
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Strength += 2
-	res.Stats.LevelBonuses.Agility += 2
-	res.Stats.LevelBonuses.Intelligence += 2
-	res.Stats.LevelBonuses.Vitality += 3
-	res.Stats.LevelBonuses.Expertise += 1
-	res.Stats.LevelBonuses.Block += 1
-	res.Stats.LevelBonuses.Critical += 1
-
-	return res, true
+	character.Stats.LevelBonuses.Strength += 2
+	character.Stats.LevelBonuses.Agility += 2
+	character.Stats.LevelBonuses.Intelligence += 2
+	character.Stats.LevelBonuses.Vitality += 3
+	character.Stats.LevelBonuses.Expertise += 1
+	character.Stats.LevelBonuses.Block += 1
+	character.Stats.LevelBonuses.Critical += 1
+	
+	return
 }
 
 // Paladin
-func Paladin(character Character) (char Character, bool) {
+func (character *Character) Paladin() (allowed bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
-		return character, false
+		return
 	}
 	// * ClassHash modulos are incompatible * //
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
-		return character, false
+		return
 	}
 
-	char = character
-	res.Stats.Class = res.Stats.Class + " Paladin"
-	res.Stats.ClassHash *= 11
+	character.Stats.Class = character.Stats.Class + " Paladin"
+	character.Stats.ClassHash *= 11
 
 	// Raw stat boosts
-	res.Stats.Strength += 3
-	res.Stats.Vitality += 2
-	res.Stats.Intelligence += 1
+	character.Stats.Strength += 3
+	character.Stats.Vitality += 2
+	character.Stats.Intelligence += 1
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Strength += 2
-	res.Stats.LevelBonuses.Intelligence += 1
-	res.Stats.LevelBonuses.Vitality += 1
-	res.Stats.LevelBonuses.Block += 1
+	character.Stats.LevelBonuses.Strength += 2
+	character.Stats.LevelBonuses.Intelligence += 1
+	character.Stats.LevelBonuses.Vitality += 1
+	character.Stats.LevelBonuses.Block += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Heal",
 			Cost:            float64(45),
@@ -268,47 +257,45 @@ func Paladin(character Character) (char Character, bool) {
 			CoolDown:        5,
 		},
 	)
-
-	return res, true
+	return
 }
 
-// NightBlade
-func NightBlade(character Character) (Character, bool) {
+// MutateNightBlade
+func (character *Character) MutateNightBlade() (allowed bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
-		return character, false
+		return
 	}
 	// * ClassHash modulos are incompatible * //
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
-		return character, false
+		return
 	}
 
-	res := character
-	res.Stats.Class = res.Stats.Class + " Nightblade"
-	res.Stats.ClassHash *= 13
+	character.Stats.Class = character.Stats.Class + " Nightblade"
+	character.Stats.ClassHash *= 13
 
 	// Raw stat boosts
-	res.Stats.Vitality += 2
-	res.Stats.Strength += 1
-	res.Stats.Agility += 3
-	res.Stats.Intelligence += 3
-	res.Stats.Expertise += 2
-	res.Stats.Block += 0
-	res.Stats.Dodge += 2
-	res.Stats.Critical += 2
+	character.Stats.Vitality += 2
+	character.Stats.Strength += 1
+	character.Stats.Agility += 3
+	character.Stats.Intelligence += 3
+	character.Stats.Expertise += 2
+	character.Stats.Block += 0
+	character.Stats.Dodge += 2
+	character.Stats.Critical += 2
 
 
 	// Leveling Stat Boosts
-	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Intelligence += 2
-	res.Stats.LevelBonuses.Agility += 2
-	res.Stats.LevelBonuses.Critical += 1
-	res.Stats.LevelBonuses.Dodge += 1
+	character.Stats.LevelBonuses.Strength += 1
+	character.Stats.LevelBonuses.Intelligence += 2
+	character.Stats.LevelBonuses.Agility += 2
+	character.Stats.LevelBonuses.Critical += 1
+	character.Stats.LevelBonuses.Dodge += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Sneak Attack",
 			Cost:            float64(24),
@@ -317,43 +304,41 @@ func NightBlade(character Character) (Character, bool) {
 			CoolDown:        0,
 		},
 	)
-
-	return res, true
+	return
 }
 
-// Swordsman
-func Swordsman(character Character) (Character, bool) {
+// MutateSwordsman
+func (character *Character) MutateSwordsman() (allowed bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 5 {
-		return character, false
+		return
 	}
 	// * ClassHash modulos are incompatible * //
 	if character.Stats.ClassHash%11 == 0 || character.Stats.ClassHash%13 == 0 || character.Stats.ClassHash%17 == 0 {
-		return character, false
+		return
 	}
 
-	res := character
-	res.Stats.Class = res.Stats.Class + " Swordsman"
-	res.Stats.ClassHash *= 17
+	character.Stats.Class = character.Stats.Class + " Swordsman"
+	character.Stats.ClassHash *= 17
 
 	// Raw stat boosts
-	res.Stats.Agility += 3
-	res.Stats.Strength += 2
-	res.Stats.Vitality += 1
+	character.Stats.Agility += 3
+	character.Stats.Strength += 2
+	character.Stats.Vitality += 1
 
 	// leveling Stat Boosts
-	res.Stats.LevelBonuses.Strength += 1
-	res.Stats.LevelBonuses.Vitality += 1
-	res.Stats.LevelBonuses.Agility += 1
-	res.Stats.LevelBonuses.Critical += 1
-	res.Stats.LevelBonuses.Expertise += 1
-	res.Stats.LevelBonuses.Block += 1
-	res.Stats.LevelBonuses.Dodge += 1
+	character.Stats.LevelBonuses.Strength += 1
+	character.Stats.LevelBonuses.Vitality += 1
+	character.Stats.LevelBonuses.Agility += 1
+	character.Stats.LevelBonuses.Critical += 1
+	character.Stats.LevelBonuses.Expertise += 1
+	character.Stats.LevelBonuses.Block += 1
+	character.Stats.LevelBonuses.Dodge += 1
 
 	// Add Skills
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Double Strike",
 			Cost:            float64(12),
@@ -363,8 +348,8 @@ func Swordsman(character Character) (Character, bool) {
 		},
 	)
 		// Add Skills
-		res.SkillSlots = append(
-			res.SkillSlots,
+		character.SkillSlots = append(
+			character.SkillSlots,
 			Skill{
 				Name:            "Slash",
 				Cost:            float64(28),
@@ -373,8 +358,8 @@ func Swordsman(character Character) (Character, bool) {
 				CoolDown:        0,
 			},
 		)
-	res.SkillSlots = append(
-		res.SkillSlots,
+	character.SkillSlots = append(
+		character.SkillSlots,
 		Skill{
 			Name:            "Flash Heal",
 			Cost:            float64(16),
@@ -383,6 +368,5 @@ func Swordsman(character Character) (Character, bool) {
 			CoolDown:        0,
 		},
 	)
-
-	return res, true
+	return
 }

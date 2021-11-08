@@ -59,7 +59,7 @@ func NewBandit(name string, level int) Bandit {
 	for i := 1; i < level; i++ {
 		bandit.Character.Stats.XP += 1000
 		if i == 10 {
-			bandit.Character, _ = Infected(bandit.Character)
+			_ = bandit.Character.MutateInfected()
 		}
 		_ = bandit.Character.LevelUp()
 	}

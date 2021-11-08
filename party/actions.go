@@ -5,7 +5,7 @@ package party
 // indicating that the method attempted was successful or not allowed
 
 // LevelUp will attempt to level up each of a party's members
-func (party *Party) LevelUp() (bool success){
+func (party *Party) LevelUp() (success bool){
 	for _, partyMember := range party.Members {
 		if partyMember.LevelUp() {
 			// If at least one party member levels up, 
@@ -14,23 +14,26 @@ func (party *Party) LevelUp() (bool success){
 		}
 	}
 	party.Rest()
+	return
 }
 
 // Move updates a party's coordinates
-func (party *Party) Move(x, y int) (bool success){
+func (party *Party) Move(x, y int) (success bool){
 	party.X += x
 	party.Y += y
 
 	// Return true for by default
 	success = true
+	return
 }
 
 // Rest Whole Party
-func (party *Party) Rest() (bool success) {
+func (party *Party) Rest() (success bool) {
 	for _, partyMember := range party.Members {
 		partyMember.Rest()
 	}
 
 	// Return true for by default
 	success = true
+	return
 }
