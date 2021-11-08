@@ -56,8 +56,6 @@ func (character *Character) Act(target *Character) {
 			character.DoubleStrike(target)
 		case "Flash Heal":
 			character.FlashHeal()
-		case "Knock The Wind Out":
-			character.KnockTheWindOut(target)
 		case "Heal":
 			character.Heal()
 		case "Icicle":
@@ -70,6 +68,8 @@ func (character *Character) Act(target *Character) {
 			character.Smite(target)
 		case "Sneak Attack":
 			character.SneakAttack(target)
+		case "Uppercut":
+			character.Uppercut(target)
 		default:
 			character.Attack(target, character.Stats.Strength+(character.Stats.Agility/2))
 		}

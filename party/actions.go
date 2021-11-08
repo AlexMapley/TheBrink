@@ -2,8 +2,9 @@ package party
 
 // All methods in actions.go will mutate an existing party struct
 // Each method additionally return a `bool success`,
-// indicating whatever method we attempted was successful or not allowed
+// indicating that the method attempted was successful or not allowed
 
+// LevelUp will attempt to level up each of a party's members
 func (party *Party) LevelUp() (bool success){
 	for _, partyMember := range party.Members {
 		if partyMember.LevelUp() {
