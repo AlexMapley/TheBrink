@@ -20,7 +20,7 @@ func (character *Character) Attack(other *Character, base int) {
 	if dodged {
 		damage = 0
 
-		color.Yellow("%s's attack %s deals %s 0 damage (%s Dodged)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, other.Stats.Name)
+		color.Yellow("%s's attack %s deals %s 0 damage (%s Dodges)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, other.Stats.Name)
 		return
 	}
 
@@ -47,11 +47,11 @@ func (character *Character) Attack(other *Character, base int) {
 	// Event Cases
 	switch {
 	case (blocked && critical):
-		color.Cyan("%s's attack %s deals %s %.2f damage (%s Critical Blocked)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
+		color.Blue("%s's attack %s deals %s %.2f damage (%s Criticals, %s Blocks)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage, character.Stats.Name, other.Stats.Name)
 	case blocked:
-		color.Cyan("%s's attack %s deals %s %.2f damage (%s Blocked)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
+		color.Cyan("%s's attack %s deals %s %.2f damage (%s Blocks)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage, other.Stats.Name)
 	case critical:
-		color.HiRed("%s's attack %s deals %s %.2f damage (Critical)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage)
+		color.HiRed("%s's attack %s deals %s %.2f damage (%s Criticals)\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage, character.Stats.Name)
 	default:
 		color.White("%s's attack %s deals %s %.2f damage\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name, damage)
 	}

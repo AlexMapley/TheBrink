@@ -8,17 +8,14 @@ import (
 	"github.com/fatih/color"
   )
 
-// TargetMember returns an attackble player from the party
-func (party *Party) TargetMember() *characters.Character {
+// ReturnMember returns an attackble player from the party
+func (party *Party) ReturnMember() *characters.Character {
 
-	// for all members of the party
-	randomIndex := rand.Intn(len(party.Members))
-	for i := 0; i < len(party.Members); i++ {
-		
-		
-		randomPartyMember := party.Members[randomIndex]
-		if randomPartyMember.Stats.Health > 0 {
-			return randomPartyMember
+	// Max target attempts: 10
+	for i := 0; i < 10; i++ {
+		randomIndex := rand.Intn(len(party.Members))
+		if party.Members[randomIndex].Stats.Health > 0 {
+			return party.Members[randomIndex]
 		}
 	}
 	return nil
@@ -39,7 +36,7 @@ func (party *Party) Battle(otherParty *Party) {
 				continue
 			}
 			// find target
-			target := otherParty.TargetMember()
+			target := otherParty.ReturnMember()
 			if target == nil {
 				continue
 			}
@@ -56,7 +53,7 @@ func (party *Party) Battle(otherParty *Party) {
 				continue
 			}
 			// find target
-			target := party.TargetMember()
+			target := party.ReturnMember()
 			if target == nil {
 				continue
 			}
