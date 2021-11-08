@@ -176,7 +176,6 @@ func main() {
 				}
 				player.Character.Stats.Display()
 				sidekick.Character.Stats.Display()
-				break dayCounter
 			}
 		}
 		// Day ends
