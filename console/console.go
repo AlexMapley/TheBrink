@@ -35,10 +35,7 @@ func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.
 	}()
 
 	// List Potential Actions
-	fmt.Println("Choose option:")
-	for number, option := range console.Actions {
-		color.Cyan("%d. %s\n", (number + 1), option)
-	}
+	console.DisplayActions()
 
 	// Read action as key input
 	char, key, err := keyboard.GetKey()
@@ -56,7 +53,6 @@ func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.
 		color.Green("%s", trim)
 		color.Cyan("%s", mapScreen)
 		color.Green("%s", trim)
-		console.DisplayActions()
 	}
 
 	switch {
