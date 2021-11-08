@@ -84,6 +84,12 @@ func main() {
 
 		option := townConsole.ChooseAction()
 
+		// If option is -1, we have hit an escape key and
+		// are trying to quit out of the main game loop
+		if (option == -1) {
+			break dayCounter
+		}
+
 		// Main keyboard switch
 		if option > 0 && option <= len(townConsole.Actions) {
 			color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
