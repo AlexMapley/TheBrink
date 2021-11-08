@@ -18,7 +18,7 @@ func (party *Party) LevelUp() (success bool){
 }
 
 // Move updates a party's coordinates
-func (party *Party) Move(x, y int) (success bool){
+func (party *Party) Move(x, y int) (success bool) {
 	party.X += x
 	party.Y += y
 
