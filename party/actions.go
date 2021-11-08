@@ -1,27 +1,35 @@
 package party
 
-// Level Up Party
-// Mutates an existing party
-func (party *Party) LevelUp() bool{
-	success := false
+// All methods in actions.go will mutate an existing party struct
+// Each method additionally return a `bool success`,
+// indicating whatever method we attempted was successful or not allowed
+
+func (party *Party) LevelUp() (bool success){
 	for _, partyMember := range party.Members {
 		if partyMember.LevelUp() {
+			// If at least one party member levels up, 
+			// we consider the party's level up successful
 			success = true
 		}
 	}
 	party.Rest()
-	return success
 }
 
 // Move updates a party's coordinates
-func (party *Party) Move(x, y int) {
+func (party *Party) Move(x, y int) (bool success){
 	party.X += x
 	party.Y += y
+
+	// Return true for by default
+	success = true
 }
 
 // Rest Whole Party
-func (party *Party) Rest() {
+func (party *Party) Rest() (bool success) {
 	for _, partyMember := range party.Members {
 		partyMember.Rest()
 	}
+
+	// Return true for by default
+	success = true
 }
