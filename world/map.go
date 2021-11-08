@@ -19,7 +19,7 @@ func CreateMap(xMax int, yMax int) map[Tile]int {
 				Y: y,
 			}
 			// '.'
-			grid[tile] = 46 
+			grid[tile] = 46
 		}
 	}
 
@@ -52,12 +52,11 @@ func (world *World) UpdateMap() {
 			}
 
 			// don't overwrite bushes
-			if world.Tiles[tile] != 42 {  // '*'
-				world.Tiles[tile] = 46    // '.'
+			if world.Tiles[tile] != 42 { // '*'
+				world.Tiles[tile] = 46 // '.'
 			}
 		}
 	}
-
 
 	// Move parties
 	for _, party := range world.Parties {

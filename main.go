@@ -4,16 +4,16 @@ import (
 	"bufio"
 	"fmt"
 	"net/http"
+	_ "net/http/pprof"
 	"os"
 	"strings"
-	_ "net/http/pprof"
 	"the_brink/characters"
 	"the_brink/console"
 	"the_brink/party"
 	"the_brink/world"
 
-	"github.com/fatih/color"
 	"github.com/Pallinder/go-randomdata"
+	"github.com/fatih/color"
 )
 
 var trim string = "-----------------------------------------\n"
@@ -30,7 +30,7 @@ func main() {
 	world := world.World{
 		XMax:  100,
 		YMax:  40,
-		Tiles: world.CreateMap(100, 40),
+		Tiles: world.CreateMap(100, 36),
 		Parties: []*party.Party{
 			&playerParty,
 		},
@@ -70,8 +70,8 @@ func main() {
 	// world.UpdateMap()
 
 	// MAIN GAME LOOP
-	dayCounter:
-	for player.Character.Stats.Health > 0 {
+dayCounter:
+	for playerParty.GetHealth() > 0 {
 		// Rest and reset abilities
 		playerParty.Rest()
 
@@ -82,11 +82,11 @@ func main() {
 		color.Green("%sDay %d in town, what do you?\n%s", trim, saveFile.Day, trim)
 		townConsole := console.NewTownConsole()
 
-		option := townConsole.ChooseAction()
+		option := townConsole.ChooseAction(&playerParty, &world)
 
 		// If option is -1, we have hit an escape key and
 		// are trying to quit out of the main game loop
-		if (option == -1) {
+		if option == -1 {
 			break dayCounter
 		}
 
@@ -99,10 +99,6 @@ func main() {
 			// Character Menu
 			case "Character":
 				console.DisplayCharacterConsole(&player.Character)
-
-			// Map
-			case "Map":
-				console.DisplayMapConsole(&world, &playerParty)
 
 			// Defend the Town
 			case "Defend the Town":

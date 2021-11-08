@@ -29,9 +29,15 @@ func DisplayCharacterConsole(character *characters.Character) {
 
 menuLoop:
 	for {
-		option := console.ChooseAction()
+		option := console.ChooseAction(nil, nil)
+		
+		// Escape character
 		if option == -1 {
 			break menuLoop
+		}
+		// Map move
+		if option == -2 {
+			continue
 		}
 
 		if option > 0 && option <= len(console.Actions) {

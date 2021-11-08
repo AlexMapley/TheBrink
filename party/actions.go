@@ -5,10 +5,10 @@ package party
 // indicating that the method attempted was successful or not allowed
 
 // LevelUp will attempt to level up each of a party's members
-func (party *Party) LevelUp() (success bool){
+func (party *Party) LevelUp() (success bool) {
 	for _, partyMember := range party.Members {
 		if partyMember.LevelUp() {
-			// If at least one party member levels up, 
+			// If at least one party member levels up,
 			// we consider the party's level up successful
 			success = true
 		}

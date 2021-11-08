@@ -11,8 +11,8 @@ func NewClassConsole(character *characters.Character) Console {
 	var actions []string
 	console := Console{}
 
-	if (character.Stats.Level < 6) {
-		actions:= make([]string, 5)
+	if character.Stats.Level < 6 {
+		actions := make([]string, 5)
 		actions[0] = "Rogue"
 		actions[1] = "Warrior"
 		actions[2] = "Wizard"
@@ -41,9 +41,9 @@ func DisplayClassConsole(character *characters.Character) {
 
 	console := NewClassConsole(character)
 
-	menuLoop:
+menuLoop:
 	for {
-		option := console.ChooseAction()
+		option := console.ChooseAction(nil, nil)
 		if option == -1 {
 			break menuLoop
 		}
@@ -85,7 +85,7 @@ func DisplayClassConsole(character *characters.Character) {
 				} else {
 					color.HiRed("\n\n%sYou cannot become a Wizard\n%s\n\n", trim, trim)
 				}
-			
+
 			// Become Wizard
 			case "Cleric":
 				var accepted bool

@@ -2,11 +2,11 @@ package party
 
 import (
 	"math/rand"
-	"time"
 	"the_brink/characters"
+	"time"
 
 	"github.com/fatih/color"
-  )
+)
 
 // ReturnMember returns an attackble player from the party
 func (party *Party) ReturnMember() *characters.Character {
@@ -20,7 +20,6 @@ func (party *Party) ReturnMember() *characters.Character {
 	}
 	return nil
 }
-
 
 // Battle other party
 func (party *Party) Battle(otherParty *Party) {
@@ -43,9 +42,9 @@ func (party *Party) Battle(otherParty *Party) {
 
 			// member action
 			member.Act(target)
-			
+
 		}
-		
+
 		for _, member := range otherParty.Members {
 
 			// skip turn if dead

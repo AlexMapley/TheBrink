@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
+	"the_brink/party"
+	"the_brink/world"
+
 	"github.com/eiannone/keyboard"
 	"github.com/fatih/color"
 )
@@ -14,14 +17,14 @@ func (console *Console) DisplayActions() {
 	// List Potential Actions
 	fmt.Println("Choose option:")
 	for number, option := range console.Actions {
-		if (option != ""){
+		if option != "" {
 			color.Cyan("%d. %s\n", (number + 1), option)
 		}
 	}
 }
 
 // ChooseAction
-func (console *Console) ChooseAction() int {
+func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.World) int {
 
 	// Open keyboard
 	if err := keyboard.Open(); err != nil {
@@ -47,7 +50,54 @@ func (console *Console) ChooseAction() int {
 	option, err := strconv.Atoi(string(char))
 	fmt.Printf("Casted to action %d\r\n", option)
 
+	// Print from top left to bottom right
+	if gameWorld != nil {
+		mapScreen := (*gameWorld).PrintMap()
+		color.Green("%s", trim)
+		color.Cyan("%s", mapScreen)
+		color.Green("%s", trim)
+		console.DisplayActions()
+	}
+
 	switch {
+	// Move Left
+	case key == keyboard.KeyArrowLeft, char == 'a':
+		// TODO: Standardize ChooseAction() use cases so we 
+		// don't have to sanitize inputs like this 
+		if (playerParty == nil || gameWorld == nil) {
+			return -2
+		}
+		playerParty.Move(-1, 0)
+		gameWorld.UpdateMap()
+		return -2
+
+	// Move Right
+	case key == keyboard.KeyArrowRight, char == 'd':
+		if (playerParty == nil || gameWorld == nil) {
+			return -2
+		}
+		playerParty.Move(1, 0)
+		gameWorld.UpdateMap()
+		return -2
+
+	// Move Up
+	case key == keyboard.KeyArrowUp, char == 'w':
+		if (playerParty == nil || gameWorld == nil) {
+			return option
+		}
+		playerParty.Move(0, 1)
+		gameWorld.UpdateMap()
+		return option
+
+	// Move Down
+	case key == keyboard.KeyArrowDown, char == 's':
+		if (playerParty == nil || gameWorld == nil) {
+			return option
+		}
+		playerParty.Move(0, -1)
+		gameWorld.UpdateMap()
+		return option
+	// Error Case
 	case err == nil && option >= 0:
 		return option
 	// Exit

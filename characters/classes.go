@@ -17,7 +17,6 @@ func (character *Character) MutateRogue() (allowed bool) {
 	// Otherwise accept
 	allowed = true
 
-	
 	character.Stats.Class = "Rogue"
 	character.Stats.ClassHash *= 2
 
@@ -49,7 +48,7 @@ func (character *Character) MutateRogue() (allowed bool) {
 }
 
 // MutateWarrior
-func (character *Character)  MutateWarrior() (allowed bool) {
+func (character *Character) MutateWarrior() (allowed bool) {
 
 	// Reject If:
 	// - unit has a class already
@@ -198,7 +197,6 @@ func (character *Character) MutateCleric() (allowed bool) {
 	return
 }
 
-
 //////////////////
 // Tier 2 Classes
 // - Level Restricted
@@ -211,7 +209,8 @@ func (character *Character) MutateInfected() (allowed bool) {
 	// Reject If:
 	// * unit has a class already * //
 	if character.Stats.Level < 10 {
-		allowed = false; return
+		allowed = false
+		return
 	}
 	// Otherwise accept
 	allowed = true
@@ -309,7 +308,6 @@ func (character *Character) MutateNightBlade() (allowed bool) {
 	character.Stats.Dodge += 2
 	character.Stats.Critical += 2
 
-
 	// Leveling Stat Boosts
 	character.Stats.LevelBonuses.Strength += 1
 	character.Stats.LevelBonuses.Intelligence += 2
@@ -374,17 +372,17 @@ func (character *Character) MutateSwordsman() (allowed bool) {
 			CoolDown:        0,
 		},
 	)
-		// Add Skills
-		character.SkillSlots = append(
-			character.SkillSlots,
-			Skill{
-				Name:            "Slash",
-				Cost:            float64(28),
-				CoolDownInitial: 1,
-				CoolDownMax:     6,
-				CoolDown:        0,
-			},
-		)
+	// Add Skills
+	character.SkillSlots = append(
+		character.SkillSlots,
+		Skill{
+			Name:            "Slash",
+			Cost:            float64(28),
+			CoolDownInitial: 1,
+			CoolDownMax:     6,
+			CoolDown:        0,
+		},
+	)
 	character.SkillSlots = append(
 		character.SkillSlots,
 		Skill{

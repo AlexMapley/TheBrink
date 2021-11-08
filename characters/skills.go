@@ -15,7 +15,7 @@ func (character *Character) Attack(other *Character, base int) {
 	damage := float64(base)
 
 	// Dodge Threshold
-	dodgeThreshold := 235 + int(character.Stats.AccuracyRating() * 1.75)
+	dodgeThreshold := 235 + int(character.Stats.AccuracyRating()*1.75)
 	dodged := other.Stats.DodgeValue() >= float64(rand.Intn(int(dodgeThreshold)))
 	if dodged {
 		damage = 0
@@ -64,12 +64,12 @@ func (character *Character) Bark(other *Character) {
 	color.HiGreen("* %s barks at %s, and stuns for 1 turn *\n", character.Stats.Name, other.Stats.Name)
 	character.Attack(other, character.Stats.Intelligence)
 
-	character.Stun(other, 1) 
+	character.Stun(other, 1)
 }
 
 // DoubleStrike
 func (character *Character) DoubleStrike(other *Character) {
-	color.HiGreen("* %s hits twice at %s *\n", character.Stats.Name,other.Stats.Name)
+	color.HiGreen("* %s hits twice at %s *\n", character.Stats.Name, other.Stats.Name)
 	character.Attack(other, character.Stats.Strength+(character.Stats.Agility/2))
 	character.Attack(other, character.Stats.Strength+(character.Stats.Agility/2))
 }
@@ -123,7 +123,7 @@ func (character *Character) Heal() {
 
 // Icicle
 func (character *Character) Icicle(other *Character) {
-	color.HiGreen("* %s shoots an icicle at %s *\n", character.Stats.Name,other.Stats.Name)
+	color.HiGreen("* %s shoots an icicle at %s *\n", character.Stats.Name, other.Stats.Name)
 	damage := float64(character.Stats.Intelligence) * 1.7
 
 	dodgeThreshold := float64(220) + (character.Stats.AccuracyRating() * 2)
@@ -148,7 +148,7 @@ func (character *Character) Uppercut(other *Character) {
 
 // LightningBolt
 func (character *Character) LightningBolt(other *Character) {
-	color.HiGreen("* %s rips some lightning at %s *\n", character.Stats.Name,other.Stats.Name)
+	color.HiGreen("* %s rips some lightning at %s *\n", character.Stats.Name, other.Stats.Name)
 	damage := float64(character.Stats.Intelligence) * 2.1
 
 	// Dodge Chance
@@ -179,7 +179,7 @@ func (character *Character) LightningBolt(other *Character) {
 // Smite
 func (character *Character) Smite(other *Character) {
 	color.HiGreen("* %s smites %s *\n", character.Stats.Name, other.Stats.Name)
-	damage := 1.5 * float64(character.Stats.Intelligence) + 0.5 * float64(character.Stats.Vitality)
+	damage := 1.5*float64(character.Stats.Intelligence) + 0.5*float64(character.Stats.Vitality)
 
 	// Critical Chance
 	criticalThreshold := 160
@@ -207,7 +207,7 @@ func (character *Character) Slash(other *Character) {
 func (character *Character) SneakAttack(other *Character) {
 	color.HiGreen("* %s uses SneakAttack *\n", character.Stats.Name)
 	character.Attack(other, (character.Stats.Strength/2)+(character.Stats.Agility*3)+(character.Stats.Intelligence*2))
-	
+
 	color.Magenta("%s %s stuns %s for 1 turn\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name)
 	character.Stun(other, 1)
 }
