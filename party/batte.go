@@ -26,14 +26,14 @@ func (party *Party) TargetMember() *characters.Character {
 
 
 // Battle other party
-func (selfParty *Party) Battle(otherParty *Party) {
+func (party *Party) Battle(otherParty *Party) {
 
 	round := 1
-	for selfParty.GetHealth() > 0 && otherParty.GetHealth() > 0 {
+	for party.GetHealth() > 0 && otherParty.GetHealth() > 0 {
 		time.Sleep(150 * time.Millisecond)
 		color.Green("\n\nRound %d", round)
 
-		for _, member := range selfParty.Members {
+		for _, member := range party.Members {
 			// skip turn if dead
 			if member.Stats.Health <= 0 {
 				continue
@@ -56,7 +56,7 @@ func (selfParty *Party) Battle(otherParty *Party) {
 				continue
 			}
 			// find target
-			target := selfParty.TargetMember()
+			target := party.TargetMember()
 			if target == nil {
 				continue
 			}
@@ -67,9 +67,10 @@ func (selfParty *Party) Battle(otherParty *Party) {
 		round++
 	}
 
-	if selfParty.GetHealth() > 0 {
+	// If the party doesn't die, add XP
+	if party.GetHealth() > 0 {
 		for _, otherMember := range otherParty.Members {
-			for _, selfMember := range selfParty.Members {
+			for _, selfMember := range party.Members {
 				selfMember.Stats.XP += otherMember.Stats.XP
 			}
 		}
