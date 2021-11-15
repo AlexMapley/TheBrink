@@ -89,12 +89,19 @@ func (world World) PrintMap() string {
 
 // Move updates a party's coordinates
 func (world World) Move(party *party.Party, x int, y int) bool {
+	xDestination := party.X + x
+	yDestination := party.Y + y
+
 	// Don't allow going out of positive bounds
-	if (party.X + x > world.XMax - 1) || (party.Y + y > world.YMax - 1) {
+	if (xDestination > world.XMax - 1) || (yDestination > world.YMax - 1) {
 		return false
 	}
 	// Don't allow going out of negative bounds
-	if (party.X + x < 0) || (party.Y + y < 0) {
+	if (xDestination < 0) || (yDestination < 0) {
+		return false
+	}
+	// Don't allow moving through bushes
+	if world.Tiles[Tile{X: xDestination, Y: yDestination}] == 42 {
 		return false
 	}
 	// Allow the move and return success
