@@ -88,11 +88,17 @@ func (world World) PrintMap() string {
 }
 
 // Move updates a party's coordinates
-func (world World) Move(party *party.Party, x int, y int) (success bool) {
+func (world World) Move(party *party.Party, x int, y int) bool {
+	// Don't allow going out of positive bounds
+	if (party.X + x > world.XMax - 1) || (party.Y + y > world.YMax - 1) {
+		return false
+	}
+	// Don't allow going out of negative bounds
+	if (party.X + x < 0) || (party.Y + y < 0) {
+		return false
+	}
+	// Allow the move and return success
 	party.X += x
 	party.Y += y
-
-	// Return true for by default
-	success = true
-	return
+	return true
 }

@@ -63,8 +63,8 @@ func main() {
 
 	// Create Player Party
 	playerParty = party.Party{
-		X: 25,
-		Y: 25,
+		X: 42,
+		Y: 16,
 		Members: []*characters.Character{
 			&player.Character,
 			&sidekick.Character,
