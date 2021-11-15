@@ -66,8 +66,11 @@ func main() {
 		Rune: 65, // 'A'
 	}
 
-	// Set Map
-	// world.UpdateMap()
+	// Display Map
+	mapScreen := world.PrintMap()
+	color.Green("%s", trim)
+	color.Cyan("%s", mapScreen)
+	color.Green("%s", trim)
 
 	// MAIN GAME LOOP
 dayCounter:
