@@ -17,16 +17,6 @@ func (party *Party) LevelUp() (success bool) {
 	return
 }
 
-// Move updates a party's coordinates
-func (party *Party) Move(x, y int) (success bool) {
-	party.X += x
-	party.Y += y
-
-	// Return true for by default
-	success = true
-	return
-}
-
 // Rest Whole Party
 func (party *Party) Rest() (success bool) {
 	for _, partyMember := range party.Members {

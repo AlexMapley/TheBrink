@@ -2,6 +2,7 @@ package world
 
 import (
 	"math/rand"
+	"the_brink/party"
 )
 
 var persistentTerrain map[Tile]int
@@ -84,4 +85,14 @@ func (world World) PrintMap() string {
 		terminal += string(line) + "\n"
 	}
 	return terminal
+}
+
+// Move updates a party's coordinates
+func (world World) Move(party *party.Party, x int, y int) (success bool) {
+	party.X += x
+	party.Y += y
+
+	// Return true for by default
+	success = true
+	return
 }

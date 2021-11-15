@@ -20,10 +20,16 @@ var trim string = "-----------------------------------------\n"
 var player characters.Player
 var playerParty party.Party
 
+// SaveFile holds all information from a playthrough
+type SaveFile struct {
+	Day   int
+	Party *party.Party
+}
+
 func main() {
 
 	// Build World
-	saveFile := world.SaveFile{
+	saveFile := SaveFile{
 		Day:   1,
 		Party: &playerParty,
 	}

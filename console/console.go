@@ -63,7 +63,7 @@ func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.
 		if (playerParty == nil || gameWorld == nil) {
 			return -2
 		}
-		playerParty.Move(-1, 0)
+		gameWorld.Move(playerParty, -1, 0)
 		gameWorld.UpdateMap()
 		return -2
 
@@ -72,7 +72,7 @@ func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.
 		if (playerParty == nil || gameWorld == nil) {
 			return -2
 		}
-		playerParty.Move(1, 0)
+		gameWorld.Move(playerParty, 1, 0)
 		gameWorld.UpdateMap()
 		return -2
 
@@ -81,7 +81,7 @@ func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.
 		if (playerParty == nil || gameWorld == nil) {
 			return option
 		}
-		playerParty.Move(0, 1)
+		gameWorld.Move(playerParty, 0, 1)
 		gameWorld.UpdateMap()
 		return option
 
@@ -90,7 +90,7 @@ func (console *Console) ChooseAction(playerParty *party.Party, gameWorld *world.
 		if (playerParty == nil || gameWorld == nil) {
 			return option
 		}
-		playerParty.Move(0, -1)
+		gameWorld.Move(playerParty, 0, -1)
 		gameWorld.UpdateMap()
 		return option
 	// Error Case

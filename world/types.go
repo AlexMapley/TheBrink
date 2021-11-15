@@ -4,12 +4,6 @@ import (
 	"the_brink/party"
 )
 
-// SaveFile holds all information from a playthrough
-type SaveFile struct {
-	Day   int
-	Party *party.Party
-}
-
 // Tile represents a point on the map
 type Tile struct {
 	X int
