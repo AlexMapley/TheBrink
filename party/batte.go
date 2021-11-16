@@ -42,7 +42,6 @@ func (party *Party) Battle(otherParty *Party) {
 
 			// member action
 			member.Act(target)
-
 		}
 
 		for _, member := range otherParty.Members {

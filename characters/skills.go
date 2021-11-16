@@ -139,13 +139,6 @@ func (character *Character) Icicle(other *Character) {
 	character.Stun(other, 2)
 }
 
-// Uppercut
-func (character *Character) Uppercut(other *Character) {
-	color.HiGreen("* %s knocks the wind out of %s, stunning for 2 rounds *\n", character.Stats.Name, other.Stats.Name)
-	character.Attack(other, character.Stats.Strength)
-	character.Stun(other, 2)
-}
-
 // LightningBolt
 func (character *Character) LightningBolt(other *Character) {
 	color.HiGreen("* %s rips some lightning at %s *\n", character.Stats.Name, other.Stats.Name)
@@ -210,4 +203,11 @@ func (character *Character) SneakAttack(other *Character) {
 
 	color.Magenta("%s %s stuns %s for 1 turn\n", character.Stats.Name, character.Stats.DisplayHealth(), other.Stats.Name)
 	character.Stun(other, 1)
+}
+
+// Uppercut
+func (character *Character) Uppercut(other *Character) {
+	color.HiGreen("* %s knocks the wind out of %s, stunning for 2 rounds *\n", character.Stats.Name, other.Stats.Name)
+	character.Attack(other, character.Stats.Strength)
+	character.Stun(other, 2)
 }

@@ -78,7 +78,7 @@ func (character *Character) Act(target *Character) {
 		}
 	}
 	// self cooldowns
-	if character.Status.Stunned <= 0 {
+	if character.Status.Stunned > 0 {
 		character.Status.Stunned--
 	}
 

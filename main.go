@@ -99,7 +99,7 @@ dayCounter:
 			break dayCounter
 		}
 
-		// Main keyboard switch
+		// Main keyboard switch for non map options
 		if option > 0 && option <= len(townConsole.Actions) {
 			color.Green("You have chosen option %d, %s", option, townConsole.Actions[option-1])
 
@@ -193,7 +193,9 @@ dayCounter:
 			}
 		}
 		// Day ends
-		saveFile.Day++
+		if option > 0 {
+			saveFile.Day++
+		}
 	}
 
 	color.Cyan("\n\nGame Over %s, Day %d\n\n\n", player.Character.Stats.Name, saveFile.Day)

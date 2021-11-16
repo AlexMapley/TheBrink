@@ -61,10 +61,10 @@ menuLoop:
 				// level up player and bandit
 				success := character.LevelUp()
 				if success {
-					color.Yellow("\n\n%sYou have leveled up\n%s\n\n", trim, trim)
+					color.Yellow("\n\n%s\nYou have leveled up\n%s\n\n", trim, trim)
 					character.Rest()
 				} else {
-					color.Red("\n\n%sNot enough xp to level up\n%s\n\n", trim, trim)
+					color.Red("\n\n%s\nNot enough xp to level up\n%s\n\n", trim, trim)
 				}
 
 			// Open up class console

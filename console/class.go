@@ -58,10 +58,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutateWarrior()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Warrior\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Warrior\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Warrior\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Warrior\n%s\n\n", trim, trim)
 				}
 
 			// Become Rogue
@@ -69,10 +69,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutateRogue()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Rogue\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Rogue\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Rogue\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Rogue\n%s\n\n", trim, trim)
 				}
 
 			// Become Wizard
@@ -80,10 +80,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutateWizard()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Wizard\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Wizard\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Wizard\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Wizard\n%s\n\n", trim, trim)
 				}
 
 			// Become Wizard
@@ -91,10 +91,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutateCleric()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Cleric\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Cleric\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Cleric\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Cleric\n%s\n\n", trim, trim)
 				}
 
 			// Become Paladin
@@ -102,10 +102,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutatePaladin()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Paladin\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Paladin\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Paladin\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Paladin\n%s\n\n", trim, trim)
 				}
 
 			// Become NightBlade
@@ -113,10 +113,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutateNightBlade()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Nightblade\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Nightblade\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Nightblade\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Nightblade\n%s\n\n", trim, trim)
 				}
 
 			// Become Swordsman
@@ -124,10 +124,10 @@ menuLoop:
 				var accepted bool
 				accepted = character.MutateSwordsman()
 				if accepted {
-					color.HiGreen("\n\n%sYou have become a Swordsman\n%s\n\n", trim, trim)
+					color.HiGreen("\n\n%s\nYou have become a Swordsman\n%s\n\n", trim, trim)
 					break menuLoop
 				} else {
-					color.HiRed("\n\n%sYou cannot become a Swordsman\n%s\n\n", trim, trim)
+					color.HiRed("\n\n%s\nYou cannot become a Swordsman\n%s\n\n", trim, trim)
 				}
 			}
 		}
